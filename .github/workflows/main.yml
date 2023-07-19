@@ -41,7 +41,7 @@ jobs:
 
           JYTHON_JAR=jython-standalone-2.7.1.jar
           #cp /home/runner/work/MinecraftServerPython/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar ..
-          javac -cp lib-spigot/${SPIGOT_JAR}:lib-common/${WEBSOCKET_JAR}:lib-common/${JYTHON_JAR}:. -d .. src-common/com/macuyiko/minecraftpyserver/*.java
+          javac -cp lib-spigot/${SPIGOT_JAR}:lib-common/${WEBSOCKET_JAR}:lib-common/${JYTHON_JAR}:lib-common/py4j0.10.6.jar:. -d .. src-common/com/macuyiko/minecraftpyserver/*.java
           jar cvf python.jar plugin.yml lib-common/ src-common/com/macuyiko/minecraftpyserver/*.java
 
           cp python.jar ..
