@@ -54,5 +54,5 @@ jobs:
 
           name: artifact
 
-          path: /home/runner/work/MinecraftServerPthon/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+          path: /home/runner/work/MinecraftServerPython/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar
 
