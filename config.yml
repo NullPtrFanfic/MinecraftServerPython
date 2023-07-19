@@ -1,0 +1,8 @@
+pythonconsole:
+ serverconsole:
+  telnetport: 45916
+  websocketport: 45917
+  httpeditorport: 8080
+  py4jport: 25333
+  enablechatcommands: true
+  maxconnections: 10
