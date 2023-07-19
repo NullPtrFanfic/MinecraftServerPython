@@ -35,7 +35,11 @@ jobs:
         run: |
 
           #!/bin/zsh
-         
+          SPIGOT_JAR=spigot-1.12.2.jar
+
+          WEBSOCKET_JAR=java-websocket.jar
+
+          JYTHON_JAR=jython-standalone-2.7.1.jar
           cp /home/runner/work/MinecraftServerPython/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar ..
           javac -cp ".:../lib-spigot/${SPIGOT_JAR}:../lib-common/${WEBSOCKET_JAR}:../lib-common/${JYTHON_JAR}" -d .. com/**/*.jav
           jar cvf /home/runner/work/MinecraftServerPython/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar ServerPythonInterpreterPlugin/plugin.yml ServerPythonInterpreterPlugin/lib-common/ ServerPythonInterpreterPlugin/src-common/com/macuyiko/minecraftpyserver/
