@@ -46,7 +46,7 @@ jobs:
           javac -cp ".:../lib-spigot/spigot-1.12.2.jar:../lib-common/java_websocket.jar:../lib-common/jython-standalone-2.7.1.jar:../lib-common/py4j0.10.6.jar" -d .. com/**/**/*.java
           jar cvf ../python.jar ../plugin.yml ../lib-common/ ../com/
 
-          cp ../python.jar ..
+          #cp ../python.jar ..
 
       - name: Upload artifact
 
