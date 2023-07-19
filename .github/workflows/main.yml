@@ -40,11 +40,11 @@ jobs:
           WEBSOCKET_JAR=java-websocket.jar
 
           JYTHON_JAR=jython-standalone-2.7.1.jar
-          cp /home/runner/work/MinecraftServerPython/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar ..
-          javac -cp ".:../lib-spigot/${SPIGOT_JAR}:../lib-common/${WEBSOCKET_JAR}:../lib-common/${JYTHON_JAR}" -d .. com/**/*.jav
-          jar cvf /home/runner/work/MinecraftServerPython/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar ServerPythonInterpreterPlugin/plugin.yml ServerPythonInterpreterPlugin/lib-common/ ServerPythonInterpreterPlugin/src-common/com/macuyiko/minecraftpyserver/
+          #cp /home/runner/work/MinecraftServerPython/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar ..
+          javac -cp ".:../lib-spigot/${SPIGOT_JAR}:../lib-common/${WEBSOCKET_JAR}:../lib-common/${JYTHON_JAR}" -d .. src-common/com/**/*.jav
+          jar cvf python.jar plugin.yml lib-common/ src-common/com/macuyiko/minecraftpyserver/
 
-          cp /home/runner/work/MinecraftServerPython/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar ..
+          cp python.jar ..
 
       - name: Upload artifact
 
@@ -54,5 +54,5 @@ jobs:
 
           name: artifact
 
-          path: /home/runner/work/MinecraftServerPython/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+          path: python.jar
 
