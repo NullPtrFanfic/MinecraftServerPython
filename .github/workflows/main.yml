@@ -43,7 +43,7 @@ jobs:
           #cp /home/runner/work/MinecraftServerPython/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar ..
           rm -rf com/
           pushd src-common/
-          javac -cp "../lib-spigot/spigot-1.12.2.jar" -d .. com/macuyiko/minecraftpyserver/*.java
+          javac -cp "../lib-spigot/spigot-1.12.2.jar" "../lib-common/py4j0.10.6.jar" -d .. com/macuyiko/minecraftpyserver/*.java
           jar cvf python.jar plugin.yml lib-common/ com/
 
           cp python.jar ..
