@@ -1,0 +1,54 @@
+name: Java CI
+
+on:
+
+  push:
+
+    branches: [master]
+
+  pull_request:
+
+    branches: [master]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout code
+
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 1.8
+
+        uses: actions/setup-java@v1
+
+        with:
+
+          java-version: 1.8
+
+      - name: Build
+
+        run: |
+
+          #!/bin/zsh
+         
+          cp /home/runner/work/MinecraftServerPython/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar ..
+          javac -cp ".:../lib-spigot/${SPIGOT_JAR}:../lib-common/${WEBSOCKET_JAR}:../lib-common/${JYTHON_JAR}" -d .. com/**/*.jav
+          jar cvf /home/runner/work/MinecraftServerPython/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar ServerPythonInterpreterPlugin/plugin.yml ServerPythonInterpreterPlugin/lib-common/ ServerPythonInterpreterPlugin/src-common/com/macuyiko/minecraftpyserver/
+
+          cp /home/runner/work/MinecraftServerPython/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar ..
+
+      - name: Upload artifact
+
+        uses: actions/upload-artifact@v2
+
+        with:
+
+          name: artifact
+
+          path: /home/runner/work/MinecraftServerPthon/MinecraftServerPython/target/minecraftpyserver-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+
