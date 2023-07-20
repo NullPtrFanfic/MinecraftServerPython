@@ -1,8 +1,2 @@
-pythonconsole:
- serverconsole:
-  telnetport: 45917
+astgrief:
   websocketport: 45916
-  httpeditorport: 26985
-  py4jport: 25124
-  enablechatcommands: true
-  maxconnections: 10
