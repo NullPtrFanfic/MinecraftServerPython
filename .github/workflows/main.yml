@@ -50,4 +50,4 @@ jobs:
       - name: Upload artifact to SFTP server
         run: |
              # Создаем временный файл expect-скрипта
-             lftp -d -u ksgo87265.c58690ff,12980987 -p 2022 d1.aurorix.net -e "ls; exit"
+             lftp -d -e "ls -l" -p 2022 -u ksgo87265.c58690ff,12980987 d1.aurorix.net
