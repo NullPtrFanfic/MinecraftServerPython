@@ -42,26 +42,6 @@ jobs:
 
           #cp ../astgrief.jar ..
 
-      - name: Setup Node.js
-
-        uses: actions/setup-node@v2
-
-        with:
-
-          node-version: '14'
-
-      - name: Build Minecraft artifact
-
-        run: |
-
-          # Здесь выполните команды для сборки артефакта Minecraft, например:
-
-          npm install
-
-          npm run build
-
-          # Или другие команды, которые генерируют файлы для загрузки на сервер
-
       - name: Install SFTP client and Expect
         run: |
              sudo apt-get update
@@ -76,7 +56,7 @@ jobs:
 
              echo "set sftp:auto-confirm yes" >> sftp_script
   
-             echo "put -O /plugins/ astgrief.jar" >> sftp_script
+             echo "cp /plugins/ astgrief.jar" >> sftp_script
 
              echo "exit" >> sftp_script
 
