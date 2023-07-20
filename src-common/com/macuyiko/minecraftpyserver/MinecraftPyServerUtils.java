@@ -70,12 +70,12 @@ public class MinecraftPyServerUtils {
 					}
 					out.flush();
 				} catch (Exception e) {
-					e.printStackTrace();
+					System.err.println(e);
 				}
 			}
 			jar.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println(e);
 		}
 	}
 		
