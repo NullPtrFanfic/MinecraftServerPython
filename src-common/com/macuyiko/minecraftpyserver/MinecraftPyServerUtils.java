@@ -53,8 +53,7 @@ public class MinecraftPyServerUtils {
 				if (!file.getName().startsWith(prefix))
 					continue;
 				File f = new File(destDir + java.io.File.separator + file.getName());
-				if (logger != null)
-					logger.info("Unpacking: " + file.getName());
+				System.err.println("Unpacking: " + file.getName());
 				f.getParentFile().mkdirs();
 				if (f.isDirectory())
 					continue;
@@ -71,12 +70,12 @@ public class MinecraftPyServerUtils {
 					}
 					out.flush();
 				} catch (Exception e) {
-					e.printStackTrace();
+					System.err.println(e.printStackTrace());
 				}
 			}
 			jar.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println(e.printStackTrace());
 		}
 	}
 		
