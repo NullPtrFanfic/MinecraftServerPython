@@ -1,19 +1,7 @@
 name: MinecraftPyServer
-main: com.macuyiko.minecraftpyserver.MinecraftPyServerPlugin
+main: com.nullptr.astgrief.Main
 version: 0.5
 commands:
-  jy:
-    description: Execute Python code on Jython interpreter
-    usage: /jy code
-  jyrestart:
-    description: Restart Jython interpreter
-    usage: /jyrestart
-  jyload:
-    description: Execute a server-side Python file on Jython interpreter
-    usage: /jyload file
-  pyrestart:
-    description: Restart Py4J gateway
-    usage: /pyrestart
-  pyload:
-    description: Execute a server-side Python file
-    usage: /pyload file
+  khelp:
+    description: Plugin help command.
+    usage: /khelp
