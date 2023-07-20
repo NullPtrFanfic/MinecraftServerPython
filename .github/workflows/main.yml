@@ -52,10 +52,4 @@ jobs:
 
              # Создаем временный файл expect-скрипта
 
-             echo "spawn lftp -u ksgo87265.c58690ff,12980987 d1.aurorix.net -p 2022 set sftp:auto-confirm yes put astgrief.jar /plugins/ -e ls" >> sftp_script
-
-             #echo "exit" >> sftp_script
-
-             # Вызываем expect, передавая ему наш временный скрипт
-
-             expect -f sftp_script
+             spawn lftp -u ksgo87265.c58690ff 12980987 d1.aurorix.net -p 2022 set sftp:auto-confirm yes put astgrief.jar /plugins/ -e ls
