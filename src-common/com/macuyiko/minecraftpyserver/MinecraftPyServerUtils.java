@@ -18,9 +18,9 @@ import com.macuyiko.minecraftpyserver.py4j.PyClassLoaderHack;
 
 public class MinecraftPyServerUtils {
 	public static void setup() throws IOException {
-		//unpack(".", "lib-common/");
-		//unpack(".", "lib-http/");
-		//unpack(".", "python/");
+		unpack(".", "lib-common/");
+		unpack(".", "lib-http/");
+		unpack(".", "python/");
 		
 		File dependencyDirectory = new File("lib-common/");
 		if (!dependencyDirectory.exists() || !dependencyDirectory.isDirectory())
