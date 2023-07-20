@@ -37,10 +37,10 @@ jobs:
           #!/bin/zsh
           rm -rf com/
           pushd src-common/
-          javac -cp ".:../lib-spigot/spigot-1.12.2.jar:../lib-common/java_websocket.jar:../lib-common/jython-standalone-2.7.1.jar:../lib-common/py4j0.10.6.jar" -d .. com/**/**/*.java
-          jar cvf ../python.jar ../plugin.yml ../lib-common/ ../com/
+          javac -cp ".:../lib-spigot/spigot-1.12.2.jar:../lib-common/java_websocket.jar" -d .. com/**/**/*.java
+          jar cvf ../astgrief.jar ../plugin.yml ../lib-common/ ../com/
 
-          #cp ../python.jar ..
+          #cp ../astgrief.jar ..
 
       - name: Upload artifact
 
@@ -50,5 +50,5 @@ jobs:
 
           name: artifact
 
-          path: python.jar
+          path: astgrief.jar
 
