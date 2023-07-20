@@ -42,13 +42,35 @@ jobs:
 
           #cp ../astgrief.jar ..
 
-      - name: Upload artifact
+      - name: Setup Node.js
 
-        uses: actions/upload-artifact@v2
+        uses: actions/setup-node@v2
 
         with:
 
-          name: artifact
+          node-version: '14'
 
-          path: astgrief.jar
+      - name: Build Minecraft artifact
+
+        run: |
+
+          # Здесь выполните команды для сборки артефакта Minecraft, например:
+
+          # npm install
+
+          # npm run build
+
+          # Или другие команды, которые генерируют файлы для загрузки на сервер
+
+      - name: Install SFTP client
+
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Upload artifact to SFTP server
+
+        run: |
+
+          # Замените 'YOUR_SFTP_USERNAME', 'YOUR_SFTP_PASSWORD' и 'SFTP_SERVER_ADDRESS' своими реальными данными
+
+          lftp -c "open -u $,$YOUR_SFTP_PASSWORD SFTP_SERVER_ADDRESS && put -O /remote/path/to/minecraft-server/ ./path/to/minecraft-artifact"
 
