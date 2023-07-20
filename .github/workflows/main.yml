@@ -72,5 +72,5 @@ jobs:
 
           # Замените 'YOUR_SFTP_USERNAME', 'YOUR_SFTP_PASSWORD' и 'SFTP_SERVER_ADDRESS' своими реальными данными
 
-          lftp -c "open -u $,$YOUR_SFTP_PASSWORD SFTP_SERVER_ADDRESS && put -O /remote/path/to/minecraft-server/ ./path/to/minecraft-artifact"
+          lftp -c "open -u $ksgo87265.c58690ff,$12980987 d1.aurorix.net:2022 && put -O /plugins/ astgrief.jar"
 
