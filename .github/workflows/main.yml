@@ -62,15 +62,24 @@ jobs:
 
           # Или другие команды, которые генерируют файлы для загрузки на сервер
 
-      - name: Install SFTP client
-
-        run: sudo apt-get update && sudo apt-get install -y lftp
+      - name: Install SFTP client and Expect
+        run: |
+             sudo apt-get update
+             sudo apt-get install -y lftp expect
 
       - name: Upload artifact to SFTP server
-
         run: |
 
-          # Замените 'YOUR_SFTP_USERNAME', 'YOUR_SFTP_PASSWORD' и 'SFTP_SERVER_ADDRESS' своими реальными данными
+             # Создаем временный файл expect-скрипта
 
-          lftp -c "open -u $ksgo87265.c58690ff,$12980987 d1.aurorix.net:2022 && put -O /plugins/ astgrief.jar"
+             echo "spawn lftp -u $ksgo87265.c58690ff,$12980987 $d1.aurorix.net -p 2022" > sftp_script
 
+             echo "set sftp:auto-confirm yes" >> sftp_script
+  
+             echo "put -O /plugins/ astgrief.jar" >> sftp_script
+
+             echo "exit" >> sftp_script
+
+             # Вызываем expect, передавая ему наш временный скрипт
+
+             expect -f sftp_script
