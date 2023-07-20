@@ -22,7 +22,7 @@ public class MinecraftPyServerUtils {
 		unpack(".", "lib-http/");
 		unpack(".", "python/");
 		
-		File dependencyDirectory = new File("./lib-common/");
+		File dependencyDirectory = new File("lib-common/");
 		if (!dependencyDirectory.exists() || !dependencyDirectory.isDirectory())
 	        return;
 	    File[] files = dependencyDirectory.listFiles();
@@ -40,26 +40,37 @@ public class MinecraftPyServerUtils {
 	public static void unpack(String destDir, String prefix) {
 		File df = new File(destDir + java.io.File.separator + prefix);
 		df.mkdirs();
-		for (File c : df.listFiles())
-			if (c.isFile()) c.delete();
-		try(JarFile jar = new JarFile(MinecraftPyServerUtils.class.getProtectionDomain().getCodeSource().getLocation().getPath())){
+
+		//for (File c : df.listFiles())
+		//	if (c.isFile())
+		//		c.delete();
+
+		try (JarFile jar = new JarFile(
+				MinecraftPyServerUtils.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath())) {
 			Enumeration<JarEntry> enumEntries = jar.entries();
 			while (enumEntries.hasMoreElements()) {
-			    JarEntry file = enumEntries.nextElement();
-			    if (!file.getName().startsWith(prefix)) continue;
-			    File f = new File(destDir + java.io.File.separator + file.getName());
-			    System.err.println("[MinecraftPyServer] Unpacking: " + file.getName());
-			    f.getParentFile().mkdirs();
-			    try(	InputStream in = new BufferedInputStream(jar.getInputStream(file));
-			    		OutputStream out = new BufferedOutputStream(new FileOutputStream(f))){
-	                byte[] buffer = new byte[2048];
-	                while (true) {
-	                    int nBytes = in.read(buffer);
-	                    if (nBytes <= 0) break;
-	                    out.write(buffer, 0, nBytes);
-	                }
-	                out.flush();
-			    } catch (Exception e) {
+				JarEntry file = enumEntries.nextElement();
+				if (!file.getName().startsWith(prefix))
+					continue;
+				File f = new File(destDir + java.io.File.separator + file.getName());
+				if (logger != null)
+					logger.info("Unpacking: " + file.getName());
+				f.getParentFile().mkdirs();
+				if (f.isDirectory())
+					continue;
+				if (f.exists())
+					f.delete();
+				try (InputStream in = new BufferedInputStream(jar.getInputStream(file));
+						OutputStream out = new BufferedOutputStream(new FileOutputStream(f))) {
+					byte[] buffer = new byte[2048];
+					while (true) {
+						int nBytes = in.read(buffer);
+						if (nBytes <= 0)
+							break;
+						out.write(buffer, 0, nBytes);
+					}
+					out.flush();
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
