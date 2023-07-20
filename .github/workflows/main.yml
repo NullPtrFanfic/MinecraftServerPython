@@ -56,7 +56,7 @@ jobs:
 
              echo "set sftp:auto-confirm yes" >> sftp_script
   
-             echo "cp astgrief.jar /plugins/" >> sftp_script
+             echo "lftp put astgrief.jar /plugins/" >> sftp_script
 
              echo "exit" >> sftp_script
 
