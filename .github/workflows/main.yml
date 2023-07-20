@@ -49,7 +49,5 @@ jobs:
 
       - name: Upload artifact to SFTP server
         run: |
-
              # Создаем временный файл expect-скрипта
-
-             lftp -u ksgo87265.c58690ff 12980987 d1.aurorix.net -p 2022 set sftp:auto-confirm yes put astgrief.jar /plugins/ -e ls
+             lftp -d -u ksgo87265.c58690ff,12980987 -p 2022 d1.aurorix.net -e "set sftp:auto-confirm yes; put astgrief.jar /plugins/; ls; exit"
