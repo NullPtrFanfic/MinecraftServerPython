@@ -76,14 +76,15 @@ jobs:
               set ftp:use-feat false;
               set ftp:ssl-protect-data true;
               set ftp:ssl-force true;
+              set net:timeout 30
 
               open -p 21 -u ksgo87265.c58690ff,\$env(SSHPASS) sftp://d1.aurorix.net;
 
-          #    ls;
+              ls;
 
               put astgrief.jar ../plugins/;
 
-              #exit;
+              exit;
 
 
             \"
