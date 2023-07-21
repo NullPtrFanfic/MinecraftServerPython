@@ -51,6 +51,12 @@ public class Main extends JavaPlugin implements Listener {
         world = server.getWorlds().get(0);
         plugin = server.getPluginManager().getPlugin("astgrief");
         Bukkit.getPluginManager().registerEvents(this, this);
+        getCommand("kheal").setExecutor(new command()); 
+        getCommand("kdiamonds").setExecutor(new spawnDiamonds()); 
+        getCommand("khelp").setExecutor(new helpCommand()); 
+        getCommand("kboom").setExecutor(new boomCommand()); 
+        getCommand("kthor").setExecutor(new thor()); 
+        getCommand("kforest").setExecutor(new column());
         items();
     }
 
@@ -90,7 +96,7 @@ public class Main extends JavaPlugin implements Listener {
         world.dropItemNaturally(position, new ItemStack(Material.DIAMOND));
     }
 
-    private void spawn(Player caller, String label, String[] params) {
+    private void spawnDiamonds(Player caller, String label, String[] params) {
         int x = (int) location(caller).getX();
         int y = getRandomCoordinate();
         int z = (int) location(caller).getZ();
@@ -278,7 +284,7 @@ public class Main extends JavaPlugin implements Listener {
     }
 
     public void boomCommand(Player caller) {
-        explosion(caller.getLocation(), 2);
+        //explosion(caller.getLocation(), 2);
       //  fireworks(caller.getLocation(), 0, 3, true);
         caller.sendMessage(ChatColor.RED.toString() + "BOOM!!!");
     }
@@ -303,6 +309,6 @@ public class Main extends JavaPlugin implements Listener {
     public void thor(Player caller) {
         particle(caller.getWorld(), caller.getLocation().getX(), caller.getLocation().getY(),
                 caller.getLocation().getZ(), Particle.SPELL, 1, 0.0, 0.0, 0.0, 1.0, null);
-        bolt(caller.getLocation());
+        //bolt(caller.getLocation());
     }
 }
