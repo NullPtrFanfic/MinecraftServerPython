@@ -45,7 +45,7 @@ jobs:
       - name: Install SFTP client and Expect
         run: |
              sudo apt-get update
-             sudo apt-get install -y lftp
+             sudo apt-get install -y lftp except
 
       - name: Upload artifact to SFTP server
         env:
