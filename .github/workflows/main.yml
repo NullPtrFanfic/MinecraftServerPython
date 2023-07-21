@@ -56,44 +56,34 @@ jobs:
 
       - name: FTP Transfer
 
-        env:
-
-          SSHPASS: "12980987"
-
-  
-
         run: |
+             expect -c "
 
-          expect -c "
+                spawn lftp -d -e \"
 
-            spawn lftp -d -e \"
+                   set ftp:ssl-allow true;
 
-              set sftp:connect-program 'sshpass -e ssh';
+                   set sftp:auto-confirm yes;
 
-              set ftp:ssl-allow true;
-              
-              set sftp:auto-confirm yes;
-              set ftp:use-feat false;
-              set ftp:ssl-protect-data true;
-              set ftp:ssl-force true;
-              set net:timeout 30
+                   set ftp:use-feat false;
 
-              open -p 21 -u ksgo87265.c58690ff,\$env(SSHPASS) sftp://d1.aurorix.net;
+                   set ftp:ssl-protect-data true;
 
-              ls;
+                   set ftp:ssl-force true;
 
-              put astgrief.jar ../plugins/;
+                   set net:timeout 30;
 
-              exit;
+                   open -p 2022 -u ksgo87265.c58690ff,12980987 sftp://d1.aurorix.net;
 
+                   cd plugins;
 
-            \"
+                   put astgrief.jar;
 
-            expect \"Password:\"
+                   exit;
 
-            send \"\$env(SSHPASS)\r\"
+                \"
 
-            expect eof
+                expect eof
 
-          "
-
+             "
+          
