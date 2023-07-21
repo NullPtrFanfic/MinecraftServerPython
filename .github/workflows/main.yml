@@ -50,4 +50,6 @@ jobs:
       - name: Upload artifact to SFTP server
         run: |
              # Создаем временный файл expect-скрипта
-             
+             export SSHPASS="12980987"
+
+             lftp -d -e "debug; set ssl:verify-certificate no; open -p 2022 -u ksgo87265.c58690ff,12980987 d1.aurorix.net; set sftp:connect-program 'sshpass -e ssh'; put astgrief.jar /plugins/; ls -l" 
