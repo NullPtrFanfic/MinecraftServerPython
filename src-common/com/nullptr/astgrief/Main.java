@@ -65,9 +65,13 @@ public class Main extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(joinListener, this); 
         getServer().getPluginManager().registerEvents(respawnListener, this); 
         getServer().getPluginManager().registerEvents(hitListener, this);
-        getServer().getPluginManager().registerEvents(launchListener, this); // Register commands 
+        getServer().getPluginManager().registerEvents(launchListener, this); // Register comm   
         getCommand("kheal").setExecutor(new HealthCommand()); 
-        //getCommand("kdiamonds").setExecutor(new 
+        getCommand("kdiamonds").setExecutor(new SpawnDiamondsCommand()); 
+        getCommand("khelp").setExecutor(new HelpCommand()); 
+        getCommand("kboom").setExecutor(new BoomCommand()); 
+        getCommand("kthor").setExecutor(new ThorCommand()); 
+        getCommand("kforest").setExecutor(new ColumnCommand());
     }
 
     @Override
@@ -163,14 +167,6 @@ public class Main extends JavaPlugin implements Listener {
 
     private Player lookingat(String name) {
         return server.getPlayer(name).getTargetBlock(null, 100).getLocation().getNearbyPlayers(2).get(0);
-    }
-
-    @EventHandler
-    public void onBlockBreak(BlockBreakEvent event) {
-        Player player = event.getPlayer();
-        if (event.getBlock().getType() == Material.DIAMOND_ORE) {
-            player.sendMessage(ChatColor.GREEN + "Вы нашли алмазную руду!");
-        }
     }
 
     @EventHandler
