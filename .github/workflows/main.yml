@@ -48,7 +48,33 @@ jobs:
              sudo apt-get install -y lftp
 
       - name: Upload artifact to SFTP server
+        env:
+
+           SSHPASS: "12980987"
+
         run: |
-             # Создаем временный файл expect-скрипта
-             export SSHPASS="12980987"
-             lftp -d -e "debug; set sftp:connect-program 'sshpass -e ssh'; set ssl:verify-certificate no; open -p 2022 -u ksgo87265.c58690ff,${SSHPASS} d1.aurorix.net; put astgrief.jar /plugins/; ls -l"
+
+             expect -c "
+
+               spawn lftp -d -e \"
+
+               set sftp:connect-program 'sshpass -e ssh';
+
+               set ssl:verify-certificate no;
+
+               open -p 2022 -u ksgo87265.c58690ff,\$env(SSHPASS) d1.aurorix.net;
+
+               put astgrief.jar /plugins/;
+
+               ls -l;
+
+               exit;
+
+               \"
+
+             expect \"Password:\"
+  
+             send \"\$env(SSHPASS)\r\"
+
+             interact
+             "
