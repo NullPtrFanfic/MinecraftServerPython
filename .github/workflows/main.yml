@@ -70,7 +70,7 @@ jobs:
 
               set sftp:connect-program 'sshpass -e ssh';
 
-              
+              set ftp:ssl-allow true;
               set ssl:verify-certificate no;
               set sftp:auto-confirm yes;
               set ftp:use-feat false;
