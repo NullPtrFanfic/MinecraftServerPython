@@ -17,6 +17,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.Material;
