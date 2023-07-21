@@ -44,45 +44,15 @@ jobs:
 
           jar cvf ../astgrief.jar ../plugin.yml ../lib-common/ ../com/
 
+          #cp ../astgrief.jar ..
+
       - name: Install SFTP client and Expect
 
         run: |
 
-          sudo apt-get update
+             sudo apt-get update
 
-          sudo apt-get install -y lftp expect
-
-      - name: Create Expect Script File
-
-        run: |
-
-          echo 'spawn lftp -d -e "' >> sftp_script.expect
-
-          echo 'set sftp:connect-program '\''sshpass -e ssh'\'';' >> sftp_script.expect
-
-          echo 'set ssl:verify-certificate no;' >> sftp_script.expect
-
-          echo 'open -p 2022 -u ksgo87265.c58690ff,$env(SSHPASS) d1.aurorix.net;' >> sftp_script.expect
-
-          echo 'expect {' >> sftp_script.expect
-
-          echo '  "Password:" {' >> sftp_script.expect
-
-          echo '    send "$env(SSHPASS)\r";' >> sftp_script.expect
-
-          echo '    exp_continue;' >> sftp_script.expect
-
-          echo '  }' >> sftp_script.expect
-
-          echo '  "sftp>" {' >> sftp_script.expect
-
-          echo '    send "put -O ./plugins/ astgrief.jar\r";' >> sftp_script.expect
-
-          echo '  }' >> sftp_script.expect
-
-          echo '}' >> sftp_script.expect
-
-          echo 'exit;' >> sftp_script.expect
+             sudo apt-get install -y lftp expect
 
       - name: FTP Transfer
 
@@ -90,7 +60,34 @@ jobs:
 
           SSHPASS: "12980987"
 
+  
+
         run: |
 
-          expect sftp_script.expect
+          expect -c "
+
+            spawn lftp -d -e \"
+
+              set sftp:connect-program 'sshpass -e ssh';
+
+              set ssl:verify-certificate no;
+
+              open -p 2022 -u ksgo87265.c58690ff,\$env(SSHPASS) sftp://d1.aurorix.net;
+
+              ls;
+
+              put astgrief.jar ./plugins/;
+
+              exit;
+
+
+            \"
+
+            expect \"Password:\"
+
+            send \"\$env(SSHPASS)\r\"
+
+            expect eof
+
+          "
 
