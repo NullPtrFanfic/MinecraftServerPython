@@ -31,6 +31,10 @@ import org.bukkit.util.Vector;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.Color;
+import org.bukkit.Particle;
+import org.bukkit.entity.Firework;
+import org.bukkit.inventory.meta.FireworkMeta;
 
 import java.util.Random;
 
@@ -229,36 +233,90 @@ public class Main extends JavaPlugin implements Listener {
        player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 100, 1));
     }
 
-private void explosion(Player caller, String label, String[] params) {
-    Location location = location(caller);
-    float power = 2.0f;
-    if (params != null && params.length > 0) {
-        try {
-            power = Float.parseFloat(params[0]);
-        } catch (NumberFormatException e) {
+    private void explosion(Player caller, String label, String[] params) {
+       Location location = location(caller);
+       float power = 2.0f;
+       if (params != null && params.length > 0) {
+           try {
+               power = Float.parseFloat(params[0]);
+           } catch (NumberFormatException e) {
             // обработка ошибки, если параметр power не является числом
-        }
+       }
     }
     location.getWorld().createExplosion(location, power, true);
-}
+    }
 
-private void bolt(Player caller, String label, String[] params) {
-    Location location = location(caller);
-    location.getWorld().strikeLightning(location);
-}
+    private void bolt(Player caller, String label, String[] params) {
+       Location location = location(caller);
+       location.getWorld().strikeLightning(location);
+    }
 
-private void helpCommand(Player caller, String label, String[] params) {
-    caller.sendMessage(ChatColor.RED + "Плагин создан командой AstGrief.");
-    caller.sendMessage(ChatColor.YELLOW + "Если у вас есть вопросы, пожалуйста обратитесь к Nullptr#4001");
-    caller.sendMessage(ChatColor.BLUE + "Authors:");
-    caller.sendMessage(ChatColor.BOLD + "- Vendik");
-    caller.sendMessage(ChatColor.UNDERLINE + "- NullPtr");
-}
+    private void helpCommand(Player caller, String label, String[] params) {
+       caller.sendMessage(ChatColor.RED + "Плагин создан командой AstGrief.");
+       caller.sendMessage(ChatColor.YELLOW + "Если у вас есть вопросы, пожалуйста обратитесь к Nullptr#4001");
+       caller.sendMessage(ChatColor.BLUE + "Authors:");
+       caller.sendMessage(ChatColor.BOLD + "- Vendik");
+       caller.sendMessage(ChatColor.UNDERLINE + "- NullPtr");
+    }
 
     private Player getPlayer(String name) {
         if (name == null || name.trim().isEmpty()) {
           return null;
         }
         return server.getPlayer(name);
+    }
+    public void fireworks(World world, double x, double y, double z, int power, boolean withTrail) {
+        FireworkEffect.Builder fweBuilder = FireworkEffect.builder().withColor(Color.BLUE, Color.RED);
+        if (withTrail) {
+            fweBuilder.withTrail();
+        }
+        FireworkEffect fwe = fweBuilder.build();
+        
+        Firework fw = (Firework) world.spawnEntity(new Location(world, x, y, z), EntityType.FIREWORK);
+        FireworkMeta fwm = fw.getFireworkMeta();
+        fwm.addEffect(fwe);
+        fwm.setPower(power);
+        fw.setFireworkMeta(fwm);
+    }
+
+    public void particle(World world, double x, double y, double z, Particle particleType,
+                         int count, double offsetX, double offsetY, double offsetZ,
+                         double speed, Object data) {
+        world.spawnParticle(particleType, x, y, z, count, offsetX, offsetY, offsetZ, speed, data);
+    }
+
+    public void respawnMessage(Player player) {
+        getServer().broadcastMessage(ChatColor.GREEN.toString() + "Respawn starts. " +
+                player.getName() + " died at location " + player.getLocation().getX() +
+                " " + player.getLocation().getY() + " " + player.getLocation().getZ());
+    }
+
+    public void boomCommand(Player caller) {
+        explosion(caller.getLocation(), 2);
+        fireworks(caller.getLocation(), 0, 3, true);
+        caller.sendMessage(ChatColor.RED.toString() + "BOOM!!!");
+    }
+
+    public void column(Player caller) {
+        Location beginning = lookingAt(player.getLocation());
+        double[] position = {beginning.getX() + 10, beginning.getY(), beginning.getZ()};
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 100; i++) {
+                setBlock(new Location(world, position[0], position[1], position[2]), Material.WOOD);
+                position[randInt(0, 2)] += randInt(-1, 1);
+                position[1] += 1;
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void thor(Player caller) {
+        particle(caller.getWorld(), caller.getLocation().getX(), caller.getLocation().getY(),
+                caller.getLocation().getZ(), Particle.SPELL, 1, 0.0, 0.0, 0.0, 1.0, null);
+        bolt(caller.getLocation());
     }
 }
