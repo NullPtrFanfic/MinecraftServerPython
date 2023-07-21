@@ -223,4 +223,42 @@ public class Main extends JavaPlugin implements Listener {
             player.sendMessage(ChatColor.GREEN + "Вы нашли алмазную руду!");
         }
     }
+    // ...
+
+    private void addPotion(Player player) {
+       player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 100, 1));
+    }
+
+private void explosion(Player caller, String label, String[] params) {
+    Location location = location(caller);
+    float power = 2.0f;
+    if (params != null && params.length > 0) {
+        try {
+            power = Float.parseFloat(params[0]);
+        } catch (NumberFormatException e) {
+            // обработка ошибки, если параметр power не является числом
+        }
+    }
+    location.getWorld().createExplosion(location, power, true);
+}
+
+private void bolt(Player caller, String label, String[] params) {
+    Location location = location(caller);
+    location.getWorld().strikeLightning(location);
+}
+
+private void helpCommand(Player caller, String label, String[] params) {
+    caller.sendMessage(ChatColor.RED + "Плагин создан командой AstGrief.");
+    caller.sendMessage(ChatColor.YELLOW + "Если у вас есть вопросы, пожалуйста обратитесь к Nullptr#4001");
+    caller.sendMessage(ChatColor.BLUE + "Authors:");
+    caller.sendMessage(ChatColor.BOLD + "- Vendik");
+    caller.sendMessage(ChatColor.UNDERLINE + "- NullPtr");
+}
+
+    private Player getPlayer(String name) {
+        if (name == null || name.trim().isEmpty()) {
+          return null;
+        }
+        return server.getPlayer(name);
+    }
 }
