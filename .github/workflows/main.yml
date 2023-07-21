@@ -75,11 +75,11 @@ jobs:
 
               open -p 2022 -u ksgo87265.c58690ff,\$env(SSHPASS) sftp://d1.aurorix.net;
 
-              ls;
+          #    ls;
 
               put astgrief.jar ../plugins/;
 
-              exit;
+              #exit;
 
 
             \"
