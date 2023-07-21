@@ -38,6 +38,52 @@ import org.bukkit.entity.Firework;
 import org.bukkit.inventory.meta.FireworkMeta;
 import java.util.Random;
 
+public class heal implements CommandExecutor { 
+       @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
+           return false; 
+       } 
+}
+
+public class thor implements CommandExecutor { 
+       @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
+           return false; 
+       } 
+}
+
+public class column implements CommandExecutor { 
+       @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
+           return false; 
+       } 
+}
+
+public class spawnDiamonds implements CommandExecutor { 
+       @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
+           int x = (int) location(sender).getX();
+           int y = getRandomCoordinate();
+           int z = (int) location(sender).getZ();
+           Location position = new Location(world, x, y + WATER_HEIGHT, z);
+           caller.sendMessage(position.toString());
+           for (int i = 0; i < 15; i++) {
+               position.setX(position.getX() + 1);
+               position.setZ(position.getZ() + 1);
+               droppedDiamonds(position);
+           }
+           return true; 
+       } 
+}
+
+public class helpCommand implements CommandExecutor { 
+       @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
+           return false; 
+       } 
+}
+
+public class boomCommand implements CommandExecutor { 
+       @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
+           return false; 
+       } 
+}
+
 public class Main extends JavaPlugin implements Listener {
     private Server server = Bukkit.getServer();
     private World world;
@@ -51,7 +97,7 @@ public class Main extends JavaPlugin implements Listener {
         world = server.getWorlds().get(0);
         plugin = server.getPluginManager().getPlugin("astgrief");
         Bukkit.getPluginManager().registerEvents(this, this);
-        getCommand("kheal").setExecutor(new command()); 
+        getCommand("kheal").setExecutor(new heal()); 
         getCommand("kdiamonds").setExecutor(new spawnDiamonds()); 
         getCommand("khelp").setExecutor(new helpCommand()); 
         getCommand("kboom").setExecutor(new boomCommand()); 
@@ -97,16 +143,7 @@ public class Main extends JavaPlugin implements Listener {
     }
 
     private void spawnDiamonds(Player caller, String label, String[] params) {
-        int x = (int) location(caller).getX();
-        int y = getRandomCoordinate();
-        int z = (int) location(caller).getZ();
-        Location position = new Location(world, x, y + WATER_HEIGHT, z);
-        caller.sendMessage(position.toString());
-        for (int i = 0; i < 15; i++) {
-            position.setX(position.getX() + 1);
-            position.setZ(position.getZ() + 1);
-            droppedDiamonds(position);
-        }
+        
     }
 
     private void playerteleport(Player shooter, Location location) {
