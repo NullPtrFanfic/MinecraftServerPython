@@ -70,7 +70,7 @@ jobs:
 
               set sftp:connect-program 'sshpass -e ssh';
 
-              set ssl:verify-certificate no;
+              #set ssl:verify-certificate no;
               set sftp:auto-confirm yes
 
               open -p 2022 -u ksgo87265.c58690ff,\$env(SSHPASS) sftp://d1.aurorix.net;
