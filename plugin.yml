@@ -3,5 +3,14 @@ main: com.nullptr.astgrief.Main
 version: 0.1
 commands:
   khelp:
-    description: Plugin help command.
-    usage: /khelp
+      description: Help Command
+      usage: /<command>
+      permission: astgrief.player
+  kdiamonds:
+      description: Spawn Diamonds Command
+      usage: /<command>
+      permission: astgrief.admin
+  kboom:
+      description: Boom Command
+      usage: /<command>
+      permission: astgrief.admin
