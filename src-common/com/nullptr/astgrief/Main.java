@@ -40,14 +40,16 @@ import java.util.Random;
 
 public class Main extends JavaPlugin implements Listener {
     private Server server = Bukkit.getServer();
-    private World world = server.getWorlds().get(0);
-    private Plugin plugin = server.getPluginManager().getPlugin("astgrief");
+    private World world;
+    private Plugin plugin;
     private Random random = new Random();
     private final int WATER_HEIGHT = 100; // Высота воды над миром (увеличено до 100)
 
     @Override
     public void onEnable() {
         server.getLogger().info("AstGrief plugin by NullPtr Enabled!");
+        world = server.getWorlds().get(0);
+        plugin = server.getPluginManager().getPlugin("astgrief");
         Bukkit.getPluginManager().registerEvents(this, this);
         items();
     }
@@ -64,7 +66,7 @@ public class Main extends JavaPlugin implements Listener {
         customItem.setItemMeta(itemMeta);
         customItem.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 2);
 
-        NamespacedKey key = new NamespacedKey(plugin, "custom_item" + random.nextInt(1000));
+        NamespacedKey key = new NamespacedKey(this, "custom_item_" + random.nextInt(1000));
         ShapedRecipe recipe1 = new ShapedRecipe(key, customItem);
         recipe1.shape(" # ", " # ", " / ");
         recipe1.setIngredient('#', Material.MAGMA_BLOCK);
@@ -167,7 +169,6 @@ public class Main extends JavaPlugin implements Listener {
                 if (bowItem.getItemMeta().getDisplayName().equals(ChatColor.BLUE + "Teleport Bow")) {
                     event.getEntity().setMetadata("teleport_bow", new FixedMetadataValue(this, true));
                 }
-           
             }
         }
     }
@@ -213,61 +214,57 @@ public class Main extends JavaPlugin implements Listener {
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
-        Block block = event.getBlock();
+        Material blockType = event.getBlock().getType();
 
-        if (block.getType() == Material.DIAMOND_ORE) {
+        if (blockType == Material.DIAMOND_ORE) {
             player.sendMessage(ChatColor.GREEN + "Вы нашли алмазную руду!");
         }
     }
-    // ...
+
+    // ... (existing code remains the same)
 
     private void addPotion(Player player) {
-       player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 100, 1));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 100, 1));
     }
 
     private void explosion(Player caller, String label, String[] params) {
-       Location location = location(caller);
-       float power = 2.0f;
-       if (params != null && params.length > 0) {
-           try {
-               power = Float.parseFloat(params[0]);
-           } catch (NumberFormatException e) {
-            // обработка ошибки, если параметр power не является числом
-       }
-    }
-    location.getWorld().createExplosion(location, power, true);
+        Location location = location(caller);
+        float power = 2.0f;
+        if (params != null && params.length > 0) {
+            try {
+                power = Float.parseFloat(params[0]);
+            } catch (NumberFormatException e) {
+                // обработка ошибки, если параметр power не является числом
+            }
+        }
+        location.getWorld().createExplosion(location, power, true);
     }
 
     private void bolt(Player caller, String label, String[] params) {
-       Location location = location(caller);
-       location.getWorld().strikeLightning(location);
+        Location location = location(caller);
+        location.getWorld().strikeLightning(location);
     }
 
     private void helpCommand(Player caller, String label, String[] params) {
-       caller.sendMessage(ChatColor.RED + "Плагин создан командой AstGrief.");
-       caller.sendMessage(ChatColor.YELLOW + "Если у вас есть вопросы, пожалуйста обратитесь к Nullptr#4001");
-       caller.sendMessage(ChatColor.BLUE + "Authors:");
-       caller.sendMessage(ChatColor.BOLD + "- Vendik");
-       caller.sendMessage(ChatColor.UNDERLINE + "- NullPtr");
+        caller.sendMessage(ChatColor.RED + "Плагин создан командой AstGrief.");
+        caller.sendMessage(ChatColor.YELLOW + "Если у вас есть вопросы, пожалуйста обратитесь к Nullptr#4001");
+        caller.sendMessage(ChatColor.BLUE + "Authors:");
+        caller.sendMessage(ChatColor.BOLD + "- Vendik");
+        caller.sendMessage(ChatColor.UNDERLINE + "- NullPtr");
     }
 
     private Player getPlayer(String name) {
         if (name == null || name.trim().isEmpty()) {
-          return null;
+            return null;
         }
         return server.getPlayer(name);
     }
+
     public void fireworks(World world, double x, double y, double z, int power, boolean withTrail) {
-        FireworkEffect.Builder fweBuilder = FireworkEffect.builder().withColor(Color.BLUE, Color.RED);
-        if (withTrail) {
-            fweBuilder.withTrail();
-        }
-        FireworkEffect fwe = fweBuilder.build();
-        
         Firework fw = (Firework) world.spawnEntity(new Location(world, x, y, z), EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
-        fwm.addEffect(fwe);
         fwm.setPower(power);
+        fwm.addEffect(FireworkEffect.builder().withColor(Color.BLUE, Color.RED).trail(withTrail).build());
         fw.setFireworkMeta(fwm);
     }
 
@@ -290,7 +287,7 @@ public class Main extends JavaPlugin implements Listener {
     }
 
     public void column(Player caller) {
-        Location beginning = lookingAt(player.getLocation());
+        Location beginning = lookingat(caller.getLocation());
         double[] position = {beginning.getX() + 10, beginning.getY(), beginning.getZ()};
         for (int j = 0; j < 10; j++) {
             for (int i = 0; i < 100; i++) {
