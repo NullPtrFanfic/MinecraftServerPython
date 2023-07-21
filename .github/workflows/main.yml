@@ -68,8 +68,6 @@ jobs:
 
                ls -l;
 
-               exit;
-
                \"
 
              expect \"Password:\"
