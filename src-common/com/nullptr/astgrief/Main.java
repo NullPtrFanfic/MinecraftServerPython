@@ -110,7 +110,7 @@ public class Main extends JavaPlugin implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
-        ItemMeta bm = book.getItemMeta();
+        BookMeta bm = (BookMeta) book.getItemMeta();
         bm.setDisplayName(ChatColor.translateAlternateColorCodes('&', ChatColor.GREEN + "" + ChatColor.BOLD + "Приветствуем на нашем сервере!"));
         bm.addPage("Введение. О сервере - ...");
         bm.addPage("Приятной игры на нашем проекте! Конец.");
