@@ -50,6 +50,24 @@ public class Main extends JavaPlugin implements Listener {
         server.getLogger().info("AstGrief plugin by NullPtr Enabled!");
         Bukkit.getPluginManager().registerEvents(this, this);
         items();
+        Listener chatListener = new ChatListener(); 
+        Listener enableListener = new EnableListener(); 
+        Listener disableListener = new DisableListener(); 
+        Listener blockBreakListener = new BlockBreakListener(); 
+        Listener joinListener = new JoinListener(); 
+        Listener respawnListener = new RespawnListener(); 
+        Listener hitListener = new HitListener(); 
+        Listener launchListener = new LaunchListener(); 
+        getServer().getPluginManager().registerEvents(chatListener, this); 
+        getServer().getPluginManager().registerEvents(enableListener, this); 
+        getServer().getPluginManager().registerEvents(disableListener, this); 
+        getServer().getPluginManager().registerEvents(blockBreakListener, this); 
+        getServer().getPluginManager().registerEvents(joinListener, this); 
+        getServer().getPluginManager().registerEvents(respawnListener, this); 
+        getServer().getPluginManager().registerEvents(hitListener, this);
+        getServer().getPluginManager().registerEvents(launchListener, this); // Register commands 
+        getCommand("kheal").setExecutor(new HealthCommand()); 
+        //getCommand("kdiamonds").setExecutor(new 
     }
 
     @Override
