@@ -9,8 +9,16 @@ commands:
   kdiamonds:
       description: Spawn Diamonds Command
       usage: /<command>
-      permission: astgrief.admin
+      permission: astgrief.medium
   kboom:
       description: Boom Command
+      usage: /<command>
+      permission: astgrief.admin
+  kheal:
+      description: Heal Command
+      usage: /<command>
+      permission: astgrief.medium
+  kthor:
+      description: Thor Command
       usage: /<command>
       permission: astgrief.admin
