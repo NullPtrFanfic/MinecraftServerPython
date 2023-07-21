@@ -35,11 +35,13 @@ import org.bukkit.Color;
 import org.bukkit.Particle;
 import org.bukkit.entity.Firework;
 import org.bukkit.inventory.meta.FireworkMeta;
+import java.util.Random;
 
 public class Main extends JavaPlugin implements Listener {
     private Server server = Bukkit.getServer();
     private World world;
     private Plugin plugin;
+    private Random random = new Random();
     private final int WATER_HEIGHT = 100; // Высота воды над миром (увеличено до 100)
 
     @Override
