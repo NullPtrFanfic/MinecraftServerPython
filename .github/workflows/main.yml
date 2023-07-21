@@ -64,8 +64,8 @@ jobs:
 
               open -p 2022 -u ksgo87265.c58690ff,\$env(SSHPASS) d1.aurorix.net;
  
-              ls;
-
+              put astgrief.jar ./plugins/;
+              
               exit;
  
             \"
