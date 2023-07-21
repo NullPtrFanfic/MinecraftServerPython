@@ -77,7 +77,7 @@ jobs:
               set ftp:ssl-protect-data true;
               set ftp:ssl-force true;
 
-              open -p 2022 -u ksgo87265.c58690ff,\$env(SSHPASS) sftp://d1.aurorix.net;
+              open -p 21 -u ksgo87265.c58690ff,\$env(SSHPASS) sftp://d1.aurorix.net;
 
           #    ls;
 
