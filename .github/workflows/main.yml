@@ -51,4 +51,4 @@ jobs:
         run: |
              # Создаем временный файл expect-скрипта
              export LFTP_SSH="ssh -a -x -o PreferredAuthentications=12980987"
-             lftp -d -e "debug; open -p 2022 -u ksgo87265.c58690ff,12980987 d1.aurorix.net" #set ssl:verify-certificate no; put astgrief.jar /plugins/; ls -l" 
+             lftp -d -e "sftp:preferred-authentications; open -p 2022 -u ksgo87265.c58690ff,12980987 d1.aurorix.net" #set ssl:verify-certificate no; put astgrief.jar /plugins/; ls -l" 
