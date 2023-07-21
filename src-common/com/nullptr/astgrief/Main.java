@@ -40,7 +40,6 @@ public class Main extends JavaPlugin implements Listener {
     private Server server = Bukkit.getServer();
     private World world;
     private Plugin plugin;
-    private Random random = new Random();
     private final int WATER_HEIGHT = 100; // Высота воды над миром (увеличено до 100)
 
     @Override
