@@ -70,19 +70,29 @@ jobs:
 
               open -p 2022 -u ksgo87265.c58690ff,\$env(SSHPASS) d1.aurorix.net;
 
-              set net:timeout 10; # Добавлено: устанавливаем тайм-аут на 10 секунд
+              expect {
 
-              put astgrief.jar ./plugins/;
+                \"Password:\" {
+
+                  send \"\$env(SSHPASS)\r\"
+
+                  exp_continue
+
+                }
+
+                \"sftp>\" {
+
+                  send \"put astgrief.jar ./plugins/\r\"
+
+                }
+
+              }
 
               exit;
 
             \"
 
-            expect \"Password:\"
-
-            send \"\$env(SSHPASS)\r\"
-
-            expect eof
+            puts \"File transfer completed!\"
 
           "
 
