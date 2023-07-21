@@ -254,19 +254,16 @@ public class Main extends JavaPlugin implements Listener {
     }
 
     private Player getPlayer(String name) {
-        if (name == null || name.trim().isEmpty()) {
-            return null;
-        }
         return server.getPlayer(name);
     }
 
-    public void fireworks(World world, double x, double y, double z, int power, boolean withTrail) {
+   /* public void fireworks(World world, double x, double y, double z, int power, boolean withTrail) {
         Firework fw = (Firework) world.spawnEntity(new Location(world, x, y, z), EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
         fwm.setPower(power);
         fwm.addEffect(FireworkEffect.builder().withColor(Color.BLUE, Color.RED).trail(withTrail).build());
         fw.setFireworkMeta(fwm);
-    }
+    }*/
 
     public void particle(World world, double x, double y, double z, Particle particleType,
                          int count, double offsetX, double offsetY, double offsetZ,
@@ -282,11 +279,11 @@ public class Main extends JavaPlugin implements Listener {
 
     public void boomCommand(Player caller) {
         explosion(caller.getLocation(), 2);
-        fireworks(caller.getLocation(), 0, 3, true);
+      //  fireworks(caller.getLocation(), 0, 3, true);
         caller.sendMessage(ChatColor.RED.toString() + "BOOM!!!");
     }
 
-    public void column(Player caller) {
+  /*  public void column(Player caller) {
         Location beginning = lookingat(caller.getLocation());
         double[] position = {beginning.getX() + 10, beginning.getY(), beginning.getZ()};
         for (int j = 0; j < 10; j++) {
@@ -301,7 +298,7 @@ public class Main extends JavaPlugin implements Listener {
                 }
             }
         }
-    }
+    }*/
 
     public void thor(Player caller) {
         particle(caller.getWorld(), caller.getLocation().getX(), caller.getLocation().getY(),
