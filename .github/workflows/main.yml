@@ -46,62 +46,35 @@ jobs:
         run: |
              sudo apt-get update
              sudo apt-get install -y lftp expect
+      - name: FTP Transfer
 
-      - name: Upload artifact to SFTP server
         env:
 
-           SSHPASS: "12980987"
-
+          SSHPASS: "12980987"
+  
         run: |
 
-             expect -c "
+          expect -c "
 
-             spawn lftp -d -e \"
+            spawn lftp -d -e \"
 
-             set sftp:connect-program 'sshpass -e ssh';
+              set sftp:connect-program 'sshpass -e ssh';
 
-             set ssl:verify-certificate no;
+              set ssl:verify-certificate no;
 
-             open -p 2022 -u ksgo87265.c58690ff,\$env(SSHPASS) d1.aurorix.net;
-
-             ls;
-
-             exit;
+              open -p 2022 -u ksgo87265.c58690ff,\$env(SSHPASS) d1.aurorix.net;
  
-             \"
+              ls;
 
-             expect \"Password:\"
+              exit;
+ 
+            \"
 
-             send \"\$env(SSHPASS)\r\"
-         
-             expect {
+            expect \"Password:\"
 
-             -re \"ls\\\\s+at\\\\s+\\\\d+\\\\s+\\[.*\\\\]\" {
+            send \"\$env(SSHPASS)\r\"
 
-             exp_continue
+            expect eof
 
-             }
+          "
 
-             -re \"ls\\\\s+at\\\\s+\\\\d+\\\\s+\\\[.*\\\\]\" {
-
-             exp_continue
-
-             }
-
-             -re \"(.*)lftp\\\\s+:\\\\s+.*>\\\\s+\" {
-
-             puts \$expect_out(1,string)
-
-             }
-
-             timeout {
-
-                send_error \"Timeout occurred while waiting for the command to complete\"
-
-             }
-
-             }
-
-             interact
-
-             "
