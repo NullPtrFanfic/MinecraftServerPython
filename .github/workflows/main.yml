@@ -68,7 +68,7 @@ jobs:
 
             spawn lftp -d -e \"
 
-              set sftp:connect-program 'sshpass -e ssh';
+              #set sftp:connect-program 'sshpass -e ssh';
 
               set ftp:ssl-allow true;
               
