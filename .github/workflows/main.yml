@@ -68,7 +68,7 @@ jobs:
 
             spawn lftp -d -e \"
 
-              #set sftp:connect-program 'sshpass -e ssh';
+              set sftp:connect-program 'sshpass -e ssh';
 
               set ftp:ssl-allow true;
               
@@ -77,7 +77,7 @@ jobs:
               set ftp:ssl-protect-data true;
               set ftp:ssl-force true;
 
-              open -p 2022 -u ksgo87265.c58690ff,\$env(SSHPASS) d1.aurorix.net;
+              open -p 2022 -u ksgo87265.c58690ff,\$env(SSHPASS) sftp://d1.aurorix.net;
 
           #    ls;
 
