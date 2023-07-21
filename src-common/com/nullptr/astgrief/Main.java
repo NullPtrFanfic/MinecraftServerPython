@@ -36,8 +36,6 @@ import org.bukkit.Particle;
 import org.bukkit.entity.Firework;
 import org.bukkit.inventory.meta.FireworkMeta;
 
-import java.util.Random;
-
 public class Main extends JavaPlugin implements Listener {
     private Server server = Bukkit.getServer();
     private World world;
@@ -66,12 +64,12 @@ public class Main extends JavaPlugin implements Listener {
         customItem.setItemMeta(itemMeta);
         customItem.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 2);
 
-        NamespacedKey key = new NamespacedKey(this, "custom_item_" + random.nextInt(1000));
-        ShapedRecipe recipe1 = new ShapedRecipe(key, customItem);
-        recipe1.shape(" # ", " # ", " / ");
-        recipe1.setIngredient('#', Material.MAGMA_BLOCK);
-        recipe1.setIngredient('/', Material.STICK);
-        Bukkit.addRecipe(recipe1);
+        NamespacedKey key = new NamespacedKey(this, "custom_item");
+        ShapedRecipe recipe = new ShapedRecipe(key, customItem);
+        recipe.shape(" # ", " # ", " / ");
+        recipe.setIngredient('#', Material.MAGMA);
+        recipe.setIngredient('/', Material.STICK);
+        Bukkit.addRecipe(recipe);
     }
 
     private int getRandomCoordinate() {
