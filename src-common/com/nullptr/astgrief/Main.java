@@ -74,7 +74,12 @@ public class spawnDiamonds implements CommandExecutor {
 
 public class helpCommand implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
-           return false; 
+            sender.sendMessage(ChatColor.RED + "Плагин создан командой AstGrief.");
+            sender.sendMessage(ChatColor.YELLOW + "Если у вас есть вопросы, пожалуйста обратитесь к Nullptr#4001");
+            sender.sendMessage(ChatColor.BLUE + "Authors:");
+            sender.sendMessage(ChatColor.BOLD + "- Vendik");
+            sender.sendMessage(ChatColor.UNDERLINE + "- NullPtr");
+            return true; 
        } 
 }
 
@@ -140,10 +145,6 @@ public class Main extends JavaPlugin implements Listener {
 
     private void droppedDiamonds(Location position) {
         world.dropItemNaturally(position, new ItemStack(Material.DIAMOND));
-    }
-
-    private void spawnDiamonds(Player caller, String label, String[] params) {
-        
     }
 
     private void playerteleport(Player shooter, Location location) {
@@ -286,14 +287,6 @@ public class Main extends JavaPlugin implements Listener {
     private void bolt(Player caller, String label, String[] params) {
         Location location = location(caller);
         location.getWorld().strikeLightning(location);
-    }
-
-    private void helpCommand(Player caller, String label, String[] params) {
-        caller.sendMessage(ChatColor.RED + "Плагин создан командой AstGrief.");
-        caller.sendMessage(ChatColor.YELLOW + "Если у вас есть вопросы, пожалуйста обратитесь к Nullptr#4001");
-        caller.sendMessage(ChatColor.BLUE + "Authors:");
-        caller.sendMessage(ChatColor.BOLD + "- Vendik");
-        caller.sendMessage(ChatColor.UNDERLINE + "- NullPtr");
     }
 
     private Player getPlayer(String name) {
