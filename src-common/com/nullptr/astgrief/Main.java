@@ -41,6 +41,8 @@ import java.util.Random;
 
 class heal implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
+           player.setHealth(player.getMaxHealth());
+           player.sendMessage(ChatColor.GREEN + "Вы восстановили свое здоровье до максимума!");
            return true; 
        } 
 }
@@ -59,16 +61,14 @@ class column implements CommandExecutor {
 
 class spawnDiamonds implements CommandExecutor { 
        private final int WATER_HEIGHT = 100; // Высота воды над миром (увеличено до 100)
+       private Random random = new Random();
        private int getRandomCoordinate() {
            return random.nextInt(41) + 80; // Генерируем число от 80 до 120
        }
-       private Location location(Player player) {
-           return player.getLocation();
-       }
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
-           int x = (int) location(sender).getX();
+           int x = (int) sender.getLocation().getX();
            int y = getRandomCoordinate();
-           int z = (int) location(sender).getZ();
+           int z = (int) sender.getLocation().getZ();
            Location position = new Location(world, x, y + WATER_HEIGHT, z);
            sender.sendMessage(position.toString());
            for (int i = 0; i < 15; i++) {
@@ -101,7 +101,6 @@ public class Main extends JavaPlugin implements Listener {
     private Server server = Bukkit.getServer();
     private World world;
     private Plugin plugin;
-    private Random random = new Random();
 
     @Override
     public void onEnable() {
@@ -231,11 +230,6 @@ public class Main extends JavaPlugin implements Listener {
             health(event.getPlayer());
             event.setCancelled(true); // Отменяем выполнение команды /health
         }
-    }
-
-    private void health(Player player) {
-        player.setHealth(player.getMaxHealth());
-        player.sendMessage(ChatColor.GREEN + "Вы восстановили свое здоровье до максимума!");
     }
 
     @EventHandler
