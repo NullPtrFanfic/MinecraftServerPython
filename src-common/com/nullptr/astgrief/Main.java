@@ -41,7 +41,7 @@ import java.util.Random;
 
 class heal implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
-           sender.setHealth(player.getMaxHealth());
+           sender.setHealth(sender.getMaxHealth());
            sender.sendMessage(ChatColor.GREEN + "Вы восстановили свое здоровье до максимума!");
            return true; 
        } 
@@ -248,7 +248,7 @@ public class Main extends JavaPlugin implements Listener {
         player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 100, 1));
     }
 
-    private void explosion(Player caller, String label, String[] params) {
+  /*  private void explosion(Player caller, String label, String[] params) {
         Location location = location(caller);
         float power = 2.0f;
         if (params != null && params.length > 0) {
@@ -268,7 +268,7 @@ public class Main extends JavaPlugin implements Listener {
 
     private Player getPlayer(String name) {
         return server.getPlayer(name);
-    }
+    }*/
 
    /* public void fireworks(World world, double x, double y, double z, int power, boolean withTrail) {
         Firework fw = (Firework) world.spawnEntity(new Location(world, x, y, z), EntityType.FIREWORK);
