@@ -45,20 +45,20 @@ class heal implements CommandExecutor {
                Player player = (Player) sender;
                player.setHealth(player.getMaxHealth());
                player.sendMessage(ChatColor.GREEN + "Вы восстановили свое здоровье до максимума!");
-               return true; 
+              // return true; 
            }
        } 
 }
 
 class thor implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
-           return true; 
+          // return true; 
        } 
 }
 
 class column implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
-           return true; 
+           //return true; 
        } 
 }
 
@@ -87,7 +87,7 @@ class spawnDiamonds implements CommandExecutor {
                     droppedDiamonds(position);
                }
            }
-           return true; 
+           //return true; 
       } 
 }
 
@@ -98,13 +98,13 @@ class helpCommand implements CommandExecutor {
             sender.sendMessage(ChatColor.BLUE + "Authors:");
             sender.sendMessage(ChatColor.BOLD + "- Vendik");
             sender.sendMessage(ChatColor.UNDERLINE + "- NullPtr");
-            return true; 
+            //return true; 
        } 
 }
 
 class boomCommand implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
-           return true; 
+           //return true; 
        } 
 }
 
