@@ -88,7 +88,7 @@ class spawnDiamonds implements CommandExecutor {
                }
            }
            return true; 
-       } 
+      } 
 }
 
 class helpCommand implements CommandExecutor { 
