@@ -39,25 +39,25 @@ import org.bukkit.entity.Firework;
 import org.bukkit.inventory.meta.FireworkMeta;
 import java.util.Random;
 
-public class heal implements CommandExecutor { 
+private class heal implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
            return false; 
        } 
 }
 
-public class thor implements CommandExecutor { 
+private class thor implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
            return false; 
        } 
 }
 
-public class column implements CommandExecutor { 
+private class column implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
            return false; 
        } 
 }
 
-public class spawnDiamonds implements CommandExecutor { 
+private class spawnDiamonds implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
            int x = (int) location(sender).getX();
            int y = getRandomCoordinate();
@@ -73,7 +73,7 @@ public class spawnDiamonds implements CommandExecutor {
        } 
 }
 
-public class helpCommand implements CommandExecutor { 
+private class helpCommand implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
             sender.sendMessage(ChatColor.RED + "Плагин создан командой AstGrief.");
             sender.sendMessage(ChatColor.YELLOW + "Если у вас есть вопросы, пожалуйста обратитесь к Nullptr#4001");
@@ -84,7 +84,7 @@ public class helpCommand implements CommandExecutor {
        } 
 }
 
-public class boomCommand implements CommandExecutor { 
+private class boomCommand implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
            return false; 
        } 
