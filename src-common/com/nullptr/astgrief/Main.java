@@ -66,15 +66,16 @@ class spawnDiamonds implements CommandExecutor {
            return random.nextInt(41) + 80; // Генерируем число от 80 до 120
        }
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
-           int x = (int) getLocation(sender).getX();
-           int y = getRandomCoordinate();
-           int z = (int) getLocation(sender).getZ();
-           Location position = new Location(world, x, y + WATER_HEIGHT, z);
-           sender.sendMessage(position.toString());
-           for (int i = 0; i < 15; i++) {
-               position.setX(position.getX() + 1);
-               position.setZ(position.getZ() + 1);
-               droppedDiamonds(position);
+           if (sender instanceof Player) {
+               int x = (int) getLocation(sender).getX();
+               int y = getRandomCoordinate();
+               int z = (int) getLocation(sender).getZ();
+               Location position = new Location(world, x, y + WATER_HEIGHT, z);
+               sender.sendMessage(position.toString());
+               for (int i = 0; i < 15; i++) {
+                    position.setX(position.getX() + 1);
+                    position.setZ(position.getZ() + 1);
+                    droppedDiamonds(position);
            }
            return true; 
        } 
