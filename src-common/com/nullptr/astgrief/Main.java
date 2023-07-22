@@ -47,6 +47,7 @@ class heal implements CommandExecutor {
                player.sendMessage(ChatColor.GREEN + "Вы восстановили свое здоровье до максимума!");
               // return true; 
            }
+           return true;
        } 
 }
 
