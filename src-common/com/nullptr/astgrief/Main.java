@@ -41,8 +41,8 @@ import java.util.Random;
 
 class heal implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
-           player.setHealth(player.getMaxHealth());
-           player.sendMessage(ChatColor.GREEN + "Вы восстановили свое здоровье до максимума!");
+           sender.setHealth(player.getMaxHealth());
+           sender.sendMessage(ChatColor.GREEN + "Вы восстановили свое здоровье до максимума!");
            return true; 
        } 
 }
@@ -66,9 +66,9 @@ class spawnDiamonds implements CommandExecutor {
            return random.nextInt(41) + 80; // Генерируем число от 80 до 120
        }
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
-           int x = (int) sender.getLocation().getX();
+           int x = (int) getLocation(sender).getX();
            int y = getRandomCoordinate();
-           int z = (int) sender.getLocation().getZ();
+           int z = (int) getLocation(sender).getZ();
            Location position = new Location(world, x, y + WATER_HEIGHT, z);
            sender.sendMessage(position.toString());
            for (int i = 0; i < 15; i++) {
