@@ -41,9 +41,12 @@ import java.util.Random;
 
 class heal implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
-           sender.setHealth(sender.getMaxHealth());
-           sender.sendMessage(ChatColor.GREEN + "Вы восстановили свое здоровье до максимума!");
-           return true; 
+           if (sender instanceof Player) {
+               Player player = (Player) sender;
+               player.setHealth(player.getMaxHealth());
+               player.sendMessage(ChatColor.GREEN + "Вы восстановили свое здоровье до максимума!");
+               return true; 
+           }
        } 
 }
 
@@ -67,7 +70,7 @@ class spawnDiamonds implements CommandExecutor {
            return random.nextInt(41) + 80; // Генерируем число от 80 до 120
        }
        private void droppedDiamonds(Location position) {
-           world = server.getWorlds().get(0);
+           world = Bukkit.getServer().getWorlds().get(0);
            world.dropItemNaturally(position, new ItemStack(Material.DIAMOND));
        }
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
@@ -175,7 +178,7 @@ public class Main extends JavaPlugin implements Listener {
         Location player_location = player.getLocation().add(0, 20, 0);
         player.sendMessage(ChatColor.RED + "Food has been spawned for you. Welcome to our server " + player.getName());
         for (int i = 0; i < 3; i++) {
-            spawn(player_location);
+           // spawn(player_location);
         }
     }
 
@@ -231,7 +234,7 @@ public class Main extends JavaPlugin implements Listener {
     public void onCommandPreprocess(PlayerCommandPreprocessEvent event) {
         String msg = event.getMessage();
         if (msg.equalsIgnoreCase("/health")) {
-            health(event.getPlayer());
+            //health(event.getPlayer());
             event.setCancelled(true); // Отменяем выполнение команды /health
         }
     }
