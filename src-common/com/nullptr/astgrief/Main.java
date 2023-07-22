@@ -62,20 +62,27 @@ class column implements CommandExecutor {
 class spawnDiamonds implements CommandExecutor { 
        private final int WATER_HEIGHT = 100; // Высота воды над миром (увеличено до 100)
        private Random random = new Random();
+       private World world;
        private int getRandomCoordinate() {
            return random.nextInt(41) + 80; // Генерируем число от 80 до 120
        }
+       private void droppedDiamonds(Location position) {
+           world = server.getWorlds().get(0);
+           world.dropItemNaturally(position, new ItemStack(Material.DIAMOND));
+       }
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
            if (sender instanceof Player) {
-               int x = (int) getLocation(sender).getX();
+               Player player = (Player) sender;
+               int x = (int) player.getLocation().getX();
                int y = getRandomCoordinate();
-               int z = (int) getLocation(sender).getZ();
+               int z = (int) player.getLocation().getZ();
                Location position = new Location(world, x, y + WATER_HEIGHT, z);
                sender.sendMessage(position.toString());
                for (int i = 0; i < 15; i++) {
                     position.setX(position.getX() + 1);
                     position.setZ(position.getZ() + 1);
                     droppedDiamonds(position);
+               }
            }
            return true; 
        } 
@@ -136,10 +143,6 @@ public class Main extends JavaPlugin implements Listener {
         recipe.setIngredient('#', Material.MAGMA);
         recipe.setIngredient('/', Material.STICK);
         Bukkit.addRecipe(recipe);
-    }
-
-    private void droppedDiamonds(Location position) {
-        world.dropItemNaturally(position, new ItemStack(Material.DIAMOND));
     }
 
     private void playerteleport(Player shooter, Location location) {
