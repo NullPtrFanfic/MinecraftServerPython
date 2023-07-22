@@ -172,20 +172,8 @@ public class Main extends JavaPlugin implements Listener {
         Location player_location = player.getLocation().add(0, 20, 0);
         player.sendMessage(ChatColor.RED + "Food has been spawned for you. Welcome to our server " + player.getName());
         for (int i = 0; i < 3; i++) {
-            spawn(player, "", null);
+            spawn(player_location);
         }
-
-        // Спавн коров
-        for (int i = 0; i < 2; i++) {
-            spawn(lookingat(player.getName()), "", null);
-        }
-
-        // Спавн свиньи
-        spawn(lookingat(player.getName()), "", null);
-    }
-
-    private Player lookingat(String name) {
-        return server.getPlayer(name).getTargetBlock(null, 100).getLocation().getNearbyPlayers(2).get(0);
     }
 
     @EventHandler
