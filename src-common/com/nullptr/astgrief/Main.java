@@ -53,13 +53,13 @@ class heal implements CommandExecutor {
 
 class thor implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
-          // return true; 
+           return true; 
        } 
 }
 
 class column implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
-           //return true; 
+           return true; 
        } 
 }
 
@@ -88,7 +88,7 @@ class spawnDiamonds implements CommandExecutor {
                     droppedDiamonds(position);
                }
            }
-           //return true; 
+           return true; 
       } 
 }
 
@@ -99,13 +99,13 @@ class helpCommand implements CommandExecutor {
             sender.sendMessage(ChatColor.BLUE + "Authors:");
             sender.sendMessage(ChatColor.BOLD + "- Vendik");
             sender.sendMessage(ChatColor.UNDERLINE + "- NullPtr");
-            //return true; 
+            return true; 
        } 
 }
 
 class boomCommand implements CommandExecutor { 
        @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) { 
-           //return true; 
+           return true; 
        } 
 }
 
