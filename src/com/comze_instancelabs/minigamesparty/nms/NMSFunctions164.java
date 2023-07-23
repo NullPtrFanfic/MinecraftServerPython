@@ -2,9 +2,9 @@ package com.comze_instancelabs.minigamesparty.nms;
 
 import java.lang.reflect.Field;
 
-import net.minecraft.server.v1_6_R3.Packet63WorldParticles;
-import net.minecraft.server.v1_6_R3.NBTTagCompound;
-import net.minecraft.server.v1_6_R3.NBTTagList;
+import net.minecraft.server.v1_8_R3.Packet63WorldParticles;
+import net.minecraft.server.v1_8_R3.NBTTagCompound;
+import net.minecraft.server.v1_8_R3.NBTTagList;
 
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_6_R3.entity.CraftPlayer;
