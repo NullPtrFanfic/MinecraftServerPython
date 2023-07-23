@@ -629,7 +629,7 @@ public class Main extends JavaPlugin implements Listener {
 			if(event.getClickedBlock().getType() == Material.STONE_PLATE){
 				if(players.contains(event.getPlayer().getName())){
 					final Player p = event.getPlayer();
-					NMSEffectManager.createMinefieldEffect(p.getLocation());
+					//NMSEffectManager.createMinefieldEffect(p.getLocation());
 					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
 						@Override
 						public void run() {
@@ -850,7 +850,7 @@ public class Main extends JavaPlugin implements Listener {
 										p2.eject();
 										t.remove();
 									}
-									NMSEffectManager.createBloodEffect(m, p.getLocation().add(0, 0.5, 0));
+									//NMSEffectManager.createBloodEffect(m, p.getLocation().add(0, 0.5, 0));
 									p.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + p2.getName() + " passed his Chicken to you! Try to get rid of it!");
 								}
 							}
@@ -887,7 +887,7 @@ public class Main extends JavaPlugin implements Listener {
 							if(!current.lost.contains(p)){
 								if(started && ingame_started){
 									current.lost.add(p);
-									NMSEffectManager.createBloodEffect(m, p.getLocation().add(0, 0.5, 0));
+									//NMSEffectManager.createBloodEffect(m, p.getLocation().add(0, 0.5, 0));
 									int count = 0;
 									for(String pl : m.players){
 										Player p_ = Bukkit.getPlayerExact(pl);
