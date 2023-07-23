@@ -1056,7 +1056,7 @@ public class Main extends JavaPlugin implements Listener {
 			}else{
 				currentscore.put(event.getPlayer().getName(), currentscore.get(event.getPlayer().getName()) + 1);
 			}
-			NMSEffectManager.createSheepFreenzyEffect(event.getEntity().getLocation());
+			//NMSEffectManager.createSheepFreenzyEffect(event.getEntity().getLocation());
 			event.getEntity().remove();
 		}
 	}
