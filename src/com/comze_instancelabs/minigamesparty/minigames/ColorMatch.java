@@ -23,8 +23,8 @@ import org.bukkit.scheduler.BukkitTask;
 import com.comze_instancelabs.minigamesparty.Main;
 import com.comze_instancelabs.minigamesparty.Minigame;
 import com.comze_instancelabs.minigamesparty.Shop;
-import com.comze_instancelabs.minigamesparty.nms.CraftMassBlockUpdate;
-import com.comze_instancelabs.minigamesparty.nms.MassBlockUpdate;
+//import com.comze_instancelabs.minigamesparty.nms.CraftMassBlockUpdate;
+//import com.comze_instancelabs.minigamesparty.nms.MassBlockUpdate;
 
 public class ColorMatch extends Minigame implements Listener{
 	
