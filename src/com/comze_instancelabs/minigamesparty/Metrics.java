@@ -48,6 +48,7 @@ import java.util.logging.Level;
 import java.util.zip.GZIPOutputStream;
 
 import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
@@ -332,7 +333,7 @@ public class Metrics {
         boolean onlineMode = Bukkit.getServer().getOnlineMode(); // TRUE if online mode is enabled
         String pluginVersion = description.getVersion();
         String serverVersion = Bukkit.getVersion();
-        int playersOnline = Bukkit.getOnlinePlayers().size();
+        int playersOnline = getOnlinePlayersCount();
 
         // END server software specific section -- all code below does not use any code outside of this class / Java
 
@@ -484,6 +485,13 @@ public class Metrics {
         }
     }
 
+    public int getOnlinePlayersCount() { 
+        int onlinePlayers = 0; 
+        for (World world : getServer().getWorlds()) { 
+             onlinePlayers += world.getPlayers().size(); 
+        } 
+        return onlinePlayers; 
+    } 
     /**
      * GZip compress a string of bytes
      *
