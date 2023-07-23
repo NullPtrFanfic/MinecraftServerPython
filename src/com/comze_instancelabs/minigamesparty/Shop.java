@@ -152,8 +152,7 @@ public class Shop {
 		ItemMeta im = item.getItemMeta();
 		im.setDisplayName(name);
         item.setItemMeta(im);
-        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
-        return NMSEffectManager.fakeGlow(item);
+        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10)
 	}
 	
 	
