@@ -70,7 +70,6 @@ import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.util.BlockIterator;
 
 import com.comze_instancelabs.minigamesparty.minigames.ChickenTag;
-import com.comze_instancelabs.minigamesparty.minigames.ColorMatch;
 import com.comze_instancelabs.minigamesparty.minigames.DeadEnd;
 import com.comze_instancelabs.minigamesparty.minigames.DisIntegration;
 import com.comze_instancelabs.minigamesparty.minigames.JumpnRun;
@@ -146,8 +145,8 @@ public class Main extends JavaPlugin implements Listener {
 			@Override
 			public void run(){
 				if(isValidMinigame("ColorMatch") && isValidMinigame("Spleef") && isValidMinigame("MineField") && isValidMinigame("JumpnRun") && isValidMinigame("DeadEnd")){
-					ColorMatch cm = new ColorMatch(m, m.getComponentForMinigame("ColorMatch", "spawn"), m.getLobby(), m.getComponentForMinigame("ColorMatch", "spectatorlobby"));
-					minigames.add(cm);
+					//ColorMatch cm = new ColorMatch(m, m.getComponentForMinigame("ColorMatch", "spawn"), m.getLobby(), m.getComponentForMinigame("ColorMatch", "spectatorlobby"));
+					//minigames.add(cm);
 					getServer().getPluginManager().registerEvents(cm, m);
 					Spleef sp = new Spleef(m, m.getComponentForMinigame("Spleef", "spawn"), m.getLobby(), m.getComponentForMinigame("Spleef", "spectatorlobby"));
 					minigames.add(sp);
