@@ -147,7 +147,7 @@ public class Main extends JavaPlugin implements Listener {
 				if(isValidMinigame("ColorMatch") && isValidMinigame("Spleef") && isValidMinigame("MineField") && isValidMinigame("JumpnRun") && isValidMinigame("DeadEnd")){
 					//ColorMatch cm = new ColorMatch(m, m.getComponentForMinigame("ColorMatch", "spawn"), m.getLobby(), m.getComponentForMinigame("ColorMatch", "spectatorlobby"));
 					//minigames.add(cm);
-					getServer().getPluginManager().registerEvents(cm, m);
+					//getServer().getPluginManager().registerEvents(cm, m);
 					Spleef sp = new Spleef(m, m.getComponentForMinigame("Spleef", "spawn"), m.getLobby(), m.getComponentForMinigame("Spleef", "spectatorlobby"));
 					minigames.add(sp);
 					getServer().getPluginManager().registerEvents(sp, m);
@@ -1768,7 +1768,7 @@ public class Main extends JavaPlugin implements Listener {
 		int y = start.getBlockY();
 		int z = start.getBlockZ();
 
-		ColorMatch.setup(start, this, "ColorMatch");
+		//ColorMatch.setup(start, this, "ColorMatch");
 		Spleef.setup(new Location(start.getWorld(), x, y, z + 64 + 20), this, "Spleef");
 		MineField.setup(new Location(start.getWorld(), x, y, z + 64 * 2 + 20 * 2), this, "MineField");
 		JumpnRun.setup(new Location(start.getWorld(), x, y, z + 64 * 3 + 20 * 3), this, "JumpnRun");
@@ -1803,7 +1803,7 @@ public class Main extends JavaPlugin implements Listener {
 		 */ 
 
 		minigames.clear();
-		minigames.add(new ColorMatch(this, this.getComponentForMinigame("ColorMatch", "spawn"), this.getComponentForMinigame("ColorMatch", "lobby"), this.getComponentForMinigame("ColorMatch", "spectatorlobby")));
+		//minigames.add(new ColorMatch(this, this.getComponentForMinigame("ColorMatch", "spawn"), this.getComponentForMinigame("ColorMatch", "lobby"), this.getComponentForMinigame("ColorMatch", "spectatorlobby")));
 		minigames.add(new Spleef(this, this.getComponentForMinigame("Spleef", "spawn"), this.getComponentForMinigame("Spleef", "lobby"), this.getComponentForMinigame("Spleef", "spectatorlobby")));
 		minigames.add(new MineField(this, this.getComponentForMinigame("MineField", "spawn"), this.getComponentForMinigame("MineField", "lobby"), this.getComponentForMinigame("MineField", "spectatorlobby"), m.getComponentForMinigame("MineField", "finishline")));
 		minigames.add(new JumpnRun(this, this.getComponentForMinigame("JumpnRun", "spawn"), this.getComponentForMinigame("JumpnRun", "lobby"), this.getComponentForMinigame("JumpnRun", "spectatorlobby"), m.getComponentForMinigame("JumpnRun", "finishline")));
