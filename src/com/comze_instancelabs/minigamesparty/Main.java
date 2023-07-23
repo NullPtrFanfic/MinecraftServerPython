@@ -983,7 +983,7 @@ public class Main extends JavaPlugin implements Listener {
 						if (hit.getLocation().getBlockY() < minigames.get(currentmg).spawn.getBlockY() && hit.getType() == Material.SNOW_BLOCK) {
 							hit.setTypeId(0);
 
-							player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 1F, 1F);
+							player.playSound(player.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1F, 1F);
 							
 						}
 					} catch (Exception ex) { 
