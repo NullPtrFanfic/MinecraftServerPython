@@ -1023,7 +1023,7 @@ public class Main extends JavaPlugin implements Listener {
 							}
 							hit.setTypeId(0);
 
-							player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 1F, 1F);
+							player.playSound(player.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1F, 1F);
 							/*for (Player sp : players) {
 	                            sp.getPlayer().playEffect(new Location(hit.getWorld(), hit.getLocation().getBlockX(), hit.getLocation().getBlockY() + 1.0D, hit.getLocation().getBlockZ()), Effect.MOBSPAWNER_FLAMES, 25);
 	                    	}*/
