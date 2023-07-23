@@ -151,8 +151,9 @@ public class Shop {
 	public static ItemStack enchantedItemStack(ItemStack item, String name){
 		ItemMeta im = item.getItemMeta();
 		im.setDisplayName(name);
-        item.setItemMeta(im);
-        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
+                item.setItemMeta(im);
+                item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
+		return item;
 	}
 	
 	
