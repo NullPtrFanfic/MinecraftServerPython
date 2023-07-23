@@ -4,21 +4,21 @@ version: 0.1
 commands:
   khelp:
       description: Help Command
-      usage: /<command>
+      usage: /khelp
       permission: astgrief.player
   kdiamonds:
       description: Spawn Diamonds Command
-      usage: /<command>
+      usage: /kdiamonds
       permission: astgrief.medium
   kboom:
       description: Boom Command
-      usage: /<command>
+      usage: /kboom
       permission: astgrief.admin
   kheal:
       description: Heal Command
-      usage: /<command>
+      usage: /kheal
       permission: astgrief.medium
   kthor:
       description: Thor Command
-      usage: /<command>
+      usage: /kthor
       permission: astgrief.admin
