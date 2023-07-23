@@ -80,7 +80,7 @@ import com.comze_instancelabs.minigamesparty.minigames.SheepFreenzy;
 import com.comze_instancelabs.minigamesparty.minigames.SlapFight;
 import com.comze_instancelabs.minigamesparty.minigames.SmokeMonster;
 import com.comze_instancelabs.minigamesparty.minigames.Spleef;
-import com.comze_instancelabs.minigamesparty.nms.NMSEffectManager;
+//import com.comze_instancelabs.minigamesparty.nms.NMSEffectManager;
 import com.comze_instancelabs.minigamesparty.sql.MainSQL;
 
 public class Main extends JavaPlugin implements Listener {
