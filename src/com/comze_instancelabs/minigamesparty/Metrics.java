@@ -487,7 +487,7 @@ public class Metrics {
 
     public int getOnlinePlayersCount() { 
         int onlinePlayers = 0; 
-        for (World world : getServer().getWorlds()) { 
+        for (World world : Bukkit.getServer().getWorlds()) { 
              onlinePlayers += world.getPlayers().size(); 
         } 
         return onlinePlayers; 
