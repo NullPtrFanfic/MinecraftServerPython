@@ -5,26 +5,21 @@ description: Server plugin.
 commands:
   khelp:
     description: Help Command.
-    usage: |
-           /<command>
+    usage: /<command>
     permission: astgrief.player
   kdiamonds:
     description: Spawn Diamonds Command.
-    usage: |
-           /<command>
+    usage: /<command>
     permission: astgrief.medium
   kboom:
     description: Boom Command.
-    usage: |
-           /<command>
+    usage: /<command>
     permission: astgrief.admin
   kheal:
     description: Heal Command.
-    usage: |
-           /<command>
+    usage: /<command>
     permission: astgrief.medium
   kthor:
     description: Thor Command.
-    usage: |
-           /<command>
+    usage: /<command>
     permission: astgrief.admin
