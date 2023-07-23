@@ -1,29 +1,30 @@
 name: astgrief
 main: com.nullptr.astgrief.Main
 version: 0.1
+description: Server plugin.
 commands:
   khelp:
-    description: Help Command
+    description: Help Command.
     usage: |
            /<command>
     permission: astgrief.player
   kdiamonds:
-    description: Spawn Diamonds Command
+    description: Spawn Diamonds Command.
     usage: |
            /<command>
     permission: astgrief.medium
   kboom:
-    description: Boom Command
+    description: Boom Command.
     usage: |
            /<command>
     permission: astgrief.admin
   kheal:
-    description: Heal Command
+    description: Heal Command.
     usage: |
            /<command>
     permission: astgrief.medium
   kthor:
-    description: Thor Command
+    description: Thor Command.
     usage: |
            /<command>
     permission: astgrief.admin
