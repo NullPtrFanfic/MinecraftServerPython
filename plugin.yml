@@ -3,27 +3,27 @@ main: com.nullptr.astgrief.Main
 version: 0.1
 commands:
   khelp:
-      description: Help Command
-      usage: |
+    description: Help Command
+    usage: |
            /<command>
-      permission: astgrief.player
+    permission: astgrief.player
   kdiamonds:
-      description: Spawn Diamonds Command
-      usage: |
+    description: Spawn Diamonds Command
+    usage: |
            /<command>
-      permission: astgrief.medium
+    permission: astgrief.medium
   kboom:
-      description: Boom Command
-      usage: |
+    description: Boom Command
+    usage: |
            /<command>
-      permission: astgrief.admin
+    permission: astgrief.admin
   kheal:
-      description: Heal Command
-      usage: |
+    description: Heal Command
+    usage: |
            /<command>
-      permission: astgrief.medium
+    permission: astgrief.medium
   kthor:
-      description: Thor Command
-      usage: |
+    description: Thor Command
+    usage: |
            /<command>
-      permission: astgrief.admin
+    permission: astgrief.admin
