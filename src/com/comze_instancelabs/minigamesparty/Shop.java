@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import com.comze_instancelabs.minigamesparty.nms.NMSEffectManager;
+//import com.comze_instancelabs.minigamesparty.nms.NMSEffectManager;
 
 public class Shop {
 
