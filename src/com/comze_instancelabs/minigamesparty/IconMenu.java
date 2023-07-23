@@ -148,7 +148,6 @@ public class IconMenu implements Listener {
         item.setItemMeta(im);
         if(glow){
         	item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
-            return NMSEffectManager.fakeGlow(item);
         }
         return item;
     }
