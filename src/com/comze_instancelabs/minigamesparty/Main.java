@@ -11,8 +11,8 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
 
-//import net.milkbowl.vault.economy.Economy;
-//import net.milkbowl.vault.economy.EconomyResponse;
+import net.milkbowl.vault.economy.Economy;
+import net.milkbowl.vault.economy.EconomyResponse;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -107,7 +107,7 @@ public class Main extends JavaPlugin implements Listener {
 	 * 
 	 */
 
-	//public static Economy econ = null;
+	public static Economy econ = null;
 
 	public ArrayList<Minigame> minigames = new ArrayList<Minigame>();
 	public ArrayList<String> players = new ArrayList<String>();
