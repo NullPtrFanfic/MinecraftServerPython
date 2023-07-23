@@ -152,7 +152,7 @@ public class Shop {
 		ItemMeta im = item.getItemMeta();
 		im.setDisplayName(name);
         item.setItemMeta(im);
-        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10)
+        item.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
 	}
 	
 	
