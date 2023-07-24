@@ -276,27 +276,27 @@ public class Main extends JavaPlugin implements Listener {
 						getConfig().set("lobby.location.y", p.getLocation().getBlockY());
 						getConfig().set("lobby.location.z", p.getLocation().getBlockZ());
 						this.saveConfig();
-						p.sendMessage(ChatColor.GREEN + "Saved Main lobby.");	
+						p.sendMessage(ChatColor.GREEN + "Установлено главное лобби.");	
 					}
 				}else if(args[0].equalsIgnoreCase("setcomponent")){
 					// /mp setcomponent [minigame] [component]
 					if(sender.hasPermission("mp.setup")){
 						if(args.length > 2){
 							this.saveComponentForMinigame(args[1], args[2], p.getLocation());
-							p.sendMessage(ChatColor.GREEN + "Saved component");
+							p.sendMessage(ChatColor.GREEN + "Сохранено!");
 						}
 					}
 				}else if(args[0].equalsIgnoreCase("stats")){
 					sender.sendMessage(ChatColor.DARK_AQUA + "-- " + ChatColor.GOLD + "Statistics " + ChatColor.DARK_AQUA + "--");
 					if(args.length > 1){
 						String player = args[1];
-						sender.sendMessage(ChatColor.GREEN + player + " has " + Integer.toString(this.getPlayerStats(player, "credits")) + " Credits.");
+						sender.sendMessage(ChatColor.GREEN + player + " имеет " + Integer.toString(this.getPlayerStats(player, "credits")) + " Кредитов.");
 					}else{
 						String player = p.getName();
-						sender.sendMessage(ChatColor.GREEN + "You have " + Integer.toString(this.getPlayerStats(player, "credits")) + " Credits.");
+						sender.sendMessage(ChatColor.GREEN + "Вы имеете " + Integer.toString(this.getPlayerStats(player, "credits")) + " Кредитов.");
 					}
 				}else if(args[0].equalsIgnoreCase("list")){
-					sender.sendMessage(ChatColor.DARK_AQUA + "-- " + ChatColor.GOLD + "Minigames: " + ChatColor.DARK_AQUA + "--");
+					sender.sendMessage(ChatColor.DARK_AQUA + "-- " + ChatColor.GOLD + "Мини игры: " + ChatColor.DARK_AQUA + "--");
 					for(Minigame m : minigames){
 						if(m.isEnabled()){
 							sender.sendMessage(ChatColor.GREEN + m.name);
@@ -306,7 +306,7 @@ public class Main extends JavaPlugin implements Listener {
 					}
 				}else if(args[0].equalsIgnoreCase("reloadconfig")){
 					this.reloadConfig();
-					sender.sendMessage(ChatColor.GREEN + "Successfully reloaded config.");
+					sender.sendMessage(ChatColor.GREEN + "Успешно перезагружена конфигурация.");
 				}else if(args[0].equalsIgnoreCase("enable")){
 					if(args.length > 1){
 						if(sender.hasPermission("mp.enable")){
@@ -353,7 +353,7 @@ public class Main extends JavaPlugin implements Listener {
 							minigames.get(currentmg).leave(p);
 						}
 						players.remove(p.getName());
-						p.sendMessage(ChatColor.RED + getConfig().getString("strings.you_left"));
+						p.sendMessage(ChatColor.RED + "Вы вышли из игры!");
 						if(players.size() < min_players){
 							Bukkit.getScheduler().runTaskLater(this, new Runnable(){
 								public void run(){
