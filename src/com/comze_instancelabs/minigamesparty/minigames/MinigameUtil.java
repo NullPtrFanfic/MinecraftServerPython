@@ -8,7 +8,7 @@ import com.comze_instancelabs.minigamesparty.Minigame;
 public class MinigameUtil {
 
 	public static String nowPlaying(String name) {
-		return ChatColor.GOLD + "You are now playing " + ChatColor.GREEN + name + ChatColor.GOLD + "!";
+		return ChatColor.GOLD + "Вы сейчас играете " + ChatColor.GREEN + name + ChatColor.GOLD + "!";
 	}
 	
 	public static String description(Minigame m, String name){
@@ -16,7 +16,7 @@ public class MinigameUtil {
 	}
 	
 	public static String getDescription(Main pl, String name){
-		return ChatColor.GOLD + pl.getConfig().getString("strings.description." + name.toLowerCase());
+		return ChatColor.GOLD + "MiniGamesParty - " + name.toLowerCase();
 	}
 	
 }
