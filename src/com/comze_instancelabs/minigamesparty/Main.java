@@ -180,63 +180,10 @@ public class Main extends JavaPlugin implements Listener {
 			}
 		}, 20);
 
-		getConfig().options().header("I recommend you to set auto_updating to true for possible future bugfixes.");
-		
-		// I'm running on windows, just making sure for Linux users:
-		getConfig().addDefault("mysql.enabled", false);
-		getConfig().addDefault("mysql.host", "127.0.0.1");
-		getConfig().addDefault("mysql.database", "bukkit");
-		getConfig().addDefault("mysql.user", "root");
-		getConfig().addDefault("mysql.pw", "toor");
-		getConfig().addDefault("config.auto_updating", true);
-		getConfig().addDefault("config.min_players", 1);
-		getConfig().addDefault("config.max_players", 50);
-		getConfig().addDefault("config.game-on-join", false);
-		getConfig().addDefault("config.max_reward", 30);
-		getConfig().addDefault("config.min_reward", 10);
-		getConfig().addDefault("config.use_economy", false);
-		getConfig().addDefault("config.use_item_rewards", false);
-		getConfig().addDefault("config.item_reward_maxamount", 10);
-		getConfig().addDefault("config.item_reward_minamount", 3);
-		getConfig().addDefault("config.item_reward_id", 264);
-		getConfig().addDefault("config.scoreboardoutgame", true);
-		getConfig().addDefault("config.announcements", true);
-		getConfig().addDefault("config.seconds_for_each_minigame", 60); // ф.ф
-		
-		getConfig().addDefault("strings.you_left", "You left the game.");
-		getConfig().addDefault("strings.next_round_30_seconds", "Next round in 30 seconds! You can leave with /mp leave.");
-		
-		getConfig().addDefault("strings.description.colormatch", "Jump to the color corresponding to the wool color in your inventory!");
-		getConfig().addDefault("strings.description.deadend", "Don't fall while the blocks are disappearing behind you!");
-		getConfig().addDefault("strings.description.disintegration", "Don't fall while the floor is disappearing!");
-		getConfig().addDefault("strings.description.jumpnrun", "Jump to the finish!");
-		getConfig().addDefault("strings.description.lastarcherstanding", "Shoot the others with the bow!");
-		getConfig().addDefault("strings.description.minefield", "Run to the finish without touching the mines!");
-		getConfig().addDefault("strings.description.sheepfreenzy", "Shear as many Sheeps as possible! Attention: Some of them explode.");
-		getConfig().addDefault("strings.description.smokemonster", "Avoid the smoke monster!");
-		getConfig().addDefault("strings.description.spleef", "Destroy the floor under your opponents to make them fall and lose!");
-		getConfig().addDefault("strings.description.slapfight", "Slap the other players to fall! You can use Double Jump in case you fall, too.");
-		getConfig().addDefault("strings.description.chickentag", "Pass the chicken to others or you'll lose!");
-
-		getConfig().addDefault("strings.your_place", "You are <place> place.");
-
 		Shop.initShop(this);
-		
-		getConfig().options().copyDefaults(true);
-		this.saveConfig();
 		
 		Shop.loadPrices(this);
 
-		min_players = getConfig().getInt("config.min_players");
-
-		minreward = getConfig().getInt("config.min_reward");
-		maxreward = getConfig().getInt("config.max_reward");
-		item_minreward = getConfig().getInt("config.item_reward_minamount");
-		item_maxreward = getConfig().getInt("config.item_reward_maxamount");
-
-		item_id = getConfig().getInt("config.item_reward_id"); 
-		seconds = getConfig().getInt("config.seconds_for_each_minigame");
-		
 		if(minreward > maxreward){
 			int temp = maxreward;
 			maxreward = minreward;
@@ -249,9 +196,6 @@ public class Main extends JavaPlugin implements Listener {
 			item_minreward = temp;
 		}
 
-		economy = getConfig().getBoolean("config.use_economy");
-		item_rewards = getConfig().getBoolean("config.use_item_rewards");
-		
 		try{
 			Metrics metrics = new Metrics(this);
 			metrics.start();
