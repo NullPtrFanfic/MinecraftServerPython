@@ -231,7 +231,7 @@ public class Main extends JavaPlugin implements Listener {
 		if(cmd.getName().equalsIgnoreCase("minigamesparty") || cmd.getName().equalsIgnoreCase("mp") || cmd.getName().equalsIgnoreCase("mgp")){
 
 			if (!(sender instanceof Player)) {
-				sender.sendMessage("You must be a player to run this command.");
+				sender.sendMessage("Вы должны быть игроком для выполнения этой команды.");
 				return true;
 			}
 			final Player p = (Player)sender;
