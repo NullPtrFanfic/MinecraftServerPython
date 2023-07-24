@@ -465,14 +465,6 @@ public class Main extends JavaPlugin implements Listener {
 		final Player p = event.getPlayer();
 		
 		// update credits from mysql
-		try{
-			if(msql.getCredits(p.getName()) > -1){
-				this.updatePlayerStats(p.getName(), "wins", msql.getWins(p.getName()));
-				this.updatePlayerStats(p.getName(), "credits", msql.getCredits(p.getName()));		
-			}
-		}catch(Exception e){
-			getLogger().warning("An error occurred while syncing credits and wins for player " + p.getName());
-		}
 
 		if(players_left.contains(p.getName())){
 			Bukkit.getScheduler().scheduleSyncDelayedTask(this, new Runnable(){
@@ -485,14 +477,12 @@ public class Main extends JavaPlugin implements Listener {
 			players_left.remove(p.getName());
 		}
 
-		if (!getConfig().getBoolean("config.game-on-join")) return;
-
 		if(players.contains(event.getPlayer().getName())){
-			p.sendMessage(ChatColor.RED + "You are already in the game!");
+			p.sendMessage(ChatColor.RED + ChatColor.BOLD + "Вы уже в игре!");
 			return;
 		}
 		players.add(p.getName());
-		event.setJoinMessage(ChatColor.GOLD + p.getName() + " has joined the game!");
+		event.setJoinMessage(ChatColor.GREEN + ChatColor.BOLD + p.getName() + " присоеденился к игре!");
 
 
 		Bukkit.getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
@@ -512,7 +502,7 @@ public class Main extends JavaPlugin implements Listener {
 						p.teleport(minigames.get(currentmg).spawn);
 					}
 				} catch (Exception ex) {
-					p.sendMessage(ChatColor.RED + "An error occured.");
+					p.sendMessage(ChatColor.RED + "Внутренняя ошибка.");
 				}
 			}
 		}, 6);
