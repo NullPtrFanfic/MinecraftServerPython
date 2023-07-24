@@ -116,7 +116,7 @@ public class Main extends JavaPlugin implements Listener {
 	public HashMap<String, ItemStack[]> pinv = new HashMap<String, ItemStack[]>();
 	public static HashMap<String, Boolean> hasChicken = new HashMap<String, Boolean>();
 
-	public int min_players = 2;
+	public int min_players = 1;
 	public boolean running = false;
 
 	public int minreward = 0;
@@ -200,10 +200,6 @@ public class Main extends JavaPlugin implements Listener {
 			Metrics metrics = new Metrics(this);
 			metrics.start();
 		} catch (IOException e) { }
-
-		if(getConfig().getBoolean("config.auto_updating")){
-			Updater updater = new Updater(this, 71596, this.getFile(), Updater.UpdateType.DEFAULT, false);
-		}
 
 		if(economy){
 			if (!setupEconomy()) {
