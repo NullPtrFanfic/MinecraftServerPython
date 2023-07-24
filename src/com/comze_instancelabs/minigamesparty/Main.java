@@ -77,10 +77,10 @@ import com.comze_instancelabs.minigamesparty.minigames.LastArcherStanding;
 import com.comze_instancelabs.minigamesparty.minigames.MineField;
 import com.comze_instancelabs.minigamesparty.minigames.SheepFreenzy;
 import com.comze_instancelabs.minigamesparty.minigames.SlapFight;
-import com.comze_instancelabs.minigamesparty.minigames.SmokeMonster;
+//import com.comze_instancelabs.minigamesparty.minigames.SmokeMonster;
 import com.comze_instancelabs.minigamesparty.minigames.Spleef;
 //import com.comze_instancelabs.minigamesparty.nms.NMSEffectManager;
-import com.comze_instancelabs.minigamesparty.sql.MainSQL;
+//import com.comze_instancelabs.minigamesparty.sql.MainSQL;
 
 public class Main extends JavaPlugin implements Listener {
 
@@ -116,7 +116,7 @@ public class Main extends JavaPlugin implements Listener {
 	public HashMap<String, ItemStack[]> pinv = new HashMap<String, ItemStack[]>();
 	public static HashMap<String, Boolean> hasChicken = new HashMap<String, Boolean>();
 
-	public int min_players = 1;
+	public int min_players = 2;
 	public boolean running = false;
 
 	public int minreward = 0;
@@ -134,17 +134,15 @@ public class Main extends JavaPlugin implements Listener {
 	public int seconds = 60;
 	
 	Main m;
-	MainSQL msql;
 
 	@Override
 	public void onEnable(){
 		Bukkit.getServer().getPluginManager().registerEvents(this, this);
 		m = this;
-		msql = new MainSQL(this);
 		int id = Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
 			@Override
 			public void run(){
-				if(isValidMinigame("ColorMatch") && isValidMinigame("Spleef") && isValidMinigame("MineField") && isValidMinigame("JumpnRun") && isValidMinigame("DeadEnd")){
+				if(isValidMinigame("Spleef") && isValidMinigame("MineField") && isValidMinigame("JumpnRun") && isValidMinigame("DeadEnd")){
 					//ColorMatch cm = new ColorMatch(m, m.getComponentForMinigame("ColorMatch", "spawn"), m.getLobby(), m.getComponentForMinigame("ColorMatch", "spectatorlobby"));
 					//minigames.add(cm);
 					//getServer().getPluginManager().registerEvents(cm, m);
@@ -168,9 +166,9 @@ public class Main extends JavaPlugin implements Listener {
 					getServer().getPluginManager().registerEvents(las, m);
 					SheepFreenzy sf = new SheepFreenzy(m, m.getComponentForMinigame("SheepFreenzy", "spawn"), m.getLobby(), m.getComponentForMinigame("SheepFreenzy", "spectatorlobby"));
 					minigames.add(sf);
-					getServer().getPluginManager().registerEvents(sf, m);
-					SmokeMonster sm = new SmokeMonster(m, m.getComponentForMinigame("SmokeMonster", "spawn"), m.getLobby(), m.getComponentForMinigame("SmokeMonster", "spectatorlobby"));
-					minigames.add(sm);
+					//getServer().getPluginManager().registerEvents(sf, m);
+					//SmokeMonster sm = new SmokeMonster(m, m.getComponentForMinigame("SmokeMonster", "spawn"), m.getLobby(), m.getComponentForMinigame("SmokeMonster", "spectatorlobby"));
+					//minigames.add(sm);
 					getServer().getPluginManager().registerEvents(sm, m);
 					SlapFight slf = new SlapFight(m, m.getComponentForMinigame("SlapFight", "spawn"), m.getLobby(), m.getComponentForMinigame("SlapFight", "spectatorlobby"));
 					minigames.add(slf);
