@@ -43,7 +43,7 @@ jobs:
 
           #javac -cp ".:../lib-spigot/spigot-1.12.2.jar:../lib-common/java_websocket.jar" -d .. com/**/**/*.java
           javac -cp ".:../lib-spigot/forge-1.12.2-14.23.5.2860-installer.jar" -d .. com/**/**/*.java
-          jar cvf ../astgrief.jar ../pack.mcmeta ../mcmeta.info ../com/
+          jar cvf ../astgrief.jar ../pack.mcmeta ../mcmod.info ../com/
 
           #cp ../astgrief.jar ..
 
