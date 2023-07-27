@@ -7,8 +7,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = ExampleMod.MODID, name = ExampleMod.NAME, version = ExampleMod.VERSION)
-public class ExampleMod
+@Mod(modid = Main.MODID, name = Main.NAME, version = Main.VERSION)
+public class Main
 {
     public static final String MODID = "examplemod";
     public static final String NAME = "Example Mod";
