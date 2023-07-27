@@ -41,4 +41,10 @@ jobs:
     - name: Build with Gradle
 
       run: ./gradlew build  # Запускаем сборку проекта
+    - uses: actions/upload-artifact@v3
 
+      with:
+
+        name: my-artifact
+
+        path: build/libs # or path/to/artifact
