@@ -26,7 +26,7 @@ jobs:
 
     - name: Checkout repository
 
-      uses: actions/checkout@v2  # Клонируем репозиторий
+      uses: actions/checkout@v1  # Клонируем репозиторий
 
     - name: Set up JDK
 
@@ -35,6 +35,8 @@ jobs:
       with:
 
         java-version: '8'  # Установка JDK 11
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
 
     - name: Build with Gradle
 
