@@ -1,7 +1,6 @@
 package com.nullptr.mod;
 
-import net.minecraft.init;
-import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -27,6 +26,6 @@ public class Main
     public void init(FMLInitializationEvent event)
     {
         // some example code
-        logger.info("DIRT BLOCK >> {}", Block.DIRT.getRegistryName());
+        logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
 }
