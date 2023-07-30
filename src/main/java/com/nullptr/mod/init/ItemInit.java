@@ -3,6 +3,7 @@ package com.nullptr.mod.init;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nullptr.mod.objects.items.ItemBase;
 import net.minecraft.item.Item;
 
 public class ItemInit
