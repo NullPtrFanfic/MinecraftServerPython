@@ -1,5 +1,7 @@
 package com.nullptr.mod.util.handlers;
 
+import com.nullptr.mod.init.ItemInit;
+import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
