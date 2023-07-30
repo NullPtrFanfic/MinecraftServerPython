@@ -1,11 +1,6 @@
 package com.nullptr.mod;
 
-import net.minecraft.init.Blocks;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import org.apache.logging.log4j.Logger;
+import com.nullptr.mod.proxy.CommonProxy;
 
 @Mod(modid = Main.MODID, name = Main.NAME, version = Main.VERSION)
 public class Main
@@ -13,8 +8,12 @@ public class Main
     public static final String MODID = "mod";
     public static final String NAME = "NullPtr Mod";
     public static final String VERSION = "0.1";
+    public static final String CLIENT_PROXY_CLASS = "";
+    public static final String COMMON_PROXY_CLASS = "";
 
-    private static Logger logger;
+    @Instance
+    public static Main instance;
+    @SidedProxy(clientSide = CLIENT_PROXY_CLASS, serverSide = COMMON_PROXY_CLASS)
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
