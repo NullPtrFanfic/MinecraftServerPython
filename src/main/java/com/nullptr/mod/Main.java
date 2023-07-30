@@ -8,8 +8,8 @@ public class Main
     public static final String MODID = "mod";
     public static final String NAME = "NullPtr Mod";
     public static final String VERSION = "0.1";
-    public static final String CLIENT_PROXY_CLASS = "";
-    public static final String COMMON_PROXY_CLASS = "";
+    public static final String CLIENT_PROXY_CLASS = "com.nullptr.mod.proxy.ClientProxy";
+    public static final String COMMON_PROXY_CLASS = "com.nullptr.mod.proxy.CommonProxy";
 
     @Instance
     public static Main instance;
