@@ -14,17 +14,26 @@ public class Main
     @Instance
     public static Main instance;
     @SidedProxy(clientSide = CLIENT_PROXY_CLASS, serverSide = COMMON_PROXY_CLASS)
-
+    public static CommonProxy proxy;
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        logger = event.getModLog();
+        
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        // some example code
-        logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        
+    }
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event)
+    {
+
+    }
+    @EventHandler
+    public void serverInit(FMLServerStartingEvent event)
+    {
+
     }
 }
