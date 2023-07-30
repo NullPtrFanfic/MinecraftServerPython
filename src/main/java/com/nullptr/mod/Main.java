@@ -1,7 +1,7 @@
 package com.nullptr.mod;
 
 import com.nullptr.mod.proxy.CommonProxy;
-import com.tutorialmod.turtywurty.util.handlers.RegistryHandler;
+import com.nullptr.mod.util.handlers.RegistryHandler;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
