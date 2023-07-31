@@ -2,7 +2,7 @@ package com.nullptr.mod;
 
 import com.nullptr.mod.proxy.CommonProxy;
 import com.nullptr.mod.util.handlers.RegistryHandler;
-
+import com.nullptr.mod.tabs.Tab;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -26,6 +26,7 @@ public class Main
     public static Main instance;
     @SidedProxy(clientSide = CLIENT_PROXY_CLASS, serverSide = COMMON_PROXY_CLASS)
     public static CommonProxy proxy;
+    public static final CreativeTabs MODTAB = new Tab("modtab");
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
