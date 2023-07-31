@@ -11,6 +11,13 @@ public class Tab extends CreativeTabs
 {
    public Tab(String label)
    {
-      sup
+      super("modtab")
+      this.setBackgroundImageName("tutorialmod.png")
+   }
+
+   @Override
+   public ItemStack getTabIconItem()
+   {
+      return new ItemStack(ItemInit.OBSIDIAN_INGOT);
    }
 }
