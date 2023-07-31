@@ -25,6 +25,22 @@ public class RegistryHandler {
                 ((IHasModel)item).registerModels();
             }
         }
+        //For Loop for Blocks in RegistryHandler.java
+        for(Block block : BlockInit.BLOCKS)
+		{
+			if(block instanceof IHasModel)
+			{
+				((IHasModel)block).registerModels();
+			}
+		}
+    }
+//onBlockRegister method in RegistryHandler.java
+    @SubscribeEvent
+	public static void onBlockRegister(RegistryEvent.Register<Block> event)
+	{
+
+		event.getRegistry().registerAll(BlockInit.BLOCKS.toArray(new Block[0]));
+
     }
 
     // Здесь могут быть другие методы, связанные с регистрацией предметов, блоков и других объектов
