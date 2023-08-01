@@ -6,6 +6,8 @@ import java.util.List;
 import com.nullptr.mod.objects.items.ItemBase;
 import net.minecraft.item.Item;
 import com.nullptr.mod.Main;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import com.nullptr.mod.objects.items.armor.ArmorBase;
 
 public class ItemInit
 {
