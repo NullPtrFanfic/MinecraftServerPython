@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import com.nullptr.mod.util.interfaces.IHasModel;
+import net.minecraft.block.Block;
 
 @EventBusSubscriber
 public class RegistryHandler {
