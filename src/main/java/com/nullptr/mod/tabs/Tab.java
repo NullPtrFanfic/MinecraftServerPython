@@ -12,7 +12,7 @@ public class Tab extends CreativeTabs
    public Tab(String label)
    {
       super("modtab");
-      this.setBackgroundImageName("tab_tutorialmod.png");
+      this.setBackgroundImageName("tutorialmod.png");
    }
 
    @Override
