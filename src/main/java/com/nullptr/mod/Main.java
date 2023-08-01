@@ -3,6 +3,7 @@ package com.nullptr.mod;
 import com.nullptr.mod.proxy.CommonProxy;
 import com.nullptr.mod.util.handlers.RegistryHandler;
 import com.nullptr.mod.tabs.Tab;
+import com.nullptr.mod.recipes.SmeltingRecipes;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -36,7 +37,7 @@ public class Main
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        
+       SmeltingRecipes.init();
     }
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
