@@ -1,0 +1,6 @@
+//Blockstate json (silver_block.json) 
+{ 
+  "variants": { 
+       "normal": { "model": "mod:silver_block" } 
+  } 
+}
