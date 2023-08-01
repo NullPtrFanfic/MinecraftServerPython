@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.nullptr.mod.objects.items.ItemBase;
 import net.minecraft.item.Item;
+import com.nullptr.mod.Main;
 
 public class ItemInit
 {
