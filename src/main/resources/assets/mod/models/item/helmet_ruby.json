@@ -2,6 +2,6 @@
     "parent": "item/generated",
     "textures": 
     {
-        "layer0": "tutorialmod:items/helmet_ruby"
+        "layer0": "mod:items/helmet_ruby"
     }
 }
