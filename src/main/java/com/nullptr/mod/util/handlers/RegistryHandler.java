@@ -1,6 +1,7 @@
 package com.nullptr.mod.util.handlers;
 
 import com.nullptr.mod.init.ItemInit;
+import com.nullptr.mod.init.BlockInit;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
