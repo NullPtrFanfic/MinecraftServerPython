@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 public class BlockBase extends Block implements IHasModel
 {
    public BlockBase(String name, Material material)
@@ -21,6 +22,6 @@ public class BlockBase extends Block implements IHasModel
    @Override
    public void registerModels()
    {
-      Mod.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+      Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
    }
 }
