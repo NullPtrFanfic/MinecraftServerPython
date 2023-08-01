@@ -8,6 +8,9 @@ import net.minecraft.item.Item;
 import com.nullptr.mod.Main;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import com.nullptr.mod.objects.items.armor.ArmorBase;
+import net.minecraft.init.SoundEvents;
+import net.minecraftforge.common.util.EnumHelper;
+import net.minecraft.item.ArmorMaterial;
 
 public class ItemInit
 {
