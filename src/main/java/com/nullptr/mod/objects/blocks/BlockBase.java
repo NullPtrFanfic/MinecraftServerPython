@@ -18,7 +18,7 @@ public class BlockBase extends Block implements IHasModel
        BlockInit.BLOCKS.add(this);
        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
    }
-   @override
+   @Override
    public void registerModels()
    {
       Mod.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
