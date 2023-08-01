@@ -1,6 +1,6 @@
 { 
   "parent": "item/generated", 
   "textures": { 
-       "layer0": "mod:items/obsidian_ingot.png" 
+       "layer0": "mod:items/obsidian_ingot" 
   } 
 }
