@@ -1,3 +1,7 @@
 item.obsidian_ingot.name=Obsidian Ingot
+item.helmet_ruby.name=Ruby Helmet
+item.chestplate_ruby.name=Ruby Chestplate
+item.leggings_ruby.name=Ruby Leggings
+item.boots_ruby.name=Ruby Boots
 tile.silver_block.name=Silver Block
 itemGroup.modtab=Tab
