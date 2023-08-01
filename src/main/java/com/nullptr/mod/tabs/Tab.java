@@ -3,7 +3,7 @@ package com.nullptr.mod.tabs;
 import com.nullptr.mod.init.BlockInit;
 import com.nullptr.mod.init.ItemInit;
 
-import net.minectaft.creativetab.CreativeTabs;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
