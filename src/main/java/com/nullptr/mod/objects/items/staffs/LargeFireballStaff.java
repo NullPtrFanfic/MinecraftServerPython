@@ -34,6 +34,7 @@ public class LargeFireballStaff extends Item implements IHasModel
       largeFireball.accelerationZ = look.z * 7.0D;
       largeFireball.explosionPower = explosionPower;
       largeFireball.setGlowing(true);
+      playerIn.getCooldownTracker().setCooldown(this, 30);
       worldIn.spawnEntity(largeFireball);
       return new ActionResult<Itemstack>(EnumActionResult.SUCCESS, item);
    }
