@@ -1,8 +1,8 @@
-package com.tutorialmod.turtywurty.objects.items.staffs;
+package com.nullptr.mod.objects.items.staffs;
 
-import com.tutorialmod.turtywurty.TutorialMod;
-import com.tutorialmod.turtywurty.entity.lightningBall.EntityLightningBall;
-import com.tutorialmod.turtywurty.init.ItemInit;
+import com.nullptr.mod.Main;
+import com.nullptr.mod.entity.lightningBall.EntityLightningBall;
+import com.nullptr.mod.init.ItemInit;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
