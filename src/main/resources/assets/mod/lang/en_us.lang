@@ -4,5 +4,6 @@ item.chestplate_ruby.name=Ruby Chestplate
 item.leggings_ruby.name=Ruby Leggings
 item.boots_ruby.name=Ruby Boots
 item.large_fireball_staff.name=Large Fireball Staff
+item.lightning_staff.name=Lightning Staff
 tile.silver_block.name=Silver Block
 itemGroup.modtab=Tab
