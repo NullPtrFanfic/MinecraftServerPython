@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class LargeFireballStaff extends Item implements IHasModel
 {
-   public int explosionPower;
+   public int explosionPower = 10;
    public LargeFireballStaff(String name, int explosionSize)
    {
       setUnlocalizedName(name);
@@ -23,7 +23,7 @@ public class LargeFireballStaff extends Item implements IHasModel
       ItemInit.ITEMS.add(this);
    }
    @Override
-   public ActionResult<ItemStack> onItemRightClick(Worls worldIn, EntityPlayer playerIn, EnumHand handIn)
+   public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
    {
       ItemStack item = playerIn.getHeldItem(handIn);
       Vec3d look = playerIn.getLookVec();
