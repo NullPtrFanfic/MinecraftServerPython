@@ -21,4 +21,5 @@ public class ItemInit
     public static final Item CHESTPLATE_RUBY =  new ArmorBase("chestplate_ruby", ARMOR_RUBY, 1, EntityEquipmentSlot.CHEST);
     public static final Item LEGGINGS_RUBY =  new ArmorBase("leggings_ruby", ARMOR_RUBY, 2, EntityEquipmentSlot.LEGS);
     public static final Item BOOTS_RUBY =  new ArmorBase("boots_ruby", ARMOR_RUBY, 1, EntityEquipmentSlot.FEET);
+    public static final Item LARGE_FIREBALL_STAFF = new LargeFireballStaff("large_fireball_staff");
 }
