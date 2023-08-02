@@ -27,7 +27,7 @@ public class LargeFireballStaff extends Item implements IHasModel
    {
       ItemStack item = playerIn.getHeldItem(handIn);
       Vec3d look = playerIn.getLookVec();
-      EntityLargeFireball largeFireball = new EntityLargeFireball(worldin, playerIn, 1D, 1D, 1D);
+      EntityLargeFireball largeFireball = new EntityLargeFireball(worldIn, playerIn, 1D, 1D, 1D);
       largeFireball.setPosition(playerIn.posX + look.x * 1.5D, playerIn.posY + look.y * 1.5D, playerIn.posZ + look.z * 1.5D);
       largeFireball.accelerationX = look.x * 7.0D;
       largeFireball.accelerationY = look.y * 7.0D;
@@ -36,7 +36,7 @@ public class LargeFireballStaff extends Item implements IHasModel
       largeFireball.setGlowing(true);
       playerIn.getCooldownTracker().setCooldown(this, 30);
       worldIn.spawnEntity(largeFireball);
-      return new ActionResult<Itemstack>(EnumActionResult.SUCCESS, item);
+      return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, item);
    }
    @Override
    public void registerModels()
