@@ -1,0 +1,7 @@
+{
+    "parent": "item/handheld",
+    "textures": 
+    {
+        "layer0": "mod:items/lightning_staff"
+    }
+}
