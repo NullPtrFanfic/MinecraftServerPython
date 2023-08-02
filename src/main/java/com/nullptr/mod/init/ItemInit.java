@@ -12,6 +12,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import com.nullptr.mod.objects.items.staffs.LargeFireballStaff;
+import com.nullptr.mod.objects.items.staffs.LightningStaff;
 
 public class ItemInit
 {
