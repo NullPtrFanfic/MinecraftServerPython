@@ -2,6 +2,6 @@
     "parent": "item/handheld",
     "textures": 
     {
-        "layer0": "tutorialmod:items/large_fireball_staff"
+        "layer0": "mod:items/large_fireball_staff"
     }
 }
