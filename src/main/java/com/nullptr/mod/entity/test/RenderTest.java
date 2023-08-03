@@ -1,6 +1,6 @@
-package com.tutorialmod.turtywurty.entity.test;
+package com.nullptr.mod.entity.test;
 
-import com.tutorialmod.turtywurty.util.Reference;
+import com.nullptr.mod.Main;
 
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderTest extends RenderLiving<EntityTest>
 {
-	public static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MOD_ID + ":textures/entity/test/test.png");
+	public static final ResourceLocation TEXTURE = new ResourceLocation(Main.MODID + ":textures/entity/test/test.png");
 	
 	public RenderTest(RenderManager manager) 
 	{
