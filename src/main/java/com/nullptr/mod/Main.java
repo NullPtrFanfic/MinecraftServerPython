@@ -31,18 +31,18 @@ public class Main
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        
+       RegistryHandler.preInitRegistries();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-       SmeltingRecipes.init();
+       RegistryHandler.initRegistries();
     }
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-
+       RegistryHandler.postInitRegistries();
     }
     @EventHandler
     public void serverInit(FMLServerStartingEvent event)
