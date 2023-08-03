@@ -56,13 +56,14 @@ public class RegistryHandler {
 		//GameRegistry.registerWorldGenerator(new WorldGenOres(), 3);
 		EntityInit.registerEntities();
 		//EventHandler.registerEvents();
-		SoundsHandler.registerSounds();
+	        SoundsHandler.registerSounds();
+		RenderHandler.registerEntityRenders();
 		//ConfigHandler.registerConfig(event);
     }
 	
     public static void initRegistries()
     {
-		//NetworkRegistry.INSTANCE.registerGuiHandler(TutorialMod.instance, new GuiHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
 		SmeltingRecipes.init();
 		EnumHelper.addArt("Test", "Test", 16, 16, 112, 0);
     }
