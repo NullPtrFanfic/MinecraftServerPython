@@ -1,4 +1,4 @@
-package com.tutorialmod.turtywurty.entity.test;
+package com.nullptr.mod.entity.test;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -56,7 +56,7 @@ public class ModelTest extends ModelBase
         this.BackRightLeg.render(f5);
     }
 
-	private void setRotation(ModelRenderer model, float x, float y, float z)
+    private void setRotation(ModelRenderer model, float x, float y, float z)
     {
     	model.rotateAngleX = x;
     	model.rotateAngleY = y;
