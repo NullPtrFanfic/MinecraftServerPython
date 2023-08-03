@@ -53,7 +53,7 @@ public class RegistryHandler {
     }
     public static void preInitRegistries(FMLPreInitializationEvent event)
     {
-		GameRegistry.registerWorldGenerator(new WorldGenOres(), 3);
+		//GameRegistry.registerWorldGenerator(new WorldGenOres(), 3);
 		EntityInit.registerEntities();
 		//EventHandler.registerEvents();
 		SoundsHandler.registerSounds();
@@ -62,18 +62,15 @@ public class RegistryHandler {
 	
     public static void initRegistries()
     {
-		NetworkRegistry.INSTANCE.registerGuiHandler(TutorialMod.instance, new GuiHandler());
+		//NetworkRegistry.INSTANCE.registerGuiHandler(TutorialMod.instance, new GuiHandler());
 		SmeltingRecipes.init();
-		//CraftingRecipes.init();
-		//OreDictionaryInit.registerOres();
-                Main.proxy.render();
 		EnumHelper.addArt("Test", "Test", 16, 16, 112, 0);
     }
 	
     public static void postInitRegistries()
     {
-		@SuppressWarnings("unused")
-		WorldType TEST_TYPE = new WorldTypeTest("test");
+		//@SuppressWarnings("unused")
+		//WorldType TEST_TYPE = new WorldTypeTest("test");
     }
     // Здесь могут быть другие методы, связанные с регистрацией предметов, блоков и других объектов
 }
