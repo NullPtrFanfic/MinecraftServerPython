@@ -2,6 +2,7 @@ package com.nullptr.mod.util.handlers;
 
 import com.nullptr.mod.init.ItemInit;
 import com.nullptr.mod.init.BlockInit;
+import com.nullptr.mod.Main;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -43,28 +44,28 @@ public class RegistryHandler {
 	   event.getRegistry().registerAll(BlockInit.BLOCKS.toArray(new Block[0]));
     }
     public static void preInitRegistries(FMLPreInitializationEvent event)
-	{
+    {
 		GameRegistry.registerWorldGenerator(new WorldGenOres(), 3);
 		EntityInit.registerEntities();
 		EventHandler.registerEvents();
 		SoundsHandler.registerSounds();
 		ConfigHandler.registerConfig(event);
-	}
+    }
 	
-	public static void initRegistries()
-	{
+    public static void initRegistries()
+    {
 		NetworkRegistry.INSTANCE.registerGuiHandler(TutorialMod.instance, new GuiHandler());
 		SmeltingRecipes.init();
 		//CraftingRecipes.init();
 		//OreDictionaryInit.registerOres();
                 Main.proxy.render();
 		EnumHelper.addArt("Test", "Test", 16, 16, 112, 0);
-	}
+    }
 	
-	public static void postInitRegistries()
-	{
+    public static void postInitRegistries()
+    {
 		@SuppressWarnings("unused")
 		WorldType TEST_TYPE = new WorldTypeTest("test");
-				  }
+    }
     // Здесь могут быть другие методы, связанные с регистрацией предметов, блоков и других объектов
 }
