@@ -22,7 +22,7 @@ public class Main
     public static final String VERSION = "0.1";
     public static final String CLIENT_PROXY_CLASS = "com.nullptr.mod.proxy.ClientProxy";
     public static final String COMMON_PROXY_CLASS = "com.nullptr.mod.proxy.CommonProxy";
-
+    public static final int ENTITY_TEST = 250;
     @Instance
     public static Main instance;
     @SidedProxy(clientSide = CLIENT_PROXY_CLASS, serverSide = COMMON_PROXY_CLASS)
