@@ -19,6 +19,8 @@ import net.minecraftforge.common.util.EnumHelper;
 import com.nullptr.mod.recipes.SmeltingRecipes;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import com.nullptr.mod.init.EntityInit;
+import com.nullptr.mod.util.handlers.EventHandler;
+import com.nullptr.mod.util.handlers.SoundsHandler;
 
 @EventBusSubscriber
 public class RegistryHandler {
@@ -55,7 +57,7 @@ public class RegistryHandler {
 		EntityInit.registerEntities();
 		EventHandler.registerEvents();
 		SoundsHandler.registerSounds();
-		ConfigHandler.registerConfig(event);
+		//ConfigHandler.registerConfig(event);
     }
 	
     public static void initRegistries()
