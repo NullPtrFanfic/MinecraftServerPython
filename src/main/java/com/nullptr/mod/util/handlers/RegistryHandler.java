@@ -19,7 +19,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import com.nullptr.mod.recipes.SmeltingRecipes;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import com.nullptr.mod.init.EntityInit;
-import com.nullptr.mod.util.handlers.EventHandler;
+//import com.nullptr.mod.util.handlers.EventHandler;
 import com.nullptr.mod.util.handlers.SoundsHandler;
 
 @EventBusSubscriber
@@ -55,7 +55,7 @@ public class RegistryHandler {
     {
 		GameRegistry.registerWorldGenerator(new WorldGenOres(), 3);
 		EntityInit.registerEntities();
-		EventHandler.registerEvents();
+		//EventHandler.registerEvents();
 		SoundsHandler.registerSounds();
 		//ConfigHandler.registerConfig(event);
     }
