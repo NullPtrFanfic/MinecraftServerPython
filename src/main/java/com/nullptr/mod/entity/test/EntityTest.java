@@ -47,32 +47,32 @@ public class EntityTest extends EntityAgeable
       return new EntityTest(world);
    }
    @Override
-	 protected SoundEvent getDeathSound() 
-	 {
-		  return SoundsHandler.TEST_DEATH;
-	 }
-	
- 	 @Override
- 	 protected SoundEvent getAmbientSound() 
- 	 {
-	 	  return SoundsHandler.TEST_AMBIENT;
-	 }
-	
-	 @Override
-	 protected SoundEvent getHurtSound(DamageSource damageSourceIn) 
-	 {
-		  return SoundsHandler.TEST_HURT;
-	 }
-	
- 	 @Override
-	 protected ResourceLocation getLootTable() 
+   protected SoundEvent getDeathSound() 
    {
-		  return LootTableHandler.TEST;
-	 }
+	return SoundsHandler.TEST_DEATH;
+   }
 	
-	 @Override
-	 protected boolean canDropLoot() 
-	 {
-		  return true;
+   @Override
+   protected SoundEvent getAmbientSound() 
+   {
+	return SoundsHandler.TEST_AMBIENT;
+   }
+	
+   @Override
+   protected SoundEvent getHurtSound(DamageSource damageSourceIn) 
+   {
+	return SoundsHandler.TEST_HURT;
+   }
+	
+   @Override
+   protected ResourceLocation getLootTable() 
+   {
+        return LootTableHandler.TEST;
+   }
+	
+   @Override
+   protected boolean canDropLoot() 
+   {
+	return true;
    }
 }
