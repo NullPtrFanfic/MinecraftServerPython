@@ -27,7 +27,7 @@ public class EntityTest extends EntityAgeable
    protected void initEntityAI()
    {
       this.tasks.addTask(2, new EntityAISwimming(this));
-      this.tasks.addTask(1, new EntityAIWander(this, 0.3D);
+      this.tasks.addTask(1, new EntityAIWander(this, 0.3D));
       this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.5D, true));
       this.tasks.addTask(3, new EntityAIAvoidEntity<>(this, EntityMob.class, 4.0F, 2.2D, 2.2D));
       this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 1.0F));
