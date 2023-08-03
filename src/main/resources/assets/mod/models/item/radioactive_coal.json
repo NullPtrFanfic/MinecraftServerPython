@@ -2,6 +2,6 @@
     "parent": "item/generated",
     "textures": 
     {
-        "layer0": "tutorialmod:items/radioactive_coal"
+        "layer0": "mod:items/radioactive_coal"
     }
 }
