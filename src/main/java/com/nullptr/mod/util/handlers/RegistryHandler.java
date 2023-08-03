@@ -19,7 +19,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import com.nullptr.mod.recipes.SmeltingRecipes;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import com.nullptr.mod.init.EntityInit;
-//import com.nullptr.mod.util.handlers.EventHandler;
+import com.nullptr.mod.util.handlers.RenderHandler;
 import com.nullptr.mod.util.handlers.SoundsHandler;
 
 @EventBusSubscriber
@@ -63,14 +63,14 @@ public class RegistryHandler {
 	
     public static void initRegistries()
     {
-		NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
+		//NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
 		SmeltingRecipes.init();
 		EnumHelper.addArt("Test", "Test", 16, 16, 112, 0);
     }
 	
     public static void postInitRegistries()
     {
-		//@SuppressWarnings("unused")
+		@SuppressWarnings("unused")
 		//WorldType TEST_TYPE = new WorldTypeTest("test");
     }
     // Здесь могут быть другие методы, связанные с регистрацией предметов, блоков и других объектов
