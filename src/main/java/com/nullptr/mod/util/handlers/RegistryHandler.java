@@ -11,8 +11,14 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import com.nullptr.mod.util.interfaces.IHasModel;
 import net.minecraft.block.Block;
+import net.minecraft.world.WorldType;
+import net.minecraftforge.common.util.EnumHelper;
+import com.nullptr.mod.recipes.SmeltingRecipes;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import com.nullptr.mod.init.EntityInit;
 
 @EventBusSubscriber
 public class RegistryHandler {
