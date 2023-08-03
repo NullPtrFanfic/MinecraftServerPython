@@ -2,6 +2,6 @@
     "parent": "item/generated",
     "textures": 
     {
-        "layer0": "tutorialmod:items/lemon_seeds"
+        "layer0": "mod:items/lemon_seeds"
     }
 }
