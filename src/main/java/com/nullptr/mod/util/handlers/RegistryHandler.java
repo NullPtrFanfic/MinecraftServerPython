@@ -70,7 +70,7 @@ public class RegistryHandler {
 	
     public static void postInitRegistries()
     {
-		@SuppressWarnings("unused")
+		//@SuppressWarnings("unused")
 		//WorldType TEST_TYPE = new WorldTypeTest("test");
     }
     // Здесь могут быть другие методы, связанные с регистрацией предметов, блоков и других объектов
