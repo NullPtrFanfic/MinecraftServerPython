@@ -7,7 +7,7 @@
                 {
                     "type":"item",
                     "weight":1,
-                    "name":"tutorialmod:radioactive_coal",
+                    "name":"mod:radioactive_coal",
                     "functions":[
                         {
                             "function":"set_count",
@@ -27,7 +27,7 @@
                 {
                     "type":"item",
                     "weight":1,
-                    "name":"tutorialmod:lemon_seeds",
+                    "name":"mod:lemon_seeds",
                     "functions":[
                         {
                             "function":"set_count",
