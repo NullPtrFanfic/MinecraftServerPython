@@ -33,6 +33,7 @@ public class EntityInit {
 
         // This is the loot table for our mob
         LootTableList.register(EntityWeirdZombie.LOOT);
+	Netero.init();
     }
 
     @SideOnly(Side.CLIENT)
