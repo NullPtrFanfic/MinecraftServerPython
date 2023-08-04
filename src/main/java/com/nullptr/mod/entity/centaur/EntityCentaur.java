@@ -1,4 +1,4 @@
-package com.nullptr.mod.entity;
+package com.nullptr.mod.entity.centaur;
 
 import com.nullptr.mod.init.ItemInit;
 import com.nullptr.mod.util.handlers.LootTableHandler;
