@@ -21,7 +21,7 @@ public class RenderHandler
 {
 	public static void registerEntityRenders()
 	{
-		RenderingRegistry.registerEntityRenderingHandler(EntityCentaur.class, new IRenderFactory<EntityCentaur>()
+		/*RenderingRegistry.registerEntityRenderingHandler(EntityCentaur.class, new IRenderFactory<EntityCentaur>()
 		{
 			@Override
 			public Render<? super EntityCentaur> createRenderFor(RenderManager manager) 
@@ -36,6 +36,6 @@ public class RenderHandler
 			{
 				return new RenderTest(manager);		
 			}
-		});
+		});*/
 	}
 }
