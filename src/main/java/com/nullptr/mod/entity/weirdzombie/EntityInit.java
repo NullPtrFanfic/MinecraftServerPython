@@ -2,6 +2,10 @@ package com.nullptr.mod.entity.weirdzombie;
 
 import com.nullptr.mod.entity.weirdzombie.EntityWeirdZombie;
 import com.nullptr.mod.entity.weirdzombie.RenderWeirdZombie;
+import com.nullptr.mod.entity.test.EntityTest;
+import com.nullptr.mod.entity.test.RenderTest;
+import com.nullptr.mod.entity.centaur.EntityCentaur;
+import com.nullptr.mod.entity.centaur.RenderCentaur;
 import com.nullptr.mod.Main;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
@@ -29,5 +33,21 @@ public class EntityInit {
     @SideOnly(Side.CLIENT)
     public static void initModels() {
         RenderingRegistry.registerEntityRenderingHandler(EntityWeirdZombie.class, RenderWeirdZombie.FACTORY);
+        RenderingRegistry.registerEntityRenderingHandler(EntityCentaur.class, new IRenderFactory<EntityCentaur>()
+        {
+                @Override
+                public Render<? super EntityCentaur> createRenderFor(RenderManager manager) 
+                {
+                    return new RenderCentaur(manager);
+                }
+        });
+        RenderingRegistry.registerEntityRenderingHandler(EntityTest.class, new IRenderFactory<EntityTest>()
+        {
+                @Override
+                public Render<? super EntityTest> createRenderFor(RenderManager manager) 
+                {
+                    return new RenderTest(manager);		
+                }
+        });
     }
 }
