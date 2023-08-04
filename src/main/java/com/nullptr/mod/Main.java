@@ -34,12 +34,15 @@ public class Main
     {
        RegistryHandler.preInitRegistries(event);
        proxy.preInit(event);
+       proxy.addOBJLoaderDomainIfOnClient();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
        RegistryHandler.initRegistries();
+       ThrowableRegistryHandler.registerThrowableEntities();
+       ThrowableRenderHandler.registerThrowableEntityRenders();
     }
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
