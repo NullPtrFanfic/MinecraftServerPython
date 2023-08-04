@@ -2,6 +2,7 @@ package com.nullptr.mod.init;
 import com.nullptr.mod.Main;
 import net.minecraft.entity.Entity;
 import com.nullptr.mod.entity.test.EntityTest;
+import com.nullptr.mod.entity.centaur.EntityCentaur;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 public class EntityInit
