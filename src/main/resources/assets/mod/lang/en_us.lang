@@ -8,5 +8,6 @@ item.lightning_staff.name=Lightning Staff
 item.radioactive_coal.name=Radioactive Coal
 item.lemon_seeds.name=Lemon Seeds
 entity.test.name=Test
+entity.centaur.name=Centaur
 tile.silver_block.name=Silver Block
 itemGroup.modtab=Tab
