@@ -1,6 +1,6 @@
-package mcjty.modtut.blocks.bakedmodel;
+package com.nullptr.mod;
 
-import mcjty.modtut.ModTut;
+import com.nullptr.mod.Main;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ICustomModelLoader;
@@ -13,7 +13,7 @@ public class BakedModelLoader implements ICustomModelLoader {
 
     @Override
     public boolean accepts(ResourceLocation modelLocation) {
-        return modelLocation.getResourceDomain().equals(ModTut.MODID) && "bakedmodelblock".equals(modelLocation.getResourcePath());
+        return modelLocation.getResourceDomain().equals(Main.MODID) && "bakedmodelblock".equals(modelLocation.getResourcePath());
     }
 
     @Override
