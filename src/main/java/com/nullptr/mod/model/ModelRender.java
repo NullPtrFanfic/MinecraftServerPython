@@ -9,7 +9,7 @@ import com.nullptr.mod.model.ModelNetero;
 import com.nullptr.mod.Main;
 
 public class ModelRender extends Render<Netero>{
-	  public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/entities/pokemon/enderman.png");
+	  public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/entity/netero/netero.png");
 
 	  private ModelNetero model = new ModelNetero();
 	  @Override
