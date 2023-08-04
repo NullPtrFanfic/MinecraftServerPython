@@ -89,9 +89,9 @@ public class ModelRender /*extends Render<Netero>*/ implements LayerRenderer<Abs
         GlStateManager.rotate(90, 1, 0, 0);
         GlStateManager.rotate(entity.rotationPitch, 1, 0, 0);
         GlStateManager.translate(0, -1.5, 0);
-        this.bindEntityTexture(entity);
+        //this.bindEntityTexture(entity);
         this.netero_model.render(entity, 0.0F, 0.0F, -0.1F, entity.rotationYaw, entity.rotationPitch, 0.0625F);
         GlStateManager.popMatrix();
-        super.doRender(entity, x, y, z, entityYaw, partialTicks);
+        //super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
 }
