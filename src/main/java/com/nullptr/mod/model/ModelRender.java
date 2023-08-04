@@ -25,7 +25,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
-import net.minecraft.client.renderer.model.BakeQuad;
+import net.minecraft.client.renderer.model.BakedQuad;
 
 @SideOnly(Side.CLIENT)
 public class ModelRender extends Render<Netero> implements LayerRenderer<AbstractClientPlayer> {
