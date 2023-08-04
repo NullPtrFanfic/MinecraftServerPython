@@ -17,6 +17,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import java.util.Map;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderPlayer;
+import net.minecraft.util.ResourceLocation;
+import com.nullptr.mod.model.ModelRender;
 //import pixelmonMod.itemANDblock.items.pokeballs.Pokeballs;
 
 public class Netero extends EntityCreature{
