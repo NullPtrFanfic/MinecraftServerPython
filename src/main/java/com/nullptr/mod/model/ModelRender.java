@@ -23,6 +23,8 @@ import net.minecraftforge.common.model.TRSRTransformation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
 
 @SideOnly(Side.CLIENT)
 public class ModelRender extends Render<Netero> implements LayerRenderer<AbstractClientPlayer> {
@@ -63,7 +65,7 @@ public class ModelRender extends Render<Netero> implements LayerRenderer<Abstrac
     }
 
     public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/entity/netero/netero.png");
-    private ModelNetero model = new ModelNetero();
+    private ModelNetero netero_model = new ModelNetero();
 
     @Override
     protected ResourceLocation getEntityTexture(Netero entity) {
@@ -78,7 +80,7 @@ public class ModelRender extends Render<Netero> implements LayerRenderer<Abstrac
         GlStateManager.rotate(entity.rotationPitch, 1, 0, 0);
         GlStateManager.translate(0, -1.5, 0);
         this.bindEntityTexture(entity);
-        this.model.render(entity, 0.0F, 0.0F, -0.1F, entity.rotationYaw, entity.rotationPitch, 0.0625F);
+        this.netero_model.render(entity, 0.0F, 0.0F, -0.1F, entity.rotationYaw, entity.rotationPitch, 0.0625F);
         GlStateManager.popMatrix();
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
