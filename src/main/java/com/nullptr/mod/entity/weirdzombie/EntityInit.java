@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityInit() {
+public class EntityInit {
     public static void init() {
         // Every entity in our mod has an ID (local to this mod)
         int id = 1;
