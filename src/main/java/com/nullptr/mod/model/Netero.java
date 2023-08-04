@@ -1,6 +1,6 @@
 package com.nullptr.mod.model;
 
-import net.minecraft.entity.Entity
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityList;
