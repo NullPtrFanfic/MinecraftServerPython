@@ -28,7 +28,7 @@ public class RenderHandler
 			{
 				return new RenderCentaur(manager);
 			}
-		});
+		});*/
 		RenderingRegistry.registerEntityRenderingHandler(EntityTest.class, new IRenderFactory<EntityTest>()
 		{
 			@Override
@@ -36,6 +36,6 @@ public class RenderHandler
 			{
 				return new RenderTest(manager);		
 			}
-		});*/
+		});
 	}
 }
