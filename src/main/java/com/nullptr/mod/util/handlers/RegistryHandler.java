@@ -57,7 +57,7 @@ public class RegistryHandler {
 		EntityInit.registerEntities();
 		//EventHandler.registerEvents();
 	        SoundsHandler.registerSounds();
-		RenderHandler.registerEntityRenders();
+		//RenderHandler.registerEntityRenders();
 		//ConfigHandler.registerConfig(event);
     }
 	
