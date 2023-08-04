@@ -33,6 +33,5 @@ public class RenderHandler
                     return new RenderTest(manager);		
                 }
             });
-        }
     }
 }
