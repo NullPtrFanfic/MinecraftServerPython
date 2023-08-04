@@ -77,12 +77,12 @@ public class ModelRender /*extends Render<Netero>*/ implements LayerRenderer<Abs
     public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/entity/netero/netero.png");
     private ModelNetero netero_model = new ModelNetero();
 
-    @Override
+    //@Override
     protected ResourceLocation getEntityTexture(Netero entity) {
         return TEXTURES;
     }
 
-    @Override
+    //@Override
     public void doRender(Netero entity, double x, double y, double z, float entityYaw, float partialTicks) {
         GlStateManager.pushMatrix();
         GlStateManager.translate(x, y, z);
