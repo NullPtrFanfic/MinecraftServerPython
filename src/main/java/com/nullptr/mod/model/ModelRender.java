@@ -33,7 +33,7 @@ public class ModelRender extends Render<Netero> implements LayerRenderer<Abstrac
     static ResourceLocation texture;
 
     public ModelRender() {
-        super(renderManager);
+        //super(renderManager);
         this.model = ModelLoaderRegistry.getModelOrLogError(new ResourceLocation(Main.MODID, "models/entity/pokeball.obj"), "Missing model");
         try { 
             this.model = OBJLoader.INSTANCE.loadModel(this.texture); 
