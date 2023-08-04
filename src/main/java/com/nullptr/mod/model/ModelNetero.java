@@ -1,16 +1,9 @@
-package pixelmonMod.entities.pokemonEntities.pokemonModel;
-
-
+package com.nullptr.mod.model;
 
 import net.minecraft.client.model.ModelBase;
-
 import net.minecraft.client.model.ModelRenderer;
-
 import net.minecraft.entity.Entity;
-
 import net.minecraft.util.math.MathHelper;
-
-
 
 /**
 
@@ -20,7 +13,7 @@ import net.minecraft.util.math.MathHelper;
 
  */
 
-	public class P25ModelPikachu extends ModelBase {
+public class ModelNetero extends ModelBase {
 
 	    public ModelRenderer field_178721_j;
 
@@ -34,7 +27,7 @@ import net.minecraft.util.math.MathHelper;
 
 
 
-	    public P25ModelPikachu() {
+	    public ModelNetero() {
 
 	        this.textureWidth = 64;
 
@@ -77,7 +70,6 @@ import net.minecraft.util.math.MathHelper;
 
 
 	    @Override
-
 	    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
 
 	        this.field_78116_c.render(f5);
@@ -119,7 +111,6 @@ import net.minecraft.util.math.MathHelper;
 	    
 
 	    @Override	
-
 	    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
 
 	    	this.field_178720_f.rotateAngleX = MathHelper.cos(limbSwing * 0.6662f) * 1.4f * limbSwingAmount;
@@ -133,56 +124,4 @@ import net.minecraft.util.math.MathHelper;
 	    	this.field_178722_k.rotateAngleX = headPitch = 0.017453292f;
 
 	    }
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	    
-
-	}
-
-
-
+}
