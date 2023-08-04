@@ -1,7 +1,7 @@
 package com.nullptr.mod.client.renderer;
 
 import com.nullptr.mod.Main;
-import com.nullptr.mod.entity.Netero;
+import com.nullptr.mod.model.Netero;
 import com.nullptr.mod.model.ModelNetero;
 
 import net.minecraft.client.renderer.BufferBuilder;
@@ -21,6 +21,7 @@ import net.minecraftforge.common.model.IModel;
 import net.minecraftforge.common.model.TRSRTransformation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.client.entity.AbstractClientPlayer;
 
 @SideOnly(Side.CLIENT)
 public class RenderNetero extends Render<Netero> implements LayerRenderer<AbstractClientPlayer> {
