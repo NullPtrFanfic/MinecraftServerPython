@@ -11,7 +11,7 @@ import javax.annotation.Nonnull;
 
 public class RenderWeirdZombie extends RenderLiving<EntityWeirdZombie> {
 
-    private ResourceLocation mobTexture = new ResourceLocation("modtut:textures/entity/weirdzombie.png");
+    private ResourceLocation mobTexture = new ResourceLocation("modtut:textures/entity/weirdzombie/weirdzombie.png");
 
     public static final Factory FACTORY = new Factory();
 
