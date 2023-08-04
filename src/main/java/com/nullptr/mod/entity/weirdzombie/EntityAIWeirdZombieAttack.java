@@ -1,5 +1,6 @@
 package com.nullptr.mod.entity.weirdzombie;
 
+import com.nullptr.mod.entity.weirdzombie.EntityWeirdZombie;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 
 /**
