@@ -1,6 +1,7 @@
 package com.nullptr.mod.proxy;
 
 import com.nullptr.mod.Main;
+import com.nullptr.mod.BakedModelLoader;
 import com.nullptr.mod.entity.weirdzombie.EntityWeirdZombie;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
