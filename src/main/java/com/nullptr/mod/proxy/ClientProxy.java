@@ -1,5 +1,7 @@
 package com.nullptr.mod.proxy;
 
+import com.nullptr.mod.Main;
+import com.nullptr.mod.entity.weirdzombie.EntityWeirdZombie;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
@@ -20,11 +22,11 @@ public class ClientProxy extends CommonProxy {
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
 
-        OBJLoader.INSTANCE.addDomain(ModTut.MODID);
+        OBJLoader.INSTANCE.addDomain(Main.MODID);
         ModelLoaderRegistry.registerLoader(new BakedModelLoader());
 
         // Typically initialization of models and such goes here:
-        ModEntities.initModels();
+        EntityWeirdZombie.initModels();
     }
 
     @Override
