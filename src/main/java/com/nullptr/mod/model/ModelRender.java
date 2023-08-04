@@ -1,4 +1,4 @@
-package com.nullptr.mod.client.renderer;
+package com.nullptr.mod.model;
 
 import com.nullptr.mod.Main;
 import com.nullptr.mod.model.Netero;
