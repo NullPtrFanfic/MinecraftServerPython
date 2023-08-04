@@ -10,22 +10,21 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.fml.common.FMLCommonHandler;
+//import net.minecraftforge.fml.common.FMLCommonHandler;
 
 @SideOnly(Side.CLIENT)
 public class RenderHandler 
 {
     public static void registerEntityRenders()
     {
-        if (isClientSide()) {
-            /*RenderingRegistry.registerEntityRenderingHandler(EntityCentaur.class, new IRenderFactory<EntityCentaur>()
+            RenderingRegistry.registerEntityRenderingHandler(EntityCentaur.class, new IRenderFactory<EntityCentaur>()
             {
                 @Override
                 public Render<? super EntityCentaur> createRenderFor(RenderManager manager) 
                 {
                     return new RenderCentaur(manager);
                 }
-            });*/
+            });
             RenderingRegistry.registerEntityRenderingHandler(EntityTest.class, new IRenderFactory<EntityTest>()
             {
                 @Override
@@ -35,9 +34,5 @@ public class RenderHandler
                 }
             });
         }
-    }
-
-    private static boolean isClientSide() {
-        return Side.CLIENT == FMLCommonHandler.instance().getEffectiveSide();
     }
 }
