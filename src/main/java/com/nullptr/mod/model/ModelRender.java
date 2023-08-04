@@ -25,7 +25,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
-import net.minecraft.client.renderer.model.BakedQuad;
+import net.minecraft.client.renderer.block.model.IBackedModel;
 
 @SideOnly(Side.CLIENT)
 public class ModelRender extends Render<Netero> implements LayerRenderer<AbstractClientPlayer> {
@@ -52,7 +52,7 @@ public class ModelRender extends Render<Netero> implements LayerRenderer<Abstrac
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder worldrenderer = tessellator.getBuffer();
         worldrenderer.begin(GL11.GL_QUADS, fmt);
-        for (BakedQuad bakedquad : model.getQuads(null, null, 0)) {
+        for (IBackedModel bakedquad : model.getQuads(null, null, 0)) {
             worldrenderer.addVertexData(bakedquad.getVertexData());
             // net.minecraftforge.client.model.pipeline.LightUtil.renderQuadColor(worldrenderer, bakedquad, -1);
         }
