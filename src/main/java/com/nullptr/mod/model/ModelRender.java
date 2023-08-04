@@ -25,7 +25,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.entity.AbstractClientPlayer;
 
 @SideOnly(Side.CLIENT)
-public class RenderNetero extends Render<Netero> implements LayerRenderer<AbstractClientPlayer> {
+public class ModelRender extends Render<Netero> implements LayerRenderer<AbstractClientPlayer> {
     static private IModel model;
     static private IBakedModel bakedModel;
     static ResourceLocation texture;
