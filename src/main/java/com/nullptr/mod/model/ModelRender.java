@@ -43,7 +43,7 @@ public class ModelRender extends Render<Netero> implements LayerRenderer<Abstrac
         } 
         if (this.model != null) {
             this.bakedModel = this.model.bake(TRSRTransformation.identity(), DefaultVertexFormats.ITEM, ModelLoader.defaultTextureGetter());
-            ModelLoader.defaultTextureGetter());
+            ModelLoader.defaultTextureGetter();
         }
     }
 
