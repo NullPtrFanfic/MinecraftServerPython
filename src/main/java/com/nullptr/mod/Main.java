@@ -41,8 +41,6 @@ public class Main
     public void init(FMLInitializationEvent event)
     {
        RegistryHandler.initRegistries();
-       ThrowableRegistryHandler.registerThrowableEntities();
-       ThrowableRenderHandler.registerThrowableEntityRenders();
     }
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
