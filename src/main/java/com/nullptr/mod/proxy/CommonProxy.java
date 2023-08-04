@@ -16,4 +16,6 @@ public class CommonProxy {
     public void registerItemRenderer(Item item, int meta, String id) {
         // Здесь ваш код
     }
+    public void addOBJLoaderDomainIfOnClient() {
+	}
 }
