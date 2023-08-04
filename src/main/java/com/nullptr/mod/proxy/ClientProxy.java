@@ -16,15 +16,13 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.client.model.obj.OBJLoader;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
-
-        OBJLoader.INSTANCE.addDomain(Main.MODID);
-       // ModelLoaderRegistry.registerLoader(new BakedModelLoader());
 
         // Typically initialization of models and such goes here:
         EntityInit.initModels();
@@ -33,5 +31,9 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void registerItemRenderer(Item item, int meta, String id) {
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
+    }
+    @Override
+    public void addOBJLoaderDomainIfOnClient() {
+        OBJLoader.INSTANCE.addDomain(Main.MODID);
     }
 }
