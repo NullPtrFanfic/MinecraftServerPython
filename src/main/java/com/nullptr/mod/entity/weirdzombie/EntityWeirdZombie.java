@@ -1,4 +1,4 @@
-package com.nullptr.mod;
+package com.nullptr.mod.entity.weirdzombie;
 
 import com.nullptr.mod.Main;
 import net.minecraft.entity.Entity;
