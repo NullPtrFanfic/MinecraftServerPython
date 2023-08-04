@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderCentaur extends RenderLiving<EntityCentaur>
 {
-	public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/entity/centaur.png");
+	public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/entity/centaur/texture.png");
 	
 	public RenderCentaur(RenderManager manager) 
 	{
