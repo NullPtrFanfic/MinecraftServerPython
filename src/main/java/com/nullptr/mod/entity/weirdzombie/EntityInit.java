@@ -55,11 +55,11 @@ public class EntityInit {
                     return new RenderTest(manager);		
                 }
         });
-        RenderingRegistry.registerEntityRenderingHandler(Netero.class, new IRenderFactory<Netero>() {
+      /*  RenderingRegistry.registerEntityRenderingHandler(Netero.class, new IRenderFactory<Netero>() {
 			@Override
 			public Render<? super Netero> createRenderFor(RenderManager manager) {
 				return new ModelRender(manager);
 			}
-		});
+		});*/
     }
 }
