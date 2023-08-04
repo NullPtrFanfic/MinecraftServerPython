@@ -10,10 +10,11 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 
+@SideOnly(Side.CLIENT)
 public class RenderHandler 
 {
-    @SideOnly(Side.CLIENT)
     public static void registerEntityRenders()
     {
         if (isClientSide()) {
@@ -37,6 +38,6 @@ public class RenderHandler
     }
 
     private static boolean isClientSide() {
-        return Side.CLIENT == net.minecraftforge.fml.common.FMLCommonHandler.instance().getEffectiveSide();
+        return Side.CLIENT == FMLCommonHandler.instance().getEffectiveSide();
     }
 }
