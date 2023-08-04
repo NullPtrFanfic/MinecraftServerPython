@@ -29,7 +29,7 @@ public class Netero extends EntityCreature{
 		super(worldIn);
 		this.setSize(1f, 2.4f);
 	}
-        @Override 
+        //@Override 
 	public void init() { 
 		Map<String, RenderPlayer> skinMap = Minecraft.getMinecraft().getRenderManager().getSkinMap(); 
 		RenderPlayer render = skinMap.get("default"); 
