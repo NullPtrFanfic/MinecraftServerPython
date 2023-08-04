@@ -1,5 +1,6 @@
 package com.nullptr.mod.entity.weirdzombie;
 
+import com.nullptr.mod.entity.weirdzombie.EntityWeirdZombie;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
