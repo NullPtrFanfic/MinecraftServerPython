@@ -33,6 +33,7 @@ public class Main
     public void preInit(FMLPreInitializationEvent event)
     {
        RegistryHandler.preInitRegistries(event);
+       proxy.preInit(event);
     }
 
     @EventHandler
