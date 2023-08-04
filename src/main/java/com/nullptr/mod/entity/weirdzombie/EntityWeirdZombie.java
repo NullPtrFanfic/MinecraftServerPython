@@ -27,7 +27,7 @@ public class EntityWeirdZombie extends EntityMob {
     // We reuse the zombie model which has arms that need to be raised when the zombie is attacking:
     private static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.createKey(EntityWeirdZombie.class, DataSerializers.BOOLEAN);
 
-    public static final ResourceLocation LOOT = new ResourceLocation(Main.MODID, "loot_tables/entity/weirdzombie/weirdzombie");
+    public static final ResourceLocation LOOT = new ResourceLocation(Main.MODID, "loot_tables/entity/weirdzombie/weird_zombie.json");
 
     public EntityWeirdZombie(World worldIn) {
         super(worldIn);
