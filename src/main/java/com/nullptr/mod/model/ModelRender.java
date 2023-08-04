@@ -32,9 +32,11 @@ public class ModelRender extends Render<Netero> implements LayerRenderer<Abstrac
     static private IBakedModel bakedModel;
     static ResourceLocation texture;
 
-    public ModelRender(RenderManager renderManager) {
+    public ModelRender() {
         super(renderManager);
         this.model = ModelLoaderRegistry.getModelOrLogError(new ResourceLocation(Main.MODID, "models/entity/pokeball.obj"), "Missing model");
+        try { this.model = OBJLoader.INSTANCE.loadModel(this.texture); } catch (Exception e) { e.printStackTrace(); } if (this.model != null) {
+            ModelLoader.default
         this.bakedModel = this.model.bake(TRSRTransformation.identity(), DefaultVertexFormats.ITEM, ModelLoader.defaultTextureGetter());
     }
 
