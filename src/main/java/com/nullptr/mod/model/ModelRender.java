@@ -17,7 +17,7 @@ public class ModelRender extends Render<Netero>{
 	      return TEXTURES;
   	  }
 
-	  public RenderNetero(RenderManager renderManager) {
+	  public ModelRender(RenderManager renderManager) {
 		    super(renderManager);
 	  }
 
