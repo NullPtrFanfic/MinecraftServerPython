@@ -24,7 +24,7 @@ public class ClientProxy extends CommonProxy {
         super.preInit(e);
 
         OBJLoader.INSTANCE.addDomain(Main.MODID);
-        ModelLoaderRegistry.registerLoader(new BakedModelLoader());
+       // ModelLoaderRegistry.registerLoader(new BakedModelLoader());
 
         // Typically initialization of models and such goes here:
         EntityInit.initModels();
