@@ -235,8 +235,6 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
 		// Render Parts:
         for(ObjObject part : this.wavefrontParts) {
             String partName = part.getName().toLowerCase();
-            if(!this.canRenderPart(partName, entity, layer, renderAsTrophy))
-                continue;
             this.currentAnimationPart = this.animationParts.get(partName);
             if(this.currentAnimationPart == null) {
             	continue;
@@ -267,9 +265,9 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
             this.currentAnimationPart.applyAnimationFrames(this.animator);
 
             // Render Part:
-			this.onRenderStart(layer, entity, renderAsTrophy);
-            this.wavefrontObject.renderGroup(part, this.getPartColor(partName, entity, layer, renderAsTrophy, loop), this.getPartTextureOffset(partName, entity, layer, renderAsTrophy, loop), null);
-			this.onRenderFinish(layer, entity, renderAsTrophy);
+			this.onRenderStart(entity, renderAsTrophy);
+            this.wavefrontObject.renderGroup(part, this.getPartColor(partName, entity, renderAsTrophy, loop), this.getPartTextureOffset(partName, entity, renderAsTrophy, loop), null);
+			this.onRenderFinish(entity, renderAsTrophy);
 			GlStateManager.popMatrix();
 		}
 
