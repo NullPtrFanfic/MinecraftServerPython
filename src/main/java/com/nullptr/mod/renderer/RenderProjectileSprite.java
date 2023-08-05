@@ -41,14 +41,6 @@ public class RenderProjectileSprite extends Render {
     public void doRender(Entity entity, double x, double y, double z, float par8, float par9) {
     	if(this.renderTime++ > Integer.MAX_VALUE - 1)
             this.renderTime = 0;
-		if(entity instanceof CustomProjectileEntity && ((CustomProjectileEntity) entity).getLaserEnd() != null) {
-			this.renderLaser((CustomProjectileEntity)entity, x, y, z, par8, par9, ((CustomProjectileEntity)entity).laserWidth);
-			return;
-		}
-		if(entity instanceof EntityProjectileLaser) {
-			this.renderOldLaser((BaseProjectileEntity)entity, ((EntityProjectileLaser)entity).getLaserEnd(), x, y, z, par8, par9, ((EntityProjectileLaser)entity).getLaserWidth(), ((EntityProjectileLaser)entity).getLength());
-			return;
-		}
 		this.renderProjectile(entity, x, y, z, par8, par9);
     }
     
@@ -58,14 +50,6 @@ public class RenderProjectileSprite extends Render {
     // ==================================================
     public void renderProjectile(Entity entity, double x, double y, double z, float par8, float par9) {
     	double scale = 1d;
-    	if(entity instanceof CustomProjectileEntity && ((CustomProjectileEntity)entity).projectileInfo == null) {
-    		return;
-		}
-        if(entity instanceof BaseProjectileEntity) {
-            BaseProjectileEntity baseProjectileEntity = (BaseProjectileEntity)entity;
-            scale *= baseProjectileEntity.getProjectileScale();
-            y += baseProjectileEntity.getTextureOffsetY();
-        }
 		ResourceLocation texture = this.getEntityTexture(entity);
         if(texture == null) {
         	return;
@@ -255,19 +239,8 @@ public class RenderProjectileSprite extends Render {
     // ========== Get Texture ==========
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-    	if(entity instanceof BaseProjectileEntity)
-    		return ((BaseProjectileEntity)entity).getTexture();
-    	else if(entity instanceof EntityParticle)
-    		return ((EntityParticle)entity).getTexture();
     	return null;
     }
 
     // ========== Get Laser Texture ==========
-    protected ResourceLocation getLaserTexture(BaseProjectileEntity entity) {
-    	if(entity instanceof CustomProjectileEntity)
-    		return ((CustomProjectileEntity)entity).getBeamTexture();
-		if(entity instanceof EntityProjectileLaser)
-			return ((EntityProjectileLaser)entity).getBeamTexture();
-    	return this.getEntityTexture(entity);
-    }
 }
