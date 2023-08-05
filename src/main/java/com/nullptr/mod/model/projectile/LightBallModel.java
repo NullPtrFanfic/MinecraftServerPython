@@ -37,7 +37,7 @@ public class LightBallModel extends ModelCreatureObj {
 	//             Add Custom Render Layers
 	// ==================================================
 	@Override
-	public void addCustomLayers(RenderCreature renderer) {
+	public void addCustomLayers() {
 		super.addCustomLayers(renderer);
 		//this.ballGlowLayer = new LayerCreatureEffect(renderer, "", true, LayerCreatureEffect.BLEND.ADD.id, true);
 		//renderer.addLayer(this.ballGlowLayer);
