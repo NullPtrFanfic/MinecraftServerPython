@@ -106,7 +106,7 @@ public abstract class ModelItemBase implements IAnimationModel {
 		}
 
 		// Load Animations:
-		ResourceLocation animationLocation = new ResourceLocation(MAIN.MODID, "models/" + path + "_animation.json");
+		ResourceLocation animationLocation = new ResourceLocation(Main.MODID, "models/" + path + "_animation.json");
 		try {
 			Gson gson = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
 			InputStream in = Minecraft.getMinecraft().getResourceManager().getResource(animationLocation).getInputStream();
