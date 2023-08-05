@@ -2,6 +2,7 @@ package com.nullptr.mod.obj;
 
 import com.nullptr.mod.Main;
 import com.nullptr.mod.obj.ObjEvent;
+import com.nullptr.mod.obj.TessellatorModelEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
