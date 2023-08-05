@@ -10,6 +10,5 @@ item.lemon_seeds.name=Lemon Seeds
 entity.test.name=Test
 entity.centaur.name=Centaur
 entity.WeirdZombie.name=Weird Zombie
-entity.Netero.name=Netero
 tile.silver_block.name=Silver Block
 itemGroup.modtab=Tab
