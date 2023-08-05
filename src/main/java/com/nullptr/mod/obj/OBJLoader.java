@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import com.nullptr.mod.obj.ObjObject;
+import com.nullptr.mod.obj.IndexedModel;
 import net.minecraft.block.material.Material;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
