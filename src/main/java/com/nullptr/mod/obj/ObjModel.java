@@ -1,4 +1,4 @@
-package com.lycanitesmobs.client.obj;
+package com.nullptr.mod.obj;
 
 import net.minecraft.client.renderer.vertex.VertexFormat;
 import org.apache.commons.io.output.ByteArrayOutputStream;
