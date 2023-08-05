@@ -1,4 +1,4 @@
-package com.lycanitesmobs.client.obj;
+package com.nullptr.mod.obj;
 
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
