@@ -1,7 +1,8 @@
 package com.lycanitesmobs.core.entity;
 
-import com.lycanitesmobs.client.AssetManager;
-import com.lycanitesmobs.core.info.projectile.ProjectileInfo;
+import com.nullptr.mod.AssetManager;
+import com.nullptr.mod.Main;
+import com.nullptr.mod.core.info.projectile.ProjectileInfo;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -41,7 +42,7 @@ public class CustomProjectileModelEntity extends CustomProjectileEntity {
 		if("projectile".equals(this.getTextureName()))
 			return null;
 		if(AssetManager.getTexture(this.getTextureName()) == null)
-			AssetManager.addTexture(this.getTextureName(), this.modInfo, "textures/projectile/" + this.getTextureName() + ".png");
+			AssetManager.addTexture(this.getTextureName(), Main.MODID, "textures/projectile/" + this.getTextureName() + ".png");
 		return AssetManager.getTexture(this.getTextureName());
 	}
 }
