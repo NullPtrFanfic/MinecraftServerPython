@@ -118,100 +118,85 @@ public class ModelObjOld extends ModelCustom {
      * @param layer The layer that is being rendered, if null the default base layer is being rendered.
      * @param scale Use to scale this mob. The default scale is 0.0625 (not sure why)! For a trophy/head-only model, set the scale to a negative amount, -1 will return a head similar in size to that of a Zombie head.
      */
-        @Override
-        public void render(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale, boolean animate) {
-        // Assess Scale and Check if Trophy:
-		boolean trophyModel = false;
-		if(scale < 0) {
-            trophyModel = true;
-			scale = -scale;
-		}
-		else {
-			scale *= 16;
-			/*if(entity instanceof BaseCreatureEntity) {
-                scale *= ((BaseCreatureEntity)entity).getRenderScale();*/
-            //}
-		}
+ @Override
+ public void render(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale, boolean animate) {
+    // Assess Scale and Check if Trophy:
+    boolean trophyModel = false;
+    if (scale < 0) {
+        trophyModel = true;
+        scale = -scale;
+    } else {
+        scale *= 16;
+    }
 
-		// GUI Render:
-		/*if(entity instanceof BaseCreatureEntity) {
-			BaseCreatureEntity creature = (BaseCreatureEntity)entity;
-			if(creature.onlyRenderTicks >= 0) {
-				loop = creature.onlyRenderTicks;
-			}
-		}*/
+    // Render and Animate Each Part:
+    for (ObjObject part : this.wavefrontParts) {
+        if (part.getName() == null)
+            continue;
+        String partName = part.getName().toLowerCase();
 
-            // Render and Animate Each Part:
-            for(ObjObject part : this.wavefrontParts) {
-    		if(part.getName() == null)
-    			continue;
-                String partName = part.getName().toLowerCase();
+        // Trophy - Check if Trophy Part:
+        boolean isTrophyPart = this.isTrophyPart(partName);
+        if (this.bodyIsTrophy && partName.contains("body")) {
+            isTrophyPart = true;
+        }
 
-            // Trophy - Check if Trophy Part:
-    		boolean isTrophyPart = this.isTrophyPart(partName);
-    		if(this.bodyIsTrophy && partName.contains("body")) {
-                isTrophyPart = true;
-    	    }
+        // Skip Part If Not Rendered:
+        if (!this.canRenderPart(partName, entity, trophyModel) || (trophyModel && !isTrophyPart))
+            continue;
 
-            // Skip Part If Not Rendered:
-            if(!this.canRenderPart(partName, entity, layer, trophyModel) || (trophyModel && !isTrophyPart))
-                continue;
+        // Begin Rendering Part:
+        GlStateManager.pushMatrix();
+        GlStateManager.enableAlpha();
 
-            // Begin Rendering Part:
-            GlStateManager.pushMatrix();
-            GlStateManager.enableAlpha();
+        // Apply Initial Offsets: (To Match Blender OBJ Export)
+        this.rotate(modelXRotOffset, 1F, 0F, 0F);
+        this.translate(0F, modelYPosOffset, 0F);
 
-            // Apply Initial Offsets: (To Match Blender OBJ Export)
-            this.rotate(modelXRotOffset, 1F, 0F, 0F);
-            this.translate(0F, modelYPosOffset, 0F);
+        // Baby Heads:
+        if (this.isChild && !trophyModel)
+            this.childScale(partName);
 
-            // Baby Heads:
-            if(this.isChild && !trophyModel)
-                this.childScale(partName);
+        // Apply Scales:
+        this.scale(scale, scale, scale);
+        if (trophyModel)
+            this.scale(this.trophyScale, this.trophyScale, this.trophyScale);
 
-            // Apply Scales:
-            this.scale(scale, scale, scale);
-            if(trophyModel)
-                this.scale(this.trophyScale, this.trophyScale, this.trophyScale);
+        // Animate (Part is centered and then animated):
+        this.centerPart(partName);
+        this.animatePart(partName, (EntityLiving) entity, time, distance, loop, -lookY, lookX, scale);
 
-            // Animate (Part is centered and then animated):
-            this.centerPart(partName);
-			/*if(entity instanceof BaseCreatureEntity && ((BaseCreatureEntity)entity).hasPerchTarget()) {
-				distance = 0;
-			}*/
-            this.animatePart(partName, (EntityLiving)entity, time, distance, loop, -lookY, lookX, scale);
-
-            // Trophy - Positioning:
-            if(trophyModel) {
-                if(!partName.contains("head") && !partName.contains("body")) {
-                	float[] mouthOffset = this.comparePartCenters(this.bodyIsTrophy ? "body" : "head", partName);
-                    this.translate(mouthOffset[0], mouthOffset[1], mouthOffset[2]);
-                    if(this.trophyMouthOffset.length >= 3)
-                    	this.translate(this.trophyMouthOffset[0], this.trophyMouthOffset[1], this.trophyMouthOffset[2]);
-                }
-                if(partName.contains("head")) {
-                	if(!partName.contains("left")) {
-                			this.translate(-0.3F, 0, 0);
-                			this.rotate(5F, 0, 1, 0);
-                	}
-                	if(!partName.contains("right")) {
-                			this.translate(0.3F, 0, 0);
-                			this.rotate(-5F, 0, 1, 0);
-                	}
-                }
-                this.uncenterPart(partName);
-                if(this.trophyOffset.length >= 3)
-                    this.translate(this.trophyOffset[0], this.trophyOffset[1], this.trophyOffset[2]);
+        // Trophy - Positioning:
+        if (trophyModel) {
+            if (!partName.contains("head") && !partName.contains("body")) {
+                float[] mouthOffset = this.comparePartCenters(this.bodyIsTrophy ? "body" : "head", partName);
+                this.translate(mouthOffset[0], mouthOffset[1], mouthOffset[2]);
+                if (this.trophyMouthOffset.length >= 3)
+                    this.translate(this.trophyMouthOffset[0], this.trophyMouthOffset[1], this.trophyMouthOffset[2]);
             }
-
-            // Render:
+            if (partName.contains("head")) {
+                if (!partName.contains("left")) {
+                    this.translate(-0.3F, 0, 0);
+                    this.rotate(5F, 0, 1, 0);
+                }
+                if (!partName.contains("right")) {
+                    this.translate(0.3F, 0, 0);
+                    this.rotate(-5F, 0, 1, 0);
+                }
+            }
             this.uncenterPart(partName);
-	    this.onRenderStart(layer, entity, trophyModel);
-            this.wavefrontObject.renderGroup(part, this.getPartColor(partName, entity, layer, trophyModel, loop), this.getPartTextureOffset(partName, entity, layer, trophyModel, loop), null);
-	    this.onRenderFinish(layer, entity, trophyModel);
-	    GlStateManager.popMatrix();
-		//}
-	}
+            if (this.trophyOffset.length >= 3)
+                this.translate(this.trophyOffset[0], this.trophyOffset[1], this.trophyOffset[2]);
+        }
+
+        // Render:
+        this.uncenterPart(partName);
+        this.onRenderStart(entity, trophyModel);
+        this.wavefrontObject.renderGroup(part, this.getPartColor(partName, entity, layer, trophyModel, loop), this.getPartTextureOffset(partName, entity, layer, trophyModel, loop), null);
+        this.onRenderFinish(entity, trophyModel);
+        GlStateManager.popMatrix();
+    }
+ }
 
 	/** Called just before a layer is rendered. **/
 	public void onRenderStart(Entity entity, boolean renderAsTrophy) {
