@@ -1,11 +1,11 @@
-package com.lycanitesmobs.client.model;
+package com.nullptr.mod.model;
 
 import com.google.gson.*;
 import com.nullptr.mod.Main;
 import com.nullptr.mod.obj.ObjObject;
 import com.nullptr.mod.obj.TessellatorModel;
-import com.nullptr.mod.renderer.layer.LayerCreatureBase;
-import com.nullptr.mod.renderer.RenderCreature;
+//import com.nullptr.mod.renderer.layer.LayerCreatureBase;
+//import com.nullptr.mod.renderer.RenderCreature;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -102,16 +102,12 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
     // ==================================================
     public ModelCreatureObj initModel(String name, String path) {
     	// Check If Enabled:
-		CreatureInfo creatureInfo = CreatureManager.getInstance().getCreature(name);
-		if(creatureInfo != null && !creatureInfo.enabled) {
-			return this;
-		}
 
         // Load Obj Model:
         this.wavefrontObject = new TessellatorModel(new ResourceLocation(Main.MODID, "models/" + path + ".obj"));
         this.wavefrontParts = this.wavefrontObject.objObjects;
         if(this.wavefrontParts.isEmpty())
-            LycanitesMobs.logWarning("", "Unable to load any parts for the " + name + " model!");
+            System.out.println("Unable to load any parts for the " + name + " model!");
 
         // Create Animator:
 		this.animator = new Animator();
@@ -119,7 +115,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
         // Load Model Parts:
         ResourceLocation modelPartsLocation = new ResourceLocation(Main.MODID, "models/" + path + "_parts.json");
         try {
-			Gson gson = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
+	    Gson gson = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
             InputStream in = Minecraft.getMinecraft().getResourceManager().getResource(modelPartsLocation).getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             try {
@@ -214,7 +210,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
 	 * @param animate If true, animation frames will be generated and cleared after each render tick, if false, they must be generated and cleared manually.
      */
     @Override
-    public void render(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale, LayerCreatureBase layer, boolean animate) {
+    public void render(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale, boolean animate) {
         // Assess Scale and Check if Trophy:
 		boolean renderAsTrophy = false;
 		if(scale < 0) {
@@ -222,35 +218,15 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
 			scale = -scale;
 		}
 		else {
-			if(entity instanceof BaseCreatureEntity) {
-				scale *= 16;
-                scale *= ((BaseCreatureEntity)entity).getRenderScale();
-            }
-			else if(entity instanceof BaseProjectileEntity) {
-				scale *= 4;
-				scale *= ((BaseProjectileEntity)entity).getProjectileScale();
-			}
 		}
 
 		// GUI Render:
-		if(entity instanceof BaseCreatureEntity) {
-			BaseCreatureEntity creature = (BaseCreatureEntity)entity;
-			if(creature.onlyRenderTicks >= 0) {
-				loop = creature.onlyRenderTicks;
-			}
-		}
 
 		// Animation States:
         this.currentModelState = this.getModelState(entity);
-		if(layer == null) {
-			this.updateAttackProgress(entity);
-		}
 
         // Generate Animation Frames:
 		if(animate) {
-			if(entity instanceof BaseCreatureEntity && ((BaseCreatureEntity)entity).hasPerchTarget()) {
-				distance = 0;
-			}
 			this.generateAnimationFrames(entity, time, distance, loop, lookY, lookX, scale, layer, renderAsTrophy);
 		}
 
@@ -302,24 +278,13 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
     }
 
 	/** Called just before a layer is rendered. **/
-	public void onRenderStart(LayerCreatureBase layer, Entity entity, boolean renderAsTrophy) {
-		if(!CreatureManager.getInstance().config.disableModelAlpha) {
-			GlStateManager.enableBlend();
-		}
+	public void onRenderStart(Entity entity, boolean renderAsTrophy) {
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
-		if(layer != null) {
-			layer.onRenderStart(entity, renderAsTrophy);
-		}
 	}
 
 	/** Called just after a layer is rendered. **/
-	public void onRenderFinish(LayerCreatureBase layer, Entity entity, boolean renderAsTrophy) {
-		if(!CreatureManager.getInstance().config.disableModelAlpha) {
-			GlStateManager.disableBlend();
-		}
-		if(layer != null) {
-			layer.onRenderFinish(entity, renderAsTrophy);
-		}
+	public void onRenderFinish(Entity entity, boolean renderAsTrophy) {
+		
 	}
 
 	/** Generates all animation frames for a render tick. **/
@@ -368,7 +333,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
     // ==================================================
     /** Returns true if the part can be rendered, this can do various checks such as Yale wool only rendering in the YaleWoolLayer or hiding body parts in place of armor parts, etc. **/
     @Override
-    public boolean canRenderPart(String partName, Entity entity, LayerCreatureBase layer, boolean trophy) {
+    public boolean canRenderPart(String partName, Entity entity, boolean trophy) {
         if(partName == null)
             return false;
         partName = partName.toLowerCase();
