@@ -1,4 +1,4 @@
-package com.lycanitesmobs.client.model;
+package com.nullptr.mod.model;
 
 import com.google.gson.JsonObject;
 
