@@ -6,6 +6,8 @@ import com.nullptr.mod.obj.ObjObject;
 import com.nullptr.mod.obj.TessellatorModel;
 //import com.nullptr.mod.renderer.layer.LayerCreatureBase;
 //import com.nullptr.mod.renderer.RenderCreature;
+import com.nullptr.mod.obj.ModelObjState;
+import com.nullptr.mod.obj.ModelObjPart;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -78,7 +80,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
 	/** The current animation part that is having an animation frame generated for. **/
 	protected ModelObjPart currentAnimationPart;
 	/** The animation data for this model. **/
-	protected ModelAnimation animation;
+	//protected ModelAnimation animation;
     /** A list of models states that hold unique render/animation data for a specific entity INSTANCE. **/
     protected Map<Entity, ModelObjState> modelStates = new HashMap<>();
     /** The current model state for the entity that is being animated and rendered. **/
