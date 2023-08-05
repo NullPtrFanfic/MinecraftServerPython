@@ -117,7 +117,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
 		this.animator = new Animator();
 
         // Load Model Parts:
-        ResourceLocation modelPartsLocation = new ResourceLocation(groupInfo.modid, "models/" + path + "_parts.json");
+        ResourceLocation modelPartsLocation = new ResourceLocation(Main.MODID, "models/" + path + "_parts.json");
         try {
 			Gson gson = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
             InputStream in = Minecraft.getMinecraft().getResourceManager().getResource(modelPartsLocation).getInputStream();
@@ -137,7 +137,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
             }
         }
         catch (Exception e) {
-            LycanitesMobs.logWarning("", "There was a problem loading animation parts for " + name + ":");
+            Main.logWarning("", "There was a problem loading animation parts for " + name + ":");
             e.printStackTrace();
         }
 
