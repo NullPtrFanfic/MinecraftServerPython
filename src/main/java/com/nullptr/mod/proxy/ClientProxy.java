@@ -18,12 +18,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import com.nullptr.mod.model.Netero;
-import com.lycanitesmobs.core.tileentity.TileEntityEquipmentPart;
-import com.lycanitesmobs.core.tileentity.TileEntityEquipment;
+import com.nullptr.mod.core.tileentity.TileEntityEquipmentPart;
+import com.nullptr.mod.core.tileentity.TileEntityEquipment;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import com.nullptr.mod.model.projectile.LightBallModel;
 import com.nullptr.mod.renderer.EquipmentPartRenderer;
+import com.nullptr.mod.renderer.RenderRegister;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
