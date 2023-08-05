@@ -8,7 +8,7 @@ import com.nullptr.mod.core.entity.CustomProjectileModelEntity;*/
 //import com.lycanitesmobs.core.info.CreatureInfo;
 //import com.lycanitesmobs.core.info.CreatureManager;
 //import com.lycanitesmobs.core.info.ModInfo;
-import com.nullptr.mod.core.info.projectile.ProjectileManager;
+//import com.nullptr.mod.core.info.projectile.ProjectileManager;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class RenderRegister {
