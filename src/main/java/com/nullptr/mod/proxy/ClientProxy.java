@@ -24,6 +24,7 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import com.nullptr.mod.model.projectile.LightBallModel;
 import com.nullptr.mod.renderer.EquipmentPartRenderer;
+import com.nullptr.mod.renderer.EquipmentRenderer;
 import com.nullptr.mod.renderer.RenderRegister;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
