@@ -1,6 +1,5 @@
-package com.lycanitesmobs.client.renderer;
+package com.nullptr.mod.renderer;
 
-import com.lycanitesmobs.client.renderer.layer.LayerItem;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.List;
@@ -8,5 +7,5 @@ import java.util.List;
 public interface IItemModelRenderer {
 	void bindItemTexture(ResourceLocation location);
 
-	List<LayerItem> addLayer(LayerItem renderLayer);
+	//List<LayerItem> addLayer(LayerItem renderLayer);
 }
