@@ -188,7 +188,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
 	//             Add Custom Render Layers
 	// ==================================================
 	@Override
-	public void addCustomLayers(RenderCreature renderer) {
+	public void addCustomLayers() {
 		super.addCustomLayers(renderer);
 		if(this.animation != null) {
 			this.animation.addCreatureLayers(renderer);
@@ -290,7 +290,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
 	}
 
 	/** Generates all animation frames for a render tick. **/
-	public void generateAnimationFrames(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale, LayerCreatureBase layer, boolean renderAsTrophy) {
+	public void generateAnimationFrames(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale, boolean renderAsTrophy) {
 		for(ObjObject part : this.wavefrontParts) {
 			String partName = part.getName().toLowerCase();
 			//if(!this.canRenderPart(partName, entity, layer, renderAsTrophy))
