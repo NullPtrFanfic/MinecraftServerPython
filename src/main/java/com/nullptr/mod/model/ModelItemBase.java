@@ -113,8 +113,8 @@ public abstract class ModelItemBase implements IAnimationModel {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 			try {
 				JsonObject json = JsonUtils.fromJson(gson, reader, JsonObject.class);
-				this.animation = new ModelAnimation();
-				this.animation.loadFromJson(json);
+				//this.animation = new ModelAnimation();
+				//this.animation.loadFromJson(json);
 			}
 			finally {
 				IOUtils.closeQuietly(reader);
@@ -134,7 +134,7 @@ public abstract class ModelItemBase implements IAnimationModel {
 	// ========== Add Animation Part ==========
 	public void addAnimationPart(ModelObjPart animationPart) {
 		if(this.animationParts.containsKey(animationPart.name)) {
-			LycanitesMobs.logWarning("", "Tried to add an animation part that already exists: " + animationPart.name + ".");
+			System.out.println("Tried to add an animation part that already exists: " + animationPart.name + ".");
 			return;
 		}
 		if(animationPart.parentName != null) {
