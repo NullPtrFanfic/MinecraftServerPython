@@ -1,5 +1,6 @@
 package com.lycanitesmobs.client.obj;
 
+import com.nullptr.mod.obj.ObjEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 
 public class ObjEventWrapper extends Event
