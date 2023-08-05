@@ -1,11 +1,11 @@
-package com.lycanitesmobs.client.renderer;
+package com.nullptr.mod.renderer;
 
-import com.lycanitesmobs.LycanitesMobs;
-import com.lycanitesmobs.core.entity.TameableCreatureEntity;
-import com.lycanitesmobs.core.info.CreatureManager;
-import com.lycanitesmobs.client.model.ModelCustom;
-import com.lycanitesmobs.client.AssetManager;
-import com.lycanitesmobs.core.entity.BaseCreatureEntity;
+import com.nullptr.mod.Main;
+//import com.lycanitesmobs.core.entity.TameableCreatureEntity;
+//import com.lycanitesmobs.core.info.CreatureManager;
+import com.nullptr.mod.model.ModelCustom;
+import com.nullptr.mod.AssetManager;
+//import com.lycanitesmobs.core.entity.BaseCreatureEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
