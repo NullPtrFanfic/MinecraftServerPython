@@ -58,10 +58,7 @@ public class LightBallModel extends ModelCreatureObj {
 	//                Can Render Part
 	// ==================================================
 	@Override
-	public boolean canRenderPart(String partName, Entity entity, LayerCreatureBase layer, boolean trophy) {
-		if(partName.equals("ball02") || partName.equals("ball03")) {
-			return layer == this.ballGlowLayer;
-		}
+	public boolean canRenderPart(String partName, Entity entity, boolean trophy) {
 		return layer == null;
 	}
 
