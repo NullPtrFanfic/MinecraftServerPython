@@ -26,7 +26,7 @@ public class RenderRegister {
        // RenderingRegistry.registerEntityRenderingHandler(CustomProjectileEntity.class, new RenderFactoryProjectile<CustomProjectileEntity>(false));
 
         // Old Sprite Projectiles:
-        for(String projectileName : ProjectileManager.getInstance().oldSpriteProjectiles.keySet()) {
+        /*for(String projectileName : ProjectileManager.getInstance().oldSpriteProjectiles.keySet()) {
             Class projectileClass = ProjectileManager.getInstance().oldSpriteProjectiles.get(projectileName);
             RenderingRegistry.registerEntityRenderingHandler(projectileClass, new RenderFactoryProjectile<BaseProjectileEntity>(projectileName, projectileClass, false));
         }
@@ -35,6 +35,6 @@ public class RenderRegister {
         for(String projectileName : ProjectileManager.getInstance().oldModelProjectiles.keySet()) {
             Class projectileClass = ProjectileManager.getInstance().oldModelProjectiles.get(projectileName);
             RenderingRegistry.registerEntityRenderingHandler(projectileClass, new RenderFactoryProjectile<BaseProjectileEntity>(projectileName,projectileClass, true));
-        }
+        }*/
     }
 }
