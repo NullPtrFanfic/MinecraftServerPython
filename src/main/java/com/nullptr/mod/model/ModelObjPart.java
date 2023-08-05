@@ -1,7 +1,8 @@
 package com.nullptr.mod.model;
 
 import com.google.gson.JsonObject;
-
+import com.nullptr.mod.model.ModelObjAnimationFrame;
+import com.nullptr.mod.model.Animator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
