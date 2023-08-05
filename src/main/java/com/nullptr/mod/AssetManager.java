@@ -1,14 +1,14 @@
-package com.lycanitesmobs.client;
+package com.nullptr.mod;
 
-import com.lycanitesmobs.LycanitesMobs;
-import com.lycanitesmobs.ObjectManager;
-import com.lycanitesmobs.client.model.ModelEquipmentPart;
-import com.lycanitesmobs.core.entity.BaseCreatureEntity;
-import com.lycanitesmobs.core.info.CreatureInfo;
-import com.lycanitesmobs.core.info.CreatureManager;
-import com.lycanitesmobs.core.info.ModInfo;
-import com.lycanitesmobs.client.model.ModelObjOld;
-import com.lycanitesmobs.client.model.ModelItemBase;
+import com.nullptr.mod.Main;
+//import com.lycanitesmobs.ObjectManager;
+import com.nullptr.mod.model.ModelEquipmentPart;
+//import com.lycanitesmobs.core.entity.BaseCreatureEntity;
+//import com.lycanitesmobs.core.info.CreatureInfo;
+//import com.lycanitesmobs.core.info.CreatureManager;
+//import com.lycanitesmobs.core.info.ModInfo;
+import com.nullptr.mod.model.ModelObjOld;
+import com.nullptr.mod.model.ModelItemBase;
 import com.lycanitesmobs.core.info.projectile.ProjectileInfo;
 import com.lycanitesmobs.core.info.projectile.ProjectileManager;
 import com.lycanitesmobs.core.item.ItemBase;
