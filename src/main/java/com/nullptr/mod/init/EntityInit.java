@@ -12,7 +12,7 @@ public class EntityInit
    {
       registerEntity("test", EntityTest.class, Main.ENTITY_TEST, 50, 13310623, 65354);
       registerEntity("centaur", EntityCentaur.class, Main.ENTITY_CENTAUR, 50, 11437146, 000000);
-      registerEntity("Netero", Netero.class, Main.ENTITY_NETERO, 50, 16776960, 000000 );
+      //registerEntity("Netero", Netero.class, Main.ENTITY_NETERO, 50, 16776960, 000000 );
    }
    private static void registerEntity(String name, Class<? extends Entity> entity, int id, int range, int color1, int color2)
    {
