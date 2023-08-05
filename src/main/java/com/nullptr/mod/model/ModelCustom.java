@@ -90,7 +90,15 @@ public class ModelCustom extends ModelBase {
         return true;
     }
 
+     public Vector4f getPartColor(String partName, Entity entity, boolean trophy, float loop) {
 
+        //if(layer == null || !(entity instanceof BaseCreatureEntity))
+
+        return this.getBasePartColor(partName, entity, trophy, loop);
+
+        //return layer.getPartColor(partName, (BaseCreatureEntity)entity, trophy);
+
+     }
     // ==================================================
     //                Get Part Color
     // ==================================================
