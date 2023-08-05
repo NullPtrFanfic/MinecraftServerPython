@@ -1,10 +1,10 @@
-package com.lycanitesmobs.client.renderer;
+package com.nullpt.mod.renderer;
 
-import com.lycanitesmobs.client.AssetManager;
-import com.lycanitesmobs.core.entity.BaseProjectileEntity;
-import com.lycanitesmobs.client.model.ModelCustom;
-import com.lycanitesmobs.core.entity.CustomProjectileEntity;
-import com.lycanitesmobs.core.info.projectile.ProjectileInfo;
+import com.nullptr.mod.AssetManager;
+//import com.lycanitesmobs.core.entity.BaseProjectileEntity;
+import com.nullptr.mod.model.ModelCustom;
+//import com.lycanitesmobs.core.entity.CustomProjectileEntity;
+//import com.lycanitesmobs.core.info.projectile.ProjectileInfo;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -37,22 +37,6 @@ public class RenderProjectileModel extends Render {
 	//                    Do Render
 	// ==================================================
 	public void doRender(Entity entity, double x, double y, double z, float entityYaw, float partialTicks) {
-		if(entity instanceof CustomProjectileEntity) {
-			ProjectileInfo projectileInfo = ((CustomProjectileEntity)entity).projectileInfo;
-			if(projectileInfo == null) {
-				return;
-			}
-			try {
-				this.mainModel = AssetManager.getProjectileModel(projectileInfo);
-			} catch (Exception e) {
-				e.printStackTrace();
-				return;
-			}
-		}
-		else {
-			return;
-		}
-
 		GlStateManager.pushMatrix();
 		GlStateManager.disableCull();
 
@@ -96,9 +80,6 @@ public class RenderProjectileModel extends Render {
 	@Nullable
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
-    	if(entity instanceof BaseProjectileEntity) {
-			return ((BaseProjectileEntity)entity).getTexture();
-		}
 		return null;
-    }
+        }
 }
