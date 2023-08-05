@@ -1,4 +1,4 @@
-package com.lycanitesmobs.client.renderer;
+package com.nullptr.mod.renderer;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
