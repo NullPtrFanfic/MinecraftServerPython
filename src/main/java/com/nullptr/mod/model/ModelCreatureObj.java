@@ -229,7 +229,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
 
         // Generate Animation Frames:
 		if(animate) {
-			this.generateAnimationFrames(entity, time, distance, loop, lookY, lookX, scale, layer, renderAsTrophy);
+			this.generateAnimationFrames(entity, time, distance, loop, lookY, lookX, scale, renderAsTrophy);
 		}
 
 		// Render Parts:
