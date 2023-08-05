@@ -23,6 +23,7 @@ import net.minecraftforge.fml.common.Mod;
 import com.nullptr.mod.model.Netero;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.init.Items;
+import net.minecraft.util.ResourceLocation;
 
 @Mod.EventBusSubscriber(modid = Main.MODID)// bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ItemInit
@@ -41,7 +42,7 @@ public class ItemInit
 
     public static Item getSpawnEgg() {
         ItemStack stack = new ItemStack(Items.SPAWN_EGG, 1);
-        ItemMonsterPlacer.applyEntityIdToItemStack(stack, "entity.test");
+        ItemMonsterPlacer.applyEntityIdToItemStack(stack, new ResourceLocation(Main.MODID, "entity.test"));
         return stack.getItem();
     }
 
