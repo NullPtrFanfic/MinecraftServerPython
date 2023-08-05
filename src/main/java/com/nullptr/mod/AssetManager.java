@@ -121,7 +121,7 @@ public class AssetManager {
 	}
 
 	public static ModelBase getCreatureModel(/*BaseCreatureEntity entityCreature*/) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-		if (entityCreature.creatureInfo == null) {
+		/*if (entityCreature.creatureInfo == null) {
 			return null;
 		}
 
@@ -136,7 +136,7 @@ public class AssetManager {
 		}
 
 		// Main Model:
-		return getCreatureModel(entityCreature.creatureInfo);
+		return getCreatureModel(entityCreature.creatureInfo);*/
 	}
 
 	public static ModelBase getCreatureModel(/*CreatureInfo creatureInfo*/) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
@@ -145,9 +145,9 @@ public class AssetManager {
 		}*/
 
 		// Main Model:
-		if (models.containsKey(creatureInfo.modelClass.toString())) {
-			return models.get(creatureInfo.modelClass.toString());
-		}
+		//if (models.containsKey(creatureInfo.modelClass.toString())) {
+			//return models.get(creatureInfo.modelClass.toString());
+		//}
 		//ModelBase creatureModel = creatureInfo.modelClass.getConstructor().newInstance();
 		//models.put(creatureInfo.modelClass.toString(), creatureModel);
 		//return creatureModel;
@@ -158,11 +158,11 @@ public class AssetManager {
 	 * @param projectileInfo The projectile info to get the model for.
 	 * @return The Projectile Model.
 	 */
-	public static ModelBase getProjectileModel(ProjectileInfo projectileInfo) {
-		if(projectileModels.containsKey(projectileInfo)) {
+	public static ModelBase getProjectileModel() {
+		/*if(projectileModels.containsKey(projectileInfo)) {
 			return projectileModels.get(projectileInfo);
 		}
-		return null;
+		return null;*/
 	}
 	
 	// ========== Obj Model ==========
@@ -172,10 +172,10 @@ public class AssetManager {
 			return null;
 		return objModels.get(name);
 	}
-	public static IModel getObjModel(String name, ModInfo modInfo, String path) {
+	public static IModel getObjModel(String name, String path) {
 		name = name.toLowerCase();
 		if(!objModels.containsKey(name))
-			addObjModel(name, modInfo, path);
+			addObjModel(name, Main.MODID, path);
 		return objModels.get(name);
 	}
 
