@@ -3,7 +3,7 @@ package com.nullptr.mod.obj;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 import java.util.ArrayList;
-import com.nullptr.mod.obj.ObJLoader;
+import com.nullptr.mod.obj.OBJLoader;
 
 
 public class IndexedModel {
