@@ -1,8 +1,8 @@
-package com.lycanitesmobs.client.renderer.layer;
+package com.nullptr.mod.renderer.layer;
 
-import com.lycanitesmobs.core.entity.BaseCreatureEntity;
-import com.lycanitesmobs.client.model.ModelCustom;
-import com.lycanitesmobs.client.renderer.RenderCreature;
+//import com.lycanitesmobs.core.entity.BaseCreatureEntity;
+import com.nullptr.mod.model.ModelCustom;
+import com.nullptr.mod.renderer.RenderCreature;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.entity.Entity;
