@@ -1,10 +1,10 @@
-package com.lycanitesmobs.client.model;
+package com.nullptr.mod.model;
 
-import com.lycanitesmobs.client.renderer.layer.LayerCreatureBase;
-import com.lycanitesmobs.core.entity.BaseCreatureEntity;
-import com.lycanitesmobs.client.renderer.layer.LayerCreatureEquipment;
-import com.lycanitesmobs.client.renderer.layer.LayerCreatureSaddle;
-import com.lycanitesmobs.client.renderer.RenderCreature;
+import com.nullptr.mod.renderer.layer.LayerCreatureBase;
+//import com.nullptr.mod.core.entity.BaseCreatureEntity;
+import com.nullptr.mod.renderer.layer.LayerCreatureEquipment;
+import com.nullptr.mod.renderer.layer.LayerCreatureSaddle;
+import com.nullptr.mod.renderer.RenderCreature;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
