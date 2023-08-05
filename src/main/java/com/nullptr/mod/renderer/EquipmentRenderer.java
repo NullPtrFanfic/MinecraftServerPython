@@ -1,9 +1,9 @@
 package com.lycanitesmobs.client.renderer;
 
-import com.lycanitesmobs.core.item.equipment.ItemEquipment;
-import com.lycanitesmobs.client.model.ModelEquipment;
-import com.lycanitesmobs.client.renderer.layer.LayerItem;
-import com.lycanitesmobs.core.tileentity.TileEntityEquipment;
+import com.nullptr.mod.item.equipment.ItemEquipment;
+import com.nullptr.mod.model.ModelEquipment;
+import com.nullptr.mod.renderer.layer.LayerItem;
+import com.nullptr.mod.core.tileentity.TileEntityEquipment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
