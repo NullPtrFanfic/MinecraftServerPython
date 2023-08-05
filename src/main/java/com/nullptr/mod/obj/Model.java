@@ -1,4 +1,4 @@
-package com.lycanitesmobs.client.obj;
+package com.nullptr.mod.obj;
 
 
 public abstract class Model
