@@ -29,7 +29,7 @@ public class LightBallModel extends ModelCreatureObj {
     public LightBallModel(float shadowSize) {
 
 		// Load Model:
-		this.initModel("lightball", Main.MODID, "projectile/lightball");
+		this.initModel("lightball", "projectile/lightball");
     }
 
 
@@ -38,7 +38,7 @@ public class LightBallModel extends ModelCreatureObj {
 	// ==================================================
 	@Override
 	public void addCustomLayers() {
-		super.addCustomLayers(renderer);
+		super.addCustomLayers();
 		//this.ballGlowLayer = new LayerCreatureEffect(renderer, "", true, LayerCreatureEffect.BLEND.ADD.id, true);
 		//renderer.addLayer(this.ballGlowLayer);
 	}
@@ -59,7 +59,7 @@ public class LightBallModel extends ModelCreatureObj {
 	// ==================================================
 	@Override
 	public boolean canRenderPart(String partName, Entity entity, boolean trophy) {
-		return layer == null;
+		return null;
 	}
 
 
