@@ -51,7 +51,7 @@ public class ItemInit
         ItemStack itemStack = event.getItemStack();
         if (itemStack.getItem() == spawnEgg) {
             // Вызов метода класса при клике по предмету spawnEgg
-            Netero.init();
+            Main.proxy.init();
             event.setCanceled(true); // Отмена стандартного действия при клике по предмету (не обязательно)
         }
     }
