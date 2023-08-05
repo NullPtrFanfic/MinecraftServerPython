@@ -17,5 +17,7 @@ public class CommonProxy {
         // Здесь ваш код
     }
     public void addOBJLoaderDomainIfOnClient() {
-	}
+    }
+    public void init() {
+    }
 }
