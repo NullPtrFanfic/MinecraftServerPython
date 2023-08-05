@@ -346,7 +346,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
         if(trophy && !this.isTrophyPart(partName))
             return false;
 
-        return super.canRenderPart(partName, entity, layer, trophy);
+        return super.canRenderPart(partName, entity, trophy);
     }
     
     
