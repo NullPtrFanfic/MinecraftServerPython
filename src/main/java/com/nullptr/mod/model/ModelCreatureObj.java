@@ -430,10 +430,6 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
     //                   Attack Frame
     // ==================================================
     public void updateAttackProgress(Entity entity) {
-        if(this.currentModelState == null || !(entity instanceof BaseCreatureEntity))
-            return;
-        BaseCreatureEntity entityCreature = (BaseCreatureEntity)entity;
-
         if(this.currentModelState.attackAnimationPlaying) {
             if (this.currentModelState.attackAnimationIncreasing) {
                 this.currentModelState.attackAnimationProgress = Math.min(this.currentModelState.attackAnimationProgress + this.currentModelState.attackAnimationSpeed, 1F);
@@ -446,11 +442,6 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
                     this.currentModelState.attackAnimationPlaying = false;
                 }
             }
-        }
-        else if(entityCreature.isAttackOnCooldown()) {
-            this.currentModelState.attackAnimationPlaying = true;
-            this.currentModelState.attackAnimationIncreasing = true;
-            this.currentModelState.attackAnimationProgress = 0;
         }
     }
 
