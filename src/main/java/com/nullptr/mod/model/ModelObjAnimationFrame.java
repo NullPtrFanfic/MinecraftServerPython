@@ -1,4 +1,6 @@
-package com.lycanitesmobs.client.model;
+package com.nullptr.mod.model;
+
+import com.nullptr.mod.model.Animator;
 
 public class ModelObjAnimationFrame {
     /** The type of animation to do. Can be: angle, rotate, translate or scale. **/
