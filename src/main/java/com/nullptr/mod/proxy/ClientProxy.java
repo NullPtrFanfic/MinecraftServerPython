@@ -21,7 +21,7 @@ import com.nullptr.mod.model.Netero;
 //import com.nullptr.mod.core.tileentity.TileEntityEquipmentPart;
 //import com.nullptr.mod.core.tileentity.TileEntityEquipment;
 //import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
+//import net.minecraftforge.client.model.ModelLoaderRegistry;
 import com.nullptr.mod.model.projectile.LightBallModel;
 //import com.nullptr.mod.renderer.EquipmentPartRenderer;
 //import com.nullptr.mod.renderer.EquipmentRenderer;
@@ -68,12 +68,12 @@ public class ClientProxy extends CommonProxy {
 		//subspecies.modelClass = (Class<? extends ModelCustom>) Class.forName(modelClassName);
     }
     @Override
-    public void registerRenders(ModInfo modInfo) {
+    public void registerRenders() {
            AssetManager.addModel("lightball", new LightBallModel());
-           ModelLoaderRegistry.registerLoader(new EquipmentPartModelLoader());
+           //ModelLoaderRegistry.registerLoader(new EquipmentPartModelLoader());
            //ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEquipmentPart.class, new EquipmentPartRenderer());
            //ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEquipment.class, new EquipmentRenderer());
-           RenderRegister renderRegister = new RenderRegister(modInfo);
+           RenderRegister renderRegister = new RenderRegister();
            renderRegister.registerRenderFactories();
     }
 }
