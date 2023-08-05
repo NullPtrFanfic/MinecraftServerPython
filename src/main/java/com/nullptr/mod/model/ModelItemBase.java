@@ -70,7 +70,7 @@ public abstract class ModelItemBase implements IAnimationModel {
 		this.wavefrontObject = new TessellatorModel(new ResourceLocation(Main.MODID, "models/" + path + ".obj"));
 		this.wavefrontParts = this.wavefrontObject.objObjects;
 		if(this.wavefrontParts.isEmpty())
-			LycanitesMobs.logWarning("", "Unable to load any parts for the " + name + " model!");
+		   System.out.println("Unable to load any parts for the " + name + " model!");
 
 		// Create Animator:
 		this.animator = new Animator();
