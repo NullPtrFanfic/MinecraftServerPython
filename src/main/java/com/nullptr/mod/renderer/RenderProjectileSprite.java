@@ -79,16 +79,6 @@ public class RenderProjectileSprite extends Render {
         double textureWidth = 0.5D;
         double textureHeight = 0.5D;
         double offsetY = 0;
-        if(entity instanceof BaseProjectileEntity) {
-            BaseProjectileEntity entityProjectile = (BaseProjectileEntity)entity;
-            if(entityProjectile.animationFrameMax > 0) {
-                minV = (float)entityProjectile.animationFrame / (float)entityProjectile.animationFrameMax;
-                maxV = minV + (1F / (float)entityProjectile.animationFrameMax);
-                textureWidth *= entityProjectile.textureScale;
-                textureHeight *= entityProjectile.textureScale;
-                offsetY = entityProjectile.textureOffsetY;
-            }
-        }
 
         //GlStateManager.rotate(180.0F - this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
         //GlStateManager.rotate(-this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
@@ -177,7 +167,7 @@ public class RenderProjectileSprite extends Render {
 	// ==================================================
 	//                 Render Old Laser
 	// ==================================================
-	public void renderOldLaser(BaseProjectileEntity entity, LaserEndProjectileEntity laserEnd, double x, double y, double z, float par8, float par9, float scale, float length) {
+	public void renderOldLaser(/*BaseProjectileEntity entity, LaserEndProjectileEntity laserEnd, */double x, double y, double z, float par8, float par9, float scale, float length) {
 		// Create Laser Model If Null:
 		if(this.laserBox == null) {
 			laserBox = new ModelRenderer(laserModel, 0, 0);
@@ -197,22 +187,10 @@ public class RenderProjectileSprite extends Render {
 		GlStateManager.enableAlpha();
 		GlStateManager.color(1, 1, 1, 1);
 		GlStateManager.translate(x, y, z);
-		this.bindTexture(this.getLaserTexture(entity));
+		//this.bindTexture(this.getLaserTexture(entity));
 
 		// Rotation:
 		float[] angles = new float[] {0, 0, 0, 0};
-		if(laserEnd != null) {
-			float dx = (float)(laserEnd.posX - entity.posX);
-			float dy = (float)(laserEnd.posY - entity.posY);
-			float dz = (float)(laserEnd.posZ - entity.posZ);
-			angles[0] = (float)Math.toDegrees(Math.atan2(dz, dy)) - 90;
-			angles[1] = (float)Math.toDegrees(Math.atan2(dx, dz));
-			angles[2] = (float)Math.toDegrees(Math.atan2(dx, dy)) - 90;
-
-			// Distance based x/z rotation:
-			float dr = (float)Math.sqrt(dx * dx + dz * dz);
-			angles[3] = (float)Math.toDegrees(Math.atan2(dr, dy)) - 90;
-		}
 		GlStateManager.rotate(angles[1], 0, 1, 0);
 		GlStateManager.rotate(angles[3], 1, 0, 0);
 
