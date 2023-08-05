@@ -137,7 +137,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
             }
         }
         catch (Exception e) {
-            Main.logWarning("", "There was a problem loading animation parts for " + name + ":");
+            System.out.println("There was a problem loading animation parts for " + name);
             e.printStackTrace();
         }
 
@@ -162,7 +162,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
 			}
 		}
 		catch (Exception e) {
-			LycanitesMobs.logWarning("Models", "Unable to load animation json for " + name + ".");
+		       System.out.println("Unable to load animation json for " + name);
 		}
 
         return this;
