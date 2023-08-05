@@ -36,6 +36,8 @@ public class ClientProxy extends CommonProxy {
         // Typically initialization of models and such goes here:
         EntityInit.initModels();
         //Netero.init();
+	registerModels();
+	registerRenders();
     }
 
     @Override
