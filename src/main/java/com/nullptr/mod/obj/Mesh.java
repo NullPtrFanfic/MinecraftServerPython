@@ -1,6 +1,6 @@
 package com.nullptr.mod.obj;
 
-import com.nullptr.mod.obj.Vertex;
+import net.minecraftforge.client.model.obj.OBJModel.Vertex;
 import javax.vecmath.Vector3f;
 
 public class Mesh
