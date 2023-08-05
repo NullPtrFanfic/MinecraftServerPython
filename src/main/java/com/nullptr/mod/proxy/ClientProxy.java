@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.client.model.obj.OBJLoader;
+import com.nullptr.mod.model.Netero;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -26,6 +27,7 @@ public class ClientProxy extends CommonProxy {
 
         // Typically initialization of models and such goes here:
         EntityInit.initModels();
+        Netero.init();
     }
 
     @Override
