@@ -1,7 +1,7 @@
-package com.lycanitesmobs.client.renderer.layer;
+package com.nullptr.mod.renderer.layer;
 
-import com.lycanitesmobs.core.entity.BaseCreatureEntity;
-import com.lycanitesmobs.client.renderer.RenderCreature;
+//import com.lycanitesmobs.core.entity.BaseCreatureEntity;
+import com.nullptr.mod.client.renderer.RenderCreature;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.entity.Entity;
