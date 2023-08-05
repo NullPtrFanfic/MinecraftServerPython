@@ -13,15 +13,16 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import com.nullptr.mod.objects.items.staffs.LargeFireballStaff;
 import com.nullptr.mod.objects.items.staffs.LightningStaff;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+//import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import com.nullptr.mod.model.Netero;
 
-@Mod.EventBusSubscriber(modid = Main.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = Main.MODID)// bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ItemInit
 {
     public static final List<Item> ITEMS = new ArrayList<Item>();
