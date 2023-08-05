@@ -1,9 +1,9 @@
 package com.nullptr.mod.model;
 
-import com.nullptr.mod.renderer.layer.LayerCreatureBase;
+//import com.nullptr.mod.renderer.layer.LayerCreatureBase;
 //import com.nullptr.mod.core.entity.BaseCreatureEntity;
 //import com.nullptr.mod.renderer.layer.LayerCreatureEquipment;
-import com.nullptr.mod.renderer.layer.LayerCreatureSaddle;
+//import com.nullptr.mod.renderer.layer.LayerCreatureSaddle;
 import com.nullptr.mod.renderer.RenderCreature;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -68,11 +68,11 @@ public class ModelCustom extends ModelBase {
         this.render(entity, time, distance, loop, lookY, lookX, scale, null, true);
     }
 
-    public void render(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale, LayerCreatureBase layer, boolean animate) {
+    public void render(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale, boolean animate) {
         float sizeScale = 1F;
-		if(entity instanceof BaseCreatureEntity) {
+		/*if(entity instanceof BaseCreatureEntity) {
             sizeScale *= ((BaseCreatureEntity) entity).getRenderScale();
-        }
+        }*/
     	GL11.glScalef(sizeScale, sizeScale, sizeScale);
     	GL11.glTranslatef(0, 0.5f - sizeScale / 2, 0);
     	
@@ -85,11 +85,11 @@ public class ModelCustom extends ModelBase {
     //                Can Render Part
     // ==================================================
     /** Returns true if the part can be rendered, this can do various checks such as Yale wool only rendering in the YaleWoolLayer or hiding body parts in place of armor parts, etc. **/
-    public boolean canRenderPart(String partName, Entity entity, LayerCreatureBase layer, boolean trophy) {
+    public boolean canRenderPart(String partName, Entity entity, boolean trophy) {
         if(layer == null)
             return this.canBaseRenderPart(partName, entity, trophy);
-        if(entity instanceof BaseCreatureEntity)
-            return layer.canRenderPart(partName, (BaseCreatureEntity)entity, trophy);
+        //if(entity instanceof BaseCreatureEntity)
+           // return layer.canRenderPart(partName, (BaseCreatureEntity)entity, trophy);
         return false;
     }
 
@@ -103,9 +103,9 @@ public class ModelCustom extends ModelBase {
     //                Get Part Color
     // ==================================================
     /** Returns the coloring to be used for this part and layer. **/
-    public Vector4f getPartColor(String partName, Entity entity, LayerCreatureBase layer, boolean trophy, float loop) {
-        if(layer == null || !(entity instanceof BaseCreatureEntity))
-            return this.getBasePartColor(partName, entity, trophy, loop);
+    public Vector4f getPartColor(String partName, Entity entity, boolean trophy, float loop) {
+       // if(layer == null || !(entity instanceof BaseCreatureEntity))
+           // return this.getBasePartColor(partName, entity, trophy, loop);
         return layer.getPartColor(partName, (BaseCreatureEntity)entity, trophy);
     }
 
@@ -119,9 +119,9 @@ public class ModelCustom extends ModelBase {
 	//              Get Part Texture Offset
 	// ==================================================
 	/** Returns the texture offset to be used for this part and layer. **/
-	public Vector2f getPartTextureOffset(String partName, Entity entity, LayerCreatureBase layer, boolean trophy, float loop) {
-		if(layer == null || !(entity instanceof BaseCreatureEntity))
-			return this.getBaseTextureOffset(partName, entity, trophy, loop);
+	public Vector2f getPartTextureOffset(String partName, Entity entity, boolean trophy, float loop) {
+		//if(layer == null || !(entity instanceof BaseCreatureEntity))
+			//return this.getBaseTextureOffset(partName, entity, trophy, loop);
 		return layer.getTextureOffset(partName, (BaseCreatureEntity)entity, trophy, loop);
 	}
 
