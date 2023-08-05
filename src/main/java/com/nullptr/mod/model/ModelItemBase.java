@@ -217,21 +217,13 @@ public abstract class ModelItemBase implements IAnimationModel {
 	}
 
 	/** Called just after a layer is rendered. **/
-	public void onRenderFinish(LayerItem layer, ItemStack itemStack) {
-		if(!CreatureManager.getInstance().config.disableModelAlpha) {
-			GlStateManager.disableBlend();
-		}
-		if(layer != null) {
-			layer.onRenderFinish(itemStack);
-		}
+	public void onRenderFinish(ItemStack itemStack) {
 	}
 
 	/** Generates all animation frames for a render tick. **/
-	public void generateAnimationFrames(ItemStack itemStack, LayerItem layer, float loop, ModelObjPart offsetObjPart) {
+	public void generateAnimationFrames(ItemStack itemStack, float loop, ModelObjPart offsetObjPart) {
 		for(ObjObject part : this.wavefrontParts) {
 			String partName = part.getName().toLowerCase();
-			if(!this.canRenderPart(partName, itemStack, layer))
-				continue;
 			this.currentAnimationPart = this.animationParts.get(partName);
 
 			// Animate:
@@ -251,23 +243,6 @@ public abstract class ModelItemBase implements IAnimationModel {
 	//                Can Render Part
 	// ==================================================
 	/** Returns true if the part can be rendered for the given stack. **/
-	public boolean canRenderPart(String partName, ItemStack itemStack, LayerItem layer) {
-		if(partName == null)
-			return false;
-		partName = partName.toLowerCase();
-
-		// Check Animation Part:
-		if(!this.animationParts.containsKey(partName))
-			return false;
-
-		/*/ Check Layer:
-		if(layer != null) {
-			return layer.canRenderPart(partName);
-		}*/
-
-		return true;
-	}
-
 
 	// ==================================================
 	//                   Animate Part
@@ -291,7 +266,7 @@ public abstract class ModelItemBase implements IAnimationModel {
 	//                   Get Texture
 	// ==================================================
 	/** Returns a texture ResourceLocation for the provided itemstack. **/
-	public ResourceLocation getTexture(ItemStack itemStack, LayerItem layer) {
+	public ResourceLocation getTexture(ItemStack itemStack) {
 		return null;
 	}
 
@@ -300,10 +275,7 @@ public abstract class ModelItemBase implements IAnimationModel {
 	//                Get Part Color
 	// ==================================================
 	/** Returns the coloring to be used for this part for the given itemstack. **/
-	public Vector4f getPartColor(String partName, ItemStack itemStack, LayerItem layer, float loop) {
-		if(layer != null) {
-			return layer.getPartColor(partName, itemStack, loop);
-		}
+	public Vector4f getPartColor(String partName, ItemStack itemStack, float loop) {
 		return new Vector4f(1, 1, 1, 1);
 	}
 
@@ -312,10 +284,7 @@ public abstract class ModelItemBase implements IAnimationModel {
 	//             Get Part Texture Offset
 	// ==================================================
 	//	/** Returns the texture offset to be used for this part and layer. **/
-	public Vector2f getPartTextureOffset(String partName, ItemStack itemStack, LayerItem layer, float loop) {
-		if(layer != null) {
-			return layer.getTextureOffset(partName, itemStack, loop);
-		}
+	public Vector2f getPartTextureOffset(String partName, ItemStack itemStack, float loop) {
 
 		return new Vector2f(0, 0);
 	}
