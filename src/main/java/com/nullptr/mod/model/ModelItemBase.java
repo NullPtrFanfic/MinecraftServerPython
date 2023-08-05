@@ -153,9 +153,9 @@ public abstract class ModelItemBase implements IAnimationModel {
 	 * @param renderer
 	 */
 	public void addCustomLayers(IItemModelRenderer renderer) {
-		if(this.animation != null) {
+		/*if(this.animation != null) {
 			this.animation.addItemLayers(renderer);
-		}
+		}*/
 	}
 
 
@@ -210,13 +210,13 @@ public abstract class ModelItemBase implements IAnimationModel {
 
 	/** Called just before a layer is rendered. **/
 	public void onRenderStart(ItemStack itemStack) {
-		if(!CreatureManager.getInstance().config.disableModelAlpha) {
+		/*if(!CreatureManager.getInstance().config.disableModelAlpha) {
 			GlStateManager.enableBlend();
-		}
+		}*/
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
-		if(layer != null) {
+		/*if(layer != null) {
 			layer.onRenderStart(itemStack);
-		}
+		}*/
 	}
 
 	/** Called just after a layer is rendered. **/
@@ -257,11 +257,11 @@ public abstract class ModelItemBase implements IAnimationModel {
 	 * @param loop A continuous loop counting every tick, used for constant idle animations, etc.
 	 */
 	public void animatePart(String partName, ItemStack itemStack, float loop) {
-		if(this.animation != null) {
+		/*if(this.animation != null) {
 			for(ModelPartAnimation partAnimation : this.animation.partAnimations) {
 				partAnimation.animatePart(this, partName, loop);
 			}
-		}
+		}*/
 	}
 
 
