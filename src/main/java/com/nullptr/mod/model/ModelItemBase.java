@@ -1,14 +1,14 @@
-package com.lycanitesmobs.client.model;
+package com.nullptr.mod.model;
 
 import com.google.gson.*;
-import com.lycanitesmobs.LycanitesMobs;
-import com.lycanitesmobs.client.model.animation.ModelPartAnimation;
-import com.lycanitesmobs.client.obj.ObjObject;
-import com.lycanitesmobs.client.obj.TessellatorModel;
-import com.lycanitesmobs.client.renderer.IItemModelRenderer;
-import com.lycanitesmobs.client.renderer.layer.LayerItem;
-import com.lycanitesmobs.core.info.CreatureManager;
-import com.lycanitesmobs.core.info.ModInfo;
+import com.nullptr.mod.Main;
+//import com.lycanitesmobs.client.model.animation.ModelPartAnimation;
+import com.nullptr.mod.obj.ObjObject;
+import com.nullptr.mod.obj.TessellatorModel;
+import com.nullptr.mod.renderer.IItemModelRenderer;
+//import com.nullptr.mod.renderer.layer.LayerItem;
+//import com.lycanitesmobs.core.info.CreatureManager;
+//import com.lycanitesmobs.core.info.ModInfo;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.item.ItemStack;
@@ -62,9 +62,9 @@ public abstract class ModelItemBase implements IAnimationModel {
 	// ==================================================
 	//                    Init Model
 	// ==================================================
-	public ModelItemBase initModel(String name, ModInfo groupInfo, String path) {
+	public ModelItemBase initModel(String name, String path) {
 		// Load Obj Model:
-		this.wavefrontObject = new TessellatorModel(new ResourceLocation(groupInfo.modid, "models/" + path + ".obj"));
+		this.wavefrontObject = new TessellatorModel(new ResourceLocation(Main.MODID, "models/" + path + ".obj"));
 		this.wavefrontParts = this.wavefrontObject.objObjects;
 		if(this.wavefrontParts.isEmpty())
 			LycanitesMobs.logWarning("", "Unable to load any parts for the " + name + " model!");
@@ -73,7 +73,7 @@ public abstract class ModelItemBase implements IAnimationModel {
 		this.animator = new Animator();
 
 		// Load Model Parts:
-		ResourceLocation animPartsLoc = new ResourceLocation(groupInfo.modid, "models/" + path + "_parts.json");
+		ResourceLocation animPartsLoc = new ResourceLocation(Main.MODID, "models/" + path + "_parts.json");
 		try {
 			Gson gson = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
 			InputStream in = Minecraft.getMinecraft().getResourceManager().getResource(animPartsLoc).getInputStream();
@@ -93,7 +93,7 @@ public abstract class ModelItemBase implements IAnimationModel {
 			}
 		}
 		catch (Exception e) {
-			LycanitesMobs.logWarning("", "There was a problem loading animation parts for " + name + ":");
+			System.out.println("There was a problem loading animation parts for " + name);
 			e.printStackTrace();
 		}
 
@@ -103,7 +103,7 @@ public abstract class ModelItemBase implements IAnimationModel {
 		}
 
 		// Load Animations:
-		ResourceLocation animationLocation = new ResourceLocation(groupInfo.modid, "models/" + path + "_animation.json");
+		ResourceLocation animationLocation = new ResourceLocation(MAIN.MODID, "models/" + path + "_animation.json");
 		try {
 			Gson gson = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
 			InputStream in = Minecraft.getMinecraft().getResourceManager().getResource(animationLocation).getInputStream();
@@ -118,7 +118,7 @@ public abstract class ModelItemBase implements IAnimationModel {
 			}
 		}
 		catch (Exception e) {
-			LycanitesMobs.logWarning("Model", "Unable to load animation json for " + name + ".");
+			System.out.println("Unable to load animation json for " + name + ".");
 		}
 
 		return this;
@@ -167,28 +167,19 @@ public abstract class ModelItemBase implements IAnimationModel {
 	 * @param offsetObjPart A ModelObjPart, if not null this model is offset by it, used by assembled equipment pieces to create a full model.
 	 * @param animate If true, animation frames will be generated and cleared after each render tick, if false, they must be generated and cleared manually, used by Equipment Pieces so that multiple parts can share their animations with each other..
 	 */
-	public void render(ItemStack itemStack, EnumHand hand, IItemModelRenderer renderer, ModelObjPart offsetObjPart, LayerItem layer, float loop, boolean animate) {
+	public void render(ItemStack itemStack, EnumHand hand, IItemModelRenderer renderer, ModelObjPart offsetObjPart, float loop, boolean animate) {
 		if(itemStack == null) {
 			return;
 		}
 
-		if(layer == null && this.animation != null) {
-			layer = this.animation.getBaseLayer(renderer);
-		}
-
 		// Bind Texture:
-		renderer.bindItemTexture(this.getTexture(itemStack, layer));
+		//renderer.bindItemTexture(this.getTexture(itemStack, layer));
 
 		// Generate Animation Frames:
-		if(animate) {
-			this.generateAnimationFrames(itemStack, layer, loop, offsetObjPart);
-		}
 
 		// Render Parts:
 		for(ObjObject part : this.wavefrontParts) {
 			String partName = part.getName().toLowerCase();
-			if(!this.canRenderPart(partName, itemStack, layer))
-				continue;
 			this.currentAnimationPart = this.animationParts.get(partName);
 
 			// Begin Rendering Part:
@@ -202,9 +193,9 @@ public abstract class ModelItemBase implements IAnimationModel {
 			this.currentAnimationPart.applyAnimationFrames(this.animator);
 
 			// Render Part:
-			this.onRenderStart(layer, itemStack);
-			this.wavefrontObject.renderGroup(part, this.getPartColor(partName, itemStack, layer, loop), this.getPartTextureOffset(partName, itemStack, layer, loop), null);
-			this.onRenderFinish(layer, itemStack);
+			this.onRenderStart(itemStack);
+			this.wavefrontObject.renderGroup(part, this.getPartColor(partName, itemStack, loop), this.getPartTextureOffset(partName, itemStack, loop), null);
+			this.onRenderFinish(itemStack);
 			GlStateManager.popMatrix();
 		}
 
@@ -215,7 +206,7 @@ public abstract class ModelItemBase implements IAnimationModel {
 	}
 
 	/** Called just before a layer is rendered. **/
-	public void onRenderStart(LayerItem layer, ItemStack itemStack) {
+	public void onRenderStart(ItemStack itemStack) {
 		if(!CreatureManager.getInstance().config.disableModelAlpha) {
 			GlStateManager.enableBlend();
 		}
