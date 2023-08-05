@@ -20,4 +20,12 @@ public class CommonProxy {
     }
     public void init() {
     }
+    public void registerRenders(ModInfo groupInfo) {}
+	public void registerTextures() {}
+	public void registerModels(ModInfo groupInfo) {}
+
+    //public EntityPlayer getClientPlayer() { return null; }
+
+    public void loadCreatureModel(CreatureInfo creature, String modelClassName) throws ClassNotFoundException {}
+	public void loadSubspeciesModel(Subspecies subspecies, String modelClassName) throws ClassNotFoundException {}
 }
