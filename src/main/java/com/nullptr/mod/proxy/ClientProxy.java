@@ -44,20 +44,20 @@ public class ClientProxy extends CommonProxy {
         Netero.init();
     }
     @Override
-    public void registerModels(ModInfo groupInfo) {
+    public void registerModels() {
 		AssetManager.registerModels();
     }
 
 	// ========== Creatures ==========
     @Override
-    public void loadCreatureModel(CreatureInfo creature, String modelClassName) throws ClassNotFoundException {
-		creature.modelClass = (Class<? extends ModelCustom>) Class.forName(modelClassName);
+    public void loadCreatureModel(String modelClassName) throws ClassNotFoundException {
+		//creature.modelClass = (Class<? extends ModelCustom>) Class.forName(modelClassName);
     }
 
 
     @Override
-    public void loadSubspeciesModel(Subspecies subspecies, String modelClassName) throws ClassNotFoundException {
-		subspecies.modelClass = (Class<? extends ModelCustom>) Class.forName(modelClassName);
+    public void loadSubspeciesModel(/*Subspecies subspecies, */String modelClassName) throws ClassNotFoundException {
+		//subspecies.modelClass = (Class<? extends ModelCustom>) Class.forName(modelClassName);
     }
     @Override
     public void registerRenders(ModInfo modInfo) {
