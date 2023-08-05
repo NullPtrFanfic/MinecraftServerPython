@@ -1,7 +1,7 @@
-package com.lycanitesmobs.client.renderer;
+package com.nullptr.mod.renderer;
 
-import com.lycanitesmobs.LycanitesMobs;
-import com.lycanitesmobs.core.entity.*;
+import com.nullptr.mod.Main;
+//import com.lycanitesmobs.core.entity.*;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
