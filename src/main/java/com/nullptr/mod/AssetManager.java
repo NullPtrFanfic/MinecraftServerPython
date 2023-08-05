@@ -48,18 +48,18 @@ public class AssetManager {
 	}
 	
 	// ========== Texture Group ==========
-	public static void addTextureGroup(String name, ModInfo modInfo, String[] paths) {
+	public static void addTextureGroup(String name, String[] paths) {
 		name = name.toLowerCase();
         ResourceLocation[] textureGroup = new ResourceLocation[paths.length];
 		for(int i = 0; i < paths.length; i++)
-            textureGroup[i] = new ResourceLocation(modInfo.modid, paths[i]);
+            textureGroup[i] = new ResourceLocation(Main.MODID, paths[i]);
         textureGroups.put(name, textureGroup);
 	}
 	
 	// ========== Sound ==========
-	public static void addSound(String name, ModInfo modInfo, String path) {
+	public static void addSound(String name, String path) {
 		name = name.toLowerCase();
-        ResourceLocation resourceLocation = new ResourceLocation(modInfo.modid, path);
+        ResourceLocation resourceLocation = new ResourceLocation(Main.MODID, path);
         SoundEvent soundEvent = new SoundEvent(resourceLocation);
         soundEvent.setRegistryName(resourceLocation);
 		sounds.put(name, soundEvent);
@@ -73,9 +73,9 @@ public class AssetManager {
 	}
 	
 	// ========== Obj Model ==========
-	public static void addObjModel(String name, ModInfo modInfo, String path) {
+	public static void addObjModel(String name, String path) {
 		name = name.toLowerCase();
-		objModels.put(name, ModelObjOld.loadModel(new ResourceLocation(modInfo.modid, "models/" + path + ".obj")));
+		objModels.put(name, ModelObjOld.loadModel(new ResourceLocation(Main.MODID, "models/" + path + ".obj")));
 	}
 
 	// ========== Item Model ==========
@@ -115,16 +115,12 @@ public class AssetManager {
 	// ========== Model ==========
 	public static ModelBase getModel(String name) {
 		name = name.toLowerCase();
-		CreatureInfo creatureInfo = CreatureManager.getInstance().getCreatureFromId(name);
-		if(creatureInfo != null) {
-
-		}
 		if(!models.containsKey(name))
 			return null;
 		return models.get(name);
 	}
 
-	public static ModelBase getCreatureModel(BaseCreatureEntity entityCreature) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+	public static ModelBase getCreatureModel(/*BaseCreatureEntity entityCreature*/) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
 		if (entityCreature.creatureInfo == null) {
 			return null;
 		}
@@ -143,18 +139,18 @@ public class AssetManager {
 		return getCreatureModel(entityCreature.creatureInfo);
 	}
 
-	public static ModelBase getCreatureModel(CreatureInfo creatureInfo) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-		if (creatureInfo == null || creatureInfo.modelClass == null) {
+	public static ModelBase getCreatureModel(/*CreatureInfo creatureInfo*/) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+		/*if (creatureInfo == null || creatureInfo.modelClass == null) {
 			return null;
-		}
+		}*/
 
 		// Main Model:
 		if (models.containsKey(creatureInfo.modelClass.toString())) {
 			return models.get(creatureInfo.modelClass.toString());
 		}
-		ModelBase creatureModel = creatureInfo.modelClass.getConstructor().newInstance();
-		models.put(creatureInfo.modelClass.toString(), creatureModel);
-		return creatureModel;
+		//ModelBase creatureModel = creatureInfo.modelClass.getConstructor().newInstance();
+		//models.put(creatureInfo.modelClass.toString(), creatureModel);
+		//return creatureModel;
 	}
 
 	/**
