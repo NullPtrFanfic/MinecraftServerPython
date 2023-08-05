@@ -1,7 +1,7 @@
 package com.nullptr.mod.obj;
 
 import com.nullptr.mod.Main;
-import net.minecraft.block.material.Material;
+import com.nullptr.mod.obj.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.BufferUtils;
