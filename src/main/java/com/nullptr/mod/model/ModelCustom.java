@@ -99,6 +99,15 @@ public class ModelCustom extends ModelBase {
         //return layer.getPartColor(partName, (BaseCreatureEntity)entity, trophy);
 
      }
+    public Vector2f getPartTextureOffset(String partName, Entity entity, boolean trophy, float loop) {
+
+		//if(layer == null || !(entity instanceof BaseCreatureEntity))
+
+		return this.getBaseTextureOffset(partName, entity, trophy, loop);
+
+		//return layer.getTextureOffset(partName, (BaseCreatureEntity)entity, trophy, loop);
+
+    }
     // ==================================================
     //                Get Part Color
     // ==================================================
