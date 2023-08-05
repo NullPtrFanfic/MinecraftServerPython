@@ -21,6 +21,8 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 //import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import com.nullptr.mod.model.Netero;
+import net.minecraft.item.ItemMonsterPlacer;
+import net.minecraft.init.Items;
 
 @Mod.EventBusSubscriber(modid = Main.MODID)// bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ItemInit
