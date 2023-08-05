@@ -1,10 +1,10 @@
-package com.lycanitesmobs.client.renderer;
+package com.nullptr.mod.renderer;
 
 //import com.nullptr.mod.ObjectManager;
-import com.nullptr.mod.core.entity.BaseCreatureEntity;
+/*import com.nullptr.mod.core.entity.BaseCreatureEntity;
 import com.nullptr.mod.core.entity.BaseProjectileEntity;
 import com.nullptr.mod.core.entity.CustomProjectileEntity;
-import com.nullptr.mod.core.entity.CustomProjectileModelEntity;
+import com.nullptr.mod.core.entity.CustomProjectileModelEntity;*/
 //import com.lycanitesmobs.core.info.CreatureInfo;
 //import com.lycanitesmobs.core.info.CreatureManager;
 //import com.lycanitesmobs.core.info.ModInfo;
