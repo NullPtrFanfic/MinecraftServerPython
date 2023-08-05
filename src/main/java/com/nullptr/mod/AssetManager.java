@@ -139,25 +139,6 @@ public class AssetManager {
 		return getCreatureModel(entityCreature.creatureInfo);*/
 	}
 
-	public static ModelBase getCreatureModel(/*CreatureInfo creatureInfo*/) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-		/*if (creatureInfo == null || creatureInfo.modelClass == null) {
-			return null;
-		}*/
-
-		// Main Model:
-		//if (models.containsKey(creatureInfo.modelClass.toString())) {
-			//return models.get(creatureInfo.modelClass.toString());
-		//}
-		//ModelBase creatureModel = creatureInfo.modelClass.getConstructor().newInstance();
-		//models.put(creatureInfo.modelClass.toString(), creatureModel);
-		//return creatureModel;
-	}
-
-	/**
-	 * Gets the model used by the provided Projectile.
-	 * @param projectileInfo The projectile info to get the model for.
-	 * @return The Projectile Model.
-	 */
 	public static ModelBase getProjectileModel() {
 		/*if(projectileModels.containsKey(projectileInfo)) {
 			return projectileModels.get(projectileInfo);
