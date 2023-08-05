@@ -74,7 +74,7 @@ public class ModelRender /*extends Render<Netero>*/ implements LayerRenderer<Abs
         return true;
     }
 
-    public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/entity/netero/netero.png");
+   /* public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/entity/netero/netero.png");
     private ModelNetero netero_model = new ModelNetero();
 
     //@Override
@@ -93,5 +93,5 @@ public class ModelRender /*extends Render<Netero>*/ implements LayerRenderer<Abs
         this.netero_model.render(entity, 0.0F, 0.0F, -0.1F, entity.rotationYaw, entity.rotationPitch, 0.0625F);
         GlStateManager.popMatrix();
         //super.doRender(entity, x, y, z, entityYaw, partialTicks);
-    }
+    }*/
 }
