@@ -118,8 +118,8 @@ public class ModelObjOld extends ModelCustom {
      * @param layer The layer that is being rendered, if null the default base layer is being rendered.
      * @param scale Use to scale this mob. The default scale is 0.0625 (not sure why)! For a trophy/head-only model, set the scale to a negative amount, -1 will return a head similar in size to that of a Zombie head.
      */
-    @Override
-    public void render(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale, boolean animate) {
+        @Override
+        public void render(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale, boolean animate) {
         // Assess Scale and Check if Trophy:
 		boolean trophyModel = false;
 		if(scale < 0) {
@@ -130,7 +130,7 @@ public class ModelObjOld extends ModelCustom {
 			scale *= 16;
 			/*if(entity instanceof BaseCreatureEntity) {
                 scale *= ((BaseCreatureEntity)entity).getRenderScale();*/
-            }
+            //}
 		}
 
 		// GUI Render:
@@ -141,17 +141,17 @@ public class ModelObjOld extends ModelCustom {
 			}
 		}*/
 
-        // Render and Animate Each Part:
-        for(ObjObject part : this.wavefrontParts) {
+            // Render and Animate Each Part:
+            for(ObjObject part : this.wavefrontParts) {
     		if(part.getName() == null)
     			continue;
-            String partName = part.getName().toLowerCase();
+                String partName = part.getName().toLowerCase();
 
             // Trophy - Check if Trophy Part:
     		boolean isTrophyPart = this.isTrophyPart(partName);
     		if(this.bodyIsTrophy && partName.contains("body")) {
                 isTrophyPart = true;
-    		}
+    	    }
 
             // Skip Part If Not Rendered:
             if(!this.canRenderPart(partName, entity, layer, trophyModel) || (trophyModel && !isTrophyPart))
@@ -176,9 +176,9 @@ public class ModelObjOld extends ModelCustom {
 
             // Animate (Part is centered and then animated):
             this.centerPart(partName);
-			if(entity instanceof BaseCreatureEntity && ((BaseCreatureEntity)entity).hasPerchTarget()) {
+			/*if(entity instanceof BaseCreatureEntity && ((BaseCreatureEntity)entity).hasPerchTarget()) {
 				distance = 0;
-			}
+			}*/
             this.animatePart(partName, (EntityLiving)entity, time, distance, loop, -lookY, lookX, scale);
 
             // Trophy - Positioning:
@@ -206,11 +206,11 @@ public class ModelObjOld extends ModelCustom {
 
             // Render:
             this.uncenterPart(partName);
-			this.onRenderStart(layer, entity, trophyModel);
+	    this.onRenderStart(layer, entity, trophyModel);
             this.wavefrontObject.renderGroup(part, this.getPartColor(partName, entity, layer, trophyModel, loop), this.getPartTextureOffset(partName, entity, layer, trophyModel, loop), null);
-			this.onRenderFinish(layer, entity, trophyModel);
-			GlStateManager.popMatrix();
-		}
+	    this.onRenderFinish(layer, entity, trophyModel);
+	    GlStateManager.popMatrix();
+		//}
 	}
 
 	/** Called just before a layer is rendered. **/
