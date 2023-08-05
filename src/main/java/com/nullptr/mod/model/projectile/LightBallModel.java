@@ -59,7 +59,7 @@ public class LightBallModel extends ModelCreatureObj {
 	// ==================================================
 	@Override
 	public boolean canRenderPart(String partName, Entity entity, boolean trophy) {
-		return null;
+		return true;
 	}
 
 
