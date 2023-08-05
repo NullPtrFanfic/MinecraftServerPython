@@ -42,9 +42,9 @@ public class AssetManager {
     //                        Add
     // ==================================================
 	// ========== Texture ==========
-	public static void addTexture(String name, ModInfo modInfo, String path) {
+	public static void addTexture(String name, String path) {
 		name = name.toLowerCase();
-		textures.put(name, new ResourceLocation(modInfo.modid, path));
+		textures.put(name, new ResourceLocation(Main.MODID, path));
 	}
 	
 	// ========== Texture Group ==========
