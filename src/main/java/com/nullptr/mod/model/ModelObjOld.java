@@ -1,13 +1,13 @@
-package com.lycanitesmobs.client.model;
+package com.nullptr.mod.model;
 
-import com.lycanitesmobs.LycanitesMobs;
-import com.lycanitesmobs.core.entity.BaseCreatureEntity;
-import com.lycanitesmobs.core.info.CreatureInfo;
-import com.lycanitesmobs.core.info.CreatureManager;
-import com.lycanitesmobs.core.info.ModInfo;
-import com.lycanitesmobs.client.obj.ObjObject;
-import com.lycanitesmobs.client.obj.TessellatorModel;
-import com.lycanitesmobs.client.renderer.layer.LayerCreatureBase;
+import com.nullptr.mod.Main;
+//import com.lycanitesmobs.core.entity.BaseCreatureEntity;
+//import com.lycanitesmobs.core.info.CreatureInfo;
+//import com.lycanitesmobs.core.info.CreatureManager;
+//import com.lycanitesmobs.core.info.ModInfo;
+import com.nullptr.mod.obj.ObjObject;
+import com.nullptr.mod.obj.TessellatorModel;
+import com.nullptr.mod.renderer.layer.LayerCreatureBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
