@@ -80,7 +80,7 @@ public class LightBallModel extends ModelCreatureObj {
 	// ==================================================
 	@Override
 	public void onRenderStart(Entity entity, boolean renderAsTrophy) {
-		super.onRenderStart(layer, entity, renderAsTrophy);
+		super.onRenderStart(entity, renderAsTrophy);
 		int i = 15728880;
 		int j = i % 65536;
 		int k = i / 65536;
@@ -90,7 +90,7 @@ public class LightBallModel extends ModelCreatureObj {
 
 	@Override
 	public void onRenderFinish(Entity entity, boolean renderAsTrophy) {
-		super.onRenderFinish(layer, entity, renderAsTrophy);
+		super.onRenderFinish(entity, renderAsTrophy);
 		int i = entity.getBrightnessForRender();
 		int j = i % 65536;
 		int k = i / 65536;
