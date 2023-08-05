@@ -61,7 +61,7 @@ public class ModelCustom extends ModelBase {
    	// ==================================================
     @Override
     public void render(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale) {
-        this.render(entity, time, distance, loop, lookY, lookX, scale, null, true);
+        this.render(entity, time, distance, loop, lookY, lookX, scale, true);
     }
 
     public void render(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale, boolean animate) {
