@@ -17,7 +17,7 @@ import javax.vecmath.Vector4f;
 
 @SideOnly(Side.CLIENT)
 public class LightBallModel extends ModelCreatureObj {
-	LayerCreatureEffect ballGlowLayer;
+	//LayerCreatureEffect ballGlowLayer;
 
 	// ==================================================
   	//                    Constructors
