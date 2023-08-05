@@ -2,9 +2,9 @@ package com.nullptr.mod.model.projectile;
 
 import com.nullptr.mod.Main;
 import com.nullptr.mod.model.ModelCreatureObj;
-import com.nullptr.mod.renderer.layer.LayerCreatureBase;
-import com.nullptr.mod.renderer.layer.LayerCreatureEffect;
-import com.nullptr.mod.renderer.RenderCreature;
+//import com.nullptr.mod.renderer.layer.LayerCreatureBase;
+//import com.nullptr.mod.renderer.layer.LayerCreatureEffect;
+//import com.nullptr.mod.renderer.RenderCreature;
 
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -29,7 +29,7 @@ public class LightBallModel extends ModelCreatureObj {
     public LightBallModel(float shadowSize) {
 
 		// Load Model:
-		this.initModel("lightball", LycanitesMobs.modInfo, "projectile/lightball");
+		this.initModel("lightball", Main.MODID, "projectile/lightball");
     }
 
 
@@ -39,8 +39,8 @@ public class LightBallModel extends ModelCreatureObj {
 	@Override
 	public void addCustomLayers(RenderCreature renderer) {
 		super.addCustomLayers(renderer);
-		this.ballGlowLayer = new LayerCreatureEffect(renderer, "", true, LayerCreatureEffect.BLEND.ADD.id, true);
-		renderer.addLayer(this.ballGlowLayer);
+		//this.ballGlowLayer = new LayerCreatureEffect(renderer, "", true, LayerCreatureEffect.BLEND.ADD.id, true);
+		//renderer.addLayer(this.ballGlowLayer);
 	}
 
 
