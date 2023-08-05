@@ -214,14 +214,14 @@ public class ModelObjOld extends ModelCustom {
 	}
 
 	/** Called just before a layer is rendered. **/
-	public void onRenderStart(LayerCreatureBase layer, Entity entity, boolean renderAsTrophy) {
-		if(!CreatureManager.getInstance().config.disableModelAlpha) {
+	public void onRenderStart(Entity entity, boolean renderAsTrophy) {
+		/*if(!CreatureManager.getInstance().config.disableModelAlpha) {
 			GlStateManager.enableBlend();
-		}
+		}*/
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
-		if(layer != null) {
+		/*if(layer != null) {
 			layer.onRenderStart(entity, renderAsTrophy);
-		}
+		}*/
 	}
 
 	/** Called just after a layer is rendered. **/ 
@@ -241,10 +241,10 @@ public class ModelObjOld extends ModelCustom {
     /** Returns true if the provided part name should be shown for the trophy model. **/
     public boolean isTrophyPart(String partName) {
     	if(partName == null)
-    		return false;
+    	   return false;
     	partName = partName.toLowerCase();
     	if(partName.contains("head") || partName.contains("mouth") || partName.contains("eye"))
-			return true;
+	   return true;
     	return false;
     }
     
@@ -325,12 +325,12 @@ public class ModelObjOld extends ModelCustom {
     // ========== Set and Get ==========
     public void setPartCenter(String partName, float centerX, float centerY, float centerZ) {
     	if(this.isTrophyPart(partName))
-    		this.bodyIsTrophy = false;
+    	   this.bodyIsTrophy = false;
     	this.partCenters.put(partName, new float[] {centerX, centerY, centerZ});
     }
     public void setPartCenters(float centerX, float centerY, float centerZ, String... partNames) {
     	for(String partName : partNames)
-    		this.setPartCenter(partName, centerX, centerY, centerZ);
+    	    this.setPartCenter(partName, centerX, centerY, centerZ);
     }
     public float[] getPartCenter(String partName) {
     	if(!this.partCenters.containsKey(partName)) return new float[] {0.0F, 0.0F, 0.0F};
@@ -354,12 +354,12 @@ public class ModelObjOld extends ModelCustom {
     	this.uncenterPart(part);
     	float[] partCenter = this.partCenters.get(targetPart);
     	if(partCenter != null)
-    		this.translate(partCenter[0], partCenter[1], partCenter[2]);
+    	   this.translate(partCenter[0], partCenter[1], partCenter[2]);
     }
     public void uncenterPartToPart(String part, String targetPart) {
     	float[] partCenter = this.partCenters.get(targetPart);
     	if(partCenter != null)
-    		this.translate(-partCenter[0], -partCenter[1], -partCenter[2]);
+    	   this.translate(-partCenter[0], -partCenter[1], -partCenter[2]);
     	this.centerPart(part);
     }
     
@@ -369,9 +369,9 @@ public class ModelObjOld extends ModelCustom {
     	float[] targetPart = getPartCenter(targetPartName);
     	float[] partDifference = new float[3];
     	if(targetPart == null)
-    		return partDifference;
+    	   return partDifference;
     	for(int i = 0; i < 3; i++)
-    		partDifference[i] = targetPart[i] - centerPart[i];
+    	    partDifference[i] = targetPart[i] - centerPart[i];
     	return partDifference;
     }
     
@@ -384,7 +384,7 @@ public class ModelObjOld extends ModelCustom {
     }
     public void setPartSubCenters(float centerX, float centerY, float centerZ, String... partNames) {
     	for(String partName : partNames)
-    		setPartSubCenter(partName, centerX, centerY, centerZ);
+    	    setPartSubCenter(partName, centerX, centerY, centerZ);
     }
     public void subCenterPart(String partName) {
     	float[] offset = getSubCenterOffset(partName);
@@ -403,7 +403,7 @@ public class ModelObjOld extends ModelCustom {
     	float[] partSubCenter = partSubCenters.get(partName);
     	float[] offset = new float[3];
     	for(int coord = 0; coord < 3; coord++)
-    		offset[coord] = partSubCenter[coord] - partCenter[coord];
+    	    offset[coord] = partSubCenter[coord] - partCenter[coord];
     	return offset;
     }
     
@@ -424,13 +424,13 @@ public class ModelObjOld extends ModelCustom {
     }
     public double rotateToPoint(double aCenter, double bCenter, double aTarget, double bTarget) {
     	if(aTarget - aCenter == 0)
-    		if(aTarget > aCenter) return 0;
-    		else if(aTarget < aCenter) return 180;
+    	   if(aTarget > aCenter) return 0;
+    	    else if(aTarget < aCenter) return 180;
     	if(bTarget - bCenter == 0)
-    		if(bTarget > bCenter) return 90;
-    		else if(bTarget < bCenter) return -90;
+    	   if(bTarget > bCenter) return 90;
+    	   else if(bTarget < bCenter) return -90;
     	if(aTarget - aCenter == 0 && bTarget - bCenter == 0)
-    		return 0;
+    	   return 0;
     	return Math.toDegrees(Math.atan2(aCenter - aTarget, bCenter - bTarget) - Math.PI / 2);
     }
     public double[] rotateToPoint(double xCenter, double yCenter, double zCenter, double xTarget, double yTarget, double zTarget) {
