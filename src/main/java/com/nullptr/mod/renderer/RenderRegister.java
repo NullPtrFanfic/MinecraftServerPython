@@ -1,31 +1,25 @@
 package com.lycanitesmobs.client.renderer;
 
-import com.lycanitesmobs.ObjectManager;
-import com.lycanitesmobs.core.entity.BaseCreatureEntity;
-import com.lycanitesmobs.core.entity.BaseProjectileEntity;
-import com.lycanitesmobs.core.entity.CustomProjectileEntity;
-import com.lycanitesmobs.core.entity.CustomProjectileModelEntity;
-import com.lycanitesmobs.core.info.CreatureInfo;
-import com.lycanitesmobs.core.info.CreatureManager;
-import com.lycanitesmobs.core.info.ModInfo;
-import com.lycanitesmobs.core.info.projectile.ProjectileManager;
+import com.nullptr.mod.ObjectManager;
+import com.nullptr.mod.core.entity.BaseCreatureEntity;
+import com.nullptr.mod.core.entity.BaseProjectileEntity;
+import com.nullptr.mod.core.entity.CustomProjectileEntity;
+import com.nullptr.mod.core.entity.CustomProjectileModelEntity;
+//import com.lycanitesmobs.core.info.CreatureInfo;
+//import com.lycanitesmobs.core.info.CreatureManager;
+//import com.lycanitesmobs.core.info.ModInfo;
+import com.nullptr.mod.core.info.projectile.ProjectileManager;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class RenderRegister {
-    public ModInfo modInfo;
+    //public ModInfo modInfo;
 
-    public RenderRegister(ModInfo modInfo) {
-        this.modInfo = modInfo;
+    public RenderRegister(/*ModInfo modInfo*/) {
+        //this.modInfo = modInfo;
     }
 
     public void registerRenderFactories() {
         // Creatures:
-        for(CreatureInfo creatureInfo : CreatureManager.getInstance().creatures.values()) {
-            if(creatureInfo.dummy) {
-                RenderingRegistry.registerEntityRenderingHandler(creatureInfo.entityClass, new RenderFactoryNone<BaseProjectileEntity>(creatureInfo.entityClass));
-            }
-            RenderingRegistry.registerEntityRenderingHandler(creatureInfo.entityClass, new RenderFactoryCreature<BaseCreatureEntity>(creatureInfo));
-        }
 
         // Projectiles:
         RenderingRegistry.registerEntityRenderingHandler(CustomProjectileModelEntity.class, new RenderFactoryProjectile<CustomProjectileEntity>(true));
