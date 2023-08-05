@@ -1,6 +1,6 @@
-package com.lycanitesmobs.client.obj;
+package com.nullptr.mod.obj;
 
-import com.lycanitesmobs.LycanitesMobs;
+import com.nullptr.mod.Main;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
