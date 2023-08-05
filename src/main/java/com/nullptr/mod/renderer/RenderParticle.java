@@ -1,7 +1,7 @@
-package com.lycanitesmobs.client.renderer;
+package com.nullptr.mod.renderer;
 
-import com.lycanitesmobs.core.entity.EntityParticle;
-import com.lycanitesmobs.core.entity.BaseProjectileEntity;
+//import com.lycanitesmobs.core.entity.EntityParticle;
+//import com.lycanitesmobs.core.entity.BaseProjectileEntity;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -17,14 +17,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class RenderParticle extends Render {
     private float scale;
     private int renderTime = 0;
-    public EntityParticle entityParticle;
+    //public EntityParticle entityParticle;
     
     // ==================================================
     //                     Constructor
     // ==================================================
-    public RenderParticle(RenderManager renderManager, EntityParticle entityParticle) {
+    public RenderParticle(RenderManager renderManager) {
         super(renderManager);
-        this.entityParticle = entityParticle;
+        //this.entityParticle = entityParticle;
     }
     
     
@@ -43,8 +43,7 @@ public class RenderParticle extends Render {
     // ==================================================
     public void renderParticle(Entity entity, double x, double y, double z, float par8, float par9) {
     	float scale = 1f;
-    	try { scale = ((BaseProjectileEntity)entity).getProjectileScale(); }
-    	catch(Exception e) {}
+    	
 
         GlStateManager.pushMatrix();
         GlStateManager.translate((float)x, (float) y, (float) z);
@@ -65,8 +64,6 @@ public class RenderParticle extends Render {
     // ========== Get Texture ==========
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-    	if(entity instanceof EntityParticle)
-    		return ((EntityParticle)entity).getTexture();
     	return null;
     }
 
@@ -81,13 +78,6 @@ public class RenderParticle extends Render {
         double maxV = 1;
         float textureWidth = 0.00390625F;
         float textureHeight = 0.00390625F;
-        if(entity instanceof BaseProjectileEntity) {
-            BaseProjectileEntity entityProjectile = (BaseProjectileEntity)entity;
-            if(entityProjectile.animationFrameMax > 0) {
-                minV = (float)entityProjectile.animationFrame / (float)entityProjectile.animationFrameMax;
-                maxV = minV + (1F / (float)entityProjectile.animationFrameMax);
-            }
-        }
         double xCoord = 0;
         double yCoord = 0;
         double zLevel = 0;
