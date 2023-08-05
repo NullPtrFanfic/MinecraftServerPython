@@ -1,7 +1,6 @@
 package com.nullptr.mod.obj;
 
 import java.lang.Object;
-import net.minecraftforge.client.event.EventType;
 import com.nullptr.mod.obj.ObjModel;
 public class ObjEvent
 {
