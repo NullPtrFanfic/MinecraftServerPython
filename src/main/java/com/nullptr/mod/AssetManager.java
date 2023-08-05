@@ -2,7 +2,7 @@ package com.nullptr.mod;
 
 import com.nullptr.mod.Main;
 //import com.lycanitesmobs.ObjectManager;
-import com.nullptr.mod.model.ModelEquipmentPart;
+//import com.nullptr.mod.model.ModelEquipmentPart;
 //import com.lycanitesmobs.core.entity.BaseCreatureEntity;
 //import com.lycanitesmobs.core.info.CreatureInfo;
 //import com.lycanitesmobs.core.info.CreatureManager;
@@ -197,28 +197,5 @@ public class AssetManager {
 	// ==================================================
 	@SideOnly(Side.CLIENT)
 	public static void registerModels() {
-		for(Item item : ObjectManager.items.values()) {
-			if(item instanceof ItemBase) {
-				ItemBase itemBase = (ItemBase) item;
-				if (itemBase.useItemColors()) {
-					Minecraft.getMinecraft().getItemColors().registerItemColorHandler(ClientProxy.itemColor, item);
-				}
-			}
-			if(item instanceof ItemEquipmentPart) {
-				ItemEquipmentPart itemEquipmentPart = (ItemEquipmentPart)item;
-				AssetManager.addItemModel(itemEquipmentPart.itemName, new ModelEquipmentPart(itemEquipmentPart.itemName, itemEquipmentPart.modInfo));
-			}
-		}
-
-		for(ProjectileInfo projectileInfo : ProjectileManager.getInstance().projectiles.values()) {
-			if(projectileInfo.modelClassName != null) {
-				try {
-					projectileModels.put(projectileInfo, (ModelBase)Class.forName(projectileInfo.modelClassName).getConstructor().newInstance());
-				} catch (Exception e) {
-					LycanitesMobs.logWarning("", "Unable to load a Projectile model, check that the model class name is correct in the associated projectile json.");
-					e.printStackTrace();
-				}
-			}
-		}
 	}
 }
