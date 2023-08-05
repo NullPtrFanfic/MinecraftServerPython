@@ -192,7 +192,7 @@ public class ModelObjOld extends ModelCustom {
         // Render:
         this.uncenterPart(partName);
         this.onRenderStart(entity, trophyModel);
-        this.wavefrontObject.renderGroup(part, this.getPartColor(partName, entity, layer, trophyModel, loop), this.getPartTextureOffset(partName, entity, layer, trophyModel, loop), null);
+        this.wavefrontObject.renderGroup(part, this.getPartColor(partName, entity, trophyModel, loop), this.getPartTextureOffset(partName, entity, trophyModel, loop), null);
         this.onRenderFinish(entity, trophyModel);
         GlStateManager.popMatrix();
     }
