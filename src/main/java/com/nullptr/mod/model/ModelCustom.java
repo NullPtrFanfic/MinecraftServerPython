@@ -82,10 +82,6 @@ public class ModelCustom extends ModelBase {
     // ==================================================
     /** Returns true if the part can be rendered, this can do various checks such as Yale wool only rendering in the YaleWoolLayer or hiding body parts in place of armor parts, etc. **/
     public boolean canRenderPart(String partName, Entity entity, boolean trophy) {
-        if(layer == null)
-            return this.canBaseRenderPart(partName, entity, trophy);
-        //if(entity instanceof BaseCreatureEntity)
-           // return layer.canRenderPart(partName, (BaseCreatureEntity)entity, trophy);
         return false;
     }
 
