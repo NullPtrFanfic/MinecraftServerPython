@@ -2,7 +2,7 @@ package com.nullptr.mod.model;
 
 import com.nullptr.mod.renderer.layer.LayerCreatureBase;
 //import com.nullptr.mod.core.entity.BaseCreatureEntity;
-import com.nullptr.mod.renderer.layer.LayerCreatureEquipment;
+//import com.nullptr.mod.renderer.layer.LayerCreatureEquipment;
 import com.nullptr.mod.renderer.layer.LayerCreatureSaddle;
 import com.nullptr.mod.renderer.RenderCreature;
 import net.minecraft.client.model.ModelBase;
