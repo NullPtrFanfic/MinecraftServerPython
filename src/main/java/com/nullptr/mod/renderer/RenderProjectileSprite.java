@@ -125,7 +125,7 @@ public class RenderProjectileSprite extends Render {
     // ==================================================
     //                 Render Laser
     // ==================================================
-    public void renderLaser(CustomProjectileEntity entity, double x, double y, double z, float par8, float par9, float scale) {
+    public void renderLaser(double x, double y, double z, float par8, float par9, float scale) {
     	// Create Laser Model If Null:
     	if(this.laserBox == null) {
     		laserBox = new ModelRenderer(laserModel, 0, 0);
@@ -137,31 +137,28 @@ public class RenderProjectileSprite extends Render {
 
     	float factor = (float)(1.0 / 16.0);
     	float lastSegment = 0;
-		double length = entity.getPositionVector().distanceTo(entity.getLaserEnd());
-    	if(length <= 0)
-            return;
 
     	// Render Laser Beam:
         GlStateManager.pushMatrix();
         GlStateManager.enableAlpha();
         GlStateManager.color(1, 1, 1, 1);
         GlStateManager.translate(x, y, z);
-    	this.bindTexture(this.getLaserTexture(entity));
+    	//this.bindTexture(this.getLaserTexture(entity));
 
         // Rotation:
 		float[] angles = new float[] {0, 0, 0, 0};
-		float dx = (float)(entity.getLaserEnd().x - entity.posX);
-		float dy = (float)(entity.getLaserEnd().y - entity.posY);
-		float dz = (float)(entity.getLaserEnd().z - entity.posZ);
+		//float dx = (float)(entity.getLaserEnd().x - entity.posX);
+		//float dy = (float)(entity.getLaserEnd().y - entity.posY);
+		//float dz = (float)(entity.getLaserEnd().z - entity.posZ);
 		angles[0] = (float)Math.toDegrees(Math.atan2(dz, dy)) - 90;
 		angles[1] = (float)Math.toDegrees(Math.atan2(dx, dz));
 		angles[2] = (float)Math.toDegrees(Math.atan2(dx, dy)) - 90;
 
 		// Distance based x/z rotation:
-		float dr = (float)Math.sqrt(dx * dx + dz * dz);
-		angles[3] = (float)Math.toDegrees(Math.atan2(dr, dy)) - 90;
+		//float dr = (float)Math.sqrt(dx * dx + dz * dz);
+		//angles[3] = (float)Math.toDegrees(Math.atan2(dr, dy)) - 90;
         GlStateManager.rotate(angles[1], 0, 1, 0);
-        GlStateManager.rotate(angles[3], 1, 0, 0);
+      //  GlStateManager.rotate(angles[3], 1, 0, 0);
 
     	// Length:
         for(float segment = 0; segment <= length - 1; ++segment) {
