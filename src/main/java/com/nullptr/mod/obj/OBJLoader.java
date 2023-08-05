@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-
+import com.nullptr.mod.obj.ObjObject;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 
