@@ -42,7 +42,7 @@ public class ItemInit
 
     public static Item getSpawnEgg() {
         ItemStack stack = new ItemStack(Items.SPAWN_EGG, 1);
-        ItemMonsterPlacer.applyEntityIdToItemStack(stack, new ResourceLocation(Main.MODID, "entity.test"));
+        ItemMonsterPlacer.applyEntityIdToItemStack(stack, new ResourceLocation(Main.MODID, "test"));
         return stack.getItem();
     }
 
