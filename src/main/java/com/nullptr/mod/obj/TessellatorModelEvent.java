@@ -1,4 +1,4 @@
-package com.lycanitesmobs.client.obj;
+package com.nullptr.mod.obj;
 
 import com.nullptr.mod.obj.TessellatorModel;
 import net.minecraftforge.fml.common.eventhandler.Event;
