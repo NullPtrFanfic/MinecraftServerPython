@@ -67,7 +67,7 @@ public class LightBallModel extends ModelCreatureObj {
 	//                Get Part Color
 	// ==================================================
 	/** Returns the coloring to be used for this part and layer. **/
-	public Vector4f getPartColor(String partName, Entity entity, LayerCreatureBase layer, boolean trophy, float loop) {
+	public Vector4f getPartColor(String partName, Entity entity, boolean trophy, float loop) {
 		float glowSpeed = 40;
 		float glow = loop * glowSpeed % 360;
 		float color = ((float)Math.cos(Math.toRadians(glow)) * 0.1f) + 0.9f;
@@ -79,7 +79,7 @@ public class LightBallModel extends ModelCreatureObj {
 	//                      Visuals
 	// ==================================================
 	@Override
-	public void onRenderStart(LayerCreatureBase layer, Entity entity, boolean renderAsTrophy) {
+	public void onRenderStart(Entity entity, boolean renderAsTrophy) {
 		super.onRenderStart(layer, entity, renderAsTrophy);
 		int i = 15728880;
 		int j = i % 65536;
@@ -89,7 +89,7 @@ public class LightBallModel extends ModelCreatureObj {
 	}
 
 	@Override
-	public void onRenderFinish(LayerCreatureBase layer, Entity entity, boolean renderAsTrophy) {
+	public void onRenderFinish(Entity entity, boolean renderAsTrophy) {
 		super.onRenderFinish(layer, entity, renderAsTrophy);
 		int i = entity.getBrightnessForRender();
 		int j = i % 65536;
