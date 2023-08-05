@@ -7,6 +7,7 @@ import com.nullptr.mod.Main;
 //import com.lycanitesmobs.core.info.ModInfo;
 import com.nullptr.mod.obj.ObjObject;
 import com.nullptr.mod.obj.TessellatorModel;
+import com.nullptr.mod.model.ModelCustom;
 //import com.nullptr.mod.renderer.layer.LayerCreatureBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
