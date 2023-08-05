@@ -1,16 +1,11 @@
 package com.lycanitesmobs.client.model;
 
 import com.google.gson.*;
-import com.lycanitesmobs.LycanitesMobs;
-import com.lycanitesmobs.core.entity.BaseCreatureEntity;
-import com.lycanitesmobs.core.entity.BaseProjectileEntity;
-import com.lycanitesmobs.core.info.CreatureInfo;
-import com.lycanitesmobs.core.info.CreatureManager;
-import com.lycanitesmobs.core.info.ModInfo;
-import com.lycanitesmobs.client.obj.ObjObject;
-import com.lycanitesmobs.client.obj.TessellatorModel;
-import com.lycanitesmobs.client.renderer.layer.LayerCreatureBase;
-import com.lycanitesmobs.client.renderer.RenderCreature;
+import com.nullptr.mod.Main;
+import com.nullptr.mod.obj.ObjObject;
+import com.nullptr.mod.obj.TessellatorModel;
+import com.nullptr.mod.renderer.layer.LayerCreatureBase;
+import com.nullptr.mod.renderer.RenderCreature;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -105,7 +100,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
     // ==================================================
     //                    Init Model
     // ==================================================
-    public ModelCreatureObj initModel(String name, ModInfo groupInfo, String path) {
+    public ModelCreatureObj initModel(String name, String path) {
     	// Check If Enabled:
 		CreatureInfo creatureInfo = CreatureManager.getInstance().getCreature(name);
 		if(creatureInfo != null && !creatureInfo.enabled) {
@@ -113,7 +108,7 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
 		}
 
         // Load Obj Model:
-        this.wavefrontObject = new TessellatorModel(new ResourceLocation(groupInfo.modid, "models/" + path + ".obj"));
+        this.wavefrontObject = new TessellatorModel(new ResourceLocation(Main.MODID, "models/" + path + ".obj"));
         this.wavefrontParts = this.wavefrontObject.objObjects;
         if(this.wavefrontParts.isEmpty())
             LycanitesMobs.logWarning("", "Unable to load any parts for the " + name + " model!");
