@@ -1,4 +1,4 @@
-package com.lycanitesmobs.client.obj;
+package com.nullptr.mod.obj;
 
 import java.io.IOException;
 import java.io.InputStream;
