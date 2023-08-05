@@ -1,10 +1,10 @@
-package com.lycanitesmobs.client.model.projectile;
+package com.nullptr.mod.model.projectile;
 
-import com.lycanitesmobs.LycanitesMobs;
-import com.lycanitesmobs.client.model.ModelCreatureObj;
-import com.lycanitesmobs.client.renderer.layer.LayerCreatureBase;
-import com.lycanitesmobs.client.renderer.layer.LayerCreatureEffect;
-import com.lycanitesmobs.client.renderer.RenderCreature;
+import com.nullptr.mod.Main;
+import com.nullptr.mod.model.ModelCreatureObj;
+import com.nullptr.mod.renderer.layer.LayerCreatureBase;
+import com.nullptr.mod.renderer.layer.LayerCreatureEffect;
+import com.nullptr.mod.renderer.RenderCreature;
 
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
