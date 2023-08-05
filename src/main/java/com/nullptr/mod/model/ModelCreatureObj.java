@@ -145,15 +145,15 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
         }
 
 		// Load Animations:
-		ResourceLocation animationLocation = new ResourceLocation(groupInfo.modid, "models/" + path + "_animation.json");
+		ResourceLocation animationLocation = new ResourceLocation(Main.MODID, "models/" + path + "_animation.json");
 		try {
 			Gson gson = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
 			InputStream in = Minecraft.getMinecraft().getResourceManager().getResource(animationLocation).getInputStream();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 			try {
 				JsonObject json = JsonUtils.fromJson(gson, reader, JsonObject.class);
-				this.animation = new ModelAnimation();
-				this.animation.loadFromJson(json);
+				//this.animation = new ModelAnimation();
+				//this.animation.loadFromJson(json);
 			}
 			finally {
 				IOUtils.closeQuietly(reader);
