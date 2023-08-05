@@ -18,13 +18,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import com.nullptr.mod.model.Netero;
-import com.nullptr.mod.core.tileentity.TileEntityEquipmentPart;
-import com.nullptr.mod.core.tileentity.TileEntityEquipment;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
+//import com.nullptr.mod.core.tileentity.TileEntityEquipmentPart;
+//import com.nullptr.mod.core.tileentity.TileEntityEquipment;
+//import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import com.nullptr.mod.model.projectile.LightBallModel;
-import com.nullptr.mod.renderer.EquipmentPartRenderer;
-import com.nullptr.mod.renderer.EquipmentRenderer;
+//import com.nullptr.mod.renderer.EquipmentPartRenderer;
+//import com.nullptr.mod.renderer.EquipmentRenderer;
 import com.nullptr.mod.renderer.RenderRegister;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
@@ -71,8 +71,8 @@ public class ClientProxy extends CommonProxy {
     public void registerRenders(ModInfo modInfo) {
            AssetManager.addModel("lightball", new LightBallModel());
            ModelLoaderRegistry.registerLoader(new EquipmentPartModelLoader());
-           ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEquipmentPart.class, new EquipmentPartRenderer());
-           ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEquipment.class, new EquipmentRenderer());
+           //ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEquipmentPart.class, new EquipmentPartRenderer());
+           //ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEquipment.class, new EquipmentRenderer());
            RenderRegister renderRegister = new RenderRegister(modInfo);
            renderRegister.registerRenderFactories();
     }
