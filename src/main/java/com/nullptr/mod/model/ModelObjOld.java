@@ -7,7 +7,7 @@ import com.nullptr.mod.Main;
 //import com.lycanitesmobs.core.info.ModInfo;
 import com.nullptr.mod.obj.ObjObject;
 import com.nullptr.mod.obj.TessellatorModel;
-import com.nullptr.mod.renderer.layer.LayerCreatureBase;
+//import com.nullptr.mod.renderer.layer.LayerCreatureBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -86,18 +86,18 @@ public class ModelObjOld extends ModelCustom {
 
     // ==================================================
     //                    Init Model
-    // ==================================================
-    public ModelObjOld initModel(String name, ModInfo groupInfo, String path) {
+    // =================================================
+    public ModelObjOld initModel(String name, String path) {
 		// Check If Enabled:
-		CreatureInfo creatureInfo = CreatureManager.getInstance().getCreature(name);
+		/*CreatureInfo creatureInfo = CreatureManager.getInstance().getCreature(name);
 		if(creatureInfo != null && !creatureInfo.enabled) {
 			return this;
-		}
+		}*/
 
-		this.wavefrontObject = new TessellatorModel(new ResourceLocation(groupInfo.modid, "models/" + path + ".obj"));
+		this.wavefrontObject = new TessellatorModel(new ResourceLocation(Main.MODID, "models/" + path + ".obj"));
         this.wavefrontParts = this.wavefrontObject.objObjects;
         if(this.wavefrontParts.isEmpty())
-            LycanitesMobs.logWarning("", "Unable to load any parts for the " + name + " model!");
+           System.out.println("Unable to load any parts for the " + name + " model");
 
         return this;
     }
@@ -118,7 +118,7 @@ public class ModelObjOld extends ModelCustom {
      * @param scale Use to scale this mob. The default scale is 0.0625 (not sure why)! For a trophy/head-only model, set the scale to a negative amount, -1 will return a head similar in size to that of a Zombie head.
      */
     @Override
-    public void render(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale, LayerCreatureBase layer, boolean animate) {
+    public void render(Entity entity, float time, float distance, float loop, float lookY, float lookX, float scale, boolean animate) {
         // Assess Scale and Check if Trophy:
 		boolean trophyModel = false;
 		if(scale < 0) {
@@ -127,18 +127,18 @@ public class ModelObjOld extends ModelCustom {
 		}
 		else {
 			scale *= 16;
-			if(entity instanceof BaseCreatureEntity) {
-                scale *= ((BaseCreatureEntity)entity).getRenderScale();
+			/*if(entity instanceof BaseCreatureEntity) {
+                scale *= ((BaseCreatureEntity)entity).getRenderScale();*/
             }
 		}
 
 		// GUI Render:
-		if(entity instanceof BaseCreatureEntity) {
+		/*if(entity instanceof BaseCreatureEntity) {
 			BaseCreatureEntity creature = (BaseCreatureEntity)entity;
 			if(creature.onlyRenderTicks >= 0) {
 				loop = creature.onlyRenderTicks;
 			}
-		}
+		}*/
 
         // Render and Animate Each Part:
         for(ObjObject part : this.wavefrontParts) {
@@ -223,14 +223,14 @@ public class ModelObjOld extends ModelCustom {
 		}
 	}
 
-	/** Called just after a layer is rendered. **/
-	public void onRenderFinish(LayerCreatureBase layer, Entity entity, boolean renderAsTrophy) {
-		if(!CreatureManager.getInstance().config.disableModelAlpha) {
+	/** Called just after a layer is rendered. **/ 
+	public void onRenderFinish(Entity entity, boolean renderAsTrophy) {
+		/*if(!CreatureManager.getInstance().config.disableModelAlpha) {
 			GlStateManager.disableBlend();
 		}
 		if(layer != null) {
 			layer.onRenderFinish(entity, renderAsTrophy);
-		}
+		}*/
 	}
     
     
