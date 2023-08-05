@@ -7,6 +7,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import com.nullptr.mod.core.info.CreatureInfo;
+import com.nullptr.mod.core.info.ModInfo;
+import com.nullptr.mod.core.info.Subspecies;
 
 @Mod.EventBusSubscriber
 public class CommonProxy {
@@ -21,11 +24,11 @@ public class CommonProxy {
     public void init() {
     }
     public void registerRenders(ModInfo groupInfo) {}
-	public void registerTextures() {}
-	public void registerModels(ModInfo groupInfo) {}
+    public void registerTextures() {}
+    public void registerModels(ModInfo groupInfo) {}
 
     //public EntityPlayer getClientPlayer() { return null; }
 
     public void loadCreatureModel(CreatureInfo creature, String modelClassName) throws ClassNotFoundException {}
-	public void loadSubspeciesModel(Subspecies subspecies, String modelClassName) throws ClassNotFoundException {}
+    public void loadSubspeciesModel(Subspecies subspecies, String modelClassName) throws ClassNotFoundException {}
 }
