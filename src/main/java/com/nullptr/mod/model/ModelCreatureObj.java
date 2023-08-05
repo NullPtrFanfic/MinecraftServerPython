@@ -187,12 +187,12 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
 	// ==================================================
 	//             Add Custom Render Layers
 	// ==================================================
-	@Override
+	//@Override
 	public void addCustomLayers() {
-		super.addCustomLayers(renderer);
+		/*super.addCustomLayers(renderer);
 		if(this.animation != null) {
 			this.animation.addCreatureLayers(renderer);
-		}
+		}*/
 	}
     
     
