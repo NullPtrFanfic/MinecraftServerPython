@@ -22,8 +22,8 @@ public class RenderRegister {
         // Creatures:
 
         // Projectiles:
-        RenderingRegistry.registerEntityRenderingHandler(CustomProjectileModelEntity.class, new RenderFactoryProjectile<CustomProjectileEntity>(true));
-        RenderingRegistry.registerEntityRenderingHandler(CustomProjectileEntity.class, new RenderFactoryProjectile<CustomProjectileEntity>(false));
+     //   RenderingRegistry.registerEntityRenderingHandler(CustomProjectileModelEntity.class, new RenderFactoryProjectile<CustomProjectileEntity>(true));
+       // RenderingRegistry.registerEntityRenderingHandler(CustomProjectileEntity.class, new RenderFactoryProjectile<CustomProjectileEntity>(false));
 
         // Old Sprite Projectiles:
         for(String projectileName : ProjectileManager.getInstance().oldSpriteProjectiles.keySet()) {
