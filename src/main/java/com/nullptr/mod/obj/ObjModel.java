@@ -2,7 +2,7 @@ package com.nullptr.mod.obj;
 
 import net.minecraft.client.renderer.vertex.VertexFormat;
 import org.apache.commons.io.output.ByteArrayOutputStream;
-
+import com.nullptr.mod.obj.ObjEvent;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector4f;
 import java.io.IOException;
