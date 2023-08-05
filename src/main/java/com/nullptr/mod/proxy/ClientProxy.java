@@ -38,7 +38,7 @@ public class ClientProxy extends CommonProxy {
     public void addOBJLoaderDomainIfOnClient() {
         OBJLoader.INSTANCE.addDomain(Main.MODID);
     }
-    @Overrise
+    @Override
     public void init()
     {
         Netero.init();
