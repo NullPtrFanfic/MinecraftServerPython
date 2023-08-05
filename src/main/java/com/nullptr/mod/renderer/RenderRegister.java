@@ -1,6 +1,6 @@
 package com.lycanitesmobs.client.renderer;
 
-import com.nullptr.mod.ObjectManager;
+//import com.nullptr.mod.ObjectManager;
 import com.nullptr.mod.core.entity.BaseCreatureEntity;
 import com.nullptr.mod.core.entity.BaseProjectileEntity;
 import com.nullptr.mod.core.entity.CustomProjectileEntity;
@@ -35,11 +35,6 @@ public class RenderRegister {
         for(String projectileName : ProjectileManager.getInstance().oldModelProjectiles.keySet()) {
             Class projectileClass = ProjectileManager.getInstance().oldModelProjectiles.get(projectileName);
             RenderingRegistry.registerEntityRenderingHandler(projectileClass, new RenderFactoryProjectile<BaseProjectileEntity>(projectileName,projectileClass, true));
-        }
-
-        // Special Entities:
-        for(Class specialClass : ObjectManager.specialEntities.values()) {
-            RenderingRegistry.registerEntityRenderingHandler(specialClass, new RenderFactoryNone<BaseProjectileEntity>(specialClass));
         }
     }
 }
