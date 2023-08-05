@@ -5,6 +5,9 @@ import com.nullptr.mod.Main;
 //import com.lycanitesmobs.client.model.animation.ModelPartAnimation;
 import com.nullptr.mod.obj.ObjObject;
 import com.nullptr.mod.obj.TessellatorModel;
+import com.nullptr.mod.model.Animator;
+import com.nullptr.mod.model.ModelObjState;
+import com.nullptr.mod.model.ModelObjPart;
 import com.nullptr.mod.renderer.IItemModelRenderer;
 //import com.nullptr.mod.renderer.layer.LayerItem;
 //import com.lycanitesmobs.core.info.CreatureManager;
@@ -50,7 +53,7 @@ public abstract class ModelItemBase implements IAnimationModel {
 	/** The animator INSTANCE, this is a helper class that performs actual GL11 functions, etc. **/
 	protected Animator animator;
 	/** The animation data for this model. **/
-	protected ModelAnimation animation;
+	//protected ModelAnimation animation;
 	/** The current animation part that is having an animation frame generated for. **/
 	protected ModelObjPart currentAnimationPart;
 	/** A list of models states that hold unique render/animation data for a specific itemstack INSTANCE. **/
