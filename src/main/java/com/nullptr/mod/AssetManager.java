@@ -34,7 +34,7 @@ public class AssetManager {
 	public static Map<String, ResourceLocation[]> textureGroups = new HashMap<>();
 	public static Map<String, SoundEvent> sounds = new HashMap<>();
 	public static Map<String, ModelBase> models = new HashMap<>();
-	public static Map<ProjectileInfo, ModelBase> projectileModels = new HashMap<>();
+	//public static Map<ProjectileInfo, ModelBase> projectileModels = new HashMap<>();
 	public static Map<String, IModel> objModels = new HashMap<>();
 	public static Map<String, ModelItemBase> itemModels = new HashMap<>();
 	
