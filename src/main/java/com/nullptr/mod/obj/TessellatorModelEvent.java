@@ -1,5 +1,6 @@
 package com.lycanitesmobs.client.obj;
 
+import com.nullptr.mod.obj.TessellatorModel;
 import net.minecraftforge.fml.common.eventhandler.Event;
 
 public class TessellatorModelEvent extends Event
