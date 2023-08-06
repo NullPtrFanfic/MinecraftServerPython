@@ -47,7 +47,7 @@ public class ClientProxy extends CommonProxy {
 
         // Typically initialization of models and such goes here:
         EntityInit.initModels();
-	MinecraftForge.EVENT_BUS.register(EventHandler.class);
+	MinecraftForge.EVENT_BUS.register(new EventHandler());
         //Netero.init();
 	registerModels();
 	registerRenders();
