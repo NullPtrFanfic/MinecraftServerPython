@@ -56,7 +56,7 @@ public class RenderProjectileSprite extends Render {
         GlStateManager.enableRescaleNormal();
         GlStateManager.scale(scale, scale, scale);
 
-        this.bindTexture(texture);
+        //this.bindTexture(texture);
       //  this.renderTexture(Tessellator.getInstance(), entity);
 
         GlStateManager.disableRescaleNormal();
