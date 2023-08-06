@@ -21,6 +21,7 @@ import net.minecraft.init.Blocks;
 import java.util.Random;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
+import net.minecraft.client.entity.EntityPlayerSP;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
@@ -60,7 +61,8 @@ public class EventHandler {
     public void onChatReceived(ClientChatReceivedEvent event) {
         String message = event.getMessage().getUnformattedText();
         if (message.toLowerCase().contains("tree")) {
-            BlockPos playerPos = event.player.getPosition();
+	    EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
+            BlockPos playerPos = event.playerSP.getPosition();
             World world = event.player.getEntityWorld();
             generateTree(world, playerPos);
         }
