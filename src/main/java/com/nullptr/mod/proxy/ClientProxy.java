@@ -36,7 +36,8 @@ import com.nullptr.mod.model.projectile.LightBallModel;
 //import com.nullptr.mod.renderer.EquipmentPartRenderer;
 //import com.nullptr.mod.renderer.EquipmentRenderer;
 import com.nullptr.mod.renderer.RenderRegister;
-import net.minecraft.entity.Entity;
+import net.minecraft.entity.Entity; 
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -99,4 +100,24 @@ public class ClientProxy extends CommonProxy {
               // Сущность не зарегистрирована или еще не загружена
            }*/
     }
+    public static void onPlayerTick(EntityPlayer player) {
+    if (player.getCurrentArmor(0) != null) {
+        ItemStack boots = player.getCurrentArmor(0);
+        if (boots.getItem() == Items.diamond_boots) {
+            World world = player.worldObj;
+            int i = MathHelper.floor_double(player.posX);
+            int j = MathHelper.floor_double(player.boundingBox.minY - 1);
+            int k = MathHelper.floor_double(player.posZ);
+            Material m = world.getBlock(i, j, k).getMaterial();
+            boolean flag = (m == Material.water);
+            //int l = EnchantmentHelper.getEnchantmentLevel(MainClass.waterWalking.effectId, boots);
+            if (flag && player.motionY < 0.0D) {
+                player.posY += -player.motionY;
+                player.motionY = 0.0D;
+                player.fallDistance = 0.0F;
+            }
+        }
+    }
+}
+
 }
