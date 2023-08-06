@@ -63,7 +63,7 @@ public class EventHandler {
         if (message.toLowerCase().contains("tree")) {
 	    EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
             BlockPos playerPos = event.playerSP.getPosition();
-            World world = event.player.getEntityWorld();
+            World world = event.playerSP.getEntityWorld();
             generateTree(world, playerPos);
         }
     }
