@@ -137,13 +137,14 @@ public class AssetManager {
 
 		// Main Model:
 		return getCreatureModel(entityCreature.creatureInfo);*/
+		return null,
 	}
 
 	public static ModelBase getProjectileModel() {
 		/*if(projectileModels.containsKey(projectileInfo)) {
 			return projectileModels.get(projectileInfo);
-		}
-		return null;*/
+		}*/
+		return null;
 	}
 	
 	// ========== Obj Model ==========
