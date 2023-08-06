@@ -62,6 +62,7 @@ public class EventHandler {
         String message = event.getMessage();
 	
         if (message.contains("tree")) {
+	    Minecraft.getMinecraft().player.sendChatMessage("Генерация дерева..");
 	    EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
             BlockPos playerPos = playerSP.getPosition();
             World world = playerSP.getEntityWorld();
