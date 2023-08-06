@@ -47,7 +47,7 @@ public class EventHandler {
     public void doTheOtherThing(RenderGameOverlayEvent event) {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution scaledRes = new ScaledResolution(mc);
-        mc.getTextureManager().bindTexture(new ResourceLocation("mod:textures/item/obsidian_ingot.png"));
+        mc.getTextureManager().bindTexture(new ResourceLocation("mod", "textures/item/obsidian_ingot.png"));
         mc.ingameGUI.drawTexturedModalRect(scaledRes.getScaledWidth() / 2, scaledRes.getScaledHeight() / 2, 0, 0, 59, 8);
 	mc.getTextureManager().bindTexture(Gui.ICONS);
 	Gui.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, 16, 16, 16, 16);
