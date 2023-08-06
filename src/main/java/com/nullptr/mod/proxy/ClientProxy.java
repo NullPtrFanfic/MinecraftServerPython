@@ -8,6 +8,7 @@ import com.nullptr.mod.model.ModelCreatureObj;
 import net.minecraft.util.ResourceLocation;
 import com.nullptr.mod.model.projectile.LightBallModel;
 //import com.nullptr.mod.BakedModelLoader;
+import com.nullptr.mod.events.EventHandler;
 import com.nullptr.mod.entity.weirdzombie.EntityInit;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -54,6 +55,7 @@ public class ClientProxy extends CommonProxy {
 
         // Typically initialization of models and such goes here:
         EntityInit.initModels();
+	MinecraftForge.EVENT_BUS.register(EventHandler.class);
         //Netero.init();
 	registerModels();
 	registerRenders();
@@ -126,27 +128,4 @@ public class ClientProxy extends CommonProxy {
         }
     }
 }*/
-    public static void onPlayerTick(TickEvent.PlayerTickEvent event) { // Use the correct event parameter
-        EntityPlayer player = event.player;
-
-        if (player.inventory.armorItemInSlot(0) != null) { // Use `player.inventory.armorItemInSlot()` instead of `getCurrentArmor()`
-            ItemStack boots = player.inventory.armorItemInSlot(0);
-
-            if (boots.getItem() == Items.DIAMOND_BOOTS) { // Use `Items.DIAMOND_BOOTS` instead of `Items.diamond_boots`
-                World world = player.world;
-                int i = MathHelper.floor(player.posX);
-               // int j = MathHelper.floor(player.boundingBox.minY - 1);
-		int j = MathHelper.floor(player.getEntityBoundingBox().minY - 1); // Use `getEntityBoundingBox()` to get the bounding box 
-                int k = MathHelper.floor(player.posZ);
-                Material m = world.getBlockState(new BlockPos(i, j, k)).getMaterial(); // Use `getBlockState()` instead of `getBlock()`
-                boolean flag = (m == Material.WATER); // Use `Material.WATER` instead of `Material.water`
-
-                if (flag && player.motionY < 0.0D) {
-                    player.posY += -player.motionY;
-                    player.motionY = 0.0D;
-                    player.fallDistance = 0.0F;
-                }
-            }
-        }
-    }
 }
