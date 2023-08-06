@@ -2,6 +2,8 @@ package com.nullptr.mod.proxy;
 
 import com.nullptr.mod.Main;
 import com.nullptr.mod.AssetManager;
+import com.nullptr.mod.model.ModelObjOld;
+import net.minecraft.util.ResourceLocation;
 import com.nullptr.mod.model.projectile.LightBallModel;
 //import com.nullptr.mod.BakedModelLoader;
 import com.nullptr.mod.entity.weirdzombie.EntityInit;
