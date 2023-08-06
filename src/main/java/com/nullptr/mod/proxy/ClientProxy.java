@@ -4,6 +4,7 @@ import com.nullptr.mod.Main;
 import com.nullptr.mod.model.Netero;
 import com.nullptr.mod.AssetManager;
 import com.nullptr.mod.model.ModelObjOld;
+import com.nullptr.mod.model.ModelCreatureObj;
 import net.minecraft.util.ResourceLocation;
 import com.nullptr.mod.model.projectile.LightBallModel;
 //import com.nullptr.mod.BakedModelLoader;
@@ -89,7 +90,7 @@ public class ClientProxy extends CommonProxy {
            if (entityRegistryObject != null) {
                // Получаем объект сущности из RegistryObject
 	       Entity NeteroEntity = entityRegistryObject.get();
-	       
+	       ModelCreatureObj.render(NeteroEntity, 1200, 0F, 60F, 60F, 60F, 10F, false);
                // Теперь вы можете выполнять операции с "exampleEntity"
            } else {
               // Сущность не зарегистрирована или еще не загружена
