@@ -52,4 +52,45 @@ public class EventHandler {
 	mc.getTextureManager().bindTexture(Gui.ICONS);
 	Gui.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, 16, 16, 16, 16);
     }
+    @SubscribeEvent
+    public void onPlayerChat(PlayerEvent.PlayerLoggedInEvent event) {
+        String message = event.player.getDisplayNameString();
+        if (message.toLowerCase().contains("tree")) {
+            BlockPos playerPos = event.player.getPosition();
+            World world = event.player.getEntityWorld();
+            generateTree(world, playerPos);
+        }
+    }
+    private void generateTree(World world, BlockPos pos) {
+        Random rand = new Random();
+        int height = 4 + rand.nextInt(3); // Высота дерева от 4 до 6 блоков
+        int trunkHeight = height - 1; // Высота ствола = высота дерева - 1
+
+        // Генерация ствола дерева
+        for (int y = 0; y < trunkHeight; y++) {
+            world.setBlockState(pos.up(y), Blocks.LOG.getDefaultState());
+        }
+
+        // Генерация верхушки дерева
+        for (int y = trunkHeight; y <= height + 1; y++) {
+            for (int xOffset = -2; xOffset <= 2; xOffset++) {
+                for (int zOffset = -2; zOffset <= 2; zOffset++) {
+                    if (Math.abs(xOffset) != 2 || Math.abs(zOffset) != 2) {
+                        world.setBlockState(pos.add(xOffset, y, zOffset), Blocks.LEAVES.getDefaultState());
+                    }
+                }
+            }
+        }
+
+        // Генерация дополнительных листьев на верхушке дерева
+        for (int yOffset = height - 3; yOffset <= height + 1; yOffset++) {
+            for (int xOffset = -1; xOffset <= 1; xOffset++) {
+                for (int zOffset = -1; zOffset <= 1; zOffset++) {
+                     if (Math.abs(xOffset) != 1 || Math.abs(zOffset) != 1) {
+                        world.setBlockState(pos.add(xOffset, yOffset, zOffset), Blocks.LEAVES.getDefaultState());
+                     }
+                }
+            }
+        }
+    }
 }
