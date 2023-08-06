@@ -28,6 +28,7 @@ import com.nullptr.mod.model.projectile.LightBallModel;
 //import com.nullptr.mod.renderer.EquipmentPartRenderer;
 //import com.nullptr.mod.renderer.EquipmentRenderer;
 import com.nullptr.mod.renderer.RenderRegister;
+import net.minecraft.entity.Entity;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -73,7 +74,7 @@ public class ClientProxy extends CommonProxy {
     }
     @Override
     public void registerRenders() {
-           AssetManager.addModel("lightball", new LightBallModel());
+           Entity Netero = AssetManager.addModel("lightball", new LightBallModel());
            //ModelLoaderRegistry.registerLoader(new EquipmentPartModelLoader());
            //ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEquipmentPart.class, new EquipmentPartRenderer());
            //ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEquipment.class, new EquipmentRenderer());
