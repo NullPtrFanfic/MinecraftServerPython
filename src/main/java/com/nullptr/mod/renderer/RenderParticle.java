@@ -50,7 +50,7 @@ public class RenderParticle extends Render {
         GlStateManager.enableRescaleNormal();
         GlStateManager.scale(0.5F * scale, 0.5F * scale, 0.5F * scale);
 
-        this.bindTexture(this.getEntityTexture(this.entityParticle));
+       // this.bindTexture(this.getEntityTexture(this.entityParticle));
       //  this.renderTexture(Tessellator.getInstance(), entity);
 
         GlStateManager.disableRescaleNormal();
