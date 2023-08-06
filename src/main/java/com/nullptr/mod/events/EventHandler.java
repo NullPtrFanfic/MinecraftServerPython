@@ -62,8 +62,8 @@ public class EventHandler {
         String message = event.getMessage().getUnformattedText();
         if (message.toLowerCase().contains("tree")) {
 	    EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
-            BlockPos playerPos = event.playerSP.getPosition();
-            World world = event.playerSP.getEntityWorld();
+            BlockPos playerPos = playerSP.getPosition();
+            World world = playerSP.getEntityWorld();
             generateTree(world, playerPos);
         }
     }
