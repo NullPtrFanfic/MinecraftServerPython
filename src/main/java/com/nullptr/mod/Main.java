@@ -24,7 +24,7 @@ public class Main
     public static final String COMMON_PROXY_CLASS = "com.nullptr.mod.proxy.CommonProxy";
     public static final int ENTITY_TEST = 250;
     public static final int ENTITY_CENTAUR = 120;
-    //public static final int ENTITY_NETERO = 25;
+    public static final int ENTITY_NETERO = 25;
     @Instance
     public static Main instance;
     @SidedProxy(clientSide = CLIENT_PROXY_CLASS, serverSide = COMMON_PROXY_CLASS)
