@@ -77,7 +77,7 @@ public class ClientProxy extends CommonProxy {
            //ModelLoaderRegistry.registerLoader(new EquipmentPartModelLoader());
            //ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEquipmentPart.class, new EquipmentPartRenderer());
            //ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEquipment.class, new EquipmentRenderer());
-           RenderRegister renderRegister = new RenderRegister();
-           renderRegister.registerRenderFactories();
+           //RenderRegister renderRegister = new RenderRegister();
+          // renderRegister.registerRenderFactories();
     }
 }
