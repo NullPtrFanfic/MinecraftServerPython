@@ -22,6 +22,13 @@ import java.util.Random;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+//import net.minecraftforge.fml.common.Mod;
+//import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+//import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
@@ -99,6 +106,28 @@ public class EventHandler {
                      }
                 }
             }
+        }
+    }
+    @SubscribeEvent
+    public static void onPlayerInteract(PlayerInteractEvent.RightClickBlock event) {
+        World world = event.getWorld();
+        BlockPos pos = event.getPos();
+        IBlockState state = world.getBlockState(pos);
+        Block block = state.getBlock();
+
+        if (block == Blocks.STONE) {
+            generateColumn(world, pos);
+        }
+    }
+
+    private static void generateColumn(World world, BlockPos pos) {
+        Random rand = new Random();
+
+        for (int i = 0; i < 10; i++) {
+            world.setBlockState(pos, Blocks.LOG.getDefaultState());
+            int randomX = rand.nextInt(3) - 1;
+            int randomZ = rand.nextInt(3) - 1;
+            pos = pos.add(randomX, 1, randomZ);
         }
     }
 }
