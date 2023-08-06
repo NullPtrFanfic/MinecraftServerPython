@@ -20,6 +20,7 @@ import net.minecraft.world.World;
 import net.minecraft.init.Blocks;
 import java.util.Random;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.client.event.ClientChatReceivedEvent;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
@@ -53,11 +54,11 @@ public class EventHandler {
         mc.getTextureManager().bindTexture(new ResourceLocation("mod", "textures/items/obsidian_ingot.png"));
         mc.ingameGUI.drawTexturedModalRect(scaledRes.getScaledWidth() / 2, scaledRes.getScaledHeight() / 2, 0, 0, 59, 8);
 	mc.getTextureManager().bindTexture(Gui.ICONS);
-	Gui.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, 16, 16, 16, 16);
+	Gui.drawModalRectWithCustomSizedTexture(100, 100, 100, 100, 16, 16, 16, 16);
     }
     @SubscribeEvent
-    public void onPlayerChat(PlayerEvent.PlayerLoggedInEvent event) {
-        String message = event.player.getDisplayNameString();
+    public void onChatReceived(ClientChatReceivedEvent event) {
+        String message = event.getMessage().getUnformattedText();
         if (message.toLowerCase().contains("tree")) {
             BlockPos playerPos = event.player.getPosition();
             World world = event.player.getEntityWorld();
