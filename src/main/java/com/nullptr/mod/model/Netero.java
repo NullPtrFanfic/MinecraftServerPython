@@ -31,11 +31,7 @@ public class Netero extends EntityCreature{
 	}
         //@Override 
 	public static void init() { 
-		Map<String, RenderPlayer> skinMap = Minecraft.getMinecraft().getRenderManager().getSkinMap(); 
-		RenderPlayer render = skinMap.get("default"); 
-		render.addLayer(new ModelRender()); 
-		render = skinMap.get("slim"); 
-		render.addLayer(new ModelRender());
+		
 	}
 	@Override
 	protected void initEntityAI() {
