@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 import net.minecraft.init.Blocks;
 import java.util.Random;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
-import net.minecraftforge.client.event.ClientChatReceivedEvent;
+import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraft.client.entity.EntityPlayerSP;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
@@ -58,10 +58,10 @@ public class EventHandler {
 	Gui.drawModalRectWithCustomSizedTexture(500, 500, 500, 500, 160, 160, 160, 160);
     }
     @SubscribeEvent
-    public void onChatReceived(ClientChatReceivedEvent event) {
-        String message = event.getMessage().getUnformattedText();
+    public void onChat(ClientChatEvent event) {
+        String message = event.getMessage();
 	
-        if (message.toLowerCase().equals("tree")) {
+        if (message.contains("tree")) {
 	    EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
             BlockPos playerPos = playerSP.getPosition();
             World world = playerSP.getEntityWorld();
