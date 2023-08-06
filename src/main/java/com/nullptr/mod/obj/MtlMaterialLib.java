@@ -98,7 +98,7 @@ public class MtlMaterialLib
         }
         catch(IOException e)
         {
-            LycanitesMobs.logWarning("", "Unable to load a texture from the obj material file.");
+            System.out.println("Unable to load a texture from the obj material file.");
             e.printStackTrace();
         }
         return 0;
