@@ -50,10 +50,6 @@ public class RenderProjectileSprite extends Render {
     // ==================================================
     public void renderProjectile(Entity entity, double x, double y, double z, float par8, float par9) {
     	double scale = 1d;
-		ResourceLocation texture = this.getEntityTexture(entity);
-        if(texture == null) {
-        	return;
-		}
 
         GlStateManager.pushMatrix();
         GlStateManager.translate((float) x, (float) y, (float) z);
