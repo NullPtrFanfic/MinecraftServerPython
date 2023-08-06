@@ -33,9 +33,9 @@ public class ModelRender extends Render<Netero>/* implements LayerRenderer<Abstr
     static private IBakedModel bakedModel;
     static ResourceLocation texture;
 
-  /*  public ModelRender() {
-        //super(renderManager);
-        this.model = ModelLoaderRegistry.getModelOrLogError(new ResourceLocation(Main.MODID, "models/entity/pokeball.obj"), "Missing model");
+    public ModelRender(RenderManager renderManager) {
+        super(renderManager);
+        /*this.model = ModelLoaderRegistry.getModelOrLogError(new ResourceLocation(Main.MODID, "models/entity/pokeball.obj"), "Missing model");
         try { 
             this.model = OBJLoader.INSTANCE.loadModel(this.texture); 
         } 
@@ -45,10 +45,10 @@ public class ModelRender extends Render<Netero>/* implements LayerRenderer<Abstr
         if (this.model != null) {
             this.bakedModel = this.model.bake(TRSRTransformation.identity(), DefaultVertexFormats.ITEM, ModelLoader.defaultTextureGetter());
             ModelLoader.defaultTextureGetter();
-        }
+        }*/
     }
 
-    private static void renderModel(IBakedModel model, VertexFormat fmt) {
+    /*private static void renderModel(IBakedModel model, VertexFormat fmt) {
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder worldrenderer = tessellator.getBuffer();
         worldrenderer.begin(GL11.GL_QUADS, fmt);
