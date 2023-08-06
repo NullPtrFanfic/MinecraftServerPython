@@ -19,6 +19,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraft.world.World;
 import net.minecraft.init.Blocks;
 import java.util.Random;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
