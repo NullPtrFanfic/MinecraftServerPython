@@ -11,13 +11,19 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
+    private ResourceLocation iconsTexture = new ResourceLocation("textures/gui/icons.png");
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) { // Use the correct event parameter
         EntityPlayer player = event.player;
-
         if (player.inventory.armorItemInSlot(0) != null) { // Use `player.inventory.armorItemInSlot()` instead of `getCurrentArmor()`
             ItemStack boots = player.inventory.armorItemInSlot(0);
 
@@ -37,5 +43,14 @@ public class EventHandler {
                 }
             }
         }
+    }
+    @SubscribeEvent
+    public void doTheOtherThing(RenderGameOverlayEvent event) {
+        Minecraft mc = Minecraft.getMinecraft();
+        ScaledResolution scaledRes = new ScaledResolution(mc);
+        mc.getTextureManager().bindTexture(new ResourceLocation("mod:textures/gui/xp_bar.png"));
+        mc.ingameGUI.drawTexturedModalRect(scaledRes.getScaledWidth() / 2, scaledRes.getScaledHeight() / 2, 0, 0, 59, 8);
+	mc.getTextureManager().bindTexture(Gui.ICONS);
+	Gui.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, 16, 16, 16, 16);
     }
 }
