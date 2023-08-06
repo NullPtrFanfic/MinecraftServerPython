@@ -88,11 +88,11 @@ public class ClientProxy extends CommonProxy {
            // Предположим, у нас есть RegistryObject для сущности под названием "example_entity"
            //RegistryObject<Entity> entityRegistryObject = RegistryManager.ACTIVE.getRegistry(Netero.class).getValue(new ResourceLocation(Main.MODID, "Netero"));
            String entityName = Main.MODID + ":" + "Netero";
-	   EntityEntry entityEntry = EntityRegistry.getEntry(entityName)
+	   EntityEntry entityEntry = EntityRegistry.getEntry(entityName);
            // Проверяем, что сущность зарегистрирована в реестре
            if (entityEntry != null) {
                // Получаем объект сущности из RegistryObject
-	       Entity NeteroEntity = entityEntry.newInstance()
+	       Entity NeteroEntity = entityEntry.newInstance();
 	       ModelCreatureObj.render(NeteroEntity, 1200, 0F, 60F, 60F, 60F, 10F, false);
                // Теперь вы можете выполнять операции с "exampleEntity"
            } else {
