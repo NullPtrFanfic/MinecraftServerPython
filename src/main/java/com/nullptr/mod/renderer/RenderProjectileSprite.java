@@ -127,6 +127,7 @@ public class RenderProjectileSprite extends Render {
 
     	float factor = (float)(1.0 / 16.0);
     	float lastSegment = 0;
+	//float length = 0;
 
     	// Render Laser Beam:
         GlStateManager.pushMatrix();
@@ -149,15 +150,9 @@ public class RenderProjectileSprite extends Render {
 		//angles[3] = (float)Math.toDegrees(Math.atan2(dr, dy)) - 90;
        // GlStateManager.rotate(angles[1], 0, 1, 0);
       //  GlStateManager.rotate(angles[3], 1, 0, 0);
-
-    	// Length:
-        for(float segment = 0; segment <= length - 1; ++segment) {
-                this.laserBox.render(factor);
-                GlStateManager.translate(0, 0, 1);
-                lastSegment = segment;
-        }
-        lastSegment++;
-        GlStateManager.scale((length - lastSegment), 1, 1);
+        
+    	
+        //GlStateManager.scale((length - lastSegment), 1, 1);
         this.laserBox.render(factor);
 
         GlStateManager.popMatrix();
