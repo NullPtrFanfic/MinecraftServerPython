@@ -38,6 +38,10 @@ import com.nullptr.mod.model.projectile.LightBallModel;
 import com.nullptr.mod.renderer.RenderRegister;
 import net.minecraft.entity.Entity; 
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
