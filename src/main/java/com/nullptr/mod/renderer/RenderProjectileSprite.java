@@ -136,18 +136,18 @@ public class RenderProjectileSprite extends Render {
     	//this.bindTexture(this.getLaserTexture(entity));
 
         // Rotation:
-		float[] angles = new float[] {0, 0, 0, 0};
+		//float[] angles = new float[] {0, 0, 0, 0};
 		//float dx = (float)(entity.getLaserEnd().x - entity.posX);
 		//float dy = (float)(entity.getLaserEnd().y - entity.posY);
 		//float dz = (float)(entity.getLaserEnd().z - entity.posZ);
-		angles[0] = (float)Math.toDegrees(Math.atan2(dz, dy)) - 90;
-		angles[1] = (float)Math.toDegrees(Math.atan2(dx, dz));
-		angles[2] = (float)Math.toDegrees(Math.atan2(dx, dy)) - 90;
+		//angles[0] = (float)Math.toDegrees(Math.atan2(dz, dy)) - 90;
+		//angles[1] = (float)Math.toDegrees(Math.atan2(dx, dz));
+		//angles[2] = (float)Math.toDegrees(Math.atan2(dx, dy)) - 90;
 
 		// Distance based x/z rotation:
 		//float dr = (float)Math.sqrt(dx * dx + dz * dz);
 		//angles[3] = (float)Math.toDegrees(Math.atan2(dr, dy)) - 90;
-        GlStateManager.rotate(angles[1], 0, 1, 0);
+       // GlStateManager.rotate(angles[1], 0, 1, 0);
       //  GlStateManager.rotate(angles[3], 1, 0, 0);
 
     	// Length:
