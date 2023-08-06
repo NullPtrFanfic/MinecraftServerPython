@@ -76,6 +76,7 @@ public class ClientProxy extends CommonProxy {
     }
     @Override
     public void registerRenders() {
-           Entity Netero = new LightBallModel();
+           LightBallModel Netero = new LightBallModel();
+	   Entity NeteroEntity = Netero.neteroEntity;
     }
 }
