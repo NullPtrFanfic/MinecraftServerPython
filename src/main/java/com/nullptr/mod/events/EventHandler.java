@@ -16,7 +16,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.world.World;
+import net.minecraft.init.Blocks;
+import java.util.Random;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
