@@ -156,7 +156,7 @@ public class AssetManager {
 	public static IModel getObjModel(String name, String path) {
 		name = name.toLowerCase();
 		if(!objModels.containsKey(name))
-			addObjModel(name, Main.MODID, path);
+			addObjModel(name, path);
 		return objModels.get(name);
 	}
 
