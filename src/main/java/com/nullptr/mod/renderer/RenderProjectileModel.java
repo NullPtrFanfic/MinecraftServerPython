@@ -1,4 +1,4 @@
-package com.nullpt.mod.renderer;
+package com.nullptr.mod.renderer;
 
 import com.nullptr.mod.AssetManager;
 //import com.lycanitesmobs.core.entity.BaseProjectileEntity;
