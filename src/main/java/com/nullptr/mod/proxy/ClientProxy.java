@@ -1,6 +1,7 @@
 package com.nullptr.mod.proxy;
 
 import com.nullptr.mod.Main;
+import com.nullptr.mod.model.Netero;
 import com.nullptr.mod.AssetManager;
 import com.nullptr.mod.model.ModelObjOld;
 import net.minecraft.util.ResourceLocation;
@@ -21,6 +22,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.client.model.obj.OBJLoader;
+import net.minecraftforge.registries.RegistryManager;
+import net.minecraftforge.registries.RegistryObject;
 import com.nullptr.mod.model.Netero;
 //import com.nullptr.mod.core.tileentity.TileEntityEquipmentPart;
 //import com.nullptr.mod.core.tileentity.TileEntityEquipment;
@@ -77,6 +80,19 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void registerRenders() {
            LightBallModel Netero = new LightBallModel();
-	   Entity NeteroEntity = Netero.neteroEntity;
+	  // import net.minecraft.entity.Entity;
+
+           // Предположим, у нас есть RegistryObject для сущности под названием "example_entity"
+           RegistryObject<Entity> entityRegistryObject = RegistryManager.ACTIVE.getRegistry(Netero.class).getValue(new ResourceLocation(Main.MODID, "Netero"));
+
+           // Проверяем, что сущность зарегистрирована в реестре
+           if (entityRegistryObject != null) {
+               // Получаем объект сущности из RegistryObject
+	       Entity NeteroEntity = entityRegistryObject.get();
+	       
+               // Теперь вы можете выполнять операции с "exampleEntity"
+           } else {
+              // Сущность не зарегистрирована или еще не загружена
+           }
     }
 }
