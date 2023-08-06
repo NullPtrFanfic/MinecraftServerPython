@@ -54,8 +54,8 @@ public class EventHandler {
         ScaledResolution scaledRes = new ScaledResolution(mc);
         mc.getTextureManager().bindTexture(new ResourceLocation("mod", "textures/items/obsidian_ingot.png"));
         mc.ingameGUI.drawTexturedModalRect(scaledRes.getScaledWidth() / 2, scaledRes.getScaledHeight() / 2, 0, 0, 59, 8);
-	mc.getTextureManager().bindTexture(Gui.ICONS);
-	Gui.drawModalRectWithCustomSizedTexture(500, 500, 500, 500, 160, 160, 160, 160);
+	//mc.getTextureManager().bindTexture(Gui.ICONS);
+	Gui.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, 9, 9, 9, 9);
     }
     @SubscribeEvent
     public void onChat(ClientChatEvent event) {
