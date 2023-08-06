@@ -55,12 +55,13 @@ public class EventHandler {
         mc.getTextureManager().bindTexture(new ResourceLocation("mod", "textures/items/obsidian_ingot.png"));
         mc.ingameGUI.drawTexturedModalRect(scaledRes.getScaledWidth() / 2, scaledRes.getScaledHeight() / 2, 0, 0, 59, 8);
 	mc.getTextureManager().bindTexture(Gui.ICONS);
-	Gui.drawModalRectWithCustomSizedTexture(100, 100, 100, 100, 16, 16, 16, 16);
+	Gui.drawModalRectWithCustomSizedTexture(500, 500, 500, 500, 160, 160, 160, 160);
     }
     @SubscribeEvent
     public void onChatReceived(ClientChatReceivedEvent event) {
         String message = event.getMessage().getUnformattedText();
-        if (message.toLowerCase().contains("tree")) {
+	
+        if (message.toLowerCase().equals("tree")) {
 	    EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
             BlockPos playerPos = playerSP.getPosition();
             World world = playerSP.getEntityWorld();
