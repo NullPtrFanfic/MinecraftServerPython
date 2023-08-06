@@ -1,4 +1,4 @@
-import com.nullptr.mod.renderer;
+package com.nullptr.mod.renderer;
 
 //import com.lycanitesmobs.core.entity.CustomProjectileEntity;
 import com.nullptr.mod.renderer.RenderProjectileSprite;
