@@ -137,7 +137,7 @@ public class AssetManager {
 
 		// Main Model:
 		return getCreatureModel(entityCreature.creatureInfo);*/
-		return null,
+		return null;
 	}
 
 	public static ModelBase getProjectileModel() {
