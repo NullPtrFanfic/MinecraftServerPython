@@ -28,7 +28,7 @@ import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 
 @SideOnly(Side.CLIENT)
-public class ModelRender extends Render<Netero> implements LayerRenderer<AbstractClientPlayer> {
+public class ModelRender extends Render<Netero>/* implements LayerRenderer<AbstractClientPlayer>*/ {
     static private IModel model;
     static private IBakedModel bakedModel;
     static ResourceLocation texture;
