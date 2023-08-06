@@ -49,6 +49,7 @@ public class RenderFactoryProjectile<T extends Entity> implements IRenderFactory
 				e.printStackTrace();
 			}
 		}
+	        return null;
 		//return new RenderProjectileSprite(manager, CustomProjectileEntity.class);
     }
 
