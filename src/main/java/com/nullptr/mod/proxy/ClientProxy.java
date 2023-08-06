@@ -76,11 +76,6 @@ public class ClientProxy extends CommonProxy {
     }
     @Override
     public void registerRenders() {
-           Entity Netero = ModelObjOld.loadModel(new ResourceLocation(Main.MODID, "models/" + "entity/pokeball" + ".obj"));
-           //ModelLoaderRegistry.registerLoader(new EquipmentPartModelLoader());
-           //ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEquipmentPart.class, new EquipmentPartRenderer());
-           //ClientRegistry.bindTileEntitySpecialRenderer(TileEntityEquipment.class, new EquipmentRenderer());
-           //RenderRegister renderRegister = new RenderRegister();
-          // renderRegister.registerRenderFactories();
+           Entity Netero = new LightBallModel();
     }
 }
