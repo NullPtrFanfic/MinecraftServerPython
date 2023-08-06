@@ -29,7 +29,7 @@ public class LightBallModel extends ModelCreatureObj {
     public LightBallModel(float shadowSize) {
 
 		// Load Model:
-		this.initModel("pokeball", "pokeball");
+		this.initModel("pokeball", "entity/pokeball");
     }
 
 
