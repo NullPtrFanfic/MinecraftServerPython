@@ -1,6 +1,8 @@
-package com.nullptr.mod.renderer;
+import com.nullptr.mod.renderer;
 
 //import com.lycanitesmobs.core.entity.CustomProjectileEntity;
+import com.nullptr.mod.renderer.RenderProjectileSprite;
+import com.nullptr.mod.renderer.RenderProjectileModel;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
@@ -47,7 +49,7 @@ public class RenderFactoryProjectile<T extends Entity> implements IRenderFactory
 				e.printStackTrace();
 			}
 		}
-		//return new RenderProjectileSprite(manager, CustomProjectileEntity.class);
+		return new RenderProjectileSprite(manager, CustomProjectileEntity.class);
     }
 
 }
