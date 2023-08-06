@@ -23,8 +23,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.client.model.obj.OBJLoader;
-import net.minecraftforge.registries.RegistryManager;
-import net.minecraftforge.registries.RegistryObject;
+//import net.minecraftforge.registries.RegistryManager;
+//import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.fml.common.registry.EntityEntry; 
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import com.nullptr.mod.model.Netero;
 //import com.nullptr.mod.core.tileentity.TileEntityEquipmentPart;
 //import com.nullptr.mod.core.tileentity.TileEntityEquipment;
@@ -84,12 +86,13 @@ public class ClientProxy extends CommonProxy {
 	  // import net.minecraft.entity.Entity;
 
            // Предположим, у нас есть RegistryObject для сущности под названием "example_entity"
-           RegistryObject<Entity> entityRegistryObject = RegistryManager.ACTIVE.getRegistry(Netero.class).getValue(new ResourceLocation(Main.MODID, "Netero"));
-
+           //RegistryObject<Entity> entityRegistryObject = RegistryManager.ACTIVE.getRegistry(Netero.class).getValue(new ResourceLocation(Main.MODID, "Netero"));
+           String entityName = Main.MODID + ":" + "Netero";
+	   EntityEntry entityEntry = EntityRegistry.getEntry(entityName)
            // Проверяем, что сущность зарегистрирована в реестре
-           if (entityRegistryObject != null) {
+           if (entityEntry != null) {
                // Получаем объект сущности из RegistryObject
-	       Entity NeteroEntity = entityRegistryObject.get();
+	       Entity NeteroEntity = entityEntry.newInstance()
 	       ModelCreatureObj.render(NeteroEntity, 1200, 0F, 60F, 60F, 60F, 10F, false);
                // Теперь вы можете выполнять операции с "exampleEntity"
            } else {
