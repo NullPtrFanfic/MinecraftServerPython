@@ -28,12 +28,12 @@ import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 
 @SideOnly(Side.CLIENT)
-public class ModelRender /*extends Render<Netero>*/ implements LayerRenderer<AbstractClientPlayer> {
+public class ModelRender extends Render<Netero> implements LayerRenderer<AbstractClientPlayer> {
     static private IModel model;
     static private IBakedModel bakedModel;
     static ResourceLocation texture;
 
-    public ModelRender() {
+  /*  public ModelRender() {
         //super(renderManager);
         this.model = ModelLoaderRegistry.getModelOrLogError(new ResourceLocation(Main.MODID, "models/entity/pokeball.obj"), "Missing model");
         try { 
@@ -72,9 +72,9 @@ public class ModelRender /*extends Render<Netero>*/ implements LayerRenderer<Abs
     @Override
     public boolean shouldCombineTextures() {
         return true;
-    }
+    }*/
 
-   /* public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/entity/netero/netero.png");
+    public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/entity/netero/netero.png");
     private ModelNetero netero_model = new ModelNetero();
 
     //@Override
@@ -89,9 +89,9 @@ public class ModelRender /*extends Render<Netero>*/ implements LayerRenderer<Abs
         GlStateManager.rotate(90, 1, 0, 0);
         GlStateManager.rotate(entity.rotationPitch, 1, 0, 0);
         GlStateManager.translate(0, -1.5, 0);
-        //this.bindEntityTexture(entity);
+        this.bindEntityTexture(entity);
         this.netero_model.render(entity, 0.0F, 0.0F, -0.1F, entity.rotationYaw, entity.rotationPitch, 0.0625F);
         GlStateManager.popMatrix();
         //super.doRender(entity, x, y, z, entityYaw, partialTicks);
-    }*/
+    }
 }
