@@ -106,7 +106,7 @@ public class ClientProxy extends CommonProxy {
               // Сущность не зарегистрирована или еще не загружена
            }*/
     }
-    public static void onPlayerTick(EntityPlayer player) {
+  /*  public static void onPlayerTick(EntityPlayer player) {
     if (player.getCurrentArmor(0) != null) {
         ItemStack boots = player.getCurrentArmor(0);
         if (boots.getItem() == Items.diamond_boots) {
@@ -124,6 +124,30 @@ public class ClientProxy extends CommonProxy {
             }
         }
     }
+}*/
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event) { // Use the correct event parameter
+        EntityPlayer player = event.player;
+
+        if (player.inventory.armorItemInSlot(0) != null) { // Use `player.inventory.armorItemInSlot()` instead of `getCurrentArmor()`
+            ItemStack boots = player.inventory.armorItemInSlot(0);
+
+            if (boots.getItem() == Items.DIAMOND_BOOTS) { // Use `Items.DIAMOND_BOOTS` instead of `Items.diamond_boots`
+                World world = player.world;
+                int i = MathHelper.floor(player.posX);
+                int j = MathHelper.floor(player.boundingBox.minY - 1);
+                int k = MathHelper.floor(player.posZ);
+                Material m = world.getBlockState(new BlockPos(i, j, k)).getMaterial(); // Use `getBlockState()` instead of `getBlock()`
+                boolean flag = (m == Material.WATER); // Use `Material.WATER` instead of `Material.water`
+
+                if (flag && player.motionY < 0.0D) {
+                    player.posY += -player.motionY;
+                    player.motionY = 0.0D;
+                    player.fallDistance = 0.0F;
+                }
+            }
+        }
+    }
 }
+
 
 }
