@@ -18,7 +18,7 @@ import javax.vecmath.Vector4f;
 @SideOnly(Side.CLIENT)
 public class LightBallModel extends ModelCreatureObj {
 	//LayerCreatureEffect ballGlowLayer;
-
+    public Entity neteroEntity;
 	// ==================================================
   	//                    Constructors
   	// ==================================================
@@ -29,7 +29,7 @@ public class LightBallModel extends ModelCreatureObj {
     public LightBallModel(float shadowSize) {
 
 		// Load Model:
-		this.initModel("pokeball", "entity/pokeball");
+		neteroEntity=this.initModel("pokeball", "entity/pokeball");
     }
 
 
