@@ -135,7 +135,8 @@ public class ClientProxy extends CommonProxy {
             if (boots.getItem() == Items.DIAMOND_BOOTS) { // Use `Items.DIAMOND_BOOTS` instead of `Items.diamond_boots`
                 World world = player.world;
                 int i = MathHelper.floor(player.posX);
-                int j = MathHelper.floor(player.boundingBox.minY - 1);
+               // int j = MathHelper.floor(player.boundingBox.minY - 1);
+		int j = MathHelper.floor(player.getEntityBoundingBox().minY - 1); // Use `getEntityBoundingBox()` to get the bounding box 
                 int k = MathHelper.floor(player.posZ);
                 Material m = world.getBlockState(new BlockPos(i, j, k)).getMaterial(); // Use `getBlockState()` instead of `getBlock()`
                 boolean flag = (m == Material.WATER); // Use `Material.WATER` instead of `Material.water`
