@@ -115,29 +115,6 @@ public class ModelCreatureObj extends ModelCustom implements IAnimationModel {
 		this.animator = new Animator();
 
         // Load Model Parts:
-        ResourceLocation modelPartsLocation = new ResourceLocation(Main.MODID, "models/" + path + "_parts.json");
-        try {
-	    Gson gson = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
-            InputStream in = Minecraft.getMinecraft().getResourceManager().getResource(modelPartsLocation).getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            try {
-				JsonArray jsonArray = JsonUtils.fromJson(gson, reader, JsonArray.class);
-                Iterator<JsonElement> jsonIterator = jsonArray.iterator();
-                while (jsonIterator.hasNext()) {
-                    JsonObject partJson = jsonIterator.next().getAsJsonObject();
-					ModelObjPart animationPart = new ModelObjPart();
-					animationPart.loadFromJson(partJson);
-					this.addAnimationPart(animationPart);
-                }
-            }
-            finally {
-                IOUtils.closeQuietly(reader);
-            }
-        }
-        catch (Exception e) {
-            System.out.println("There was a problem loading animation parts for " + name);
-            e.printStackTrace();
-        }
 
         // Assign Model Part Children:
         for(ModelObjPart part : this.animationParts.values()) {
