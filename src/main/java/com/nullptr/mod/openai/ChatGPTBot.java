@@ -33,7 +33,7 @@ public class ChatGPTBot {
         return CompletableFuture.runAsync(() -> api = new OpenAiService("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", Duration.ofSeconds(5)));
     }
     
-    public static CompletableFuture<String> getResponse(String message) {
+    public static String getResponse(String message) {
         // Получение предыдущих сообщений пользователя
         ArrayList<String> inputs = new ArrayList<>();
 
