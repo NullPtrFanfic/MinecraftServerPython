@@ -89,7 +89,7 @@ public class ChatGPTBot {
             } catch (Exception e) {
                 return "An error has occurred while processing your request. Please try again later.";
             }
-        });.exceptionally(throwable -> {
+        }).exceptionally(throwable -> {
            /* if (throwable.getCause() instanceof HttpException) {
                 String reason = switch (((HttpException) throwable.getCause())) {
                     case 401:
