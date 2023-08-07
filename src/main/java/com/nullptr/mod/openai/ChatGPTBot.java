@@ -9,9 +9,9 @@ import net.minecraftforge.fml.common.Mod;
 //import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.MinecraftForge;
-import com.openai.api.models.CompletionRequest;
-import com.openai.api.models.CompletionResponse;
-import com.openai.api.OpenAI;
+import com.theokanning.openai.api.models.CompletionRequest;
+import com.theokanning.openai.api.models.CompletionResponse;
+import com.theokanning.openai.api.OpenAI;
 
 public class ChatGPTBot {
     private static final int MAX_MESSAGE_LENGTH = 2000;
