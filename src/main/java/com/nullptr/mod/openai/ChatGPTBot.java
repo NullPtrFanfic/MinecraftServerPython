@@ -9,17 +9,16 @@ import net.minecraftforge.fml.common.Mod;
 //import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.MinecraftForge;
-import com.theokanning.openai.completion.CompletionRequest;
-import com.theokanning.openai.completion.CompletionResponse;
+import com.theokanning.openai.completion.ChatCompletionRequest;
+//import com.theokanning.openai.completion.CompletionResponse;
 import com.theokanning.openai.service.OpenAiService;
+import java.time.Duration
 
 public class ChatGPTBot {
     private static final int MAX_MESSAGE_LENGTH = 2000;
     private static boolean gptEnabled = true;
 
-    private static final OpenAiService api = new OpenAIService.Builder()
-            .apiKey("YOUR_API_KEY")
-            .build();
+    private static final OpenAiService api = new OpenAIService("token", Duration.ofSeconds(30)));
 
     private static String getResponse(String senderName, String message) {
         // Получение предыдущих сообщений пользователя
@@ -41,15 +40,16 @@ public class ChatGPTBot {
         }
         
         // Получение ответа от OpenAI API
-        try {CompletionRequest completionRequest = new CompletionRequest.Builder()
-                    .engine("text-davinci-002")
-                    .prompt(request)
-                    .maxTokens(2048)
-                    .temperature(0.7)
+        try {
+            CompletionRequest completionRequest = new CompletionRequest.builder()
+                    .model("text-davinci-002")
+                    .message(request)
+                    .maxTokens(MAX_MESSAGE_LENGTH)
+                    .logitBias(new HashMap<>())
                     .build();
 
-            CompletionResponse completionResponse = api.complete(completionRequest).get();
-            String response = completionResponse.choices().get(0).text().trim();
+            //CompletionResponse completionResponse = api.complete(completionRequest).get();
+            String response = completionRequest.choices().get(0).text().trim();
 
             return response;
         } catch (Exception e) {
