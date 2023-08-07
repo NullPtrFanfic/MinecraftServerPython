@@ -30,7 +30,7 @@ public class ChatGPTBot {
     private static OpenAiService api;
 
     public static CompletableFuture<Void> init() {
-       return CompletableFuture.runAsync(() -> api = new OpenAiService("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", Duration.ofSeconds(5)))
+       return CompletableFuture.runAsync(() -> api = new OpenAiService("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", Duration.ofSeconds(5))) ->
         CompletableFuture.exceptionallyAsync(throwable -> {
             //getLogger().severe("Error while initializing OpenAI service! Is your API key valid?");
             throwable.printStackTrace();
