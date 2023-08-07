@@ -20,7 +20,7 @@ public class ChatGPTBot {
     public static boolean gptEnabled = true;
 
     private static OpenAiService api;
-
+    public static final String request = "";
     public static CompletableFuture<Void> init() {
         return CompletableFuture.runAsync(() -> {
             try {
@@ -62,7 +62,7 @@ public class ChatGPTBot {
         inputs.add(message + "\n");
 
         // Forming the request text
-        String request = "";
+       // String request = "";
         for (String input : inputs) {
             request += input;
         }
@@ -107,6 +107,6 @@ public class ChatGPTBot {
                 };
             }*/
             throw new RuntimeException(throwable);
-        });
-    }
+      });
+   }
 }
