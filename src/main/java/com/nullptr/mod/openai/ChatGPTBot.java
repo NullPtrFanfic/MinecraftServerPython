@@ -22,7 +22,7 @@ public class ChatGPTBot {
     public static CompletableFuture<Void> init() {
         return CompletableFuture.runAsync(() -> {
             try {
-                api = new OpenAiService("YOUR_OPENAI_API_KEY", Duration.ofSeconds(5));
+                api = new OpenAiService("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", Duration.ofSeconds(5));
             } catch (Exception e) {
                 e.printStackTrace();
             }
