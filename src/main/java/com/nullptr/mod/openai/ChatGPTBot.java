@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 //import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.MinecraftForge;
-import com.theokanning.openai.completion.ChatCompletionRequest;
+import com.theokanning.openai.completion.chat.ChatCompletionRequest;
 //import com.theokanning.openai.completion.CompletionResponse;
 import com.theokanning.openai.service.OpenAiService;
 import com.theokanning.openai.completion.chat.ChatMessage;
