@@ -77,10 +77,10 @@ public class ChatGPTBot {
     .model("gpt-3.5-turbo")
     .temperature(0.8)
     .maxTokens(MAX_MESSAGE_LENGTH)
-    .messages(request)
+    .messages(messages)
     .build();
             //CompletionResponse completionResponse = api.complete(completionRequest).get();
-            String response = api.createCompletion(completionRequest).getChoices().get(0).trim();
+            String response = api.createCompletion(completionRequest).getChoices().get(0);
 
             return response;
         } catch (Exception e) {
