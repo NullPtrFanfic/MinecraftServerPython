@@ -81,11 +81,11 @@ public class ClientProxy extends CommonProxy {
 	return response;
     }
     @Override
-    public String sendLongMessage(String message)
+   /* public String sendLongMessage(String message)
     {
 	String response = ChatGPTBot.sendLongMessage(message);
 	return response;
-    }
+    }*/
     @Override
     public void registerModels() {
 		AssetManager.registerModels();
