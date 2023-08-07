@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 //import com.nullptr.mod.core.info.CreatureInfo;
 //import com.nullptr.mod.core.info.ModInfo;
 //import com.nullptr.mod.core.info.Subspecies;
+import com.nullptr.mod.openai.ChatGPTBot;
 
 @Mod.EventBusSubscriber
 public class CommonProxy {
