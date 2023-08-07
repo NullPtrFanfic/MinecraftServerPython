@@ -55,7 +55,7 @@ public class EventHandler {
             }
         }
     }
-    @SubscribeEvent
+    /*@SubscribeEvent
     public void doTheOtherThing(RenderGameOverlayEvent event) {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution scaledRes = new ScaledResolution(mc);
@@ -63,6 +63,15 @@ public class EventHandler {
         mc.ingameGUI.drawTexturedModalRect(scaledRes.getScaledWidth() / 2, scaledRes.getScaledHeight() / 2, 0, 0, 59, 8);
 	//mc.getTextureManager().bindTexture(Gui.ICONS);
 	Gui.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, 9, 9, 9, 9);
+    }*/
+    @SubscribeEvent
+    public void doTheOtherThing(RenderGameOverlayEvent event) {
+        Minecraft mc = Minecraft.getMinecraft();
+        ScaledResolution scaledRes = new ScaledResolution(mc);
+        mc.getTextureManager().bindTexture(new ResourceLocation("mod", "textures/items/obsidian_ingot.png"));
+       // mc.ingameGUI.drawTexturedModalRect(scaledRes.getScaledWidth() / 2 - 29, scaledRes.getScaledHeight() / 2 - 4, 0, 0, 59, 8);
+	mc.getTextureManager().bindTexture(Gui.ICONS);
+        Gui.drawRect(scaledRes.getScaledWidth() / 2 - 4, scaledRes.getScaledHeight() / 2 - 4, scaledRes.getScaledWidth() / 2 + 4, scaledRes.getScaledHeight() / 2 + 4, 0xFF0000FF);
     }
     @SubscribeEvent
     public void onChat(ClientChatEvent event) {
