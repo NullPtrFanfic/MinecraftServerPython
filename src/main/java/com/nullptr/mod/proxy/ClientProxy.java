@@ -40,6 +40,7 @@ import com.nullptr.mod.model.projectile.LightBallModel;
 //import com.nullptr.mod.renderer.EquipmentRenderer;
 import com.nullptr.mod.renderer.RenderRegister;
 import net.minecraft.entity.Entity; 
+import com.nullptr.mod.openai.ChatGPTBot;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -73,6 +74,16 @@ public class ClientProxy extends CommonProxy {
     { 	
         event.registerServerCommand(new RTPCommand()); 	 
     } 
+    @Override
+    public void getResponse(String message)
+    {
+	ChatGPTBot.getResponse(message);
+    }
+    @Override
+    public void sendLongMessage(String message)
+    {
+	ChatGPTBot.sendLongMessage(message);
+    }
     @Override
     public void registerModels() {
 		AssetManager.registerModels();
