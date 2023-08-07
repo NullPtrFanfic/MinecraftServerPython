@@ -12,6 +12,11 @@ import net.minecraftforge.common.MinecraftForge;
 import com.theokanning.openai.completion.ChatCompletionRequest;
 //import com.theokanning.openai.completion.CompletionResponse;
 import com.theokanning.openai.service.OpenAiService;
+import com.theokanning.openai.completion.chat.ChatMessage;
+import com.theokanning.openai.completion.chat.ChatMessageRole;
+import java.util.List;
+import java.util.HashMap;
+import java.util.ArrayList;
 import java.time.Duration
 
 public class ChatGPTBot {
@@ -32,11 +37,13 @@ public class ChatGPTBot {
         
         // Добавление текущего сообщения пользователя в запрос
         inputs.add(message.replaceAll("!gpt", "") + "\n");
-
+        final List<ChatMessage> messages = new ArrayList<>();
+        final ChatMessage systemMessage;
         // Формирование текста запроса
         String request = "";
         for (String input : inputs) {
-            request += input;
+            final ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), input);
+            messages.add(systemMessage);
         }
         
         // Получение ответа от OpenAI API
@@ -49,7 +56,7 @@ public class ChatGPTBot {
                     .build();
 
             //CompletionResponse completionResponse = api.complete(completionRequest).get();
-            String response = completionRequest.choices().get(0).text().trim();
+            String response = completionRequest.getChoices().get(0).text().trim();
 
             return response;
         } catch (Exception e) {
