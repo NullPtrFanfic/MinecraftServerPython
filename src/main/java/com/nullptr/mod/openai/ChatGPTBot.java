@@ -30,19 +30,9 @@ public class ChatGPTBot {
     public static String getResponse(String message) {
         // Получение предыдущих сообщений пользователя
         ArrayList<String> inputs = new ArrayList<>();
-        Прошу прощения за перебои. Вот продолжение кода, с добавленной проверкой на количество сообщений в чате:
 
-```java
-import net.minecraft.client.Minecraft;
-
-public class ExampleMod {
-    
-    private static final int MAX_MESSAGE_LENGTH = 2000;
-
-    private static void processChatMessages() {
-        ArrayList<String> inputs = new ArrayList<>();
         List<String> messages = Minecraft.getMinecraft().ingameGUI.getChatGUI().getSentMessages();
-        if messages.size() >= 5 
+        if (messages.size() >= 5)
         {
             int startIndex = Math.max(0, messages.size() - 5); // Получаем индекс первого сообщения в списке
             int endIndex = Math.min(messages.size(), startIndex + 5); // Получаем индекс последнего сообщения в списке
