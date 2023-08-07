@@ -88,8 +88,8 @@ public class ChatGPTBot {
                 return "An error has occurred while processing your request. Please try again later.";
             }
         }).exceptionally(throwable -> {
-            if (throwable.getCause() instanceof HttpException e) {
-                String reason = switch (e.response().code()) {
+            if (throwable.getCause() instanceof HttpException) {
+                String reason = switch (((HttpException) throwable.getCause()).response().code()) {
                     case 401:
                         return "Invalid API key! Please check your configuration.";
                     case 429:
