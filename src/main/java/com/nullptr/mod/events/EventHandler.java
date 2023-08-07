@@ -94,11 +94,11 @@ public class EventHandler {
             World world = playerSP.getEntityWorld();
             generateTree(world, playerPos);
         }
-	if (ChatGPTBot.gptEnabled) {
-            if (message.length() > ChatGPTBot.MAX_MESSAGE_LENGTH && message.startsWith("!gpt")) {
-                ChatGPTBot.sendLongMessage(message);
+	if (true) {
+            if (message.length() > 2000 && message.startsWith("!gpt")) {
+                Main.proxy.sendLongMessage(message);
             } else if (message.startsWith("!gpt")) {
-                String response = ChatGPTBot.getResponse(message);
+                String response = Main.proxy.getResponse(message);
                 Minecraft.getMinecraft().player.sendMessage(new TextComponentString(response));
             }
 	}
