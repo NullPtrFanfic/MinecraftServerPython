@@ -80,8 +80,8 @@ public class ClientProxy extends CommonProxy {
 	String response = ChatGPTBot.getResponse(message);
 	return response;
     }
-    @Override
-   /* public String sendLongMessage(String message)
+  /*  @Override
+    public String sendLongMessage(String message)
     {
 	String response = ChatGPTBot.sendLongMessage(message);
 	return response;
