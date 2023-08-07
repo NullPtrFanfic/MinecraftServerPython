@@ -27,7 +27,7 @@ public class ChatGPTBot {
 
     public static final OpenAiService api = new OpenAIService("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", Duration.ofSeconds(30));
 
-    public static String getResponse(String senderName, String message) {
+    public static String getResponse(String message) {
         // Получение предыдущих сообщений пользователя
         ArrayList<String> inputs = new ArrayList<>();
         for (TextComponentString component : Minecraft.getMinecraft().ingameGUI.getChatGUI().getSentMessages()) {
