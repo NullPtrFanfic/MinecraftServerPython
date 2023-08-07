@@ -30,7 +30,7 @@ public class RTPCommand extends CommandBase {
             BlockPos newPos = new BlockPos(player.posX + offsetX, 60, player.posZ + offsetZ);
             player.connection.setPlayerLocation(newPos.getX() + 0.5, newPos.getY(), newPos.getZ() + 0.5, player.rotationYaw, player.rotationPitch);
 
-            player.sendMessage(new TextComponentString("You have been randomly teleported."));
+            player.sendMessage(new TextComponentString("You have been randomly teleported.").getFormattedText());
         }
     }
 }
