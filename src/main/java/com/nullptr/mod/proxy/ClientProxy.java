@@ -7,6 +7,7 @@ import com.nullptr.mod.model.ModelObjOld;
 import com.nullptr.mod.model.ModelCreatureObj;
 import net.minecraft.util.ResourceLocation;
 import com.nullptr.mod.model.projectile.LightBallModel;
+import com.nullptr.mod.commands.RTPCommand;
 //import com.nullptr.mod.BakedModelLoader;
 import com.nullptr.mod.events.EventHandler;
 import com.nullptr.mod.entity.weirdzombie.EntityInit;
@@ -21,6 +22,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.client.model.obj.OBJLoader;
@@ -66,6 +68,11 @@ public class ClientProxy extends CommonProxy {
     {
         Netero.init();
     }
+    @Override
+    public void serverLoad(FMLServerStartingEvent event) 	 
+    { 	
+        event.registerServerCommand(new RTPCommand()); 	 
+    } 
     @Override
     public void registerModels() {
 		AssetManager.registerModels();
