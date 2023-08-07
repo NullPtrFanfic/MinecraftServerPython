@@ -99,8 +99,7 @@ public class ChatGPTBot {
                return response;
             } catch (Exception e) {
               return "An error has occurred while processing your request. Please try again later.";
-            }
-        }).exceptionally(throwable -> {
+            }).exceptionally(throwable -> {
             if (throwable.getCause() instanceof HttpException e) {
                 String reason = switch (e.response().code()) {
                     case 401 -> "Invalid API key! Please check your configuration.";
@@ -117,4 +116,4 @@ public class ChatGPTBot {
         //service.createChatCompletion(ChatCompletionRequest.builder()
         
         // Получение ответа от OpenAI API
-                                      }
+}
