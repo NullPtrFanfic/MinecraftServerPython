@@ -65,7 +65,7 @@ public class ChatGPTBot {
             request += input;
         }
 
-        return CompletableFuture.supplyAsync(() -> {
+        CompletableFuture.supplyAsync(() -> {
             try {
                 ChatCompletionRequest chatCompletionRequest = api.createChatCompletion(ChatCompletionRequest.builder()
                         .model("gpt-3.5-turbo")
@@ -87,8 +87,8 @@ public class ChatGPTBot {
             } catch (Exception e) {
                 return "An error has occurred while processing your request. Please try again later.";
             }
-        });/*.exceptionally(throwable -> {
-            if (throwable.getCause() instanceof HttpException) {
+        });.exceptionally(throwable -> {
+           /* if (throwable.getCause() instanceof HttpException) {
                 String reason = switch (((HttpException) throwable.getCause())) {
                     case 401:
                         return "Invalid API key! Please check your configuration.";
@@ -103,8 +103,8 @@ public class ChatGPTBot {
                         return "Unknown error! Please try again later. If this error persists, contact the plugin developer.";
                         break;
                 };
-            }
+            }*/
             throw new RuntimeException(throwable);
-        });*/
+        });
     }
 }
