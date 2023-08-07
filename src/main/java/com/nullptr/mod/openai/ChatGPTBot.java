@@ -43,7 +43,7 @@ public class ChatGPTBot {
       });
    }
 
-   public static String getResponse(String message) {
+  public static String getResponse(String message) {
         // Получение предыдущих сообщений пользователя
         ArrayList<String> inputs = new ArrayList<>();
 
@@ -93,7 +93,7 @@ public class ChatGPTBot {
                 .echo(true)
                 .user("testing")
                 .n(3)
-                .build();
+                .build());
         // CompletionResponse completionResponse = api.complete(completionRequest).get();
         String response = api.createCompletion(completionRequest).getChoices().get(0).getText();
 
@@ -111,6 +111,6 @@ public class ChatGPTBot {
         };
     }
     throw new RuntimeException(throwable);
-   });
-    }
+   }));
+  }
 }
