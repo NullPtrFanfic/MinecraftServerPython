@@ -17,13 +17,13 @@ import com.theokanning.openai.completion.chat.ChatMessageRole;
 import java.util.List;
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.time.Duration
+import java.time.Duration;
 
 public class ChatGPTBot {
     private static final int MAX_MESSAGE_LENGTH = 2000;
     private static boolean gptEnabled = true;
 
-    private static final OpenAiService api = new OpenAIService("token", Duration.ofSeconds(30)));
+    private static final OpenAiService api = new OpenAIService("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", Duration.ofSeconds(30));
 
     private static String getResponse(String senderName, String message) {
         // Получение предыдущих сообщений пользователя
