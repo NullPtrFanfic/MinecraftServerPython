@@ -38,7 +38,7 @@ public class ChatGPTBot {
         }
         
         // Добавление текущего сообщения пользователя в запрос
-        inputs.add(message.replaceAll("!gpt", "") + "\n");
+        inputs.add(message + "\n");
         final List<ChatMessage> messages = new ArrayList<>();
         final ChatMessage systemMessage;
         // Формирование текста запроса
