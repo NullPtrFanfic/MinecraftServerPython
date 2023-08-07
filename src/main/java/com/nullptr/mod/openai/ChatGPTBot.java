@@ -10,7 +10,7 @@ import com.theokanning.openai.completion.chat.ChatCompletionRequest;
 import com.theokanning.openai.service.OpenAiService;
 import com.theokanning.openai.completion.CompletionRequest;
 import com.theokanning.openai.completion.CompletionResult;
-import com.theokanning.openai.completion.ChatCompletionResult;
+//import com.theokanning.openai.completion.ChatCompletionResult;
 import java.util.List;
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
@@ -69,7 +69,7 @@ public class ChatGPTBot {
 
         CompletableFuture.supplyAsync(() -> {
             try {
-                ChatCompletionResult chatCompletionRequest = api.createChatCompletion(ChatCompletionRequest.builder()
+                api.createChatCompletion(ChatCompletionRequest.builder()
                         .model("gpt-3.5-turbo")
                         .temperature(0.8)
                         .maxTokens(MAX_MESSAGE_LENGTH)
