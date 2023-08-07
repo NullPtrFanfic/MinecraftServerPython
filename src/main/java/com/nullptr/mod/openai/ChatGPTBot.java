@@ -25,7 +25,7 @@ public class ChatGPTBot {
     public static final int MAX_MESSAGE_LENGTH = 2000;
     public static boolean gptEnabled = true;
 
-    public static final OpenAiService api = new OpenAIService("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", Duration.ofSeconds(30));
+    public static final OpenAiService api = new OpenAiService("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", Duration.ofSeconds(30));
 
     public static String getResponse(String message) {
         // Получение предыдущих сообщений пользователя
@@ -50,7 +50,7 @@ public class ChatGPTBot {
         
         // Получение ответа от OpenAI API
         try {
-            CompletionRequest completionRequest = new CompletionRequest.builder()
+            ChatCompletionRequest completionRequest = new ChatCompletionRequest.builder()
                     .model("text-davinci-002")
                     .message(request)
                     .maxTokens(MAX_MESSAGE_LENGTH)
