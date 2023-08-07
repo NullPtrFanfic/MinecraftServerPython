@@ -86,7 +86,7 @@ public class ChatGPTBot {
                  .maxTokens(MAX_MESSAGE_LENGTH)
    // .messages(messages)
                  .build();
-               CompletionRequest completionRequest = CompletionRequest.builder()
+               CompletionRequest completionRequest = api.createChatCompletion(CompletionRequest.builder()
                 .model("ada")
                 .prompt(request)
                 .echo(true)
