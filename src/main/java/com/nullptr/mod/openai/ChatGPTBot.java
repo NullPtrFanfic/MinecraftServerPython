@@ -81,11 +81,18 @@ public class ChatGPTBot {
         CompletableFuture.supplyAsync(() -> {
             try {
                ChatCompletionRequest chatCompletionRequest = api.createChatCompletion(ChatCompletionRequest.builder()
-    .model("gpt-3.5-turbo")
-    .temperature(0.8)
-    .maxTokens(MAX_MESSAGE_LENGTH)
+                 .model("gpt-3.5-turbo")
+                 .temperature(0.8)
+                 .maxTokens(MAX_MESSAGE_LENGTH)
    // .messages(messages)
-    .build();
+                 .build();
+               CompletionRequest completionRequest = CompletionRequest.builder()
+                .model("ada")
+                .prompt(request)
+                .echo(true)
+                .user("testing")
+                .n(3)
+                .build();
                //CompletionResponse completionResponse = api.complete(completionRequest).get();
                String response = api.createCompletion(completionRequest).getChoices().get(0).getText();
 
@@ -93,21 +100,21 @@ public class ChatGPTBot {
             } catch (Exception e) {
               return "An error has occurred while processing your request. Please try again later.";
             }
-        }
+        }).exceptionally(throwable -> {
+            if (throwable.getCause() instanceof HttpException e) {
+                String reason = switch (e.response().code()) {
+                    case 401 -> "Invalid API key! Please check your configuration.";
+                    case 429 -> "Too many requests! Please wait a few seconds and try again.";
+                    case 500 -> "OpenAI service is currently unavailable. Please try again later.";
+                    default -> "Unknown error! Please try again later. If this error persists, contact the plugin developer.";
+                };
+                throw new RuntimeException(reason, throwable);
+            }
+            throw new RuntimeException(throwable);
+        });
+     }
+  }
         //service.createChatCompletion(ChatCompletionRequest.builder()
         
         // Получение ответа от OpenAI API
-    
-    /*public static void sendLongMessage(String message) {
-        // Разделение сообщения на части
-        ArrayList<String> chunks = new ArrayList<>();
-        for (int i = 0; i < message.length(); i += MAX_MESSAGE_LENGTH) {
-            chunks.add(message.substring(i, Math.min(i + MAX_MESSAGE_LENGTH, message.length())));
-        }
-
-        // Отправка каждой части сообщения по отдельности
-        for (String chunk : chunks) {
-            Minecraft.getMinecraft().player.sendMessage(new TextComponentString(chunk));
-        }
-    }*/
-}
+                                      }
