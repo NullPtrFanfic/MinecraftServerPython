@@ -102,7 +102,7 @@ public class EventHandler {
             if (message.length() > ChatGPTBot.MAX_MESSAGE_LENGTH && message.startsWith("!gpt")) {
                 ChatGPTBot.sendLongMessage(player, message);
             } else if (message.startsWith("!gpt")) {
-                String response = ChatGPTBot.getResponse(event.getSenderName(), message);
+                String response = ChatGPTBot.getResponse(message);
                 player.sendMessage(new TextComponentString(response));
             }
 	}
