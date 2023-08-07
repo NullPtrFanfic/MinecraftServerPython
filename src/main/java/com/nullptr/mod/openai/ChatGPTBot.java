@@ -26,9 +26,8 @@ public class ChatGPTBot {
     public static final int MAX_MESSAGE_LENGTH = 2000;
     public static boolean gptEnabled = true;
 
-    public static final OpenAiService api = new OpenAiService("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", Duration.ofSeconds(30));
-
     public static String getResponse(String message) {
+        OpenAiService api = new OpenAiService("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", Duration.ofSeconds(30));
         // Получение предыдущих сообщений пользователя
         ArrayList<String> inputs = new ArrayList<>();
 
