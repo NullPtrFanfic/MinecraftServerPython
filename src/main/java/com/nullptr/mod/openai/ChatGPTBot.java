@@ -36,7 +36,7 @@ public class ChatGPTBot {
           } catch (Exception e) {
               e.printStackTrace();
           }
-        }).exceptionallyAsync(throwable -> {
+        }).exceptionally(throwable -> {
           getLogger().severe("Error while initializing OpenAI service! Is your API key valid?");
           throwable.printStackTrace();
           return null;
