@@ -1,5 +1,6 @@
 package com.nullptr.mod.events;
 //import net.minecraftforge.common.MinecraftForge;
+import com.nullptr.mod.Main;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -71,7 +72,7 @@ public class EventHandler {
     public void doTheOtherThing(RenderGameOverlayEvent event) {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution scaledRes = new ScaledResolution(mc);
-        mc.getTextureManager().bindTexture("mod:textures/items/obsidian_ingot.png");
+        mc.getTextureManager().bindTexture(new ResourceLocation(Main.MODID, "textures/items/obsidian_ingot.png"));
        // mc.ingameGUI.drawTexturedModalRect(scaledRes.getScaledWidth() / 2 - 29, scaledRes.getScaledHeight() / 2 - 4, 0, 0, 59, 8);
 	//mc.getTextureManager().bindTexture(Gui.ICONS);
         Gui.drawRect(scaledRes.getScaledWidth() / 2 - 4, scaledRes.getScaledHeight() / 2 - 4, scaledRes.getScaledWidth() / 2 + 4, scaledRes.getScaledHeight() / 2 + 4, 0xFF0000FF);
