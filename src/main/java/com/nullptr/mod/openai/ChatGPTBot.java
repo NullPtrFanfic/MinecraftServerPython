@@ -2,7 +2,7 @@ package com.nullptr.mod.openai;
 
 import java.util.ArrayList;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.player.EntityPlayerMP;
+//import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.text.TextComponentString;
 //import net.minecraft.util.IChatComponent;
 import net.minecraftforge.fml.common.Mod;
@@ -66,7 +66,7 @@ public class ChatGPTBot {
         }
     }
     
-    public static void sendLongMessage(EntityPlayerMP player, String message) {
+    public static void sendLongMessage(String message) {
         // Разделение сообщения на части
         ArrayList<String> chunks = new ArrayList<>();
         for (int i = 0; i < message.length(); i += MAX_MESSAGE_LENGTH) {
@@ -75,7 +75,7 @@ public class ChatGPTBot {
 
         // Отправка каждой части сообщения по отдельности
         for (String chunk : chunks) {
-            player.sendMessage(new TextComponentString(chunk));
+            Minecraft.getMinecraft().player.sendMessage(new TextComponentString(chunk));
         }
     }
 }
