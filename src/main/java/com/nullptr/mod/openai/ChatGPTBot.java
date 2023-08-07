@@ -22,12 +22,12 @@ import java.util.ArrayList;
 import java.time.Duration;
 
 public class ChatGPTBot {
-    private static final int MAX_MESSAGE_LENGTH = 2000;
-    private static boolean gptEnabled = true;
+    public static final int MAX_MESSAGE_LENGTH = 2000;
+    public static boolean gptEnabled = true;
 
-    private static final OpenAiService api = new OpenAIService("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", Duration.ofSeconds(30));
+    public static final OpenAiService api = new OpenAIService("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", Duration.ofSeconds(30));
 
-    private static String getResponse(String senderName, String message) {
+    public static String getResponse(String senderName, String message) {
         // Получение предыдущих сообщений пользователя
         ArrayList<String> inputs = new ArrayList<>();
         for (TextComponentString component : Minecraft.getMinecraft().ingameGUI.getChatGUI().getSentMessages()) {
@@ -66,7 +66,7 @@ public class ChatGPTBot {
         }
     }
     
-    private static void sendLongMessage(EntityPlayerMP player, String message) {
+    public static void sendLongMessage(EntityPlayerMP player, String message) {
         // Разделение сообщения на части
         ArrayList<String> chunks = new ArrayList<>();
         for (int i = 0; i < message.length(); i += MAX_MESSAGE_LENGTH) {
