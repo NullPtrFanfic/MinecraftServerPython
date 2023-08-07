@@ -14,8 +14,8 @@ import net.minecraftforge.common.MinecraftForge;
 import com.theokanning.openai.completion.chat.ChatCompletionRequest;
 //import com.theokanning.openai.completion.CompletionResponse;
 import com.theokanning.openai.service.OpenAiService;
-import com.theokanning.openai.completion.chat.ChatMessage;
-import com.theokanning.openai.completion.chat.ChatMessageRole;
+//import com.theokanning.openai.completion.chat.ChatMessage;
+//import com.theokanning.openai.completion.chat.ChatMessageRole;
 import com.theokanning.openai.completion.CompletionRequest;
 import java.util.List;
 import java.util.HashMap;
@@ -70,16 +70,17 @@ public class ChatGPTBot {
         
         // Добавление текущего сообщения пользователя в запрос
         inputs.add(message + "\n");
-        final List<ChatMessage> messages = new ArrayList<>();
+        //final List<ChatMessage> messages = new ArrayList<>();
         //ChatMessage systemMessage;
         // Формирование текста запроса
-       // String request = "";
+        String request = "";
         for (String input : inputs) {
-            messages.add(new ChatMessage(ChatMessageRole.SYSTEM.value(), input););
+           // messages.add(new ChatMessage(ChatMessageRole.SYSTEM.value(), input););
+            request+=input;
         }
         CompletionRequest completionRequest = CompletionRequest.builder()
                 .model("ada")
-                .prompt("Somebody once told me the world is gonna roll me")
+                .prompt(request)
                 .echo(true)
                 .user("testing")
                 .n(3)
@@ -91,7 +92,7 @@ public class ChatGPTBot {
     .model("gpt-3.5-turbo")
     .temperature(0.8)
     .maxTokens(MAX_MESSAGE_LENGTH)
-    .messages(messages)
+   // .messages(messages)
     .build();
             //CompletionResponse completionResponse = api.complete(completionRequest).get();
             String response = api.createCompletion(completionRequest).getChoices().get(0).getText();
