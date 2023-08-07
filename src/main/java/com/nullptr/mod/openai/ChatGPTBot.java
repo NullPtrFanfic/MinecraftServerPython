@@ -106,7 +106,7 @@ public class ChatGPTBot {
                 };
             }*/
             throw new RuntimeException(throwable);
-            return "Error!";
+           // return "Error!";
       });
       return "None";
    }
