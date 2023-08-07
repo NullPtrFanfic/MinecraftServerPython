@@ -4,7 +4,7 @@ import net.minecraft.command.*;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
+//import net.minecraft.util.text.TextComponentString;
 import java.util.Random;
 
 public class RTPCommand extends CommandBase {
@@ -31,7 +31,7 @@ public class RTPCommand extends CommandBase {
             BlockPos newPos = new BlockPos(player.posX + offsetX, 60, player.posZ + offsetZ);
             player.connection.setPlayerLocation(newPos.getX() + 0.5, newPos.getY(), newPos.getZ() + 0.5, player.rotationYaw, player.rotationPitch);
 
-            player.sendMessage(new TextComponentString("You have been randomly teleported.").getFormattedText());
+            player.sendMessage("You have been randomly teleported.");
         }
     }
 }
