@@ -68,7 +68,7 @@ public class ClientProxy extends CommonProxy {
     {
         Netero.init();
     }
-    @Override
+   // @Override
     public void serverLoad(FMLServerStartingEvent event) 	 
     { 	
         event.registerServerCommand(new RTPCommand()); 	 
