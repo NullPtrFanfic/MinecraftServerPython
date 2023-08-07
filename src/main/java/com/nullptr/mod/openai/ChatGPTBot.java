@@ -65,7 +65,8 @@ public class ChatGPTBot {
         
         // Получение ответа от OpenAI API
         try {
-            ChatCompletionRequest completionRequest = new ChatCompletionRequest.builder()
+            ChatCompletionRequest completionRequest = new ChatCompletionRequest
+                    .builder()
                     .model("text-davinci-002")
                     .message(request)
                     .maxTokens(MAX_MESSAGE_LENGTH)
@@ -73,7 +74,7 @@ public class ChatGPTBot {
                     .build();
 
             //CompletionResponse completionResponse = api.complete(completionRequest).get();
-            String response = completionRequest.getChoices().get(0).text().trim();
+            String response = api.createCompletion(completionRequest).getChoices().get(0).text().trim();
 
             return response;
         } catch (Exception e) {
