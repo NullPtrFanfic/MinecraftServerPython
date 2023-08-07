@@ -30,12 +30,37 @@ public class ChatGPTBot {
     public static String getResponse(String message) {
         // Получение предыдущих сообщений пользователя
         ArrayList<String> inputs = new ArrayList<>();
-        for (TextComponentString component : Minecraft.getMinecraft().ingameGUI.getChatGUI().getSentMessages()) {
-            String input = component.getUnformattedText().trim();
-            if (input.startsWith("!gpt")) {
-                inputs.add(input.replace("!gpt", "") + "\n");
+        Прошу прощения за перебои. Вот продолжение кода, с добавленной проверкой на количество сообщений в чате:
+
+```java
+import net.minecraft.client.Minecraft;
+
+public class ExampleMod {
+    
+    private static final int MAX_MESSAGE_LENGTH = 2000;
+
+    private static void processChatMessages() {
+        ArrayList<String> inputs = new ArrayList<>();
+        List<String> messages = Minecraft.getMinecraft().ingameGUI.getChatGUI().getSentMessages();
+        if messages.size() >= 5 
+        {
+            int startIndex = Math.max(0, messages.size() - 5); // Получаем индекс первого сообщения в списке
+            int endIndex = Math.min(messages.size(), startIndex + 5); // Получаем индекс последнего сообщения в списке
+        
+            if (endIndex > startIndex) {
+                for (int i = startIndex; i < endIndex; i++) {
+                     String message = messages.get(i).trim();
+                     if (message.startsWith("!gpt")) {
+                         inputs.add(message.replace("!gpt", "") + "\n");
+                     }
+                }
+            } else {
+            // Обработчик случая, когда сообщений в чате меньше чем 5
+            // Можно добавить нужную логику или вывод сообщения об ошибке
             }
         }
+        
+        // Далее можно продолжить обработку сообщений
         
         // Добавление текущего сообщения пользователя в запрос
         inputs.add(message + "\n");
