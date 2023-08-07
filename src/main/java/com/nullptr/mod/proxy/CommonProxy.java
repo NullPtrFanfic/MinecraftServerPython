@@ -26,8 +26,8 @@ public class CommonProxy {
     public void registerRenders() {}
     public void registerTextures() {}
     public void registerModels() {}
-    public void getResponse(String message) {}
-    public void sendLongMessage(String message) {}
+    public String getResponse(String message) {}
+    public String sendLongMessage(String message) {}
 
     //public EntityPlayer getClientPlayer() { return null; }
 
