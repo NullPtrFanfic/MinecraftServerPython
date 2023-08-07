@@ -11,30 +11,15 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.MinecraftForge;
 import com.theokanning.openai.completion.CompletionRequest;
 import com.theokanning.openai.completion.CompletionResponse;
-import com.theokanning.openai.api.OpenAI;
+import com.theokanning.openai.service.OpenAiService;
 
 public class ChatGPTBot {
     private static final int MAX_MESSAGE_LENGTH = 2000;
     private static boolean gptEnabled = true;
 
-    private static final OpenAI api = new OpenAI.Builder()
+    private static final OpenAiService api = new OpenAIService.Builder()
             .apiKey("YOUR_API_KEY")
             .build();
-    
-    @SubscribeEvent
-    public static void onPlayerChat(ServerChatEvent event) {
-        if (gptEnabled) {
-            EntityPlayerMP player = event.getPlayer();
-            String message = event.getMessage();
-
-            if (message.length() > MAX_MESSAGE_LENGTH && message.startsWith("!gpt")) {
-                sendLongMessage(player, message);
-            } else if (message.startsWith("!gpt")) {
-                String response = getResponse(event.getSenderName(), message);
-                player.sendMessage(new TextComponentString(response));
-            }
-        }
-    }
 
     private static String getResponse(String senderName, String message) {
         // Получение предыдущих сообщений пользователя
