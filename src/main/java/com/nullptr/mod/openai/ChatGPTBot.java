@@ -73,7 +73,7 @@ public class ChatGPTBot {
                         .maxTokens(MAX_MESSAGE_LENGTH)
                         .build());
 
-                CompletionRequest completionRequest = api.createChatCompletion(CompletionRequest.builder()
+                CompletionRequest completionRequest = api.createCompletion(CompletionRequest.builder()
                         .model("ada")
                         .prompt(request)
                         .echo(true)
@@ -88,8 +88,8 @@ public class ChatGPTBot {
                 return "An error has occurred while processing your request. Please try again later.";
             }
         }).exceptionally(throwable -> {
-            if (throwable.getCause() instanceof HttpException) {
-                /*String reason = switch (((HttpException) throwable.getCause())) {
+           /* if (throwable.getCause() instanceof HttpException) {
+                String reason = switch (((HttpException) throwable.getCause())) {
                     case 401:
                         return "Invalid API key! Please check your configuration.";
                         break;
@@ -102,9 +102,9 @@ public class ChatGPTBot {
                     default:
                         return "Unknown error! Please try again later. If this error persists, contact the plugin developer.";
                         break;
-                };*/
+                };
             }
-            throw new RuntimeException(throwable);
+            throw new RuntimeException(throwable);*/
         });
     }
 }
