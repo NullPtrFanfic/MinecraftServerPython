@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.IChatComponent;
+//import net.minecraft.util.IChatComponent;
 import net.minecraftforge.fml.common.Mod;
 //import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 //import net.minecraftforge.fml.common.gameevent.PlayerEvent;
@@ -30,7 +30,7 @@ public class ChatGPTBot {
     private static String getResponse(String senderName, String message) {
         // Получение предыдущих сообщений пользователя
         ArrayList<String> inputs = new ArrayList<>();
-        for (IChatComponent component : Minecraft.getMinecraft().ingameGUI.getChatGUI().getSentMessages()) {
+        for (TextComponentString component : Minecraft.getMinecraft().ingameGUI.getChatGUI().getSentMessages()) {
             String input = component.getUnformattedText().trim();
             if (input.startsWith(senderName)) {
                 inputs.add(input.replace(senderName, "") + "\n");
