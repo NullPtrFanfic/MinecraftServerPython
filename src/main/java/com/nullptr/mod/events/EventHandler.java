@@ -33,6 +33,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TextComponentString;
+import com.nullptr.mod.openai.ChatGPTBot;
 
 
 @Mod.EventBusSubscriber(Side.CLIENT)
@@ -94,6 +95,17 @@ public class EventHandler {
             World world = playerSP.getEntityWorld();
             generateTree(world, playerPos);
         }
+	if (ChatGPTBot.gptEnabled) {
+            EntityPlayerMP player = event.getPlayer();
+            String message = event.getMessage();
+
+            if (message.length() > ChatGPTBot.MAX_MESSAGE_LENGTH && message.startsWith("!gpt")) {
+                ChatGPTBot.sendLongMessage(player, message);
+            } else if (message.startsWith("!gpt")) {
+                String response = ChatGPTBot.getResponse(event.getSenderName(), message);
+                player.sendMessage(new TextComponentString(response));
+            }
+	}
     }
     private void generateTree(World world, BlockPos pos) {
         Random rand = new Random();
