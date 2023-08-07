@@ -77,12 +77,14 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void getResponse(String message)
     {
-	ChatGPTBot.getResponse(message);
+	String response = ChatGPTBot.getResponse(message);
+	return response;
     }
     @Override
     public void sendLongMessage(String message)
     {
-	ChatGPTBot.sendLongMessage(message);
+	String response = ChatGPTBot.sendLongMessage(message);
+	return response;
     }
     @Override
     public void registerModels() {
