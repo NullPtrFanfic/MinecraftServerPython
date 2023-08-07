@@ -78,6 +78,23 @@ public class ChatGPTBot {
            // messages.add(new ChatMessage(ChatMessageRole.SYSTEM.value(), input););
             request+=input;
         }
+        CompletableFuture.supplyAsync(() -> {
+            try {
+               ChatCompletionRequest chatCompletionRequest = api.createChatCompletion(ChatCompletionRequest.builder()
+    .model("gpt-3.5-turbo")
+    .temperature(0.8)
+    .maxTokens(MAX_MESSAGE_LENGTH)
+   // .messages(messages)
+    .build();
+               //CompletionResponse completionResponse = api.complete(completionRequest).get();
+               String response = api.createCompletion(completionRequest).getChoices().get(0).getText();
+
+               return response;
+            } catch (Exception e) {
+              return "An error has occurred while processing your request. Please try again later.";
+            }
+        }
+        //service.createChatCompletion(ChatCompletionRequest.builder()
         CompletionRequest completionRequest = CompletionRequest.builder()
                 .model("ada")
                 .prompt(request)
@@ -87,21 +104,6 @@ public class ChatGPTBot {
                 .build();
         
         // Получение ответа от OpenAI API
-        try {
-            ChatCompletionRequest chatCompletionRequest = ChatCompletionRequest.builder()
-    .model("gpt-3.5-turbo")
-    .temperature(0.8)
-    .maxTokens(MAX_MESSAGE_LENGTH)
-   // .messages(messages)
-    .build();
-            //CompletionResponse completionResponse = api.complete(completionRequest).get();
-            String response = api.createCompletion(completionRequest).getChoices().get(0).getText();
-
-            return response;
-        } catch (Exception e) {
-            return "An error has occurred while processing your request. Please try again later.";
-        }
-    }
     
     /*public static void sendLongMessage(String message) {
         // Разделение сообщения на части
