@@ -1,3 +1,5 @@
+package com.nullptr.mod.openai;
+
 import java.util.ArrayList;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayerMP;
