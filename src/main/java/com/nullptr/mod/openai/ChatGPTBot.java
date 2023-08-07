@@ -59,7 +59,7 @@ public class ChatGPTBot {
         // Формирование текста запроса
         String request = "";
         for (String input : inputs) {
-            final ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), input);
+            systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), input);
             messages.add(systemMessage);
         }
         
