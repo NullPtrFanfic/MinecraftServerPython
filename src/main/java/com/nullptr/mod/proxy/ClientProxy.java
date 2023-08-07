@@ -75,13 +75,13 @@ public class ClientProxy extends CommonProxy {
         event.registerServerCommand(new RTPCommand()); 	 
     } 
     @Override
-    public void getResponse(String message)
+    public String getResponse(String message)
     {
 	String response = ChatGPTBot.getResponse(message);
 	return response;
     }
     @Override
-    public void sendLongMessage(String message)
+    public String sendLongMessage(String message)
     {
 	String response = ChatGPTBot.sendLongMessage(message);
 	return response;
