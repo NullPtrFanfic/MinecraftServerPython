@@ -32,6 +32,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TextComponentString;
 
 
 @Mod.EventBusSubscriber(Side.CLIENT)
@@ -158,7 +159,7 @@ public class EventHandler {
             int y = event.getResolution().getScaledHeight() - mc.fontRenderer.FONT_HEIGHT - 5;
 
             // Отображаем текст
-            String text = TextFormatting.GREEN + TextFormatting.BOLD + "Вы взлетели!";
+            String text = TextFormatting.GREEN + TextFormatting.BOLD + new TextComponentString("Вы взлетели!").getText();
             FontRenderer fontRenderer = mc.fontRenderer;
             fontRenderer.drawString(text, x, y, 0);
         }
