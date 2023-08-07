@@ -104,13 +104,15 @@ public class ChatGPTBot {
    }).exceptionally(throwable -> {
     if (throwable.getCause() instanceof HttpException e) {
         String reason = switch (e.response().code()) {
-            case 401: return "Invalid API key! Please check your configuration.";
-            case 429: return "Too many requests! Please wait a few seconds and try again.";
-            case 500: return "OpenAI service is currently unavailable. Please try again later.";
-            default: return "Unknown error! Please try again later. If this error persists, contact the plugin developer.";
+            case 401 {
+              return "Invalid API key! Please check your configuration.";
+            }
+            case 429 { return "Too many requests! Please wait a few seconds and try again."; }
+            case 500 { return "OpenAI service is currently unavailable. Please try again later."; }
+            default { return "Unknown error! Please try again later. If this error persists, contact the plugin developer."; }
         };
     }
     throw new RuntimeException(throwable);
-   }));
+   });
   }
 }
