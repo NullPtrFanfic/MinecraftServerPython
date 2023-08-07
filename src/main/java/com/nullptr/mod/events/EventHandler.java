@@ -87,7 +87,6 @@ public class EventHandler {
     @SubscribeEvent
     public void onChat(ClientChatEvent event) {
         String message = event.getMessage();
-	
         if (message.contains("tree")) {
 	    Minecraft.getMinecraft().player.sendChatMessage("Генерация дерева..");
 	    EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
@@ -96,14 +95,11 @@ public class EventHandler {
             generateTree(world, playerPos);
         }
 	if (ChatGPTBot.gptEnabled) {
-            EntityPlayerMP player = (EntityPlayerMP) event.player;
-            //String message = event.getMessage();
-
             if (message.length() > ChatGPTBot.MAX_MESSAGE_LENGTH && message.startsWith("!gpt")) {
-                ChatGPTBot.sendLongMessage(player, message);
+                ChatGPTBot.sendLongMessage(message);
             } else if (message.startsWith("!gpt")) {
                 String response = ChatGPTBot.getResponse(message);
-                player.sendMessage(new TextComponentString(response));
+                Minecraft.getMinecraft().player.sendMessage(new TextComponentString(response));
             }
 	}
     }
