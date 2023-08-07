@@ -8,7 +8,7 @@ import net.minecraft.util.text.TextComponentString;
 import java.util.Random;
 
 public class RTPCommand extends CommandBase {
-   @Override
+    @Override
     public String getName() {
         return "randomteleport";
     }
