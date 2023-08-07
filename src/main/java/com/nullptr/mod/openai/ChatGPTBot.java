@@ -9,6 +9,8 @@ import net.minecraftforge.common.MinecraftForge;
 import com.theokanning.openai.completion.chat.ChatCompletionRequest;
 import com.theokanning.openai.service.OpenAiService;
 import com.theokanning.openai.completion.CompletionRequest;
+import com.theokanning.openai.completion.CompletionResult;
+import com.theokanning.openai.completion.ChatCompletionResult;
 import java.util.List;
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
@@ -67,13 +69,13 @@ public class ChatGPTBot {
 
         CompletableFuture.supplyAsync(() -> {
             try {
-                ChatCompletionRequest chatCompletionRequest = api.createChatCompletion(ChatCompletionRequest.builder()
+                ChatCompletionResult chatCompletionRequest = api.createChatCompletion(ChatCompletionRequest.builder()
                         .model("gpt-3.5-turbo")
                         .temperature(0.8)
                         .maxTokens(MAX_MESSAGE_LENGTH)
                         .build());
 
-                CompletionRequest completionRequest = api.createCompletion(CompletionRequest.builder()
+                CompletionResult completionRequest = api.createCompletion(CompletionRequest.builder()
                         .model("ada")
                         .prompt(request)
                         .echo(true)
