@@ -159,7 +159,7 @@ public class EventHandler {
             int y = event.getResolution().getScaledHeight() - mc.fontRenderer.FONT_HEIGHT - 5;
 
             // Отображаем текст
-            String text = TextFormatting.GREEN + TextFormatting.BOLD + (new TextComponentString("Вы взлетели!")).getFormattedText();
+            String text = TextFormatting.GREEN.toString() + TextFormatting.BOLD.toString() + new TextComponentString("Вы взлетели!").getFormattedText();
             FontRenderer fontRenderer = mc.fontRenderer;
             fontRenderer.drawString(text, x, y, 0);
         }
