@@ -73,7 +73,8 @@ public class ChatGPTBot {
         
         // Получение ответа от OpenAI API
         try {
-            ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest.builder()
+            ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest
+                    .builder()
                     .model("text-davinci-002")
                     .message(request)
                     .maxTokens(MAX_MESSAGE_LENGTH)
