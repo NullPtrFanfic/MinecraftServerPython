@@ -89,7 +89,7 @@ public class ChatGPTBot {
             }
         }).exceptionally(throwable -> {
             if (throwable.getCause() instanceof HttpException) {
-                String reason = switch (((HttpException) HttpException.response().code()) {
+                String reason = switch (((HttpException) throwable.getCause().response().code()) {
                     case 401:
                         return "Invalid API key! Please check your configuration.";
                         break;
