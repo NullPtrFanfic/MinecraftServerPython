@@ -83,7 +83,7 @@ public class ChatGPTBot {
                         .n(3)
                         .build());
 
-                String response = api.createCompletion(completionRequest).getChoices().get(0).getText();
+                String response = completionRequest.getChoices().get(0).getText();
 
                 return response;
             } catch (Exception e) {
