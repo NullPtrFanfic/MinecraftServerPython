@@ -73,14 +73,12 @@ public class ChatGPTBot {
         
         // Получение ответа от OpenAI API
         try {
-            ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest(
-                    .builder()
-                    .model("text-davinci-002")
-                    .message(request)
-                    .maxTokens(MAX_MESSAGE_LENGTH)
-                    .logitBias(new HashMap<>())
-                    .build());
-
+            ChatCompletionRequest chatCompletionRequest = ChatCompletionRequest.builder()
+    .model("gpt-3.5-turbo")
+    .temperature(0.8)
+    .maxTokens(MAX_MESSAGE_LENGTH)
+    .messages(request)
+    .build();
             //CompletionResponse completionResponse = api.complete(completionRequest).get();
             String response = api.createCompletion(completionRequest).getChoices().get(0).trim();
 
