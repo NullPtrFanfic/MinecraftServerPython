@@ -10,12 +10,12 @@ import java.util.Random;
 public class RTPCommand extends CommandBase {
     @Override
     public String getName() {
-        return "randomteleport";
+        return "rtp";
     }
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "/randomteleport - Teleports the player to a random location within 500 blocks.";
+        return "/rtp - Teleports the player to a random location within 500 blocks.";
     }
 
     @Override
