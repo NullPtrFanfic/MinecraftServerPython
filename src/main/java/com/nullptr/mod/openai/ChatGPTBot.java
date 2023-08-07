@@ -93,7 +93,7 @@ public class ChatGPTBot {
                 .echo(true)
                 .user("testing")
                 .n(3)
-                .build());
+                .build();
         // CompletionResponse completionResponse = api.complete(completionRequest).get();
         String response = api.createCompletion(completionRequest).getChoices().get(0).getText();
 
