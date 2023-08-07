@@ -77,8 +77,8 @@ public class EventHandler {
        // mc.ingameGUI.drawTexturedModalRect(scaledRes.getScaledWidth() / 2 - 29, scaledRes.getScaledHeight() / 2 - 4, 0, 0, 59, 8);
 	//mc.getTextureManager().bindTexture(Gui.ICONS);
         Gui.drawRect(scaledRes.getScaledWidth() / 2 - 4, scaledRes.getScaledHeight() / 2 - 4, scaledRes.getScaledWidth() / 2 + 4, scaledRes.getScaledHeight() / 2 + 4, 0xFF0000FF);
-	int textureWidth = 16; // Ширина текстуры в пикселях
-        int textureHeight = 16; // Высота текстуры в пикселях
+	int textureWidth = 256; // Ширина текстуры в пикселях
+        int textureHeight = 256; // Высота текстуры в пикселях
         int xPos = scaledRes.getScaledWidth() - textureWidth - 10; // Координата X для отображения текстуры
         int yPos = 10; // Координата Y для отображения текстуры
         mc.ingameGUI.drawTexturedModalRect(xPos, yPos, 0, 0, textureWidth, textureHeight);
