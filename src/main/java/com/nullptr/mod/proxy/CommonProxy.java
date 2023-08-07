@@ -26,7 +26,10 @@ public class CommonProxy {
     public void registerRenders() {}
     public void registerTextures() {}
     public void registerModels() {}
-    public String getResponse(String message) {}
+    public String getResponse(String message) {
+        String response = ChatGPTBot.getResponse(message);
+	    return response;
+    }
     //public String sendLongMessage(String message) {}
 
     //public EntityPlayer getClientPlayer() { return null; }
