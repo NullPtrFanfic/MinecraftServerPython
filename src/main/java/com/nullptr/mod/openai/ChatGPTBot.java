@@ -89,7 +89,7 @@ public class ChatGPTBot {
             }
         }).exceptionally(throwable -> {
             if (throwable.getCause() instanceof HttpException) {
-                String reason = switch (((HttpException) throwable.getCause())) {
+                /*String reason = switch (((HttpException) throwable.getCause())) {
                     case 401:
                         return "Invalid API key! Please check your configuration.";
                         break;
@@ -102,7 +102,7 @@ public class ChatGPTBot {
                     default:
                         return "Unknown error! Please try again later. If this error persists, contact the plugin developer.";
                         break;
-                };
+                };*/
             }
             throw new RuntimeException(throwable);
         });
