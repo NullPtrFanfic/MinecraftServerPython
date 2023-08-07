@@ -21,13 +21,19 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.time.Duration;
+import java.util.concurrent.CompletableFuture;
 
 public class ChatGPTBot {
     public static final int MAX_MESSAGE_LENGTH = 2000;
     public static boolean gptEnabled = true;
 
-    public static String getResponse(String message) {
-        OpenAiService api = new OpenAiService("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", Duration.ofSeconds(30));
+    private static OpenAiService api;
+
+    public static CompletableFuture<Void> init() {
+        return CompletableFuture.runAsync(() -> api = new OpenAiService("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", Duration.ofSeconds(5)));
+    }
+    
+    public static CompletableFuture<String> getResponse(String message) {
         // Получение предыдущих сообщений пользователя
         ArrayList<String> inputs = new ArrayList<>();
 
@@ -79,7 +85,7 @@ public class ChatGPTBot {
     .messages(messages)
     .build();
             //CompletionResponse completionResponse = api.complete(completionRequest).get();
-            String response = api.createCompletion(completionRequest).getChoices().get(0).toString();
+            String response = api.createCompletion(completionRequest).getChoices().get(0).getText();
 
             return response;
         } catch (Exception e) {
