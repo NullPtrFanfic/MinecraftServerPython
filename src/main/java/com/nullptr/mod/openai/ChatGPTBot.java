@@ -31,17 +31,17 @@ public class ChatGPTBot {
         // Получение предыдущих сообщений пользователя
         ArrayList<String> inputs = new ArrayList<>();
 
-        List<String> messages = Minecraft.getMinecraft().ingameGUI.getChatGUI().getSentMessages();
-        if (messages.size() >= 5)
+        List<String> chatmessages = Minecraft.getMinecraft().ingameGUI.getChatGUI().getSentMessages();
+        if (chatmessages.size() >= 5)
         {
-            int startIndex = Math.max(0, messages.size() - 5); // Получаем индекс первого сообщения в списке
-            int endIndex = Math.min(messages.size(), startIndex + 5); // Получаем индекс последнего сообщения в списке
+            int startIndex = Math.max(0, chatmessages.size() - 5); // Получаем индекс первого сообщения в списке
+            int endIndex = Math.min(chatmessages.size(), startIndex + 5); // Получаем индекс последнего сообщения в списке
         
             if (endIndex > startIndex) {
                 for (int i = startIndex; i < endIndex; i++) {
-                     String message = messages.get(i).trim();
-                     if (message.startsWith("!gpt")) {
-                         inputs.add(message.replace("!gpt", "") + "\n");
+                     String oldmessage = chatmessages.get(i).trim();
+                     if (oldmessage.startsWith("!gpt")) {
+                         inputs.add(oldmessage.replace("!gpt", "") + "\n");
                      }
                 }
             } else {
