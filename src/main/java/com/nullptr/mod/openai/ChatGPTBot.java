@@ -71,12 +71,11 @@ public class ChatGPTBot {
         // Добавление текущего сообщения пользователя в запрос
         inputs.add(message + "\n");
         final List<ChatMessage> messages = new ArrayList<>();
-        ChatMessage systemMessage;
+        //ChatMessage systemMessage;
         // Формирование текста запроса
-        String request = "";
+       // String request = "";
         for (String input : inputs) {
-            systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), input);
-            messages.add(systemMessage);
+            messages.add(new ChatMessage(ChatMessageRole.SYSTEM.value(), input););
         }
         CompletionRequest completionRequest = CompletionRequest.builder()
                 .model("ada")
