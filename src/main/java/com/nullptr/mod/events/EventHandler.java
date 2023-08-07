@@ -95,8 +95,8 @@ public class EventHandler {
             generateTree(world, playerPos);
         }
 	if (true) {
-            if (message.length() > 2000 && message.startsWith("!gpt")) {
-                Main.proxy.sendLongMessage(message);
+            /*if (message.length() > 2000 && message.startsWith("!gpt")) {
+                Main.proxy.sendLongMessage(message);*/
             } else if (message.startsWith("!gpt")) {
                 String response = Main.proxy.getResponse(message);
                 Minecraft.getMinecraft().player.sendMessage(new TextComponentString(response));
