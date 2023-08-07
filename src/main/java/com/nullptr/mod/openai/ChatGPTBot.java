@@ -87,13 +87,13 @@ public class ChatGPTBot {
                 .maxTokens(MAX_MESSAGE_LENGTH)
                 // .messages(messages)
                 .build());
-        CompletionRequest completionRequest = CompletionRequest.builder()
+        CompletionRequest completionRequest = api.createChatCompletion(CompletionRequest.builder()
                 .model("ada")
                 .prompt(request)
                 .echo(true)
                 .user("testing")
                 .n(3)
-                .build();
+                .build());
         // CompletionResponse completionResponse = api.complete(completionRequest).get();
         String response = api.createCompletion(completionRequest).getChoices().get(0).getText();
 
@@ -102,8 +102,8 @@ public class ChatGPTBot {
         return "An error has occurred while processing your request. Please try again later.";
     }
    }).exceptionally(throwable -> {
-    if (throwable.getCause() instanceof HttpException) {
-        String reason = switch (((HttpException) throwable.getCause()).response().code()) {
+    if (throwable.getCause() instanceof HttpException e) {
+        String reason = switch ((e.response().code()) {
             case 401: return "Invalid API key! Please check your configuration.";
             case 429: return "Too many requests! Please wait a few seconds and try again.";
             case 500: return "OpenAI service is currently unavailable. Please try again later.";
