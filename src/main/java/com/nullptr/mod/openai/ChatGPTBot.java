@@ -16,6 +16,7 @@ import com.theokanning.openai.completion.chat.ChatCompletionRequest;
 import com.theokanning.openai.service.OpenAiService;
 import com.theokanning.openai.completion.chat.ChatMessage;
 import com.theokanning.openai.completion.chat.ChatMessageRole;
+import com.theokanning.openai.completion.CompletionRequest;
 import java.util.List;
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -62,11 +63,17 @@ public class ChatGPTBot {
             systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), input);
             messages.add(systemMessage);
         }
+        CompletionRequest completionRequest = CompletionRequest.builder()
+                .model("ada")
+                .prompt("Somebody once told me the world is gonna roll me")
+                .echo(true)
+                .user("testing")
+                .n(3)
+                .build();
         
         // Получение ответа от OpenAI API
         try {
-            ChatCompletionRequest completionRequest = new ChatCompletionRequest
-                    .builder()
+            ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest.builder()
                     .model("text-davinci-002")
                     .message(request)
                     .maxTokens(MAX_MESSAGE_LENGTH)
