@@ -95,13 +95,6 @@ public class ChatGPTBot {
             }
         }
         //service.createChatCompletion(ChatCompletionRequest.builder()
-        CompletionRequest completionRequest = CompletionRequest.builder()
-                .model("ada")
-                .prompt(request)
-                .echo(true)
-                .user("testing")
-                .n(3)
-                .build();
         
         // Получение ответа от OpenAI API
     
