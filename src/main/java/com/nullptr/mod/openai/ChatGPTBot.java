@@ -32,7 +32,7 @@ public class ChatGPTBot {
         ArrayList<String> inputs = new ArrayList<>();
         for (TextComponentString component : Minecraft.getMinecraft().ingameGUI.getChatGUI().getSentMessages()) {
             String input = component.getUnformattedText().trim();
-            if (input.startsWith(senderName)) {
+            if (input.startsWith("!gpt")) {
                 inputs.add(input.replace(senderName, "") + "\n");
             }
         }
