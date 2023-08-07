@@ -29,6 +29,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 //import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.util.text.TextFormatting;
+
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
@@ -68,9 +71,9 @@ public class EventHandler {
     public void doTheOtherThing(RenderGameOverlayEvent event) {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution scaledRes = new ScaledResolution(mc);
-        mc.getTextureManager().bindTexture(new ResourceLocation("mod", "textures/items/obsidian_ingot.png"));
+        mc.getTextureManager().bindTexture("mod:textures/items/obsidian_ingot.png");
        // mc.ingameGUI.drawTexturedModalRect(scaledRes.getScaledWidth() / 2 - 29, scaledRes.getScaledHeight() / 2 - 4, 0, 0, 59, 8);
-	mc.getTextureManager().bindTexture(Gui.ICONS);
+	//mc.getTextureManager().bindTexture(Gui.ICONS);
         Gui.drawRect(scaledRes.getScaledWidth() / 2 - 4, scaledRes.getScaledHeight() / 2 - 4, scaledRes.getScaledWidth() / 2 + 4, scaledRes.getScaledHeight() / 2 + 4, 0xFF0000FF);
 	int textureWidth = 16; // Ширина текстуры в пикселях
         int textureHeight = 16; // Высота текстуры в пикселях
@@ -142,6 +145,21 @@ public class EventHandler {
             int randomX = rand.nextInt(3) - 1;
             int randomZ = rand.nextInt(3) - 1;
             pos = pos.add(randomX, 1, randomZ);
+        }
+    }
+    @SubscribeEvent
+    public static void onRenderGameOverlay(RenderGameOverlayEvent.Text event) {
+        // Проверяем условие полета
+        Minecraft mc = Minecraft.getMinecraft();
+        if (mc.player.capabilities.isFlying) {
+            // Устанавливаем позицию для текста
+            int x = 5;
+            int y = event.getResolution().getScaledHeight() - mc.fontRenderer.FONT_HEIGHT - 5;
+
+            // Отображаем текст
+            String text = TextFormatting.GREEN + "Вы взлетели!";
+            FontRenderer fontRenderer = mc.fontRenderer;
+            fontRenderer.drawString(text, x, y, 0);
         }
     }
 }
