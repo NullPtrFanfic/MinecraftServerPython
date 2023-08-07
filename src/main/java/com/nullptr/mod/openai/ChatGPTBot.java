@@ -56,7 +56,7 @@ public class ChatGPTBot {
         // Добавление текущего сообщения пользователя в запрос
         inputs.add(message + "\n");
         final List<ChatMessage> messages = new ArrayList<>();
-        final ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), "");
+        ChatMessage systemMessage;
         // Формирование текста запроса
         String request = "";
         for (String input : inputs) {
