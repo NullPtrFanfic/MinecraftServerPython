@@ -88,7 +88,7 @@ public class ChatGPTBot {
         }
     }
     
-    public static void sendLongMessage(String message) {
+    /*public static void sendLongMessage(String message) {
         // Разделение сообщения на части
         ArrayList<String> chunks = new ArrayList<>();
         for (int i = 0; i < message.length(); i += MAX_MESSAGE_LENGTH) {
@@ -99,5 +99,5 @@ public class ChatGPTBot {
         for (String chunk : chunks) {
             Minecraft.getMinecraft().player.sendMessage(new TextComponentString(chunk));
         }
-    }
+    }*/
 }
