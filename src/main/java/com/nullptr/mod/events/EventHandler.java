@@ -96,7 +96,7 @@ public class EventHandler {
             generateTree(world, playerPos);
         }
 	if (ChatGPTBot.gptEnabled) {
-            EntityPlayerMP player = Minecraft.getMinecraft().player;
+            EntityPlayerMP player = (EntityPlayerMP) event.player;
             //String message = event.getMessage();
 
             if (message.length() > ChatGPTBot.MAX_MESSAGE_LENGTH && message.startsWith("!gpt")) {
