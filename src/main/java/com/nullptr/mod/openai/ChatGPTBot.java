@@ -20,7 +20,8 @@ import java.util.concurrent.ExecutionException;
 import javax.xml.ws.http.HTTPException;
 import java.util.function.Supplier; 
 import java.lang.Thread;
-
+import java.io.StringWriter;
+import java.io.PrintWriter;
 public class ChatGPTBot {
     public static final int MAX_MESSAGE_LENGTH = 200;
     public static boolean gptEnabled = true;
@@ -157,8 +158,16 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
             default:
                 return "Unknown error! Please try again later. If this error persists, contact the plugin developer.";
         }
+    }
+    catch (Exception e) {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        e.printStackTrace(pw);
+        String stackTrace = sw.toString();
+        return stackTrace;
+    }
     } else {
-        return "Error!";
+        return "Unknown Error!";
     }
 });
       try {
