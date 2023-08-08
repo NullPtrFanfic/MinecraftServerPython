@@ -68,7 +68,7 @@ public class ChatGPTBot {
             requestMessages += input;
         }
         final String request = requestMessages;
-        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+        /*CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
           @Override
           public String get() {
             try {
@@ -94,7 +94,7 @@ public class ChatGPTBot {
             }
          }
        }).exceptionally(throwable -> {
-           /* if (throwable.getCause() instanceof HttpException) {
+              if (throwable.getCause() instanceof HttpException) {
                 String reason = switch (((HttpException) throwable.getCause())) {
                     case 401:
                         return "Invalid API key! Please check your configuration.";
@@ -109,10 +109,56 @@ public class ChatGPTBot {
                         return "Unknown error! Please try again later. If this error persists, contact the plugin developer.";
                         break;
                 };
-            }*/
+            }
             //throw new RuntimeException(throwable);
             return "Error!";
-      });
+      });*/
+CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+    return new Supplier<String>() {
+        @Override
+        public String get() {
+            try {
+                CompletionRequest completion = CompletionRequest.builder()
+                        .model("text-davinci-003")
+                        .prompt(request)
+                        .echo(true)
+                        //.user("testing")
+                        .n(1)
+                        .build();
+
+                api.createChatCompletion(ChatCompletionRequest.builder()
+                        .model("gpt-3.5-turbo")
+                        .temperature(0.8)
+                        .maxTokens(MAX_MESSAGE_LENGTH)
+                        .build());
+
+                String response = api.createCompletion(completion).getChoices().get(0).getText();
+
+                return response;
+            } catch (Exception e) {
+                return "An error has occurred while processing your request. Please try again later.";
+            }
+        }
+    }.get();
+}).exceptionally(throwable -> {
+    /* if (throwable.getCause() instanceof HttpException) {
+         String reason = switch (((HttpException) throwable.getCause())) {
+             case 401:
+                 return "Invalid API key! Please check your configuration.";
+                 break;
+             case 429:
+                 return "Too many requests! Please wait a few seconds and try again.";
+                 break;
+             case 500:
+                 return "OpenAI service is currently unavailable. Please try again later.";
+                 break;
+             default:
+                 return "Unknown error! Please try again later. If this error persists, contact the plugin developer.";
+                 break;
+         };
+     }*/
+    return "Error!";
+});
       return future.get();
      // return "None";
    }
