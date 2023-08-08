@@ -144,7 +144,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
         }
     }.get();
 }).exceptionally(throwable -> {
-    if (throwable.getCause() instanceof HttpException) {
+    if (throwable instanceof HttpException) {
         HttpException exception = (HttpException) throwable;
         switch (exception.code()) {
             case 401:
