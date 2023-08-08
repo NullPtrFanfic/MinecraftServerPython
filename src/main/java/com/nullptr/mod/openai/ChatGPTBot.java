@@ -124,10 +124,10 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
         public String get() {
             try {
                 CompletionRequest completion = CompletionRequest.builder()
-                        .model("text-davinci-003")
+                        .model("ada")
                         .prompt(request)
                         .echo(true)
-                        //.user("testing")
+                        .user("testing")
                         .n(1)
                         .build();
 
