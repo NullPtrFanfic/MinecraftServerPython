@@ -135,7 +135,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                         .topP(1.0) 
                         .frequencyPenalty(0.0) 
                         .presencePenalty(0.6) 
-                        .prompt(request) 
+                        //.prompt(request) 
                         .echo(false) 
                         .model("text-davinci-003") 
                         .build();
