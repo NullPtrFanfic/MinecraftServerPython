@@ -54,7 +54,6 @@ public class ClientProxy extends CommonProxy {
         //Netero.init();
 	registerModels();
 	registerRenders();
-	ChatGPTBot.init().join();
     }
 
     @Override
@@ -69,6 +68,7 @@ public class ClientProxy extends CommonProxy {
     public void init()
     {
         Netero.init();
+        ChatGPTBot.init();
     }
    // @Override
     public void serverLoad(FMLServerStartingEvent event) 	 
