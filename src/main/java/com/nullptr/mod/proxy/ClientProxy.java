@@ -71,7 +71,7 @@ public class ClientProxy extends CommonProxy {
         ChatGPTBot.init().exceptionally(throwable -> { 
 		//getLogger().severe("Error while initializing OpenAI service! Is your API key valid?");
 		throwable.printStackTrace(); 
-		return "ChatGPT init error"; 
+		return null; 
 	});
     }
    // @Override
