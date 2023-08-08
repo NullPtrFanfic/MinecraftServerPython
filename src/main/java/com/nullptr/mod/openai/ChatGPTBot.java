@@ -69,7 +69,7 @@ public class ChatGPTBot {
         final String request = requestMessages;
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
             try {
-                CompletionRequest completionRequest = CompletionRequest.builder()
+                CompletionRequest completion = CompletionRequest.builder()
                         .model("text-davinci-003")
                         .prompt(request)
                         .echo(true)
@@ -83,7 +83,7 @@ public class ChatGPTBot {
                         .maxTokens(MAX_MESSAGE_LENGTH)
                         .build());
 
-                String response = api.createCompletion(completionRequest).getChoices().get(0).getText();
+                String response = api.createCompletion(completion).getChoices().get(0).getText();
 
                 return response;
             } catch (Exception e) {
