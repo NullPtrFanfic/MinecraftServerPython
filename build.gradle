@@ -112,9 +112,10 @@ jar {
 
 // Example configuration to allow publishing using the maven-publish task
 // This is the preferred method to reobfuscate your jar file
+configurations { runtime { transitive = false } }
 shadowJar {
 	archiveClassifier = ''
-	configurations = [project.configurations.runtimeClasspath]
+	configurations = [project.configurations.runtime]
 	//relocate 'commoble.databuddy', "${project.group}.shadow.commoble.databuddy"
 	dependencies { 
 		//exclude(dependency('com.theokanning.openai-gpt3-java:client:0.15.0')) 
