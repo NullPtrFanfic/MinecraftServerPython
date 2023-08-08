@@ -73,8 +73,8 @@ public class ChatGPTBot {
                         .model("text-davinci-003")
                         .prompt(request)
                         .echo(true)
-                        .user("testing")
-                        .n(3)
+                        //.user("testing")
+                        .n(1)
                         .build());
 
                 api.createChatCompletion(ChatCompletionRequest.builder()
