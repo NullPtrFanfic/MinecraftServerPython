@@ -69,18 +69,18 @@ public class ChatGPTBot {
         final String request = requestMessages;
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
             try {
-                api.createChatCompletion(ChatCompletionRequest.builder()
-                        .model("gpt-3.5-turbo")
-                        .temperature(0.8)
-                        .maxTokens(MAX_MESSAGE_LENGTH)
-                        .build());
-
                 CompletionResult completionRequest = api.createCompletion(CompletionRequest.builder()
-                        .model("ada")
+                        .model("text-davinci-003")
                         .prompt(request)
                         .echo(true)
                         .user("testing")
                         .n(3)
+                        .build());
+
+                api.createChatCompletion(ChatCompletionRequest.builder()
+                        .model("gpt-3.5-turbo")
+                        .temperature(0.8)
+                        .maxTokens(MAX_MESSAGE_LENGTH)
                         .build());
 
                 String response = completionRequest.getChoices().get(0).getText();
