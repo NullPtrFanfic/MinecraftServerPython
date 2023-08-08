@@ -15,6 +15,7 @@ import java.util.List;
 import java.time.Duration;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier; 
 
 public class ChatGPTBot {
     public static final int MAX_MESSAGE_LENGTH = 200;
@@ -67,7 +68,8 @@ public class ChatGPTBot {
             requestMessages += input;
         }
         final String request = requestMessages;
-        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+        CompletableFuture<String> future = CompletableFuture.supplyAsync((new Supplier<String>()) -> {
+          public void get() {
             try {
                 CompletionRequest completion = CompletionRequest.builder()
                         .model("text-davinci-003")
@@ -89,6 +91,7 @@ public class ChatGPTBot {
             } catch (Exception e) {
                 return "An error has occurred while processing your request. Please try again later.";
             }
+          }
         }).exceptionally(throwable -> {
            /* if (throwable.getCause() instanceof HttpException) {
                 String reason = switch (((HttpException) throwable.getCause())) {
@@ -109,7 +112,7 @@ public class ChatGPTBot {
             //throw new RuntimeException(throwable);
             return "Error!";
       });
-      return future.join();
+      return future.get();
      // return "None";
    }
 }
