@@ -164,7 +164,9 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
          return future.get();
       } catch (InterruptedException e) {
         Thread.currentThread().interrupt();
-        return "An error has occurred while processing your request. Please try again later.";
+        return "InterruptedException";
+      } catch (ExecutionException e) {
+        return "ExecutionException";
       }
      // return "None";
    }
