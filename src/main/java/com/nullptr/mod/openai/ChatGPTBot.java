@@ -68,7 +68,7 @@ public class ChatGPTBot {
             requestMessages += input;
         }
         final String request = requestMessages;
-        CompletableFuture<String> future = CompletableFuture.supplyAsync((), new Supplier<String>() -> {
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> new Supplier<String>() -> {
           public void get() {
             try {
                 CompletionRequest completion = CompletionRequest.builder()
