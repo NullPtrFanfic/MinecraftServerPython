@@ -113,7 +113,7 @@ jar {
 // Example configuration to allow publishing using the maven-publish task
 // This is the preferred method to reobfuscate your jar file
 shadowJar {
-	classifier = ''
+	archiveClassifier = ''
 	configurations = [project.configurations.shade]
 	//relocate 'commoble.databuddy', "${project.group}.shadow.commoble.databuddy"
 	dependencies { 
