@@ -16,6 +16,7 @@ import java.time.Duration;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier; 
+import java.lang.Thread;
 
 public class ChatGPTBot {
     public static final int MAX_MESSAGE_LENGTH = 200;
