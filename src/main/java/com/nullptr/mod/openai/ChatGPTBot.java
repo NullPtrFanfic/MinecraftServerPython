@@ -68,8 +68,9 @@ public class ChatGPTBot {
             requestMessages += input;
         }
         final String request = requestMessages;
-        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
-          public void get() {
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(new Supplier<String>() -> {
+          @Override
+          public String get() {
             try {
                 CompletionRequest completion = CompletionRequest.builder()
                         .model("text-davinci-003")
