@@ -62,7 +62,7 @@ public class ClientProxy extends CommonProxy {
     }
     @Override
     public void addOBJLoaderDomainIfOnClient() {
-        OBJLoader.INSTANCE.addDomain(Main.MODID);
+        //OBJLoader.INSTANCE.addDomain(Main.MODID);
     }
     @Override
     public void init()
@@ -93,7 +93,7 @@ public class ClientProxy extends CommonProxy {
     }*/
     @Override
     public void registerModels() {
-		AssetManager.registerModels();
+		//AssetManager.registerModels();
     }
 
 	// ========== Creatures ==========
@@ -109,7 +109,7 @@ public class ClientProxy extends CommonProxy {
     }
     @Override
     public void registerRenders() {
-           LightBallModel Netero = new LightBallModel();
+           //LightBallModel Netero = new LightBallModel();
 	  // import net.minecraft.entity.Entity;
 
            // Предположим, у нас есть RegistryObject для сущности под названием "example_entity"
