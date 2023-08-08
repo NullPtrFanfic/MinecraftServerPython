@@ -160,11 +160,11 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
         }
     }
     else {
-      Exception exception = new Exception("err1", throwable, true, true);
+      Exception exception = new Exception("err1", throwable);
     //if (exception) {
       StringWriter sw = new StringWriter();
       PrintWriter pw = new PrintWriter(sw);
-      exception.printStackTrace(pw);
+      exception.getCause().printStackTrace(pw);
       String stackTrace = sw.toString();
       return stackTrace;
     }
