@@ -32,7 +32,7 @@ public class EntityInit {
         //EntityRegistry.addSpawn(EntityWeirdZombie.class, 100, 3, 5, EnumCreatureType.MONSTER, Biomes.PLAINS, Biomes.ICE_PLAINS);
 
         // This is the loot table for our mob
-        LootTableList.register(EntityWeirdZombie.LOOT);
+       // LootTableList.register(EntityWeirdZombie.LOOT);
 	//Netero.init();
     }
 
