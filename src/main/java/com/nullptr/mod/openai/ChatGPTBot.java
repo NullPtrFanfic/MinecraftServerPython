@@ -69,7 +69,7 @@ public class ChatGPTBot {
         final String request = requestMessages;
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
             try {
-                CompletionRequest ompletionRequest = CompletionRequest.builder()
+                CompletionRequest completionRequest = CompletionRequest.builder()
                         .model("text-davinci-003")
                         .prompt(request)
                         .echo(true)
