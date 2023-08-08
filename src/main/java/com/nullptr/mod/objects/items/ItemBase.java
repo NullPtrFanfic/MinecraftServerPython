@@ -10,7 +10,7 @@ public class ItemBase extends Item implements IHasModel
 {
    public ItemBase(String name)
    {
-      setUnlocalizedName(name);
+     // setUnlocalizedName(name);
       setRegistryName(name);
       setCreativeTab(Main.MODTAB);
       ItemInit.ITEMS.add(this);
