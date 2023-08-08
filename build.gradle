@@ -113,7 +113,12 @@ jar {
 shadowJar {
 	classifier = ''
 	configurations = [project.configurations.shade]
-	relocate 'commoble.databuddy', "${project.group}.shadow.commoble.databuddy"
+	//relocate 'commoble.databuddy', "${project.group}.shadow.commoble.databuddy"
+	dependencies { 
+		exclude(dependency('com.theokanning.openai-gpt3-java:client:0.15.0')) 
+		exclude(dependency('com.theokanning.openai-gpt3-java:api:0.15.0'))
+		exclude(dependency('com.theokanning.openai-gpt3-java:service:0.15.0'))
+	}
 }
 
 reobf {
