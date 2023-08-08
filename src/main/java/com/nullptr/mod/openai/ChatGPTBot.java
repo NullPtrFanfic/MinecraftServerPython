@@ -159,6 +159,8 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                 return "Unknown error! Please try again later. If this error persists, contact the plugin developer.";
         }
     }
+    else {
+    }
 });
       try {
          return future.get();
