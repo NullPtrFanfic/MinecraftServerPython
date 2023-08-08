@@ -123,13 +123,13 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
         @Override
         public String get() {
             try {
-                api.createChatCompletion(ChatCompletionRequest.builder()
+               /* api.createChatCompletion(ChatCompletionRequest.builder()
                         .model("gpt-3.5-turbo")
                         .temperature(0.8)
                         .maxTokens(MAX_MESSAGE_LENGTH)
-                        .build());
+                        .build());*/
 
-                CompletionRequest completion = CompletionRequest.builder()
+                ChatCompletionRequest completion = ChatCompletionRequest.builder()
                         .temperature(0.9) 
                         .maxTokens(50) 
                         .topP(1.0) 
@@ -139,7 +139,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                         .echo(false) 
                         .model("text-davinci-003") 
                         .build();
-                String response = api.createCompletion(completion).getChoices().get(0).getText();
+                String response = api.createChatCompletion(completion).getChoices().get(0).getMessage().getContent();
 
                 return response;
             } catch (Exception e) {
