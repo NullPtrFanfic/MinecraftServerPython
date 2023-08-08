@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 public class EntityWeirdZombie extends EntityMob {
 
     // We reuse the zombie model which has arms that need to be raised when the zombie is attacking:
-    private static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.createKey(EntityWeirdZombie.class, DataSerializers.BOOLEAN);
+   // private static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.createKey(EntityWeirdZombie.class, DataSerializers.BOOLEAN);
 
     public static final ResourceLocation LOOT = new ResourceLocation(Main.MODID, "loot_tables/entity/weirdzombie/weird_zombie.json");
 
@@ -48,15 +48,6 @@ public class EntityWeirdZombie extends EntityMob {
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.13D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
-    }
-
-   public void setArmsRaised(boolean armsRaised) {
-        this.getDataManager().set(ARMS_RAISED, Boolean.valueOf(armsRaised));
-    }
-
-    @SideOnly(Side.CLIENT)
-    public boolean isArmsRaised() {
-        return this.getDataManager().get(ARMS_RAISED).booleanValue();
     }
 
     @Override
