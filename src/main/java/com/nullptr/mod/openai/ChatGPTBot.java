@@ -143,23 +143,21 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
         }
     }.get();
 }).exceptionally(throwable -> {
-    /* if (throwable.getCause() instanceof HttpException) {
-         String reason = switch (((HttpException) throwable.getCause())) {
-             case 401:
-                 return "Invalid API key! Please check your configuration.";
-                 break;
-             case 429:
-                 return "Too many requests! Please wait a few seconds and try again.";
-                 break;
-             case 500:
-                 return "OpenAI service is currently unavailable. Please try again later.";
-                 break;
-             default:
-                 return "Unknown error! Please try again later. If this error persists, contact the plugin developer.";
-                 break;
-         };
-     }*/
-    return "Error!";
+    if (throwable.getCause() instanceof HttpException) {
+        int statusCode = ((HttpException) throwable.getCause()).getCode();
+        switch (statusCode) {
+            case 401:
+                return "Invalid API key! Please check your configuration.";
+            case 429:
+                return "Too many requests! Please wait a few seconds and try again.";
+            case 500:
+                return "OpenAI service is currently unavailable. Please try again later.";
+            default:
+                return "Unknown error! Please try again later. If this error persists, contact the plugin developer.";
+        }
+    } else {
+        return "Error!";
+    }
 });
       try {
          return future.get();
