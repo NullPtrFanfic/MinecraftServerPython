@@ -106,8 +106,8 @@ public class ChatGPTBot {
                         break;
                 };
             }*/
-            throw new RuntimeException(throwable);
-            //return "Error!";
+            //throw new RuntimeException(throwable);
+            return "Error!";
       });
       return future.join();
      // return "None";
