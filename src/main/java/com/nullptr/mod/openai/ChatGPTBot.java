@@ -159,19 +159,17 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                 return "Unknown error! Please try again later. If this error persists, contact the plugin developer.";
         }
     }
-    Exception exception = new Exception("err1", throwable, true, true);
-    if (exception) {
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        e.printStackTrace(pw);
-        String stackTrace = sw.toString();
-        return stackTrace;
+    else {
+      Exception exception = new Exception("err1", throwable, true, true);
+    //if (exception) {
+      StringWriter sw = new StringWriter();
+      PrintWriter pw = new PrintWriter(sw);
+      exception.printStackTrace(pw);
+      String stackTrace = sw.toString();
+      return stackTrace;
     }
     // Now you can handle or rethrow the 'exception'
-    }
-    else {
-      return "Error";
-    }
+    //return "Unhandled exception!";
 });
       try {
          return future.get();
