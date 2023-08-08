@@ -1,16 +1,25 @@
+plugins { 
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'java' 
+}
+
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net/' }
         mavenCentral()
+        gradlePluginPortal()
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+        classpath 'com.github.johnrengelman:shadow:8.1.1' 
     }
 }
         
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
+apply plugin: 'com.github.johnrengelman.shadow' 
+apply plugin: 'java'
 apply plugin: 'maven-publish'
 
 version = '0.1'
