@@ -13,6 +13,7 @@ import com.theokanning.openai.completion.CompletionResult;
 //import com.theokanning.openai.completion.ChatCompletionResult;
 import java.util.List;
 import java.time.Duration;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 public class ChatGPTBot {
@@ -23,7 +24,7 @@ public class ChatGPTBot {
     public static CompletableFuture<Void> init() {
         return CompletableFuture.runAsync(() -> {
             try {
-                api = new OpenAiService("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", Duration.ofSeconds(5));
+                api = new OpenAiService(Objects.requireNonNull("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"), Duration.ofSeconds(5));
             } catch (Exception e) {
                 e.printStackTrace();
             }
