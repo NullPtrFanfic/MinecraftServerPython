@@ -37,7 +37,7 @@ public class EntityWeirdZombie extends EntityMob {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.getDataManager().register(ARMS_RAISED, Boolean.valueOf(false));
+       // this.getDataManager().register(ARMS_RAISED, Boolean.valueOf(false));
     }
 
     @Override
