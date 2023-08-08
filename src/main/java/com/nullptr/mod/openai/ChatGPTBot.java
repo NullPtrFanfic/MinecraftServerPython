@@ -68,7 +68,7 @@ public class ChatGPTBot {
             requestMessages += input;
         }
         final String request = requestMessages;
-        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> new Supplier<String>() -> {
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
           public void get() {
             try {
                 CompletionRequest completion = CompletionRequest.builder()
@@ -91,8 +91,8 @@ public class ChatGPTBot {
             } catch (Exception e) {
                 return "An error has occurred while processing your request. Please try again later.";
             }
-          }
-        }).exceptionally(throwable -> {
+         }
+       }).exceptionally(throwable -> {
            /* if (throwable.getCause() instanceof HttpException) {
                 String reason = switch (((HttpException) throwable.getCause())) {
                     case 401:
