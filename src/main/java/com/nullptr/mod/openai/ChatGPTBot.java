@@ -66,7 +66,7 @@ public class ChatGPTBot {
             requestMessages += input;
         }
         final String request = requestMessages;
-        CompletabelFuture<String> future = CompletableFuture.supplyAsync(() -> {
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
             try {
                 api.createChatCompletion(ChatCompletionRequest.builder()
                         .model("gpt-3.5-turbo")
