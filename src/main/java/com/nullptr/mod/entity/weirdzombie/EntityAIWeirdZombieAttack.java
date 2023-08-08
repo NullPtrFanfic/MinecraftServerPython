@@ -30,7 +30,7 @@ public class EntityAIWeirdZombieAttack extends EntityAIAttackMelee {
     @Override
     public void resetTask() {
         super.resetTask();
-        this.weirdZombie.setArmsRaised(false);
+        //this.weirdZombie.setArmsRaised(false);
     }
 
     /**
@@ -42,9 +42,9 @@ public class EntityAIWeirdZombieAttack extends EntityAIAttackMelee {
         ++this.raiseArmTicks;
 
         if (this.raiseArmTicks >= 5 && this.attackTick < 10) {
-            this.weirdZombie.setArmsRaised(true);
+          //  this.weirdZombie.setArmsRaised(true);
         } else {
-            this.weirdZombie.setArmsRaised(false);
+           // this.weirdZombie.setArmsRaised(false);
         }
     }
   }
