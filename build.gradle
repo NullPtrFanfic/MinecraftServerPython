@@ -94,8 +94,8 @@ dependencies {
 }
 
 shadowJar {
-       archiveClassifier.set('jar-with-dependencies')
-       configurations = [project.configurations.runtimeClasspath]
+       archiveClassifier.set('mod-0.1.jar')
+       configurations = [project.configurations.compileClasspath]
 }
 
 reobf {
