@@ -9,7 +9,7 @@ import net.minecraftforge.common.MinecraftForge;
 import com.theokanning.openai.completion.chat.ChatCompletionRequest;
 import com.theokanning.openai.service.OpenAiService;
 import com.theokanning.openai.completion.CompletionRequest;
-import com.theokanning.openai.completion.CompletionResult;
+//import com.theokanning.openai.completion.CompletionResult;
 //import com.theokanning.openai.completion.ChatCompletionResult;
 import java.util.List;
 import java.time.Duration;
@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 public class ChatGPTBot {
-    public static final int MAX_MESSAGE_LENGTH = 2000;
+    public static final int MAX_MESSAGE_LENGTH = 200;
     public static boolean gptEnabled = true;
 
     private static OpenAiService api;
@@ -69,7 +69,7 @@ public class ChatGPTBot {
         final String request = requestMessages;
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
             try {
-                CompletionResult completionRequest = api.createCompletion(CompletionRequest.builder()
+                CompletionRequest ompletionRequest = api.createCompletion(CompletionRequest.builder()
                         .model("text-davinci-003")
                         .prompt(request)
                         .echo(true)
@@ -83,7 +83,7 @@ public class ChatGPTBot {
                         .maxTokens(MAX_MESSAGE_LENGTH)
                         .build());
 
-                String response = completionRequest.getChoices().get(0).getText();
+                String response = api.createCompletion(completionRequest).getChoices().get(0).getText();
 
                 return response;
             } catch (Exception e) {
