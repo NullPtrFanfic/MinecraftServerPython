@@ -164,7 +164,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
     //if (exception) {
       StringWriter sw = new StringWriter();
       PrintWriter pw = new PrintWriter(sw);
-      exception.getCause().printStackTrace(pw);
+      exception.printStackTrace(pw);
       String stackTrace = sw.toString();
       return stackTrace;
     }
