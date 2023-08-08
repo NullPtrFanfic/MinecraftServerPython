@@ -16,6 +16,7 @@ import java.time.Duration;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import org.apache.http.HttpException;
 import java.util.function.Supplier; 
 import java.lang.Thread;
 
