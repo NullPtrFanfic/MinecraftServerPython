@@ -145,8 +145,8 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
         }
     }.get();
 }).exceptionally(throwable -> {
-    if (throwable instanceof HttpException) {
-        HttpException exception = (HttpException) throwable;
+    if (throwable instanceof HTTPException) {
+        HTTPException exception = (HTTPException) throwable;
         switch (exception.getStatusCode()) {
             case 401:
                 return "Invalid API key! Please check your configuration.";
