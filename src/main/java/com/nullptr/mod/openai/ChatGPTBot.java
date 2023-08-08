@@ -136,7 +136,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                         .frequencyPenalty(0.0) 
                         .presencePenalty(0.6) 
                         //.prompt(request) 
-                        .echo(false) 
+                       // .echo(false) 
                         .model("text-davinci-003") 
                         .build();
                 String response = api.createChatCompletion(completion).getChoices().get(0).getMessage().getContent();
