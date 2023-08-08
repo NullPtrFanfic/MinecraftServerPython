@@ -16,7 +16,8 @@ import java.time.Duration;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import org.apache.http.HttpException;
+//import org.apache.http.HttpException;
+import javax.xml.ws.http.HTTPException;
 import java.util.function.Supplier; 
 import java.lang.Thread;
 
@@ -146,7 +147,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
 }).exceptionally(throwable -> {
     if (throwable instanceof HttpException) {
         HttpException exception = (HttpException) throwable;
-        switch (exception.code()) {
+        switch (exception.getStatusCode()) {
             case 401:
                 return "Invalid API key! Please check your configuration.";
             case 429:
