@@ -159,16 +159,6 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                 return "Unknown error! Please try again later. If this error persists, contact the plugin developer.";
         }
     }
-    catch (Exception e) {
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        e.printStackTrace(pw);
-        String stackTrace = sw.toString();
-        return stackTrace;
-    }
-    } else {
-        return "Unknown Error!";
-    }
 });
       try {
          return future.get();
@@ -177,6 +167,13 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
         return "InterruptedException";
       } catch (ExecutionException e) {
         return "ExecutionException";
+      }
+      catch (Exception e) {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        e.printStackTrace(pw);
+        String stackTrace = sw.toString();
+        return stackTrace;
       }
      // return "None";
    }
