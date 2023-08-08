@@ -10,16 +10,16 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
-
 plugins { 
-    id 'com.github.johnrengelman.shadow' version '8.1.1'
+   // id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
     id 'java' 
 }
         
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
+apply plugin: 'java'
 apply plugin: 'com.github.johnrengelman.shadow' 
 apply plugin: 'maven-publish'
 
