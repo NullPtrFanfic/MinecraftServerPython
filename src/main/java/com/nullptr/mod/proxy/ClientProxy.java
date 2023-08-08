@@ -68,7 +68,10 @@ public class ClientProxy extends CommonProxy {
     public void init()
     {
         Netero.init();
-        ChatGPTBot.init();
+        ChatGPTBot.init().exceptionally(throwable -> { 
+		//getLogger().severe("Error while initializing OpenAI service! Is your API key valid?");
+		throwable.printStackTrace(); //return null; 
+	});
     }
    // @Override
     public void serverLoad(FMLServerStartingEvent event) 	 
