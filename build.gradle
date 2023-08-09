@@ -16,7 +16,7 @@ buildscript {
         classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
         //classpath 'com.github.johnrengelman:shadow:2.0.4' 
 	//classpath("gradle.plugin.com.github.johnrengelman:shadow:8.1.1")
-        classpath("com.github.johnrengelman:shadow:4.0.4")
+        classpath("com.github.johnrengelman.gradle.plugins:shadow:4.0.4")
 	//classpath("wtf.gofancy.fancygradle.gradle.plugin:1.1.3-0")
     }
 }
