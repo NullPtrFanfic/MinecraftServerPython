@@ -38,21 +38,21 @@ public class ItemInit
     public static final Item LARGE_FIREBALL_STAFF = new LargeFireballStaff("large_fireball_staff", 50);
     public static final Item LIGHTNING_STAFF = new LightningStaff("lightning_staff");
 
-    public static Item spawnEgg = getSpawnEgg();
+   // public static Item spawnEgg = getSpawnEgg();
 
     public static Item getSpawnEgg() {
-        ItemStack stack = new ItemStack(Items.EGG, 1);
-        ItemMonsterPlacer.applyEntityIdToItemStack(stack, new ResourceLocation(Main.MODID, "test"));
-        return stack.getItem();
+        //ItemStack stack = new ItemStack(Items.EGG, 1);
+       // ItemMonsterPlacer.applyEntityIdToItemStack(stack, new ResourceLocation(Main.MODID, "test"));
+       // return stack.getItem();
     }
 
     @SubscribeEvent
     public static void onItemRightClick(PlayerInteractEvent.RightClickItem event) {
-        ItemStack itemStack = event.getItemStack();
+        /*ItemStack itemStack = event.getItemStack();
         if (itemStack.getItem() == spawnEgg) {
             // Вызов метода класса при клике по предмету spawnEgg
             Main.proxy.init();
             event.setCanceled(true); // Отмена стандартного действия при клике по предмету (не обязательно)
-        }
+        }*/
     }
 }
