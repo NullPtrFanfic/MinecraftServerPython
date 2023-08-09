@@ -167,10 +167,10 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                 .logitBias(new HashMap<>())
                 .build();
 
-        api.streamChatCompletion(chatCompletionRequest)
+       /* api.streamChatCompletion(chatCompletionRequest)
                 //.doOnError(Throwable::printStackTrace)
                 .blockingForEach(System.out::println);
-
+*/
         api.shutdownExecutor();
                 String response = Objects.requireNonNull(api.createCompletion(completionRequest).getChoices().get(0).getText());
 
