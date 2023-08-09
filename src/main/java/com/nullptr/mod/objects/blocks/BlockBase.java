@@ -13,9 +13,9 @@ public class BlockBase extends Block implements IHasModel
    public BlockBase(String name, Material material)
    {
        super(material);
-      // setUnlocalizedName(name);
+       setUnlocalizedName(name);
        setRegistryName(name);
-      // setCreativeTab(Main.MODTAB);
+       setCreativeTab(Main.MODTAB);
        BlockInit.BLOCKS.add(this);
        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
    }
