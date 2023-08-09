@@ -128,7 +128,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                         .temperature(0.8)
                         .prompt(request)
                         .maxTokens(MAX_MESSAGE_LENGTH)
-                        .build());
+                        .build();
 
                 /*CompletionRequest completion = CompletionRequest.builder()
                         .temperature(0.9) 
