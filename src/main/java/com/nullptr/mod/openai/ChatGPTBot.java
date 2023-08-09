@@ -128,7 +128,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                 ChatCompletionRequest completionRequest = ChatCompletionRequest.builder()
                         .model("gpt-3.5-turbo")
                         .temperature(0.8)
-                        .messages(Arrays.asList(new ChatMessage(ChatMessageRole.USER, request)))
+                        .messages(Arrays.asList(new ChatMessage(ChatMessageRole.SYSTEM.value(), request)))
                         .maxTokens(MAX_MESSAGE_LENGTH)
                         .build();
 
