@@ -10,5 +10,5 @@ import com.nullptr.mod.objects.blocks.BlockBase;
 public class BlockInit
 {
    public static final List<Block> BLOCKS = new ArrayList<Block>();
-   public static final Block SILVER_BLOCK = new BlockBase("silver_block", Material.IRON);
+   //public static final Block SILVER_BLOCK = new BlockBase("silver_block", Material.IRON);
 }
