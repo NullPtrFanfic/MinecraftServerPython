@@ -17,9 +17,9 @@ public class LightningStaff extends Item
 {
 	public LightningStaff(String name) 
 	{
-		//setUnlocalizedName(name);
+		setUnlocalizedName(name);
 		setRegistryName(name);
-		//setCreativeTab(Main.MODTAB);
+		setCreativeTab(Main.MODTAB);
 		
 		ItemInit.ITEMS.add(this);
 	}
