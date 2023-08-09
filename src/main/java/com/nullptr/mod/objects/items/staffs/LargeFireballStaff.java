@@ -18,9 +18,9 @@ public class LargeFireballStaff extends Item implements IHasModel
    public int explosionPower = 10;
    public LargeFireballStaff(String name, int explosionSize)
    {
-      setUnlocalizedName(name);
+     // setUnlocalizedName(name);
       setRegistryName(name);
-      setCreativeTab(Main.MODTAB);
+     // setCreativeTab(Main.MODTAB);
       ItemInit.ITEMS.add(this);
    }
    @Override
