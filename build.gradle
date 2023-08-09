@@ -9,6 +9,7 @@ buildscript {
 		name 'Garden of Fancy' 
 		url 'https://maven.gofancy.wtf/releases' 
 	}*/
+	maven { url "https://mvnrepository.com/artifact/" }
         mavenCentral()
 	jcenter()
         gradlePluginPortal()
