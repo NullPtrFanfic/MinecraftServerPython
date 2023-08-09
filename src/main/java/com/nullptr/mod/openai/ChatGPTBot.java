@@ -23,6 +23,7 @@ import java.util.function.Supplier;
 import java.lang.Thread;
 import java.io.StringWriter;
 import java.io.PrintWriter;
+import java.util.Arrays;
 public class ChatGPTBot {
     public static final int MAX_MESSAGE_LENGTH = 200;
     public static boolean gptEnabled = true;
