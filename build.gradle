@@ -81,8 +81,9 @@ minecraft {
 configurations { 
 	runtime { 
 		transitive = false
+		library 
+		implementation.extendsFrom library
 	}
-        library implementation.extendsFrom library
 }
 
 dependencies {
