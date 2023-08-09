@@ -125,6 +125,7 @@ shadowJar {
 		//exclude(dependency('com.theokanning.openai-gpt3-java:client:0.15.0')) 
 		//exclude(dependency('com.theokanning.openai-gpt3-java:api:0.15.0'))
 		exclude(dependency('com.theokanning.openai-gpt3-java:service:0.15.0'))
+		exclude(dependency('net.minecraftforge:forge:1.12.2-14.23.5.2860'))
 	}
 }
 
