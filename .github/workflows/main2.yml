@@ -40,7 +40,7 @@ jobs:
 
     - name: Build with Gradle
 
-      run: ./gradlew shadowJar  # Запускаем сборку проекта
+      run: ./gradlew build  # Запускаем сборку проекта
     - uses: actions/upload-artifact@v3
 
       with:
