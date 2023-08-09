@@ -125,14 +125,14 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
         @Override
         public String get() {
             try {
-                ChatCompletionRequest completionRequest = ChatCompletionRequest.builder()
+               /* ChatCompletionRequest completionRequest = ChatCompletionRequest.builder()
                         .model("gpt-3.5-turbo")
                         .temperature(0.8)
                         .messages(Arrays.asList(new ChatMessage(ChatMessageRole.SYSTEM.value(), request)))
                         .maxTokens(MAX_MESSAGE_LENGTH)
                         .build();
 
-                /*CompletionRequest completion = CompletionRequest.builder()
+                CompletionRequest completion = CompletionRequest.builder()
                         .temperature(0.9) 
                         .maxTokens(50) 
                         .topP(1.0) 
@@ -142,7 +142,36 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                        // .echo(false) 
                         .model("text-davinci-003") 
                         .build();*/
-                String response = Objects.requireNonNull(api.createChatCompletion(completionRequest).getChoices().get(0).getMessage().getContent());
+                System.out.println("\nCreating completion...");
+        CompletionRequest completionRequest = CompletionRequest.builder()
+                .model("ada")
+                .prompt("hi")
+                .echo(true)
+                .user("testing")
+                .n(3)
+                .build();
+      //  api.createCompletion(completionRequest).getChoices().forEach(System.out::println);
+
+
+        System.out.println("Streaming chat completion...");
+        final List<ChatMessage> messages = new ArrayList<>();
+        final ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), "hi");
+        messages.add(systemMessage);
+        ChatCompletionRequest chatCompletionRequest = ChatCompletionRequest
+                .builder()
+                .model("gpt-3.5-turbo")
+                .messages(messages)
+                .n(1)
+                .maxTokens(50)
+                .logitBias(new HashMap<>())
+                .build();
+
+        service.streamChatCompletion(chatCompletionRequest)
+                .doOnError(Throwable::printStackTrace)
+                .blockingForEach(System.out::println);
+
+        service.shutdownExecutor();
+                String response = Objects.requireNonNull(api.createCompletion(completionRequest).getChoices().get(0).getText());
 
                 return response;
             } catch (Exception e) {
