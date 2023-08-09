@@ -24,6 +24,7 @@ import java.lang.Thread;
 import java.io.StringWriter;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.HashMap;
 public class ChatGPTBot {
     public static final int MAX_MESSAGE_LENGTH = 200;
     public static boolean gptEnabled = true;
@@ -166,11 +167,11 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                 .logitBias(new HashMap<>())
                 .build();
 
-        service.streamChatCompletion(chatCompletionRequest)
-                .doOnError(Throwable::printStackTrace)
+        api.streamChatCompletion(chatCompletionRequest)
+                //.doOnError(Throwable::printStackTrace)
                 .blockingForEach(System.out::println);
 
-        service.shutdownExecutor();
+        api.shutdownExecutor();
                 String response = Objects.requireNonNull(api.createCompletion(completionRequest).getChoices().get(0).getText());
 
                 return response;
