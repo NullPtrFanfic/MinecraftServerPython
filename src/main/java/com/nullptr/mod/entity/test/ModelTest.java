@@ -23,8 +23,8 @@ public class ModelTest extends ModelBase
 
     public ModelTest() 
     {
-        this.textureWidth = 64;
-        this.textureHeight = 64;
+     //   this.textureWidth = 64;
+       // this.textureHeight = 64;
         this.FrontLeftLeg = new ModelRenderer(this, 0, 0);
         this.FrontLeftLeg.setRotationPoint(3.0F, 18.0F, -5.0F);
         this.FrontLeftLeg.addBox(0.0F, 0.0F, 0.0F, 2, 6, 2, 0.0F);
