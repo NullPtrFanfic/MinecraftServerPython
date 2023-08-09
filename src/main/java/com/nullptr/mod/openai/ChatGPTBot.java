@@ -123,11 +123,11 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
         @Override
         public String get() {
             try {
-               /* api.createChatCompletion(ChatCompletionRequest.builder()
+                api.createChatCompletion(ChatCompletionRequest.builder()
                         .model("gpt-3.5-turbo")
                         .temperature(0.8)
                         .maxTokens(MAX_MESSAGE_LENGTH)
-                        .build());*/
+                        .build());
 
                 ChatCompletionRequest completion = ChatCompletionRequest.builder()
                         .temperature(0.9) 
@@ -143,7 +143,12 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
 
                 return response;
             } catch (Exception e) {
-                return "An error has occurred while processing your request. Please try again later.";
+                //return "An error has occurred while processing your request. Please try again later.";
+                StringWriter sw = new StringWriter();
+                PrintWriter pw = new PrintWriter(sw);
+                e.printStackTrace(pw);
+                String stackTrace = sw.toString();
+                return stackTrace;
             }
         }
     }.get();
