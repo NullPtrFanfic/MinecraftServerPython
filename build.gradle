@@ -8,9 +8,9 @@ buildscript {
         gradlePluginPortal()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:6.0.11'
         //classpath 'com.github.johnrengelman:shadow:2.0.4' 
-	classpath("com.github.jengelman.gradle.plugins:shadow:8.0.0")
+	classpath("gradle.plugin.com.github.johnrengelman:shadow:8.0.0")
     }
 }
 
