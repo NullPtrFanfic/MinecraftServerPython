@@ -38,12 +38,12 @@ public class ItemInit
     public static final Item LARGE_FIREBALL_STAFF = new LargeFireballStaff("large_fireball_staff", 50);
     public static final Item LIGHTNING_STAFF = new LightningStaff("lightning_staff");
 
-   /* public static Item spawnEgg = getSpawnEgg();
+    public static Item spawnEgg = getSpawnEgg();
 
     public static Item getSpawnEgg() {
-        //ItemStack stack = new ItemStack(Items.EGG, 1);
-       // ItemMonsterPlacer.applyEntityIdToItemStack(stack, new ResourceLocation(Main.MODID, "test"));
-       // return stack.getItem();
+        ItemStack stack = new ItemStack(Items.SPAWN_EGG, 1);
+        ItemMonsterPlacer.applyEntityIdToItemStack(stack, new ResourceLocation(Main.MODID, "test"));
+        return stack.getItem();
     }
 
     @SubscribeEvent
@@ -54,5 +54,5 @@ public class ItemInit
             Main.proxy.init();
             event.setCanceled(true); // Отмена стандартного действия при клике по предмету (не обязательно)
         }
-    }*/
+    }
 }
