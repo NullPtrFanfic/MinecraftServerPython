@@ -5,7 +5,8 @@ buildscript {
 	        //url = uri("https://plugins.gradle.org/m2/") 
 	}
 	maven { 
-		name 'Garden of Fancy' url 'https://maven.gofancy.wtf/releases' 
+		name 'Garden of Fancy' 
+		url 'https://maven.gofancy.wtf/releases' 
 	}
         mavenCentral()
         gradlePluginPortal()
@@ -77,7 +78,12 @@ minecraft {
 
 fancyGradle { 
 	patches { 
-		resources coremods codeChickenLib asm mergetool } }
+		resources 
+		coremods 
+		codeChickenLib 
+		asm 
+		mergetool 
+} }
 
 dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
