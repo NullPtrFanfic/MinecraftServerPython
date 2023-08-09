@@ -118,7 +118,7 @@ jar {
 // This is the preferred method to reobfuscate your jar file
 configurations { runtime { transitive = false } }
 shadowJar {
-	archiveClassifier = ''
+	classifier = ''
 	configurations = [project.configurations.runtime]
 	//relocate 'commoble.databuddy', "${project.group}.shadow.commoble.databuddy"
 	dependencies { 
