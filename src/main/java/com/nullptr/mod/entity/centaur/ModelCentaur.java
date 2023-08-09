@@ -23,8 +23,8 @@ public class ModelCentaur extends ModelBase
 
     public ModelCentaur() 
     {
-        this.textureWidth = 64;
-        this.textureHeight = 32;
+       // this.textureWidth = 64;
+       // this.textureHeight = 32;
         this.FrontLeftLeg = new ModelRenderer(this, 0, 16);
         this.FrontLeftLeg.setRotationPoint(4.0F, 12.0F, -6.0F);
         this.FrontLeftLeg.addBox(-2.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F);
