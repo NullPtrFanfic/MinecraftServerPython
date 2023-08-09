@@ -30,7 +30,7 @@ import net.minecraftforge.client.model.obj.OBJLoader;
 //import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.fml.common.registry.EntityEntry; 
 import net.minecraftforge.fml.common.registry.EntityRegistry;
-import com.nullptr.mod.model.Netero;
+//import com.nullptr.mod.model.Netero;
 //import com.nullptr.mod.core.tileentity.TileEntityEquipmentPart;
 //import com.nullptr.mod.core.tileentity.TileEntityEquipment;
 //import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -67,7 +67,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init()
     {
-        Netero.init();
+        //Netero.init();
         ChatGPTBot.init().exceptionally(throwable -> { 
 		//getLogger().severe("Error while initializing OpenAI service! Is your API key valid?");
 		throwable.printStackTrace(); 
