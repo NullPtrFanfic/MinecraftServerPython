@@ -4,7 +4,7 @@ import com.nullptr.mod.entity.weirdzombie.EntityWeirdZombie;
 import com.nullptr.mod.entity.weirdzombie.RenderWeirdZombie;
 import com.nullptr.mod.entity.test.EntityTest;
 import com.nullptr.mod.entity.test.RenderTest;
-import com.nullptr.mod.model.Netero;
+//import com.nullptr.mod.model.Netero;
 import com.nullptr.mod.model.ModelRender;
 import com.nullptr.mod.entity.centaur.EntityCentaur;
 import com.nullptr.mod.entity.centaur.RenderCentaur;
@@ -55,11 +55,11 @@ public class EntityInit {
                     return new RenderTest(manager);		
                 }
         });
-        RenderingRegistry.registerEntityRenderingHandler(Netero.class, new IRenderFactory<Netero>() {
+        /*RenderingRegistry.registerEntityRenderingHandler(Netero.class, new IRenderFactory<Netero>() {
 			@Override
 			public Render<? super Netero> createRenderFor(RenderManager manager) {
 				return new ModelRender(manager);
 			}
-		});
+		});*/
     }
 }
