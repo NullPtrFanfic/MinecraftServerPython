@@ -78,6 +78,13 @@ minecraft {
     }
 }
 
+configurations { 
+	runtime { 
+		transitive = false
+	}
+        library implementation.extendsFrom library
+}
+
 dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
@@ -125,13 +132,6 @@ jar {
 
 // Example configuration to allow publishing using the maven-publish task
 // This is the preferred method to reobfuscate your jar file
-configurations { 
-	runtime { 
-		transitive = false
-	}
-        library 
-	implementation.extendsFrom library
-}
 
 /*shadow {
     configurations = [ project.configurations.library ]
