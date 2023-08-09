@@ -79,11 +79,11 @@ minecraft {
 }
 
 configurations { 
-	runtime { 
-		transitive = false
-		library 
-		implementation.extendsFrom library
-	}
+	/*runtime { 
+		transitive = false 
+	}*/
+	library
+	implementation.extendsFrom library
 }
 
 dependencies {
