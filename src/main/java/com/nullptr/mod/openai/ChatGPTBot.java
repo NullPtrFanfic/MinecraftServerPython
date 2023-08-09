@@ -10,7 +10,7 @@ import com.theokanning.openai.completion.chat.ChatCompletionRequest;
 import com.theokanning.openai.service.OpenAiService;
 import com.theokanning.openai.completion.CompletionRequest;
 //import com.theokanning.openai.completion.CompletionResult;
-//import com.theokanning.openai.completion.ChatCompletionResult;
+import com.theokanning.openai.chat.ChatMessageRole;
 import java.util.List;
 import java.time.Duration;
 import java.util.Objects;
@@ -126,7 +126,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                 ChatCompletionRequest completionRequest = ChatCompletionRequest.builder()
                         .model("gpt-3.5-turbo")
                         .temperature(0.8)
-                       // .prompt(request)
+                        .messages(Arrays.asList(new ChatMessage(ChatMessageRole.USER, request)))
                         .maxTokens(MAX_MESSAGE_LENGTH)
                         .build();
 
@@ -140,7 +140,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                        // .echo(false) 
                         .model("text-davinci-003") 
                         .build();*/
-                String response = api.createChatCompletion(completionRequest).getChoices().get(0).getMessage().getContent();
+                String response = Objects.requireNonNull(api.createChatCompletion(completionRequest).getChoices().get(0).getMessage().getContent());
 
                 return response;
             } catch (Exception e) {
