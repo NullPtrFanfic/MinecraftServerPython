@@ -10,12 +10,12 @@ buildscript {
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
         //classpath 'com.github.johnrengelman:shadow:2.0.4' 
-	classpath("com.github.jengelman.gradle.plugins:shadow:4.0.4")
+	classpath("com.github.jengelman.gradle.plugins:shadow:8.0.0")
     }
 }
 
 plugins { 
-    id 'com.github.johnrengelman.shadow' version '4.0.4'
+    id 'com.github.johnrengelman.shadow' version '8.0.0'
     //id 'com.github.johnrengelman.shadow' version '7.1.2'
     id 'java' 
 }
@@ -118,7 +118,7 @@ jar {
 // This is the preferred method to reobfuscate your jar file
 configurations { runtime { transitive = false } }
 shadowJar {
-	classifier = ''
+	archiveClassifier = ''
 	configurations = [project.configurations.runtime]
 	//relocate 'commoble.databuddy', "${project.group}.shadow.commoble.databuddy"
 	dependencies { 
