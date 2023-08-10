@@ -155,7 +155,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
 
         CompletionRequest completionRequest = CompletionRequest.builder()
                 .model("text-davinci-003")
-                .prompt("hi")
+                .prompt(request)
                 .echo(true)
                 .user("testing")
                 .n(3)
@@ -170,14 +170,14 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
 
         System.out.println("Streaming chat completion...");
         final List<ChatMessage> messages = new ArrayList<>();
-        final ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), "hi");
+        final ChatMessage systemMessage = new ChatMessage(ChatMessageRole.SYSTEM.value(), request);
         messages.add(systemMessage);
         ChatCompletionRequest chatCompletionRequest = ChatCompletionRequest
                 .builder()
                 .model("gpt-3.5-turbo")
                 .messages(messages)
                 .n(1)
-                .maxTokens(50)
+                .maxTokens(200)
                 .logitBias(new HashMap<>())
                 .build();
 
