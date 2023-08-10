@@ -35,11 +35,19 @@ public class ChatGPTBot {
             try {
                 api = new OpenAiService("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", Duration.ofSeconds(45));
             } catch (Exception e) {
-                e.printStackTrace();
+                StringWriter sw = new StringWriter();
+                PrintWriter pw = new PrintWriter(sw);
+                e.printStackTrace(pw);
+                String stackTrace = sw.toString();
+                return stackTrace;
             }
         }).exceptionally(throwable -> {
-            throwable.printStackTrace();
-            return null;
+            //throwable.printStackTrace();
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            throwable.printStackTrace(pw);
+            String stackTrace = sw.toString();
+            return stackTrace;
         });
     }
 
