@@ -34,6 +34,15 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TextComponentString;
 import com.nullptr.mod.openai.ChatGPTBot;
+//import net.minecraft.block.Block;
+import net.minecraft.block.BlockStairs;
+import net.minecraft.block.BlockGlass;
+import net.minecraft.block.BlockDoor;
+//import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
+//import net.minecraft.util.math.BlockPos;
+//import net.minecraft.world.World;
+//import java.util.Random;
 
 
 @Mod.EventBusSubscriber(Side.CLIENT)
@@ -134,6 +143,65 @@ public class EventHandler {
                      }
                 }
             }
+        }
+    }
+    private void generateHouse(World world, BlockPos pos) {
+        int width = 5;
+        int height = 3;
+        int depth = 6;
+
+        // Create a hollow shell made of bricks.
+        for (int x = pos.getX(); x < pos.getX() + width; x++) {
+            for (int y = pos.getY(); y < pos.getY() + height; y++) {
+                for (int z = pos.getZ() + 3; z < pos.getZ() + 3 + depth; z++) {
+                    if (y == pos.getY() || y == pos.getY() + height - 1 || x == pos.getX() || x == pos.getX() + width - 1 || z == pos.getZ() + 3 || z == pos.getZ() + 3 + depth - 1) {
+                        world.setBlockState(new BlockPos(x, y, z), Blocks.BRICK_BLOCK.getDefaultState());
+                    }
+                }
+            }
+        }
+
+        // Set the floor.
+        for (int x = pos.getX() - 1; x <= pos.getX() + width; x++) {
+            for (int z = pos.getZ() + 2; z <= pos.getZ() + 4 + depth; z++) {
+                world.setBlockState(new BlockPos(x, pos.getY() - 1, z), Blocks.COBBLESTONE.getDefaultState());
+            }
+        }
+
+        // Add a Door.
+        world.setBlockState(new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 3), Blocks.OAK_DOOR.getDefaultState().withProperty(BlockDoor.HALF, BlockDoor.EnumDoorHalf.LOWER));
+	world.setBlockState(new BlockPos(pos.getX() + 1, pos.getY() + 1, pos.getZ() + 3), Blocks.OAK_DOOR.getDefaultState().withProperty(BlockDoor.HALF, BlockDoor.EnumDoorHalf.UPPER));
+
+        // Add Windows.
+        world.setBlockState(new BlockPos(pos.getX() + 3, pos.getY() + 1, pos.getZ() + 3), Blocks.GLASS.getDefaultState());
+        world.setBlockState(new BlockPos(pos.getX() + 4, pos.getY() + 1, pos.getZ() + 3), Blocks.GLASS.getDefaultState());
+        world.setBlockState(new BlockPos(pos.getX() + 2, pos.getY() + 1, pos.getZ() + 3 + depth), Blocks.GLASS.getDefaultState());
+        world.setBlockState(new BlockPos(pos.getX() + 3, pos.getY() + 1, pos.getZ() + 3 + depth), Blocks.GLASS.getDefaultState());
+        world.setBlockState(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ() + 5), Blocks.GLASS.getDefaultState());
+        world.setBlockState(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ() + 6), Blocks.GLASS.getDefaultState());
+        world.setBlockState(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ() + 7), Blocks.GLASS.getDefaultState());
+        world.setBlockState(new BlockPos(pos.getX() + width, pos.getY() + 1, pos.getZ() + 5), Blocks.GLASS.getDefaultState());
+        world.setBlockState(new BlockPos(pos.getX() + width, pos.getY() + 1, pos.getZ() + 6), Blocks.GLASS.getDefaultState());
+        world.setBlockState(new BlockPos(pos.getX() + width, pos.getY() + 1, pos.getZ() + 7), Blocks.GLASS.getDefaultState());
+
+        // Add a Roof.
+        for (int i = 0; i <= width / 2; i++) {
+            for (int j = 0; j <= height / 2; j++) {
+                    world.setBlockState(new BlockPos(pos.getX() + i, pos.getY() + height + j, pos.getZ() + 3), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, BlockStairs.EnumFacing.NORTH));
+                    world.setBlockState(new BlockPos(pos.getX() + i, pos.getY()
+                    world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + j, pos.getZ() + 3), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, BlockStairs.EnumFacing.NORTH));
+                    world.setBlockState(new BlockPos(pos.getX() + i, pos.getY() + height + j, pos.getZ() + 3 + depth), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, BlockStairs.EnumFacing.SOUTH));
+                    world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + j, pos.getZ() + 3 + depth), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, BlockStairs.EnumFacing.SOUTH_FLIPPED));
+                }
+            }
+        }
+
+        // Gable ends.
+        for (int i = 1; i < width / 2; i++) {
+            world.setBlockState(new BlockPos(pos.getX() + i, pos.getY() + height + i, pos.getZ() + 3), Blocks.BRICK_BLOCK.getDefaultState());
+            world.setBlockState(new BlockPos(pos.getX() + i, pos.getY() + height + i, pos.getZ() + 3 + depth), Blocks.BRICK_BLOCK.getDefaultState());
+            world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + i, pos.getZ() + 3), Blocks.BRICK_BLOCK.getDefaultState());
+            world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + i, pos.getZ() + 3 + depth), Blocks.BRICK_BLOCK.getDefaultState());
         }
     }
     @SubscribeEvent
