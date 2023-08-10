@@ -47,6 +47,10 @@ import net.minecraft.init.Blocks;
 //import org.lwjgl.opengl.GL11;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.EnumFacing;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
+import net.minecraft.enchantment.Enchantment;
+//import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteractSpecific;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
