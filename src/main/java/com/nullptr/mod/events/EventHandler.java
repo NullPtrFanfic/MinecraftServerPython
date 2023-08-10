@@ -86,7 +86,7 @@ public class EventHandler {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution scaledRes = new ScaledResolution(mc);
 	// Установка прозрачности текстуры
-	GlStateManager.popMatrix()
+	GlStateManager.pushMatrix()
         GlStateManager.enableAlpha();
         GlStateManager.enableBlend();
        // RenderSystem.defaultBlendFunc();
@@ -102,7 +102,7 @@ public class EventHandler {
         mc.ingameGUI.drawTexturedModalRect(xPos, yPos, 0, 0, textureWidth, textureHeight);
 	GlStateManager.disableAlpha();
         GlStateManager.disableBlend();
-	GlStateManager.pushMatrix();
+	GlStateManager.popMatrix();
     }
     @SubscribeEvent
     public void onChat(ClientChatEvent event) {
