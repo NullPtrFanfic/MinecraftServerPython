@@ -46,6 +46,7 @@ import net.minecraft.init.Blocks;
 //import net.minecraft.client.renderer.RenderSystem;
 //import org.lwjgl.opengl.GL11;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.util.EnumFacing;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
@@ -205,11 +206,11 @@ public class EventHandler {
         // Add a Roof.
         for (int i = 0; i <= width / 2; i++) {
             for (int j = 0; j <= height / 2; j++) {
-                    world.setBlockState(new BlockPos(pos.getX() + i, pos.getY() + height + j, pos.getZ() + 3), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, BlockStairs.EnumFacing.NORTH));
-                    world.setBlockState(new BlockPos(pos.getX() + i, pos.getY()));
-                    world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + j, pos.getZ() + 3), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, BlockStairs.EnumFacing.NORTH));
-                    world.setBlockState(new BlockPos(pos.getX() + i, pos.getY() + height + j, pos.getZ() + 3 + depth), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, BlockStairs.EnumFacing.SOUTH));
-                    world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + j, pos.getZ() + 3 + depth), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, BlockStairs.EnumFacing.SOUTH_FLIPPED));
+                    world.setBlockState(new BlockPos(pos.getX() + i, pos.getY() + height + j, pos.getZ() + 3), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
+                    //world.setBlockState(new BlockPos(pos.getX() + i, pos.getY()));
+                    world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + j, pos.getZ() + 3), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
+                    world.setBlockState(new BlockPos(pos.getX() + i, pos.getY() + height + j, pos.getZ() + 3 + depth), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
+                    world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + j, pos.getZ() + 3 + depth), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH_FLIPPED));
                // }
             }
         }
