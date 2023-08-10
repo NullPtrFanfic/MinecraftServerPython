@@ -43,8 +43,9 @@ import net.minecraft.init.Blocks;
 //import net.minecraft.util.math.BlockPos;
 //import net.minecraft.world.World;
 //import java.util.Random;
-import net.minecraft.client.renderer.RenderSystem;
+//import net.minecraft.client.renderer.RenderSystem;
 //import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.GlStateManager;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
@@ -85,10 +86,11 @@ public class EventHandler {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution scaledRes = new ScaledResolution(mc);
 	// Установка прозрачности текстуры
-        RenderSystem.enableAlphaTest();
-        RenderSystem.enableBlend();
-        RenderSystem.defaultBlendFunc();
-        RenderSystem.defaultAlphaFunc();
+	GlStateManager.popMatrix()
+        GlStateManager.enableAlpha();
+        GlStateManager.enableBlend();
+       // RenderSystem.defaultBlendFunc();
+       // RenderSystem.defaultAlphaFunc();
         mc.getTextureManager().bindTexture(new ResourceLocation(Main.MODID, "textures/items/ico.png"));
        // mc.ingameGUI.drawTexturedModalRect(scaledRes.getScaledWidth() / 2 - 29, scaledRes.getScaledHeight() / 2 - 4, 0, 0, 59, 8);
 	//mc.getTextureManager().bindTexture(Gui.ICONS);
@@ -98,8 +100,9 @@ public class EventHandler {
         int xPos = scaledRes.getScaledWidth() - textureWidth - 10; // Координата X для отображения текстуры
         int yPos = 10; // Координата Y для отображения текстуры
         mc.ingameGUI.drawTexturedModalRect(xPos, yPos, 0, 0, textureWidth, textureHeight);
-	RenderSystem.disableAlphaTest();
-        RenderSystem.disableBlend();
+	GlStateManager.disableAlpha();
+        GlStateManager.disableBlend();
+	GlStateManager.pushMatrix();
     }
     @SubscribeEvent
     public void onChat(ClientChatEvent event) {
