@@ -103,6 +103,13 @@ public class EventHandler {
             World world = playerSP.getEntityWorld();
             generateTree(world, playerPos);
         }
+	if (message.contains("house")) {
+	    Minecraft.getMinecraft().player.sendChatMessage("Генерация дома..");
+	    EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
+            BlockPos playerPos = playerSP.getPosition();
+            World world = playerSP.getEntityWorld();
+            generateHouse(world, playerPos);
+	}
 	if (true) {
             /*if (message.length() > 2000 && message.startsWith("!gpt")) {
                 Main.proxy.sendLongMessage(message);
