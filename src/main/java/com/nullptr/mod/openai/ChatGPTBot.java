@@ -25,6 +25,7 @@ import java.io.StringWriter;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashMap;
+import net.minecraft.util.text.TextComponentString;
 public class ChatGPTBot {
     public static final int MAX_MESSAGE_LENGTH = 200;
     public static boolean gptEnabled = true;
@@ -39,8 +40,8 @@ public class ChatGPTBot {
                 PrintWriter pw = new PrintWriter(sw);
                 e.printStackTrace(pw);
                 String stackTrace = sw.toString();
-		Minecraft.getMinecraft().player.sendMessage("Something went wrong");
-                Minecraft.getMinecraft().player.sendMessage(stackTrace);
+		Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Something went wrong"));
+                Minecraft.getMinecraft().player.sendMessage(new TextComponentString(stackTrace));
             }
         });
     }
