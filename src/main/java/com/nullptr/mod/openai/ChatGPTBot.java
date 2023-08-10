@@ -182,8 +182,16 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                 //.doOnError(Throwable::printStackTrace)
                 .blockingForEach(System.out::println);
 */
+		String response="";
         //api.shutdownExecutor();
-                String response = api.createCompletion(completionRequest).getChoices().get(0).getText();
+                if (api.createCompletion(completionRequest).getChoices().get(0).getText() != null)
+		{
+		    response=api.createCompletion(completionRequest).getChoices().get(0).getText();
+		}
+		else
+		{
+		    response=api.createCahtCompletion(chatCompletionRequest).getChoices().get(0).getMessage().getContent();
+		}
 
                 return response;
             } catch (Exception e) {
