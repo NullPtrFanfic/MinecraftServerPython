@@ -33,7 +33,7 @@ public class ChatGPTBot {
     public static CompletableFuture<Void> init() {
         return CompletableFuture.runAsync(() -> {
             try {
-                api = new OpenAiService(Objects.requireNonNull("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"), Duration.ofSeconds(5));
+                api = new OpenAiService("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", Duration.ofSeconds(5));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -171,7 +171,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                 //.doOnError(Throwable::printStackTrace)
                 .blockingForEach(System.out::println);
 */
-        api.shutdownExecutor();
+        //api.shutdownExecutor();
                 String response = Objects.requireNonNull(api.createCompletion(completionRequest).getChoices().get(0).getText());
 
                 return response;
