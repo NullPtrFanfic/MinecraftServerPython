@@ -210,7 +210,7 @@ public class EventHandler {
                     //world.setBlockState(new BlockPos(pos.getX() + i, pos.getY()));
                     world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + j, pos.getZ() + 3), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
                     world.setBlockState(new BlockPos(pos.getX() + i, pos.getY() + height + j, pos.getZ() + 3 + depth), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
-                    world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + j, pos.getZ() + 3 + depth), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH_FLIPPED));
+                    world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + j, pos.getZ() + 3 + depth), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
                // }
             }
         }
