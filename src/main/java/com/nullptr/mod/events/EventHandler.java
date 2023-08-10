@@ -44,20 +44,7 @@ import net.minecraft.init.Blocks;
 //import net.minecraft.world.World;
 //import java.util.Random;
 import net.minecraft.client.renderer.RenderSystem;
-import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.client.resources.IResourceManager;
-import net.minecraft.client.resources.IResourceManagerReloadListener;
-import net.minecraft.client.resources.SimpleReloadableResourceManager;
-import net.minecraft.client.resources.data.IMetadataSection;
-import net.minecraft.client.resources.data.IMetadataSerializer;
-import net.minecraft.client.resources.data.PackMetadataSection;
-import net.minecraft.client.resources.data.PackResourceMetadata;
-import net.minecraft.client.resources.data.ResourceMetadataReader;
-//import net.minecraft.util.ResourceLocation;
-//import net.minecraftforge.client.event.RenderGameOverlayEvent;
-//import net.minecraftforge.eventbus.api.SubscribeEvent;
-//import net.minecraftforge.fml.common.Mod;
-import org.lwjgl.opengl.GL11;
+//import org.lwjgl.opengl.GL11;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
@@ -111,6 +98,8 @@ public class EventHandler {
         int xPos = scaledRes.getScaledWidth() - textureWidth - 10; // Координата X для отображения текстуры
         int yPos = 10; // Координата Y для отображения текстуры
         mc.ingameGUI.drawTexturedModalRect(xPos, yPos, 0, 0, textureWidth, textureHeight);
+	RenderSystem.disableAlphaTest();
+        RenderSystem.disableBlend();
     }
     @SubscribeEvent
     public void onChat(ClientChatEvent event) {
