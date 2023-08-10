@@ -236,7 +236,53 @@ public class EventHandler {
             generateColumn(world, pos);
         }
     }
+    
+    @SubscribeEvent
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
+        ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
+        BookMeta bm = (BookMeta) book.getItemMeta();
+        bm.setDisplayName(TextFormatting.GREEN.toString() + "" + TextFormatting.BOLD.toString() + "Приветствуем на нашем сервере!");
+        bm.addPage("Введение. О сервере - ...");
+        bm.addPage("Приятной игры на нашем проекте! Конец.");
+        bm.addPage("English text");
+        bm.setAuthor("NullPtr");
+        bm.setLore(Arrays.asList("This book contains " + bm.getPageCount() + " pages."));
+        book.setItemMeta(bm);
+        player.getInventory().addItem(book);
 
+        ItemStack bow = new ItemStack(Material.BOW, 1);
+        bow.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 10);
+        ItemMeta itemMeta = bow.getItemMeta();
+        itemMeta.setDisplayName(TextFormatting.BLUE.toString() + "Teleport Bow");
+        itemMeta.setUnbreakable(true);
+        bow.setItemMeta(itemMeta);
+        player.getInventory().addItem(bow);
+    }
+
+    @SubscribeEvent
+    public void onProjectileHit(ProjectileHitEvent event) {
+        if (event.getEntity().hasMetadata("teleport_bow")) {
+            Player shooter = (Player) event.getEntity().getShooter();
+            Vector direction = shooter.getLocation().getDirection();
+            Location location = event.getEntity().getLocation();
+            location.setDirection(direction);
+            playerteleport(shooter, location);
+        }
+    }
+
+    @SubscribeEvent
+    public void onProjectileLaunch(ProjectileLaunchEvent event) {
+        if (event.getEntityType() == EntityType.ARROW) {
+            if (event.getEntity().getShooter() instanceof Player) {
+                Player shooter = (Player) event.getEntity().getShooter();
+                ItemStack bowItem = shooter.getInventory().getItemInMainHand();
+                if (bowItem.getItemMeta().getDisplayName().equals(TextFormatting.BLUE.toString() + "Teleport Bow")) {
+                    event.getEntity().setMetadata("teleport_bow", new FixedMetadataValue(this, true));
+                }
+            }
+        }
+    }
     private static void generateColumn(World world, BlockPos pos) {
         Random rand = new Random();
 
