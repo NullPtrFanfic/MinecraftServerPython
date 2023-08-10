@@ -148,7 +148,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
                     return "Openaiapiservice is null!";
                 }
                 System.out.println("\nCreating completion...");
-                public static final List<String> stops = Arrays.asList("\n", " Human:", " AI:");
+                //public static final List<String> stops = Arrays.asList("\n", " Human:", " AI:");
 
         CompletionRequest completionRequest = CompletionRequest.builder()
                 .model("text-davinci-003")
@@ -160,7 +160,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
 		.topP(1.0)
 		.frequencyPenalty(0.0)
 		.presencePenalty(0.0)
-                .stop(stops)
+                //.stop(stops)
                 .build();
       //  api.createCompletion(completionRequest).getChoices().forEach(System.out::println);
 
