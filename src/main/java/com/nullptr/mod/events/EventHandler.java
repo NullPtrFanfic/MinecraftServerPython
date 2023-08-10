@@ -86,7 +86,7 @@ public class EventHandler {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution scaledRes = new ScaledResolution(mc);
 	// Установка прозрачности текстуры
-	GlStateManager.pushMatrix()
+	GlStateManager.pushMatrix();
         GlStateManager.enableAlpha();
         GlStateManager.enableBlend();
        // RenderSystem.defaultBlendFunc();
