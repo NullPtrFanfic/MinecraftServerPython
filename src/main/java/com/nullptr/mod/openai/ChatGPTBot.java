@@ -190,7 +190,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
 		}
 		else
 		{
-		    response=api.createCahtCompletion(chatCompletionRequest).getChoices().get(0).getMessage().getContent();
+		    response=api.createChatCompletion(chatCompletionRequest).getChoices().get(0).getMessage().getContent();
 		}
 
                 return response;
