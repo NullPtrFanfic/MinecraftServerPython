@@ -87,6 +87,7 @@ public class EventHandler {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution scaledRes = new ScaledResolution(mc);
 	// Установка прозрачности текстуры
+	GlStateManager.glBegin(GL_QUADS);
 	GlStateManager.pushMatrix();
         GlStateManager.enableAlpha();
         GlStateManager.enableBlend();
@@ -104,6 +105,7 @@ public class EventHandler {
 	GlStateManager.disableAlpha();
         GlStateManager.disableBlend();
 	GlStateManager.popMatrix();
+	GlStateManager.glEnd();
     }
     @SubscribeEvent
     public void onChat(ClientChatEvent event) {
@@ -166,7 +168,7 @@ public class EventHandler {
     }
     private void generateHouse(World world, BlockPos pos) {
         int width = 5;
-        int height = 3;
+        int height = 6;
         int depth = 6;
 
         // Create a hollow shell made of bricks.
@@ -210,7 +212,7 @@ public class EventHandler {
                     //world.setBlockState(new BlockPos(pos.getX() + i, pos.getY()));
                     world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + j, pos.getZ() + 3), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
                     world.setBlockState(new BlockPos(pos.getX() + i, pos.getY() + height + j, pos.getZ() + 3 + depth), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
-                    world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + j, pos.getZ() + 3 + depth), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
+                    world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + j, pos.getZ() + 3 + depth), Blocks.OAK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.NORTH));
                // }
             }
         }
