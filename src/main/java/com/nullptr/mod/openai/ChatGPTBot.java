@@ -39,15 +39,9 @@ public class ChatGPTBot {
                 PrintWriter pw = new PrintWriter(sw);
                 e.printStackTrace(pw);
                 String stackTrace = sw.toString();
-                return stackTrace;
+		Minecraft.getMinecraft().player.sendMessage("Something went wrong");
+                Minecraft.getMinecraft().player.sendMessage(stackTrace);
             }
-        }).exceptionally(throwable -> {
-            //throwable.printStackTrace();
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            throwable.printStackTrace(pw);
-            String stackTrace = sw.toString();
-            return stackTrace;
         });
     }
 
