@@ -1,3 +1,81 @@
+package com.nullptr.mod.chess;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.ScaledResolution;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+@Mod.EventBusSubscriber(Side.CLIENT)
+public class ChessView {
+    private static final float CELL_SIDE = 80f;
+    private static final float ORIGIN_X = 10f;
+    private static final float ORIGIN_Y = 200f;
+
+    private int selectedRow = 0;
+    private int selectedColumn = 0;
+    private boolean drawAvailableMoves = false;
+
+    @SubscribeEvent
+    @SideOnly(Side.CLIENT)
+    public void doTheOtherThing(RenderGameOverlayEvent event) {
+
+        Minecraft mc = Minecraft.getMinecraft();
+        ScaledResolution scaledRes = new ScaledResolution(mc);
+
+        // Draw chess board
+        for (int j = 0; j < 7; j++) {
+            for (int i = 0; i < 7; i++) {
+                float left = ORIGIN_X + i * CELL_SIDE;
+                float top = ORIGIN_Y + j * CELL_SIDE;
+                float right = left + CELL_SIDE;
+                float bottom = top + CELL_SIDE;
+                int color = (i + j) % 2 == 0 ? 0xFFC0C0C0 : 0xFF808080; // Light gray and dark gray
+                Gui.drawRect((int) left, (int) top, (int) right, (int) bottom, color);
+            }
+        }
+
+        // Highlight selected square
+	List<Pair> piece = ChessModel.pieceAt(Column, Row)
+	ChessModel.getAvailableMoves()
+	if (drawAvailableMoves == true && piece != null) {
+	for (i in 0 until ChessModel.availableMoves.size)
+	{
+		if (Pair(selectedRow, selectedColumn) in ChessModel.availableMoves[i]) {
+		   List<Pair> move = ChessModel.availableMoves[i][1]
+                   float left = ORIGIN_X + move.second * CELL_SIDE;
+                   float top = ORIGIN_Y + move.first * CELL_SIDE;
+                   float right = left + CELL_SIDE;
+                   float bottom = top + CELL_SIDE;
+                   Gui.drawRect((int) left, (int) top, (int) right, (int) bottom, 0x800080FF); // Semi-transparent blue
+		}
+        }
+	}
+    }
+
+    @SubscribeEvent
+    @SideOnly(Side.CLIENT)
+    public void onMouseClick(GuiScreenEvent.MouseInputEvent event) {
+        Minecraft mc = Minecraft.getMinecraft();
+        ScaledResolution scaledRes = new ScaledResolution(mc);
+
+        int mouseX = Mouse.getX() * scaledRes.getScaledWidth() / mc.displayWidth;
+        int mouseY = scaledRes.getScaledHeight() - Mouse.getY() * scaledRes.getScaledHeight() / mc.displayHeight - 1;
+
+        int column = (int) ((mouseX - ORIGIN_X) / CELL_SIDE);
+        int row = (int) ((mouseY - ORIGIN_Y) / CELL_SIDE);
+
+        if (column >= 0 && column < 7 && row >= 0 && row < 7) {
+            selectedColumn = column;
+            selectedRow = row;
+            drawAvailableMoves = !drawAvailableMoves;
+        }
+    }
+}
+
 package com.nullptr.mod.chess
 
 import com.nullptr.mod.chess.ChessModel;
