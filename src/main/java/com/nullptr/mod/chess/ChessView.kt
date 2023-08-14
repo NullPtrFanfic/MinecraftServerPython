@@ -1,7 +1,8 @@
 package com.nullptr.mod.chess
 
-import com.nullptr.mod.chess.ChessModel
-import com.nullptr.mod.chess.ChessMoves
+import com.nullptr.mod.chess.ChessModel;
+import com.nullptr.mod.chess.ChessMoves;
+import com.nullptr.mod.Main;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
