@@ -56,12 +56,12 @@ public class ChessModel {
                                   }
                              }
                         }
-						drawPieces("bR", colIndex, rowIndex)
+			        drawPieces("bR", colIndex, rowIndex)
                                 break;
                             case 'B':
                                 // Handle black king
                                 // обработка черного слона
-						val directions = listOf(Pair(-1, -1), Pair(-1, 1), Pair(1, 1), Pair(1, -1))
+			        val directions = listOf(Pair(-1, -1), Pair(-1, 1), Pair(1, 1), Pair(1, -1))
 // diagonals: up/left, up/right, down/right, down/left
                         for (direction in directions) {
                              for (i in 0..7) {  // Change the loop range to start from 1 instead of 0
@@ -77,30 +77,26 @@ public class ChessModel {
                                   }
                              }
                         }
-						drawPieces("bB", colIndex, rowIndex)
+				drawPieces("bB", colIndex, rowIndex)
                                 break;
                              'P' -> {
                         // обработка черной пешки
                         if (rowIndex + 1 < board.size && board[rowIndex + 1][colIndex] == "eM") {
-							if (rowIndex==1) {
+			    if (rowIndex==1) {
 								//Log.d("ChessModel", "bP avaible moves - ${rowIndex + 2} $colIndex")
-								availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(rowIndex + 2, colIndex)))
-							}
+				availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(rowIndex + 2, colIndex)))
+		            }
                            // Log.d("ChessModel", "bP avaible moves - ${rowIndex + 1} $colIndex")
-							availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(rowIndex + 1, colIndex)))
+			   availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(rowIndex + 1, colIndex)))
                         }
                             // Handle other black pieces
                         break;
                     case 'w':
                         switch (type) {
-                            case 'B':
-                                // Handle white rook
-                                // ...
-                                break;
                             case 'R':
                                 // Handle white king
                                 // ...
-                            val directions = listOf(Pair(-1, 0), Pair(0, -1), Pair(1, 0), Pair(0, 1)) 
+                                val directions = listOf(Pair(-1, 0), Pair(0, -1), Pair(1, 0), Pair(0, 1)) 
 // diagonals: up/left, up/right, down/right, down/left
                             for (direction in directions) {
                              for (i in 0..7) {  // Change the loop range to start from 1 instead of 0
@@ -114,8 +110,15 @@ public class ChessModel {
                                         availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(end_row, end_col)))
                                       }
                                   }
+				  drawPieces("wR", colIndex, rowIndex)
+                                  break;
                              }
-                             for (direction in directions) {
+			     case 'B':
+                                // Handle black king
+                                // обработка черного слона
+			        val directions = listOf(Pair(-1, -1), Pair(-1, 1), Pair(1, 1), Pair(1, -1))
+// diagonals: up/left, up/right, down/right, down/left
+                        for (direction in directions) {
                              for (i in 0..7) {  // Change the loop range to start from 1 instead of 0
                                   val end_row = rowIndex + direction.first * i
                                   val end_col = colIndex + direction.second * i
@@ -123,17 +126,26 @@ public class ChessModel {
                                       val end_piece = board[end_row][end_col]
                                       if (end_piece == "eM") {  // empty space is valid
                                           availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(end_row, end_col)))
-                                      } else if (end_piece[0] == 'b') { // capture enemy piece
+                                      } else if (end_piece[0] == 'w') { // capture enemy piece
                                         availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(end_row, end_col)))
                                       }
                                   }
                              }
                         }
-						drawPieces("wB", colIndex, rowIndex)
-                        }
-						drawPieces("wR", colIndex, rowIndex)
+				drawPieces("wB", colIndex, rowIndex)
                                 break;
-                            // Handle other white pieces
+			   case 'P':
+                        // обработка черной пешки
+                        if (rowIndex + 1 < board.size && board[rowIndex + 1][colIndex] == "eM") {
+			    if (rowIndex==1) {
+								//Log.d("ChessModel", "bP avaible moves - ${rowIndex + 2} $colIndex")
+				availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(rowIndex + 2, colIndex)))
+		            }
+                           // Log.d("ChessModel", "bP avaible moves - ${rowIndex + 1} $colIndex")
+			   availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(rowIndex + 1, colIndex)))
+                        }
+                            // Handle other black pieces
+                        break;
                         }
                         break;
                 }
