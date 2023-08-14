@@ -1,28 +1,16 @@
-package com.nullptr.chess
+package com.nullptr.mod.chess
 
-import android.view.View
-import android.content.Context
-import android.util.AttributeSet
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.Color
-import android.util.Log
-import android.view.SurfaceView
-import android.graphics.Rect
-import com.nullptr.chess.ChessModel
-import com.nullptr.chess.ChessMoves
-import android.view.MotionEvent
-import java.lang.Runnable
-import android.os.Handler
-class ChessView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
-	private final val cellSide = 80f
-	private final val originX = 10f
-	private final val originY = 200f
-	public var Row = 0
-	public var Column = 0
-    public var drawAvailableMoves = false
-    val DIMENSION = 8
-    val SQUARE_SIZE = 80
+import com.nullptr.mod.chess.ChessModel
+import com.nullptr.mod.chess.ChessMoves
+public class ChessView {
+	public final float cellSide = 80f
+	public final float originX = 10f
+	public final float originY = 200f
+	public int Row = 0
+	public int Column = 0
+    public boolean drawAvailableMoves = false
+    public int DIMENSION = 8
+    public int SQUARE_SIZE = 80
 
 	override fun onDraw(canvas: Canvas) {
     super.onDraw(canvas)
