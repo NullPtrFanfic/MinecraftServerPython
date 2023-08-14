@@ -40,24 +40,98 @@ public class ChessModel {
                         switch (type) {
                             case 'R':
                                 // Handle black rook
-                                // ...
-                                break;
-                            case 'K':
-                                // Handle black king
-                                // ...
-                                break;
-                            // Handle other black pieces
+                                val directions = listOf(Pair(-1, 0), Pair(0, -1), Pair(1, 0), Pair(0, 1)) 
+// diagonals: up/left, up/right, down/right, down/left
+                        for (direction in directions) {
+                             for (i in 0..7) {  // Change the loop range to start from 1 instead of 0
+                                  val end_row = rowIndex + direction.first * i
+                                  val end_col = colIndex + direction.second * i
+                                  if (end_row in 0..7 && end_col in 0..7) {  // Use 'in' keyword to check range
+                                      val end_piece = board[end_row][end_col]
+                                      if (end_piece == "eM") {  // empty space is valid
+                                          availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(end_row, end_col)))
+                                      } else if (end_piece[0] == 'w') { // capture enemy piece
+                                        availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(end_row, end_col)))
+                                      }
+                                  }
+                             }
                         }
+						drawPieces("bR", colIndex, rowIndex)
+                                break;
+                            case 'B':
+                                // Handle black king
+                                // обработка черного слона
+						val directions = listOf(Pair(-1, -1), Pair(-1, 1), Pair(1, 1), Pair(1, -1))
+// diagonals: up/left, up/right, down/right, down/left
+                        for (direction in directions) {
+                             for (i in 0..7) {  // Change the loop range to start from 1 instead of 0
+                                  val end_row = rowIndex + direction.first * i
+                                  val end_col = colIndex + direction.second * i
+                                  if (end_row in 0..7 && end_col in 0..7) {  // Use 'in' keyword to check range
+                                      val end_piece = board[end_row][end_col]
+                                      if (end_piece == "eM") {  // empty space is valid
+                                          availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(end_row, end_col)))
+                                      } else if (end_piece[0] == 'w') { // capture enemy piece
+                                        availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(end_row, end_col)))
+                                      }
+                                  }
+                             }
+                        }
+						drawPieces("bB", colIndex, rowIndex)
+                                break;
+                             'P' -> {
+                        // обработка черной пешки
+                        if (rowIndex + 1 < board.size && board[rowIndex + 1][colIndex] == "eM") {
+							if (rowIndex==1) {
+								//Log.d("ChessModel", "bP avaible moves - ${rowIndex + 2} $colIndex")
+								availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(rowIndex + 2, colIndex)))
+							}
+                           // Log.d("ChessModel", "bP avaible moves - ${rowIndex + 1} $colIndex")
+							availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(rowIndex + 1, colIndex)))
+                        }
+                            // Handle other black pieces
                         break;
                     case 'w':
                         switch (type) {
-                            case 'R':
+                            case 'B':
                                 // Handle white rook
                                 // ...
                                 break;
-                            case 'K':
+                            case 'R':
                                 // Handle white king
                                 // ...
+                            val directions = listOf(Pair(-1, 0), Pair(0, -1), Pair(1, 0), Pair(0, 1)) 
+// diagonals: up/left, up/right, down/right, down/left
+                            for (direction in directions) {
+                             for (i in 0..7) {  // Change the loop range to start from 1 instead of 0
+                                  val end_row = rowIndex + direction.first * i
+                                  val end_col = colIndex + direction.second * i
+                                  if (end_row in 0..7 && end_col in 0..7) {  // Use 'in' keyword to check range
+                                      val end_piece = board[end_row][end_col]
+                                      if (end_piece == "eM") {  // empty space is valid
+                                          availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(end_row, end_col)))
+                                      } else if (end_piece[0] == 'b') { // capture enemy piece
+                                        availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(end_row, end_col)))
+                                      }
+                                  }
+                             }
+                             for (direction in directions) {
+                             for (i in 0..7) {  // Change the loop range to start from 1 instead of 0
+                                  val end_row = rowIndex + direction.first * i
+                                  val end_col = colIndex + direction.second * i
+                                  if (end_row in 0..7 && end_col in 0..7) {  // Use 'in' keyword to check range
+                                      val end_piece = board[end_row][end_col]
+                                      if (end_piece == "eM") {  // empty space is valid
+                                          availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(end_row, end_col)))
+                                      } else if (end_piece[0] == 'b') { // capture enemy piece
+                                        availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(end_row, end_col)))
+                                      }
+                                  }
+                             }
+                        }
+						drawPieces("wB", colIndex, rowIndex)
+                        }
+						drawPieces("wR", colIndex, rowIndex)
                                 break;
                             // Handle other white pieces
                         }
