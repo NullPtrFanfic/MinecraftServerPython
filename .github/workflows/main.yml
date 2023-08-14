@@ -1,0 +1,54 @@
+name: Java Gradle Build
+
+on:
+
+  push:
+
+    branches:
+
+      - main  # Запуск workflow при пуше в ветку main
+
+  pull_request:
+
+    branches:
+
+      - main  # Запуск workflow для pull request'ов в ветку main
+
+jobs:
+
+  build:
+
+    name: Build with Gradle
+
+    runs-on: ubuntu-latest  # Виртуальная машина с Ubuntu
+
+    steps:
+
+    - name: Checkout repository
+
+      uses: actions/checkout@v2  # Клонируем репозиторий
+
+    - name: Set up JDK
+
+      uses: actions/setup-java@v1
+
+      with:
+
+        java-version: '8'  # Установка JDK 11
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
+
+    - name: Build with Gradle
+
+      run: ./gradlew build  # Запускаем сборку проекта
+    - uses: actions/upload-artifact@v3
+
+      with:
+        name: libs
+
+        path: build/libs # or path/to/artifact
+    - name: Upload distributions Directory 
+      uses: actions/upload-artifact@v2 
+      with: 
+        name: distributions-artifact 
+        path: build/distributions
