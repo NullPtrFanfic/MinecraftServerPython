@@ -10,6 +10,7 @@ import com.nullptr.mod.model.projectile.LightBallModel;
 import com.nullptr.mod.commands.RTPCommand;
 //import com.nullptr.mod.BakedModelLoader;
 import com.nullptr.mod.events.EventHandler;
+import com.nullptr.mod.chess.ChessView;
 import com.nullptr.mod.entity.weirdzombie.EntityInit;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -51,6 +52,7 @@ public class ClientProxy extends CommonProxy {
         // Typically initialization of models and such goes here:
         EntityInit.initModels();
 	MinecraftForge.EVENT_BUS.register(new EventHandler());
+	MinecraftForge.EVENT_BUS.register(new ChessView());
         //Netero.init();
 	registerModels();
 	registerRenders();
