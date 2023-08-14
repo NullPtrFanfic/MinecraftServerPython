@@ -1,8 +1,8 @@
-package com.nullptr.chess
+package com.nullptr.mod.chess
 
-import com.nullptr.chess.ChessRank
-import com.nullptr.chess.ChessPlayer
+import com.nullptr.mod.chess.ChessRank
+import com.nullptr.mod.chess.ChessPlayer
 
-data class ChessPiece(val col: Int, val row: Int, var player: ChessPlayer, val rank: ChessRank) {
+data class ChessPiece(int col, int row, ChessPlayer player, ChessRank rank) {
 	
 }
