@@ -27,13 +27,7 @@ public class ChessView {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution scaledRes = new ScaledResolution(mc);
 	// Установка прозрачности текстуры
-	GlStateManager.glBegin(GL_QUADS);
-	GlStateManager.pushMatrix();
-        GlStateManager.enableAlpha();
-        GlStateManager.enableBlend();
-       // RenderSystem.defaultBlendFunc();
-       // RenderSystem.defaultAlphaFunc();
-        mc.getTextureManager().bindTexture(new ResourceLocation(Main.MODID, "textures/items/ico.png"));
+        mc.getTextureManager().bindTexture(ChessModel.IMAGE[piece);
        // mc.ingameGUI.drawTexturedModalRect(scaledRes.getScaledWidth() / 2 - 29, scaledRes.getScaledHeight() / 2 - 4, 0, 0, 59, 8);
 	//mc.getTextureManager().bindTexture(Gui.ICONS);
         Gui.drawRect(scaledRes.getScaledWidth() / 2 - 4, scaledRes.getScaledHeight() / 2 - 4, scaledRes.getScaledWidth() / 2 + 4, scaledRes.getScaledHeight() / 2 + 4, 0xFF0000FF);
@@ -42,10 +36,6 @@ public class ChessView {
         int xPos = scaledRes.getScaledWidth() - textureWidth - 10; // Координата X для отображения текстуры
         int yPos = 10; // Координата Y для отображения текстуры
         mc.ingameGUI.drawTexturedModalRect(xPos, yPos, 0, 0, textureWidth, textureHeight);
-	GlStateManager.disableAlpha();
-        GlStateManager.disableBlend();
-	GlStateManager.popMatrix();
-	GlStateManager.glEnd();
     }
    @SubscribeEvent
    public void onMouseClick(MouseInputEvent event) {
@@ -55,16 +45,13 @@ public class ChessView {
         int mouseX = Mouse.getEventX() * scaledRes.getScaledWidth() / mc.displayWidth;
         int mouseY = scaledRes.getScaledHeight() - Mouse.getEventY() * scaledRes.getScaledHeight() / mc.displayHeight - 1;
 
-        int textureWidth = 56;
-        int textureHeight = 56;
-        int xPos = scaledRes.getScaledWidth() - textureWidth - 10;
-        int yPos = 10;
-
-        if (mouseX >= xPos && mouseX <= xPos + textureWidth &&
-            mouseY >= yPos && mouseY <= yPos + textureHeight) {
-            // Это означает, что клик был на вашей текстуре
-            // Выполните необходимые действия здесь
-        }
+        val column = (x / cellSide).toInt()
+        val row = ((y - originY) / cellSide).toInt()
+	//	val chessModel = ChessModel(context, canvas, paint)
+        
+        drawAvailableMoves = !drawAvailableMoves
+		Row = row
+		Column = column
     }
     }
     for (j in 0..7) { // Пройти по всем строкам доски
@@ -118,33 +105,4 @@ public class ChessView {
 	//ChessModel.PAINT = paint
 	//drawPieces(canvas)
 	}
-	override fun onTouchEvent(event: MotionEvent): Boolean {
-        val x = event.x.toInt()
-        val y = event.y.toInt()
-
-        val column = (x / cellSide).toInt()
-        val row = ((y - originY) / cellSide).toInt()
-	//	val chessModel = ChessModel(context, canvas, paint)
-        
-        drawAvailableMoves = !drawAvailableMoves
-		Row = row
-		Column = column
-	//Log.d("ChessView", "${Row} ${Column} ${piece}")
-    /*	val handler = Handler()
-        val refresh = object : Runnable {
-        override fun run() {
-            try {
-                // Ваш код здесь
-                ChessMoves(context, chessModel.GAMECANVAS, chessModel.GAMEPAINT, column, row).execute()
-            } catch (e: NullPointerException) {
-                Log.d("ChessView", "$e")
-            }
-            handler.postDelayed(this, 1000)
-        }
-        } 
-    	handler.postDelayed(refresh, 1000)
-		}*/
-       // Log.d("ChessView", "${row} ${column} ${drawAvailableMoves}")
-        return super.onTouchEvent(event)
-    }
 }
