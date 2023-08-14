@@ -1,4 +1,4 @@
-package com.nullptr.chess
+package com.nullptr.mod.chess
 
 enum class ChessRank {
 	KING,
