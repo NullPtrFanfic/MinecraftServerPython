@@ -1,21 +1,11 @@
-package com.nullptr.chess
+package com.nullptr.mod.chess
 
-import com.nullptr.chess.ChessRank
-import com.nullptr.chess.ChessPiece
-import com.nullptr.chess.ChessPlayer
-import com.nullptr.chess.ChessView
-import android.graphics.Canvas
-import android.graphics.Rect
-import android.graphics.Paint
-import android.content.res.Resources
-import android.graphics.BitmapFactory
-import android.graphics.Bitmap
-import android.util.Log
-import android.content.Context
+import com.nullptr.mod.chess.ChessRank
+import com.nullptr.mod.chess.ChessPiece
+import com.nullptr.mod.chess.ChessPlayer
+import com.nullptr.mod.chess.ChessView
 
-class ChessModel(context: Context?, CANVAS: Canvas, PAINT: Paint) {
-	public lateinit var GAMECANVAS: Canvas
-	public lateinit var GAMEPAINT: Paint
+public class ChessModel {
 	public var IMAGES: MutableMap<String, Bitmap?> = mutableMapOf()
 	public var piecesBox = mutableSetOf<ChessPiece>()
 	public val availableMoves = mutableListOf<List<Pair<Int, Int>>>() // Массив доступных ходов
