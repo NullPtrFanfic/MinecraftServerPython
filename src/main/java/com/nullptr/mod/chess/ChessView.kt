@@ -46,7 +46,26 @@ public class ChessView {
 	GlStateManager.popMatrix();
 	GlStateManager.glEnd();
     }
-    val paint = Paint()
+   @SubscribeEvent
+   public void onMouseClick(MouseInputEvent event) {
+    if (event.getButton() == 0 && event.isButtonDown()) { // Левая кнопка мыши нажата
+        Minecraft mc = Minecraft.getMinecraft();
+        ScaledResolution scaledRes = new ScaledResolution(mc);
+        int mouseX = Mouse.getEventX() * scaledRes.getScaledWidth() / mc.displayWidth;
+        int mouseY = scaledRes.getScaledHeight() - Mouse.getEventY() * scaledRes.getScaledHeight() / mc.displayHeight - 1;
+
+        int textureWidth = 56;
+        int textureHeight = 56;
+        int xPos = scaledRes.getScaledWidth() - textureWidth - 10;
+        int yPos = 10;
+
+        if (mouseX >= xPos && mouseX <= xPos + textureWidth &&
+            mouseY >= yPos && mouseY <= yPos + textureHeight) {
+            // Это означает, что клик был на вашей текстуре
+            // Выполните необходимые действия здесь
+        }
+    }
+    }
     for (j in 0..7) { // Пройти по всем строкам доски
         for (i in 0..7) { // Пройти по всем столбцам доски
             paint.color = if ((i + j) % 2 == 0) Color.LTGRAY else Color.DKGRAY // Смена цветов клеток
