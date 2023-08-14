@@ -75,7 +75,7 @@ public class ChessView {
         }
     }
 }
-
+/*
 package com.nullptr.mod.chess
 
 import com.nullptr.mod.chess.ChessModel;
@@ -176,3 +176,4 @@ public class ChessView {
     }
    }
 }
+*/
