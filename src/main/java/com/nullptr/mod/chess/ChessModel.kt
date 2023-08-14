@@ -12,8 +12,8 @@ public class ChessModel {
     public List<ChessPiece> piecesBox = new ArrayList<>();
     public List<List<Pair<Integer, Integer>>> availableMoves = new ArrayList<>();
 
-    public ChessModel(Context context) {
-        loadImages(context);
+    public ChessModel() {
+        loadImages();
         reset();
         String strboard = toString();
         //Log.d("ChessModel", strboard);
@@ -81,13 +81,13 @@ public class ChessModel {
                                 break;
                              'P' -> {
                         // обработка черной пешки
-                        if (rowIndex + 1 < board.size && board[rowIndex + 1][colIndex] == "eM") {
+                        if (rowIndex - 1 < board.size && board[rowIndex - 1][colIndex] == "eM") {
 			    if (rowIndex==1) {
 								//Log.d("ChessModel", "bP avaible moves - ${rowIndex + 2} $colIndex")
-				availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(rowIndex + 2, colIndex)))
+				availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(rowIndex - 2, colIndex)))
 		            }
                            // Log.d("ChessModel", "bP avaible moves - ${rowIndex + 1} $colIndex")
-			   availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(rowIndex + 1, colIndex)))
+			   availableMoves.add(listOf(Pair(rowIndex, colIndex), Pair(rowIndex - 1, colIndex)))
                         }
                             // Handle other black pieces
                         break;
