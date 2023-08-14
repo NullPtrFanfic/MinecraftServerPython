@@ -1,7 +1,7 @@
-package com.nullptr.chess
+package com.nullptr.mod.chess
 
-import com.nullptr.chess.ChessPiece
-import com.nullptr.chess.ChessRank
+import com.nullptr.mod.chess.ChessPiece
+import com.nullptr.mod.chess.ChessRank
 
 enum class ChessPlayer {
 	WHITE,
