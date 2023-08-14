@@ -36,6 +36,49 @@ public class ChessView {
         int xPos = scaledRes.getScaledWidth() - textureWidth - 10; // Координата X для отображения текстуры
         int yPos = 10; // Координата Y для отображения текстуры
         mc.ingameGUI.drawTexturedModalRect(xPos, yPos, 0, 0, textureWidth, textureHeight);
+	for (j in 0..7) { // Пройти по всем строкам доски
+        for (i in 0..7) { // Пройти по всем столбцам доски
+            paint.color = if ((i + j) % 2 == 0) Color.LTGRAY else Color.DKGRAY // Смена цветов клеток
+            float left = originX + i * cellSide
+            float top = originY + j * cellSide
+            float right = left + cellSide
+            float bottom = top + cellSide
+            canvas?.drawRect(left, top, right, bottom, paint)
+        }
+    }
+	//ChessModel.saveCanvasAndPaint(CANVAS, PAINT)
+	val cmodel = ChessModel(context, canvas, paint)
+	//Log.d("ChessView", "${cmodel.availableMoves[0]}")
+	//Log.d("ChessView", "${cmodel.availableMoves[1]}")
+	//invalidate()
+	val piece = cmodel.pieceAt(Column, Row)
+	cmodel.getAvailableMoves()
+	if (drawAvailableMoves == true && piece != null) {
+	for (i in 0 until cmodel.availableMoves.size)
+	{
+		if (Pair(Row, Column) in cmodel.availableMoves[i]) {
+		    var move = cmodel.availableMoves[i][1]
+			   // Log.d("ChessView", "${move}")
+              //  for ((Row, Column) in move) {
+               // val yellowPaint = Paint().apply { color = Color.parseColor("#80FFFF00") }
+		//val skyBluePaint = Paint().apply { color = Color.parseColor("#800080FF") }
+	           // Log.d("ChessView", "Drawing available moves..")
+		float moveleft = originX + move.second * cellSide
+                float movetop = originY + move.first * cellSide
+                float moveright = moveleft + cellSide
+                float movebottom = movetop + cellSide
+                float moverect = Rect(moveleft.toInt(), movetop.toInt(), moveright.toInt(), movebottom.toInt())
+                canvas.drawRect(moverect, yellowPaint)
+		float pieceleft = originX + Column * cellSide
+                float piecetop = originY + Row * cellSide
+                float pieceright = pieceleft + cellSide
+                float piecebottom = piecetop + cellSide
+                float piecerect = Rect(pieceleft.toInt(), piecetop.toInt(), pieceright.toInt(), piecebottom.toInt())
+                canvas.drawRect(piecerect, skyBluePaint)
+              //  }
+		}
+	}
+	}
     }
    @SubscribeEvent
    public void onMouseClick(MouseInputEvent event) {
@@ -45,64 +88,13 @@ public class ChessView {
         int mouseX = Mouse.getEventX() * scaledRes.getScaledWidth() / mc.displayWidth;
         int mouseY = scaledRes.getScaledHeight() - Mouse.getEventY() * scaledRes.getScaledHeight() / mc.displayHeight - 1;
 
-        val column = (x / cellSide).toInt()
-        val row = ((y - originY) / cellSide).toInt()
+        int column = (x / cellSide).toInt()
+        int row = ((y - originY) / cellSide).toInt()
 	//	val chessModel = ChessModel(context, canvas, paint)
         
         drawAvailableMoves = !drawAvailableMoves
-		Row = row
-		Column = column
+	Row = row
+	Column = column
     }
-    }
-    for (j in 0..7) { // Пройти по всем строкам доски
-        for (i in 0..7) { // Пройти по всем столбцам доски
-            paint.color = if ((i + j) % 2 == 0) Color.LTGRAY else Color.DKGRAY // Смена цветов клеток
-            val left = originX + i * cellSide
-            val top = originY + j * cellSide
-            val right = left + cellSide
-            val bottom = top + cellSide
-            canvas?.drawRect(left, top, right, bottom, paint)
-        }
-    }
-	//ChessModel.saveCanvasAndPaint(CANVAS, PAINT)
-	val cmodel = ChessModel(context, canvas, paint)
-	//Log.d("ChessView", "${cmodel.availableMoves[0]}")
-	//Log.d("ChessView", "${cmodel.availableMoves[1]}")
-	invalidate()
-	val piece = cmodel.pieceAt(Column, Row)
-	cmodel.getAvailableMoves()
-	if (drawAvailableMoves == true && piece != null) {
-	for (i in 0 until cmodel.availableMoves.size)
-	{
-		if (Pair(Row, Column) in cmodel.availableMoves[i]) {
-			    val move = cmodel.availableMoves[i][1]
-			   // Log.d("ChessView", "${move}")
-              //  for ((Row, Column) in move) {
-                val yellowPaint = Paint().apply { color = Color.parseColor("#80FFFF00") }
-				val skyBluePaint = Paint().apply { color = Color.parseColor("#800080FF") }
-	           // Log.d("ChessView", "Drawing available moves..")
-		        val moveleft = originX + move.second * cellSide
-                val movetop = originY + move.first * cellSide
-                val moveright = moveleft + cellSide
-                val movebottom = movetop + cellSide
-                val moverect = Rect(moveleft.toInt(), movetop.toInt(), moveright.toInt(), movebottom.toInt())
-                canvas.drawRect(moverect, yellowPaint)
-				val pieceleft = originX + Column * cellSide
-                val piecetop = originY + Row * cellSide
-                val pieceright = pieceleft + cellSide
-                val piecebottom = piecetop + cellSide
-                val piecerect = Rect(pieceleft.toInt(), piecetop.toInt(), pieceright.toInt(), piecebottom.toInt())
-                canvas.drawRect(piecerect, skyBluePaint)
-              //  }
-		}
-	}
-	}
-	val chessModel = ChessModel(context, canvas, paint)
-	chessModel.GAMEPAINT = paint
-	chessModel.GAMECANVAS = canvas
-	//loadImages()
-	//ChessModel.CANVAS = canvas
-	//ChessModel.PAINT = paint
-	//drawPieces(canvas)
-	}
+   }
 }
