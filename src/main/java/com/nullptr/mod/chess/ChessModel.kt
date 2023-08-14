@@ -2,13 +2,15 @@ package com.nullptr.mod.chess;
 import com.nullptr.mod.ChessPiece;
 import com.nullptr.mod.ChessRank;
 import com.nullptr.mod.ChessPlayer;
+import com.nullptr.mod.Main;
+import net.minecraft.util.ResourceLocation;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ChessModel {
-    //public Map<String, Bitmap> IMAGES = new HashMap<>();
+    public Map<String, ResourceLocation> IMAGES = new HashMap<>();
     public List<ChessPiece> piecesBox = new ArrayList<>();
     public List<List<Pair<Integer, Integer>>> availableMoves = new ArrayList<>();
 
@@ -159,8 +161,8 @@ public class ChessModel {
         for (String piece : pieces) {
           //  int resourceId = context.getResources().getIdentifier(piece, "drawable", context.getPackageName());
            // Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), resourceId);
-            //if (bitmap != null) {
-             //   IMAGES.put(piece, Bitmap.createScaledBitmap(bitmap, SQUARE_SIZE, SQUARE_SIZE, false));
+            //if (bitmap != null) { 
+	     IMAGES.put(piece, new ResourceLocation(Main.MODID, "textures/chess/"+piece+".png");
                 //Log.d("ChessModel", "Bitmap loaded successfully!");
             //} else {
              //   Log.d("ChessModel", "Failed to load bitmap.");
