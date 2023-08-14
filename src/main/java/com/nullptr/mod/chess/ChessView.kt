@@ -47,17 +47,17 @@ public class ChessView {
         }
     }
 	//ChessModel.saveCanvasAndPaint(CANVAS, PAINT)
-	val cmodel = ChessModel(context, canvas, paint)
+	//val cmodel = ChessModel(context, canvas, paint)
 	//Log.d("ChessView", "${cmodel.availableMoves[0]}")
 	//Log.d("ChessView", "${cmodel.availableMoves[1]}")
 	//invalidate()
-	val piece = cmodel.pieceAt(Column, Row)
-	cmodel.getAvailableMoves()
+	List<Pair> piece = ChessModel.pieceAt(Column, Row)
+	ChessModel.getAvailableMoves()
 	if (drawAvailableMoves == true && piece != null) {
-	for (i in 0 until cmodel.availableMoves.size)
+	for (i in 0 until ChessModel.availableMoves.size)
 	{
-		if (Pair(Row, Column) in cmodel.availableMoves[i]) {
-		    var move = cmodel.availableMoves[i][1]
+		if (Pair(Row, Column) in ChessModel.availableMoves[i]) {
+		   List<Pair> move = ChessModel.availableMoves[i][1]
 			   // Log.d("ChessView", "${move}")
               //  for ((Row, Column) in move) {
                // val yellowPaint = Paint().apply { color = Color.parseColor("#80FFFF00") }
