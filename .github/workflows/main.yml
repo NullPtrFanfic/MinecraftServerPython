@@ -35,15 +35,17 @@ jobs:
       with:
 
         java-version: '8'  # Установка JDK 11
+    - name: Set up GitHub Packages secrets 
+      run: | 
+             echo "GITHUB_PACKAGES_USERNAME=${{ secrets.PACKAGES_USERNAME }}" >> "$GITHUB_ENV" 
+             echo "GITHUB_PACKAGES_PASSWORD=${{ secrets.PACKAGES_PASSWORD }}" >> "$GITHUB_ENV"
     - name: Make gradlew executable
       run: chmod +x ./gradlew
     - name: Cache Gradle packages 
       uses: actions/cache@v3 
       with: 
-        path: | 
-            ~/.gradle/caches 
-            ~/.gradle/wrapper
-        key: ${{ runner.os }}-dependencies-${{ hashFiles('**/package-lock.json') }}  # Уникальный ключ кеша
+        path: cache-folder
+        key: ${{ runner.os }}-cache-key
     - name: Build with Gradle
 
       run: ./gradlew build  # Запускаем сборку проекта
@@ -53,13 +55,6 @@ jobs:
         name: libs
 
         path: build/libs # or path/to/artifact
-    - name: Cache Gradle packages 
-      uses: actions/cache@v3 
-      with: 
-        path: | 
-            ~/.gradle/caches 
-            ~/.gradle/wrapper
-        key: ${{ runner.os }}-dependencies-${{ hashFiles('**/package-lock.json') }}  # Уникальный ключ кеша
     - name: Upload distributions Directory 
       uses: actions/upload-artifact@v2 
       with: 
