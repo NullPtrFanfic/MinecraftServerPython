@@ -30,6 +30,7 @@ public class ItemInit
 {
     public static final List<Item> ITEMS = new ArrayList<Item>();
     public static final Item OBSIDIAN_INGOT = new ItemBase("obsidian_ingot");
+    public static final Item WAND = new ItemBase("wand");
     public static final ArmorMaterial ARMOR_RUBY = EnumHelper.addArmorMaterial("armor_ruby", Main.MODID + ":ruby", 1500, new int[] {4, 7, 9, 5}, 17, null, 0.0F);
     public static final Item HELMET_RUBY =  new ArmorBase("helmet_ruby", ARMOR_RUBY, 1, EntityEquipmentSlot.HEAD);
     public static final Item CHESTPLATE_RUBY =  new ArmorBase("chestplate_ruby", ARMOR_RUBY, 1, EntityEquipmentSlot.CHEST);
