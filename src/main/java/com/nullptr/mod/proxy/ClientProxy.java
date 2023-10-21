@@ -56,6 +56,7 @@ public class ClientProxy extends CommonProxy {
         //Netero.init();
 	registerModels();
 	registerRenders();
+	addOBJLoaderDomainIfOnClient();
 	ChatGPTBot.init();
     }
 
