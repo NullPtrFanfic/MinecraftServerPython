@@ -6,7 +6,7 @@ on:
 
     branches:
 
-      - main  # Запуск workfow при пуше в ветку main
+      - main  #Запуск workfow при пуше в ветку main
 
   pull_request:
 
