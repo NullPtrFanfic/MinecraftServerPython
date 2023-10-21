@@ -65,7 +65,7 @@ public class ClientProxy extends CommonProxy {
     }
     @Override
     public void addOBJLoaderDomainIfOnClient() {
-        //OBJLoader.INSTANCE.addDomain(Main.MODID);
+        OBJLoader.INSTANCE.addDomain(Main.MODID);
     }
     @Override
     public void init()
