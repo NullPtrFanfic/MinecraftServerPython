@@ -22,7 +22,7 @@ public class ChessView {
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public void doTheOtherThing(RenderGameOverlayEvent event) {
-
+      if (drawAvailableMoves == true) {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution scaledRes = new ScaledResolution(mc);
 
@@ -54,6 +54,7 @@ public class ChessView {
 		}
         }
 	}
+      }
     }
 
     @SubscribeEvent
