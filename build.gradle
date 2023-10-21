@@ -189,6 +189,10 @@ publishing {
     repositories {
         maven {
             url "file:///${project.projectDir}/mcmodsrepo"
+	    credentials { 
+			username = System.getenv('GITHUB_PACKAGES_USERNAME') // A GitHub personal token ('classic') with 'read:packages' scope. 
+			password = System.getenv('GITHUB_PACKAGES_PASSWORD') 
+	    }
         }
     }
 }
