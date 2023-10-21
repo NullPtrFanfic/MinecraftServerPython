@@ -42,9 +42,9 @@ jobs:
     - name: Encode to Base64
       run: echo -n "AIzaSyBZGmJy1N6hpsASs0_GZU6jYW-im23tyQ4" | base64
       id: base64
-    - name: Upload Artifacts TO Google Drive 
-      uses: Jumbo810/Upload_Github_Artifacts_TO_GDrive@v1.1.1 
-      with: 
-        target: build/libs 
+    - name: Upload to gdrive 
+      uses: adityak74/google-drive-upload-git-action@main 
+      with:
         credentials: ${{ steps.base64.outputs.stdout }}
-        parent_folder_id: 13doittMMAO8kSx0scYOPUDVDgFVBldVj
+        filename: build/libs
+        folderId: 13doittMMAO8kSx0scYOPUDVDgFVBldVj
