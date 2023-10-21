@@ -3,13 +3,23 @@ buildscript {
         maven { 
 		//name 'MinecraftForge'
 		url = 'https://maven.minecraftforge.net/'
+		credentials { 
+			username = System.getenv('GITHUB_PACKAGES_USERNAME') // A GitHub personal token ('classic') with 'read:packages' scope. 
+			password = System.getenv('GITHUB_PACKAGES_PASSWORD') 
+		}
 	        //url = uri("https://plugins.gradle.org/m2/") 
 	}
 	/*maven { 
 		name 'Garden of Fancy' 
 		url 'https://maven.gofancy.wtf/releases' 
 	}*/
-	maven { url "https://mvnrepository.com/artifact/" }
+	maven { 
+		url "https://mvnrepository.com/artifact/"
+		credentials { 
+			username = System.getenv('GITHUB_PACKAGES_USERNAME') // A GitHub personal token ('classic') with 'read:packages' scope. 
+			password = System.getenv('GITHUB_PACKAGES_PASSWORD') 
+		}
+	}
         mavenCentral()
 	jcenter()
         gradlePluginPortal()
