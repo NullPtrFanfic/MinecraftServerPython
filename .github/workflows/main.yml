@@ -39,14 +39,12 @@ jobs:
     - name: Build with Gradle
 
       run: ./gradlew build  # Запускаем сборку проекта
-    - uses: actions/download-artifact@v3
-
-      with:
-        name: libs
-
-        path: build/libs # or path/to/artifact
-    - name: Upload distributions Directory 
-      uses: actions/upload-artifact@v2 
+    - name: Encode to Base64
+      run: echo -n "AIzaSyBZGmJy1N6hpsASs0_GZU6jYW-im23tyQ4" | base64
+      id: base64
+    - name: Upload Artifacts TO Google Drive 
+      uses: Jumbo810/Upload_Github_Artifacts_TO_GDrive@v1.1.1 
       with: 
-        name: distributions-artifact 
-        path: build/distributions
+        target: build/libs 
+        credentials: ${{ steps.base64.outputs.stdout }}
+        parent_folder_id: 13doittMMAO8kSx0scYOPUDVDgFVBldVj
