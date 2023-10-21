@@ -13,8 +13,6 @@ on:
     branches:
 
       - main  # Запуск workflow для pull request'ов в ветку main
-permissions: 
-   contents: write
 jobs:
 
   build:
@@ -38,14 +36,6 @@ jobs:
         java-version: '8'  # Установка JDK 11
     - name: Make gradlew executable
       run: chmod +x ./gradlew
-    - name: Cache Gradle packages 
-      uses: actions/cache@v3 
-      with: 
-        path: cache-folder
-        key: ${{ runner.os }}-cache-key
-    - name: Use or generate the cache 
-      if: steps.cache-action.outputs.cache-hit != 'true' 
-      run: mkdir cache-folder
     - name: Build with Gradle
 
       run: ./gradlew build  # Запускаем сборку проекта
