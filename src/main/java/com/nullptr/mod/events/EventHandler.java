@@ -91,10 +91,10 @@ public class EventHandler {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution scaledRes = new ScaledResolution(mc);
 	// Установка прозрачности текстуры
-	GlStateManager.glBegin(GL_QUADS);
+	/*GlStateManager.glBegin(GL_QUADS);
 	GlStateManager.pushMatrix();
         GlStateManager.enableAlpha();
-        GlStateManager.enableBlend();
+        GlStateManager.enableBlend();*/
        // RenderSystem.defaultBlendFunc();
        // RenderSystem.defaultAlphaFunc();
         mc.getTextureManager().bindTexture(new ResourceLocation(Main.MODID, "textures/items/ico.png"));
@@ -106,10 +106,10 @@ public class EventHandler {
         int xPos = scaledRes.getScaledWidth() - textureWidth - 10; // Координата X для отображения текстуры
         int yPos = 10; // Координата Y для отображения текстуры
         mc.ingameGUI.drawTexturedModalRect(xPos, yPos, 0, 0, textureWidth, textureHeight);
-	GlStateManager.disableAlpha();
+	/*GlStateManager.disableAlpha();
         GlStateManager.disableBlend();
 	GlStateManager.popMatrix();
-	GlStateManager.glEnd();
+	GlStateManager.glEnd();*/
     }
     @SubscribeEvent
     public void onChat(ClientChatEvent event) {
@@ -241,7 +241,7 @@ public class EventHandler {
         }
     }
     
-    @SubscribeEvent
+  /*  @SubscribeEvent
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
@@ -286,7 +286,7 @@ public class EventHandler {
                 }
             }
         }
-    }
+    }*/
     private static void generateColumn(World world, BlockPos pos) {
         Random rand = new Random();
 
