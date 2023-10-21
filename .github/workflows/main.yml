@@ -47,6 +47,7 @@ jobs:
         path: | 
             ~/.gradle/caches 
             ~/.gradle/wrapper
+      key: ${{ runner.os }}-dependencies-${{ hashFiles('**/package-lock.json') }}  # Уникальный ключ кеша
     - name: Build with Gradle
 
       run: ./gradlew build  # Запускаем сборку проекта
