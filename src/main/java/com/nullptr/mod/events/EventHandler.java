@@ -130,7 +130,7 @@ public class EventHandler {
             generateHouse(world, playerPos);
 	}
 	else if (message.startsWith("sound")) {
-	    SoundsUtil.playSound(SoundsHandler.SOUND_1);
+	    SoundsUtil.playSound(SoundsUtil.SOUND_1);
 	}
 	else if (message.startsWith("!gpt")) {
                 String response = Main.proxy.getResponse(message);
