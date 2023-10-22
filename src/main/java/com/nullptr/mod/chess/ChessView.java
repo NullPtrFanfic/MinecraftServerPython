@@ -55,7 +55,7 @@ public class ChessView {
         ChessModel chessModel = new ChessModel();
         ChessPiece piece = chessModel.pieceAt(selectedColumn, selectedRow);
 	chessModel.getAvailableMoves();
-	mc.player.sendMessage(new TextComponentString(String.valueOf(chessModel.availableMoves)));
+	//mc.player.sendMessage(new TextComponentString(String.valueOf(chessModel.availableMoves)));
         List<List<Pair<Integer, Integer>>> availableMoves = chessModel.availableMoves;
 
         if (drawAvailableMoves && piece != null) {
