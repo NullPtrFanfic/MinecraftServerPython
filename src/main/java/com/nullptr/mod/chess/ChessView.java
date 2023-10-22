@@ -54,8 +54,8 @@ public class ChessView {
         // Highlight selected square
         ChessModel chessModel = new ChessModel();
         ChessPiece piece = chessModel.pieceAt(selectedColumn, selectedRow);
-	      chessModel.getAvailableMoves();
-	      Minecraft.getMinecraft().player.sendMessage(new TextComponentString(String.valueOf(chessModel.availableMoves)));
+	chessModel.getAvailableMoves();
+	mc.player.sendMessage(new TextComponentString(String.valueOf(chessModel.availableMoves)));
         List<List<Pair<Integer, Integer>>> availableMoves = chessModel.availableMoves;
 
         if (drawAvailableMoves && piece != null) {
@@ -91,7 +91,7 @@ public class ChessView {
             selectedColumn = column;
             selectedRow = row;
             drawAvailableMoves = !drawAvailableMoves;
-	    Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Вкл/выкл подсветку доступных ходов.."));
+	 //   Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Вкл/выкл подсветку доступных ходов.."));
         }
     }
 }
