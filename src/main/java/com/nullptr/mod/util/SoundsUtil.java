@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 //import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ForgeRegistry;
-
+import net.minecraft.util.SoundCategory;
 public class SoundsUtil {
     public static final RegistryObject<SoundEvent> SOUND_1 = registerSound("sound1");
     public static final RegistryObject<SoundEvent> SOUND_2 = registerSound("sound2");
@@ -28,7 +28,7 @@ public class SoundsUtil {
             if (Minecraft.getMinecraft().world.isRemote) {
                 EntityPlayerSP player = Minecraft.getMinecraft().player;
                 Minecraft.getMinecraft().world.playSound(player, player.getPosition(), sound,
-                        SoundCategory.PLAYERS, RandomGenerator.getNextRandomVolumeLoud(), 1.0F);
+                        SoundCategory.PLAYERS, 1.0F, 1.0F);
             }
         } catch (Exception ex) {
             // Обработка ошибки
