@@ -20,6 +20,6 @@ public class RecipesDelete {
         IForgeRegistryModifiable modRegistry = (IForgeRegistryModifiable) event.getRegistry();
         modRegistry.remove(WoodenAxe);
         CraftingHelper.loadRecipes(false);
-        CraftingManager.init()
+        CraftingManager.init();
  }
 }
