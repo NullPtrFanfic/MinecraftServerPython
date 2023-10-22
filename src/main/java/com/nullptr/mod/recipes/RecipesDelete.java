@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 public class RecipesDelete {
  @SubscribeEvent 
  public static void registerRecipes(RegistryEvent.Register event) { 
-        ResourceLocation WoodenAxe = new ResourceLocation("minecraft:wooden_axe");
+        ResourceLocation WoodenAxe = new ResourceLocation("minecraft:crafting_table");
         IForgeRegistryModifiable modRegistry = (IForgeRegistryModifiable) event.getRegistry();
         modRegistry.remove(WoodenAxe);
  }
