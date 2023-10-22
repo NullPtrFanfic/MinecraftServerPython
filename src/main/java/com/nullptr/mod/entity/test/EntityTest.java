@@ -50,13 +50,13 @@ public class EntityTest extends EntityAgeable
    @Override
    protected SoundEvent getAmbientSound() 
    {
-	return SoundsUtil.SOUND_3;
+	return SoundsUtil.SOUND_2;
    }
 	
    @Override
    protected SoundEvent getHurtSound(DamageSource damageSourceIn) 
    {
-	return SoundsUtil.SOUND_2;
+	return SoundsUtil.SOUND_3;
    }
 	
    @Override
