@@ -14,11 +14,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.ForgeRegistry;
 import net.minecraft.util.SoundCategory;
 public class SoundsUtil {
-    public static final RegistryObject<SoundEvent> SOUND_1 = registerSound("sound1");
-    public static final RegistryObject<SoundEvent> SOUND_2 = registerSound("sound2");
-    public static final RegistryObject<SoundEvent> SOUND_3 = registerSound("sound3");
+    public static final SoundEvent SOUND_1 = registerSound("sound1");
+    public static final SoundEvent SOUND_2 = registerSound("sound2");
+    public static final SoundEvent SOUND_3 = registerSound("sound3");
 
-    private static RegistryObject<SoundEvent> registerSound(String soundId) {
+    private static SoundEvent registerSound(String soundId) {
         ResourceLocation soundLocation = new ResourceLocation("mod", soundId);
         return ForgeRegistry.SOUND_EVENTS.register(soundId, () -> new SoundEvent(soundLocation));
     }
