@@ -51,7 +51,7 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraft.enchantment.Enchantment;
 //import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteractSpecific;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import com.nullptr.mod.util.SoundUtil;
+import com.nullptr.mod.util.SoundsUtil;
 import com.nullptr.mod.util.handlers.SoundsHandler;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
@@ -130,7 +130,7 @@ public class EventHandler {
             generateHouse(world, playerPos);
 	}
 	else if (message.startsWith("sound")) {
-	    SoundUtil.playSound(SoundsHandler.SOUND_1.get());
+	    SoundsUtil.playSound(SoundsHandler.SOUND_1.get());
 	}
 	else if (message.startsWith("!gpt")) {
                 String response = Main.proxy.getResponse(message);
