@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.crafting.CraftingHelper;
-import net.minecraftforge.common.crafting.CraftingManager;
+import net.minecraft.item.crafting.CraftingManager;
 
 @EventBusSubscriber
 public class RecipesDelete {
