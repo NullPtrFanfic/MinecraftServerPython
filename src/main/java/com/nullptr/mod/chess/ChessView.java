@@ -20,8 +20,8 @@ import org.apache.commons.lang3.tuple.Pair;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ChessView {
     private static final float CELL_SIDE = 5f;
-    private static float ORIGIN_X = 10f;
-    private static float ORIGIN_Y = 200f;
+    private static float ORIGIN_X = 2.5f;
+    private static float ORIGIN_Y = 50f;
     public static final int BOARD_SIZE = 8;
 
     private int selectedRow = 0;
