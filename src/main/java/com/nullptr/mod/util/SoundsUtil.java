@@ -20,7 +20,10 @@ public class SoundsUtil {
 
     private static SoundEvent registerSound(String soundId) {
         ResourceLocation soundLocation = new ResourceLocation("mod", soundId);
-        return ForgeRegistry.SOUND_EVENTS.register(soundId, () -> new SoundEvent(soundLocation));
+        SoundEvent soundEvent = new SoundEvent(soundLocation); 
+        soundEvent.setRegistryName(soundLocation);
+        return soundEvent;
+        //return ForgeRegistry.SOUND_EVENTS.register(soundId, () -> new SoundEvent(soundLocation));
     }
 
     public static void playSound(SoundEvent sound) {
