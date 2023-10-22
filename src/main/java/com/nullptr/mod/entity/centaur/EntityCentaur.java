@@ -2,7 +2,7 @@ package com.nullptr.mod.entity.centaur;
 
 import com.nullptr.mod.init.ItemInit;
 import com.nullptr.mod.util.handlers.LootTableHandler;
-import com.nullptr.mod.util.handlers.SoundsHandler;
+import com.nullptr.mod.util.SoundsUtil;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIFollowParent;
@@ -70,18 +70,12 @@ public class EntityCentaur extends EntityCow
 	@Override
 	protected SoundEvent getAmbientSound() 
 	{
-		return SoundsHandler.ENTITY_CENTAUR_AMBIENT;
+		return SoundsUtil.SOUND_2;
 	}
 	
 	@Override
 	protected SoundEvent getHurtSound(DamageSource source) 
 	{
-		return SoundsHandler.ENTITY_CENTAUR_HURT;
-	}
-	
-	@Override
-	protected SoundEvent getDeathSound() 
-	{
-		return SoundsHandler.ENTITY_CENTAUR_DEATH;
+		return SoundsUtil.SOUND_3;
 	}
   }
