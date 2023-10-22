@@ -1,0 +1,6 @@
+{ 
+  "sound1": { 
+    "category" : "player", 
+    "sounds": [{ "name": "mod:ivan", "stream": false } ] 
+  }
+}
