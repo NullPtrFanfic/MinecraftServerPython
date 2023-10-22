@@ -68,8 +68,7 @@ jobs:
 
                    open -p 22 -u osud27yqlfdu,2sOw23e3V5 sftp://lotsofgames.with8.dolicloud.com;
 
-                   ls build/libs;
-                   put build/libs;
+                   put build/libs/mod-0.1.jar;
 
                    exit;
 
