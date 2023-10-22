@@ -53,6 +53,7 @@ public class ClientProxy extends CommonProxy {
         EntityInit.initModels();
 	MinecraftForge.EVENT_BUS.register(new EventHandler());
 	MinecraftForge.EVENT_BUS.register(new ChessView());
+	MinecraftForge.EVENT_BUS.register(new SoundsHandler());
         //Netero.init();
 	registerModels();
 	registerRenders();
