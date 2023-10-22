@@ -13,6 +13,6 @@ public class SoundsHandler {
     @SubscribeEvent
     public void registerSoundEvents(RegistryEvent.Register<SoundEvent> event) {
         IForgeRegistry<SoundEvent> registry = event.getRegistry();
-        registry.registerAll(SoundsUtil.SOUND_1.get(), SoundsUtil.SOUND_2.get(), SoundsUtil.SOUND_3.get());
+        registry.registerAll(SoundsUtil.SOUND_1, SoundsUtil.SOUND_2, SoundsUtil.SOUND_3);
     }
 }
