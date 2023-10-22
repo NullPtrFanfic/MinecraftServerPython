@@ -85,7 +85,7 @@ public class ChessView {
 
         int column = (mouseX - (int) ORIGIN_X) / 20;
         int row = (mouseY - (int) ORIGIN_Y) / 20;
-	Minecraft.getMinecraft().player.sendMessage(new TextComponentString(String.valueOf(column)+" "+String.valueOf(row)));
+	//Minecraft.getMinecraft().player.sendMessage(new TextComponentString(String.valueOf(column)+" "+String.valueOf(row)));
 
         if (column >= 0 && column < BOARD_SIZE && row >= 0 && row < BOARD_SIZE) {
             selectedColumn = column;
