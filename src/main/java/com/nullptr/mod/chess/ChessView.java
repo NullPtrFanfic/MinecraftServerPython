@@ -26,7 +26,7 @@ public class ChessView {
 
     private int selectedRow = 0;
     private int selectedColumn = 0;
-    private boolean drawAvailableMoves = false;
+    private boolean drawAvailableMoves = true;
 
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
