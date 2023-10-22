@@ -1,7 +1,7 @@
 package com.nullptr.mod.proxy;
 
 import com.nullptr.mod.Main;
-import com.nullptr.mod.handlers.SoundsHandler;
+import com.nullptr.mod.util.handlers.SoundsHandler;
 import com.nullptr.mod.model.Netero;
 import com.nullptr.mod.AssetManager;
 import com.nullptr.mod.model.ModelObjOld;
