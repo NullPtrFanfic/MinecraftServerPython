@@ -39,12 +39,44 @@ jobs:
     - name: Build with Gradle
 
       run: ./gradlew build  # Запускаем сборку проекта
-    - name: Encode to Base64
-      run: echo -n "AIzaSyBZGmJy1N6hpsASs0_GZU6jYW-im23tyQ4" | base64
-      id: base64
-    - name: Upload to gdrive 
-      uses: adityak74/google-drive-upload-git-action@main 
-      with:
-        credentials: ${{ steps.base64.outputs.stdout }}
-        filename: build/libs
-        folderId: 13doittMMAO8kSx0scYOPUDVDgFVBldVj
+    - name: Install SFTP client and Expect
+
+      run: |
+
+             sudo apt-get update
+
+             sudo apt-get install -y lftp expect
+
+    - name: FTP Transfer
+
+      run: |
+             expect -c "
+
+                spawn lftp -d -e \"
+
+                   set ftp:ssl-allow true;
+
+                   set sftp:auto-confirm yes;
+
+                   set ftp:use-feat false;
+
+                   set ftp:ssl-protect-data true;
+
+                   set ftp:ssl-force true;
+
+                   set net:timeout 30;
+
+                   open -p 2022 -u ksgo87265.c58690ff,12980987 sftp://d1.aurorix.net;
+
+                   cd plugins;
+
+                   put astgrief.jar;
+
+                   exit;
+
+                \"
+
+                expect eof
+
+             "
+          
