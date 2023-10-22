@@ -55,7 +55,7 @@ minecraft {
     // Use non-default mappings at your own risk. they may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
     //mappings channel: 'snapshot', version: '20171003-1.12'
-    mappings channel: 'snapshot', version: '20171003-1.12'
+    mappings channel: 'stable_22', version: '1.8.9-11.15.1.2318-1.8.9'
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
@@ -97,7 +97,7 @@ dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
+    minecraft 'net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9'
     //implementation 'com.theokanning.openai-gpt3-java:api:0.15.0'
     implementation 'com.theokanning.openai-gpt3-java:service:0.12.0'
     compile "com.theokanning.openai-gpt3-java:service:0.12.0"
