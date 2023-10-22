@@ -1,21 +1,16 @@
 package com.nullptr.mod.util.handlers;
 
-import com.nullptr.mod.Main;
-
-import net.minecraft.util.ResourceLocation;
+import com.nullptr.mod.util.SoundsUtil;
 import net.minecraft.util.SoundEvent;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+i//mport net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.registries.IForgeRegistry;
 
 public class SoundsHandler {
-    public static void playSound(SoundEvent sound) {
-        try {
-            if (Minecraft.getMinecraft().world.isRemote) {
-                EntityPlayerSP player = Minecraft.getMinecraft().player;
-                Minecraft.getMinecraft().world.playSound(player, player.getPosition(), sound,
-                        SoundCategory.PLAYERS, RandomGenerator.getNextRandomVolumeLoud(), 1.0F);
-            }
-        } catch (Exception ex) {
-            // Обработка ошибки
-        }
+    @SubscribeEvent
+    public void registerSoundEvents(RegistryEvent.Register<SoundEvent> event) {
+        IForgeRegistry<SoundEvent> registry = event.getRegistry();
+        registry.registerAll(SoundsUtil.SOUND_1.get(), SoundsUtil.SOUND_2.get());
     }
 }
