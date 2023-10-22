@@ -11,7 +11,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import com.nullptr.mod.util.handlers.LootTableHandler;
-import com.nullptr.mod.util.handlers.SoundsHandler;
+import com.nullptr.mod.util.SoundsUtil;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -46,22 +46,17 @@ public class EntityTest extends EntityAgeable
       this.setSize(0.5f, 0.5f);
       return new EntityTest(world);
    }
-   @Override
-   protected SoundEvent getDeathSound() 
-   {
-	return SoundsHandler.TEST_DEATH;
-   }
 	
    @Override
    protected SoundEvent getAmbientSound() 
    {
-	return SoundsHandler.TEST_AMBIENT;
+	return SoundsUtil.SOUND_3;
    }
 	
    @Override
    protected SoundEvent getHurtSound(DamageSource damageSourceIn) 
    {
-	return SoundsHandler.TEST_HURT;
+	return SoundsUtil.SOUND_2;
    }
 	
    @Override
