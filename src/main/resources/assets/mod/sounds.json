@@ -5,10 +5,10 @@
   },
   "sound2": { 
     "category" : "player", 
-    "sounds": [{ "name": "mod:entity.test.test_ambient", "stream": false } ] 
+    "sounds": [{ "name": "mod:entity/test/test_ambient", "stream": false } ] 
   },
   "sound3": { 
     "category" : "player", 
-    "sounds": [{ "name": "mod:entity.test.test_hurt", "stream": false } ] 
+    "sounds": [{ "name": "mod:entity/test/test_hurt", "stream": false } ] 
   }
 }
