@@ -56,7 +56,7 @@ public class RegistryHandler {
 		//GameRegistry.registerWorldGenerator(new WorldGenOres(), 3);
 		EntityInit.registerEntities();
 		//EventHandler.registerEvents();
-	        SoundsHandler.registerSounds();
+	       // SoundsHandler.registerSounds();
 		//RenderHandler.registerEntityRenders();
 		//ConfigHandler.registerConfig(event);
     }
