@@ -161,7 +161,7 @@ public class EventHandler {
         // Генерация дополнительных листьев на верхушке дерева
         for (int yOffset = height - 3; yOffset <= height + 1; yOffset++) {
             for (int xOffset = -1; xOffset <= 1; xOffset++) {
-                for (int zOffset = -1; zOffset <= 1;ffset++) {
+                for (int zOffset = -1; zOffset <= 1; zOffset++) {
                      if (Math.abs(xOffset) != 1 || Math.abs(zOffset) != 1) {
                         world.setBlockState(pos.add(xOffset, yOffset, zOffset), Blocks.LEAVES.getDefaultState());
                      }
