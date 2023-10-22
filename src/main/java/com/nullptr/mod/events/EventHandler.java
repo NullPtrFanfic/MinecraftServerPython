@@ -51,7 +51,8 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraft.enchantment.Enchantment;
 //import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteractSpecific;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-
+import com.nullptr.mod.util.SoundUtil;
+import com.nullptr.mod.util.handlers.SoundsHandler;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
     @SubscribeEvent
@@ -121,21 +122,19 @@ public class EventHandler {
             World world = playerSP.getEntityWorld();
             generateTree(world, playerPos);
         }
-	if (message.contains("house")) {
+	else if (message.contains("house")) {
 	    Minecraft.getMinecraft().player.sendChatMessage("Генерация дома..");
 	    EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
             BlockPos playerPos = playerSP.getPosition();
             World world = playerSP.getEntityWorld();
             generateHouse(world, playerPos);
 	}
-	if (true) {
-            /*if (message.length() > 2000 && message.startsWith("!gpt")) {
-                Main.proxy.sendLongMessage(message);
-            } else */
-	    if (message.startsWith("!gpt")) {
+	else if (message.startsWith("sound")) {
+	    SoundUtil.playSound(SoundsHandler.SOUND_1.get());
+	}
+	else if (message.startsWith("!gpt")) {
                 String response = Main.proxy.getResponse(message);
                 Minecraft.getMinecraft().player.sendMessage(new TextComponentString(response));
-            }
 	}
     }
     private void generateTree(World world, BlockPos pos) {
@@ -162,7 +161,7 @@ public class EventHandler {
         // Генерация дополнительных листьев на верхушке дерева
         for (int yOffset = height - 3; yOffset <= height + 1; yOffset++) {
             for (int xOffset = -1; xOffset <= 1; xOffset++) {
-                for (int zOffset = -1; zOffset <= 1; zOffset++) {
+                for (int zOffset = -1; zOffset <= 1;ffset++) {
                      if (Math.abs(xOffset) != 1 || Math.abs(zOffset) != 1) {
                         world.setBlockState(pos.add(xOffset, yOffset, zOffset), Blocks.LEAVES.getDefaultState());
                      }
