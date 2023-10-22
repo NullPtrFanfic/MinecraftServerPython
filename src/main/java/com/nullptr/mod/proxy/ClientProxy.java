@@ -43,6 +43,7 @@ import com.nullptr.mod.model.projectile.LightBallModel;
 import com.nullptr.mod.renderer.RenderRegister;
 import net.minecraft.entity.Entity; 
 import com.nullptr.mod.openai.ChatGPTBot;
+import com.nullptr.mod.recipes.RecipesDelete;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -55,6 +56,7 @@ public class ClientProxy extends CommonProxy {
 	MinecraftForge.EVENT_BUS.register(new EventHandler());
 	MinecraftForge.EVENT_BUS.register(new ChessView());
 	MinecraftForge.EVENT_BUS.register(new SoundsHandler());
+	MinecraftForge.EVENT_BUS.register(new RecipesDelete());
         //Netero.init();
 	registerModels();
 	registerRenders();
