@@ -4,7 +4,25 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.Minecraft;
-public class SoundUtil {
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.util.Lazy;
+import net.minecraft.util.SoundEvent;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.RegistryObject;
+
+public class SoundsUtil {
+    public static final RegistryObject<SoundEvent> SOUND_1 = registerSound("sound1");
+    public static final RegistryObject<SoundEvent> SOUND_2 = registerSound("sound2");
+    public static final RegistryObject<SoundEvent> SOUND_3 = registerSound("sound3");
+
+    private static RegistryObject<SoundEvent> registerSound(String soundId) {
+        ResourceLocation soundLocation = new ResourceLocation("MODID", soundId);
+        return SOUND_EVENTS.register(soundId, () -> new SoundEvent(soundLocation));
+    }
+
     public static void playSound(SoundEvent sound) {
         try {
             if (Minecraft.getMinecraft().world.isRemote) {
