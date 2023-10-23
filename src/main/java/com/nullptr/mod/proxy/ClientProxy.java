@@ -46,7 +46,7 @@ import com.nullptr.mod.renderer.RenderRegister;
 import net.minecraft.entity.Entity; 
 import com.nullptr.mod.openai.ChatGPTBot;
 import com.nullptr.mod.recipes.RecipesDelete;
-
+import com.nullptr.mod.gui.GuiMysteriousStrangerBook;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
     @Override
