@@ -88,16 +88,19 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
     @SideOnly(Side.CLIENT)
     static class NextPageButton extends GuiButton {
         private final boolean isNextButton;
-
+        public int positionX;
+        public int positionY;
         public NextPageButton(int buttonId, int posX, int posY, boolean isNextButton) {
             super(buttonId, posX, posY, 23, 13, "");
+            positionX = posX;
+            positionY = posY;
             this.isNextButton = isNextButton;
         }
 
-        @Override
+
         public void drawButton(Minecraft mc, int mouseX, int mouseY) {
             if (visible) {
-                boolean isButtonPressed = (mouseX >= posX && mouseY >= posY && mouseX < posX + width && mouseY < posY + height);
+                boolean isButtonPressed = (mouseX >= positionX && mouseY >= positionY && mouseX < positionX + width && mouseY < positionY + height);
                 GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
                 Minecraft.getMinecraft().getTextureManager().bindTexture(pageTextures[1]);
                 int textureX = 0;
@@ -108,7 +111,7 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
                 if (!isNextButton) {
                     textureY += 13;
                 }
-                Minecraft.getMinecraft().ingameGUI.drawTexturedModalRect(xPosition, yPosition, textureX, textureY, 23, 13);
+                Minecraft.getMinecraft().ingameGUI.drawTexturedModalRect(positionX, positionY, textureX, textureY, 23, 13);
             }
         }
     }
