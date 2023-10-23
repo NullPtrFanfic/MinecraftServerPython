@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
+import com.nullptr.mod.entity.python.EntityPython;
 
 @SideOnly(Side.CLIENT)
 public class ModelPython extends ModelBase {
@@ -117,14 +118,14 @@ public class ModelPython extends ModelBase {
 
     @Override
     public void render(Entity parEntity, float parTime, float parSwingSuppress, float par4, float parHeadAngleY, float parHeadAngleX, float par7) {
-        renderSerpent((EntitySerpent) parEntity, parTime, parSwingSuppress, par4, parHeadAngleY, parHeadAngleX, par7);
+        renderSerpent((EntityPython) parEntity, parTime, parSwingSuppress, par4, parHeadAngleY, parHeadAngleX, par7);
     }
 
-    public void renderSerpent(EntitySerpent parEntity, float parTime, float parSwingSuppress, float par4, float parHeadAngleY, float parHeadAngleX, float par7) {
+    public void renderSerpent(EntityPython parEntity, float parTime, float parSwingSuppress, float par4, float parHeadAngleY, float parHeadAngleX, float par7) {
         setRotationAngles(parTime, parSwingSuppress, par4, parHeadAngleY, parHeadAngleX, par7, parEntity);
 
         GL11.glPushMatrix();
-        GL11.glScalef(parEntity.getScaleFactor(), parEntity.getScaleFactor(), parEntity.getScaleFactor());
+        GL11.glScalef(0.5F, 0.5F, 0.5F);
 
         if (this.isChild) {
             float childScaleFactor = 0.5F;
