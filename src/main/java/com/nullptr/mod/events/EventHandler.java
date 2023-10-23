@@ -134,7 +134,7 @@ public class EventHandler {
 	    SoundsUtil.playSound(SoundsUtil.SOUND_1);
 	}
 	else if (message.startsWith("chess")) {
-	    ChessView.boardActive = !ChessView.boardActive
+	    ChessView.boardActive = !ChessView.boardActive;
 	}
 	else if (message.startsWith("!gpt")) {
                 String response = Main.proxy.getResponse(message);
