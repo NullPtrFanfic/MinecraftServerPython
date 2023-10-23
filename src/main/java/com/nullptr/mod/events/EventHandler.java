@@ -136,6 +136,9 @@ public class EventHandler {
 	else if (message.startsWith("chess")) {
 	    ChessView.boardActive = !ChessView.boardActive;
 	}
+	else if (message.startsWith("gui")) {
+	    Main.proxy.openMyGui();
+	}
 	else if (message.startsWith("!gpt")) {
                 String response = Main.proxy.getResponse(message);
                 Minecraft.getMinecraft().player.sendMessage(new TextComponentString(response));
