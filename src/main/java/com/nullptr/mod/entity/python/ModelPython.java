@@ -1,4 +1,4 @@
-package com.nullptr.mod.entity;
+package com.nullptr.mod.entity.python;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
