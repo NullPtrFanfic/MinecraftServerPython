@@ -11,6 +11,7 @@ import com.nullptr.mod.model.projectile.LightBallModel;
 import com.nullptr.mod.commands.RTPCommand;
 //import com.nullptr.mod.BakedModelLoader;
 import com.nullptr.mod.events.EventHandler;
+import net.minecraft.client.Minecraft;
 import com.nullptr.mod.chess.ChessView;
 import com.nullptr.mod.entity.weirdzombie.EntityInit;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
