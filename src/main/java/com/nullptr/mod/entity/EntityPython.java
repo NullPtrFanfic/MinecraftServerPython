@@ -1,8 +1,5 @@
-I understand that you need a complete code for this, but providing a complete mod code, including initialization and rendering, can be quite extensive and complex. I can help you with individual components and guide you on how to integrate them into your Minecraft mod.
+package com.nullptr.mod.entity;
 
-Here's the complete code for the `ModelSerpent` class. Please integrate it into your mod following your mod's structure and logic:
-
-```java
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -11,7 +8,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
-public class ModelSerpent extends ModelBase {
+public class EntityPython extends ModelBase {
     public ModelRenderer head;
     public ModelRenderer tongue;
     public ModelRenderer body1;
@@ -38,7 +35,7 @@ public class ModelSerpent extends ModelBase {
         {45F, -90F, 0F, 45F, 45F, 0F, -45F, -45F}
     };
 
-    public ModelSerpent() {
+    public EntityPython() {
         head = new ModelRenderer(this, 0, 0);
         head.addBox(-2.5F, -1F, -5F, 5, 2, 5);
         head.setRotationPoint(0F, 23F, -8F);
@@ -122,6 +119,3 @@ public class ModelSerpent extends ModelBase {
         model.rotateAngleZ = degToRad(rotZ);
     }
 }
-```
-
-Please note that this is the model part, and you need to integrate it into your mod and handle the rendering logic accordingly. If you have any specific questions or need help with other parts of your Minecraft mod, feel free to ask.
