@@ -56,7 +56,7 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
             Minecraft.getMinecraft().getTextureManager().bindTexture(pageTextures[1]);
         }
         int offsetFromScreenLeft = (width - imageWidth ) / 2;
-        drawTexturedModalRect(offsetFromScreenLeft, 2, 0, 0, imageWidth, imageHeight);
+        Minecraft.getMinecraft().ingameGUI.drawTexturedModalRect(offsetFromScreenLeft, 2, 0, 0, imageWidth, imageHeight);
         int widthOfString;
         super.drawScreen(width, height, partialTicks);
     }
@@ -108,7 +108,7 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
                 if (!isNextButton) {
                     textureY += 13;
                 }
-                drawTexturedModalRect(xPosition, yPosition, textureX, textureY, 23, 13);
+                Minecraft.getMinecraft().ingameGUI.drawTexturedModalRect(xPosition, yPosition, textureX, textureY, 23, 13);
             }
         }
     }
