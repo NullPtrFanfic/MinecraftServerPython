@@ -14,7 +14,7 @@ public class RenderPython extends RenderLiving<EntityPython>
 {
 	public static final ResourceLocation TEXTURE = new ResourceLocation(Main.MODID + ":textures/entity/test/test.png");
 	
-	public RenderTest(RenderManager manager) 
+	public RenderPython(RenderManager manager) 
 	{
 		super(manager, new ModelPython(), 0.2f);
 	}
