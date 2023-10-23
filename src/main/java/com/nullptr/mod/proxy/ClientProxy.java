@@ -76,7 +76,7 @@ public class ClientProxy extends CommonProxy {
     }
     @Override 
     public void openMyGui() { 
-	    Minecraft.getMinecraft().displayGuiScreen(new GuiMysteriousStranger()); 
+	    Minecraft.getMinecraft().displayGuiScreen(new GuiMysteriousStrangerBook()); 
     }
     @Override
     public void init()
