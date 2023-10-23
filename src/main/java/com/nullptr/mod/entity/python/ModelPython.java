@@ -42,17 +42,17 @@ public class ModelPython extends ModelBase {
         head.setTextureSize(textureWidth, textureHeight);
 
         tongue = new ModelRenderer(this, 0, 13);
-        tongue addBox(-0.5F, -0.5F, -10F, 1, 1, 5);
+        tongue.addBox(-0.5F, -0.5F, -10F, 1, 1, 5);
         tongue.setRotationPoint(0F, 23F, -8F);
         tongue.setTextureSize(textureWidth, textureHeight);
 
         body1 = new ModelRenderer(this, 20, 20);
-        body1 addBox(-1.5F, -1F, -1F, 3, 2, 5);
+        body1.addBox(-1.5F, -1F, -1F, 3, 2, 5);
         body1.setRotationPoint(0F, 23F, -8F);
         body1.setTextureSize(textureWidth, textureHeight);
 
         body2 = new ModelRenderer(this, 20, 20);
-        body2 addBox(-1.5F, -1F, -1F, 3, 2, 5);
+        body2.addBox(-1.5F, -1F, -1F, 3, 2, 5);
         body2.setRotationPoint(0F, 0F, 4F);
         body1.addChild(body2);
 
