@@ -65,7 +65,7 @@ public class ModelPython extends ModelBase {
     public void render(Entity parEntity, float parTime, float parSwingSuppress, float par4, float parHeadAngleY, float parHeadAngleX, float par7) {
         setRotationAngles(parTime, parSwingSuppress, par4, parHeadAngleY, parHeadAngleX, par7, parEntity);
         GL11.glPushMatrix();
-        GL11.glScalef(parEntity.getScaleFactor(), parEntity.getScaleFactor(), parEntity.getScaleFactor());
+        GL11.glScalef(1.5F, 1.5F, 1.5F);
         if (this.isChild) {
             float childScaleFactor = 0.5F;
             GL11.glPushMatrix();
