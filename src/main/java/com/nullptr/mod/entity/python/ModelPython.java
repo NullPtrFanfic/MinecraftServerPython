@@ -44,7 +44,7 @@ public class ModelPython extends ModelBase {
         setRotation(head, 0F, 0F, 0F);
 
         tongue = new ModelRenderer(this, 0, 13);
-        tongue addBox(-0.5F, -0.5F, -10F, 1, 1, 5);
+        tongue.addBox(-0.5F, -0.5F, -10F, 1, 1, 5);
         tongue.setRotationPoint(0F, 23F, -8F);
         tongue.setTextureSize(textureWidth, textureHeight);
         setRotation(tongue, 0F, 0F, 0F);
