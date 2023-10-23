@@ -8,7 +8,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
-public class EntityPython extends ModelBase {
+public class ModelPython extends ModelBase {
     public ModelRenderer head;
     public ModelRenderer tongue;
     public ModelRenderer body1;
@@ -35,7 +35,7 @@ public class EntityPython extends ModelBase {
         {45F, -90F, 0F, 45F, 45F, 0F, -45F, -45F}
     };
 
-    public EntityPython() {
+    public ModelPython() {
         head = new ModelRenderer(this, 0, 0);
         head.addBox(-2.5F, -1F, -5F, 5, 2, 5);
         head.setRotationPoint(0F, 23F, -8F);
