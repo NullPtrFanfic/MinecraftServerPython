@@ -85,7 +85,7 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
         return true;
     }
 
-    
+    @SideOnly(Side.CLIENT)
     static class NextPageButton extends GuiButton {
         private final boolean isNextButton;
         public int positionX;
