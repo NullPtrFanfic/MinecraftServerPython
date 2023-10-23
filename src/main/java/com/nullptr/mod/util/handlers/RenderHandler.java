@@ -1,6 +1,8 @@
 package com.nullptr.mod.util.handlers;
 
 import com.nullptr.mod.entity.centaur.EntityCentaur;
+import com.nullptr.mod.entity.python.EntityPython;
+import com.nullptr.mod.entity.python.RenderPython;
 import com.nullptr.mod.entity.centaur.RenderCentaur;
 import com.nullptr.mod.entity.test.EntityTest;
 import com.nullptr.mod.entity.test.RenderTest;
@@ -31,6 +33,14 @@ public class RenderHandler
                 public Render<? super EntityTest> createRenderFor(RenderManager manager) 
                 {
                     return new RenderTest(manager);		
+                }
+            });
+            RenderingRegistry.registerEntityRenderingHandler(EntityPython.class, new IRenderFactory<EntityPython>()
+            {
+                @Override
+                public Render<? super EntityPython> createRenderFor(RenderManager manager) 
+                {
+                    return new RenderPython(manager);		
                 }
             });
     }
