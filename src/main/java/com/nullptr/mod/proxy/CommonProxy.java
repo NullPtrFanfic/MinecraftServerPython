@@ -24,6 +24,7 @@ public class CommonProxy {
     }
     public void init() {
     }
+    public void openMyGui() { } 
     public void registerRenders() {}
     public void registerTextures() {}
     public void registerModels() {}
