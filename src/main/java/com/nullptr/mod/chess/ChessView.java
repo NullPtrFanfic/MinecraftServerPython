@@ -27,7 +27,7 @@ public class ChessView {
     private int selectedRow = 0;
     private int selectedColumn = 0;
     private boolean drawAvailableMoves = false;
-    public boolean boardActive = true;
+    public static boolean boardActive = true;
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public void doTheOtherThing(RenderGameOverlayEvent event) {
