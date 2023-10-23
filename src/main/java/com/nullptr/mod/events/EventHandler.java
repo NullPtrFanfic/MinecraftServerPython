@@ -52,6 +52,7 @@ import net.minecraft.enchantment.Enchantment;
 //import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteractSpecific;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import com.nullptr.mod.util.SoundsUtil;
+import com.nullptr.mod.chess.ChessView;
 import com.nullptr.mod.util.handlers.SoundsHandler;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
@@ -131,6 +132,9 @@ public class EventHandler {
 	}
 	else if (message.startsWith("sound")) {
 	    SoundsUtil.playSound(SoundsUtil.SOUND_1);
+	}
+	else if (message.startsWith("chess")) {
+	    ChessView.boardActive = !ChessView.boardActive
 	}
 	else if (message.startsWith("!gpt")) {
                 String response = Main.proxy.getResponse(message);
