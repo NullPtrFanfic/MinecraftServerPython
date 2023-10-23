@@ -27,6 +27,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import com.nullptr.mod.gui.GuiMysteriousStrangerBook;
 import net.minecraftforge.client.model.obj.OBJLoader;
 //import net.minecraftforge.registries.RegistryManager;
 //import net.minecraftforge.registries.RegistryObject;
@@ -71,6 +72,10 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void addOBJLoaderDomainIfOnClient() {
         OBJLoader.INSTANCE.addDomain(Main.MODID);
+    }
+    @Override 
+    public void openMyGui() { 
+	    Minecraft.getMinecraft().displayGuiScreen(new GuiMysteriousStranger()); 
     }
     @Override
     public void init()
