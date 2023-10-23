@@ -97,7 +97,7 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
             this.isNextButton = isNextButton;
         }
 
-        @Override
+       // @Override
         public void drawButton(Minecraft mc, int mouseX, int mouseY) {
             if (visible) {
                 boolean isButtonPressed = (mouseX >= positionX && mouseY >= positionY && mouseX < positionX + width && mouseY < positionY + height);
@@ -112,7 +112,7 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
                     textureY += 13;
                 }
                 mc.getMinecraft().ingameGUI.drawTexturedModalRect(positionX, positionY, textureX, textureY, 23, 13);
-                super.drawButton(mc, mouseX, mouseY);
+               // super.drawButton(mc, mouseX, mouseY);
             }
         }
     }
