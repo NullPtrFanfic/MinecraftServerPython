@@ -58,10 +58,6 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
         int offsetFromScreenLeft = (width - imageWidth ) / 2;
         drawTexturedModalRect(offsetFromScreenLeft, 2, 0, 0, imageWidth, imageHeight);
         int widthOfString;
-        String pageIndicator = I18n.format("book.pageIndicator", new Object[] {Integer.valueOf(currentPage + 1), totalPages});
-        widthOfString = this.fontRendererObj.getStringWidth(pageIndicator);
-        this.fontRendererObj.drawString(pageIndicator, offsetFromScreenLeft - widthOfString + imageWidth - 44, 18, 0);
-        this.fontRendererObj.drawSplitString(pageText[currentPage], offsetFromScreenLeft + 36, 34, 116, 0);
         super.drawScreen(width, height, partialTicks);
     }
 
@@ -101,7 +97,7 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
         @Override
         public void drawButton(Minecraft mc, int mouseX, int mouseY) {
             if (visible) {
-                boolean isButtonPressed = (mouseX >= xPosition && mouseY >= yPosition && mouseX < xPosition + width && mouseY < yPosition + height);
+                boolean isButtonPressed = (mouseX >= posX && mouseY >= posY && mouseX < posX + width && mouseY < posY + height);
                 GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
                 Minecraft.getMinecraft().getTextureManager().bindTexture(pageTextures[1]);
                 int textureX = 0;
