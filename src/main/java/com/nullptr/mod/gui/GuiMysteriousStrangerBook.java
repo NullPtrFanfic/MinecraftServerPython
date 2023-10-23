@@ -112,7 +112,7 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
                     textureY += 13;
                 }
                 mc.getMinecraft().ingameGUI.drawTexturedModalRect(positionX, positionY, textureX, textureY, 23, 13);
-                super.drawScreen(mc, mouseX, mouseY);
+                super.drawButton(mc, mouseX, mouseY);
             }
         }
     }
