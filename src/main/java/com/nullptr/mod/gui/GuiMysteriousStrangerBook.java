@@ -19,6 +19,7 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
     private GuiButton closeButton;
     private NextPageButton nextPageButton;
     private NextPageButton previousPageButton;
+    private FontRenderer fontRendererObj;
 
     public GuiMysteriousStrangerBook() {
         pageTextures[0] = new ResourceLocation("mod:textures/items/output_image.jpg");
@@ -59,9 +60,9 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
         drawTexturedModalRect(offsetFromScreenLeft, 2, 0, 0, imageWidth, imageHeight);
         int widthOfString;
         String pageIndicator = I18n.format("book.pageIndicator", new Object[] {Integer.valueOf(currentPage + 1), totalPages});
-        widthOfString = Minecraft.fontRendererObj.getStringWidth(pageIndicator);
-        Minecraft.fontRendererObj.drawString(pageIndicator, offsetFromScreenLeft - widthOfString + imageWidth - 44, 18, 0);
-        Minecraft.fontRendererObj.drawSplitString(pageText[currentPage], offsetFromScreenLeft + 36, 34, 116, 0);
+        widthOfString = fontRendererObj.getStringWidth(pageIndicator);
+        fontRendererObj.drawString(pageIndicator, offsetFromScreenLeft - widthOfString + imageWidth - 44, 18, 0);
+        fontRendererObj.drawSplitString(pageText[currentPage], offsetFromScreenLeft + 36, 34, 116, 0);
         super.drawScreen(width, height, partialTicks);
     }
 
