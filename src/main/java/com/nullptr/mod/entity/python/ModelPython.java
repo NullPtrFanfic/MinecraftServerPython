@@ -68,7 +68,47 @@ public class ModelPython extends ModelBase {
         body3.setTextureSize(textureWidth, textureHeight);
         setRotation(body3, 0F, undulationCycle[0][1], 0F);
         body2.addChild(body3);
+        // Continue the same pattern for body4 to body9...
+        body4 = new ModelRenderer(this, 20, 20);
+        body4.addBox(-1.5F, -1F, -1F, 3, 2, 5);
+        body4.setRotationPoint(0F, 0F, 4F);
+        body4.setTextureSize(textureWidth, textureHeight);
+        setRotation(body4, 0F, undulationCycle[0][3], 0F);
+        body3.addChild(body4);
 
+        body5 = new ModelRenderer(this, 20, 20);
+        body5.addBox(-1.5F, -1F, -1F, 3, 2, 5);
+        body5.setRotationPoint(0F, 0F, 4F);
+        body5.setTextureSize(textureWidth, textureHeight);
+        setRotation(body5, 0F, undulationCycle[0][4], 0F);
+        body4.addChild(body5);
+
+        body6 = new ModelRenderer(this, 20, 20);
+        body6.addBox(-1.5F, -1F, -1F, 3, 2, 5);
+        body6.setRotationPoint(0F, 0F, 4F);
+        body6.setTextureSize(textureWidth, textureHeight);
+        setRotation(body6, 0F, undulationCycle[0][5], 0F);
+        body5.addChild(body6);
+
+        body7 = new ModelRenderer(this, 20, 20);
+        body7.addBox(-1.5F, -1F, -1F, 3, 2, 5);
+        body7.setRotationPoint(0F, 0F, 4F);
+        body7.setTextureSize(textureWidth, textureHeight);
+        setRotation(body7, 0F, undulationCycle[0][6], 0F);
+        body6.addChild(body7);
+
+        body8 = new ModelRenderer(this, 20, 20);
+        body8.addBox(-1.5F, -1F, -1F, 3, 2, 5);
+        body8.setRotationPoint(0F, 0F, 4F);
+        body8.setTextureSize(textureWidth, textureHeight);
+        setRotation(body8, 0F, undulationCycle[0][7], 0F);
+        body7.addChild(body8);
+
+        body9 = new ModelRenderer(this, 20, 20);
+        body9.addBox(-1.5F, -1F, -1F, 3, 2, 5);
+        body9.setRotationPoint(0F, 0F, 4F);
+        body9.setTextureSize(textureWidth, textureHeight);
+        body8.addChild(body9);
         // Continue the same pattern for body4 to body9...
         // Ensure you've added their definitions.
 
