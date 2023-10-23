@@ -51,24 +51,24 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
     public void drawScreen(int width, int height, float partialTicks) {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         if (currentPage == 0) {
-            mc.getTextureManager().bindTexture(pageTextures[0]);
+            Minecraft.getMinecraft().getTextureManager().bindTexture(pageTextures[0]);
         } else {
-            mc.getTextureManager().bindTexture(pageTextures[1]);
+            Minecraft.getMinecraft().getTextureManager().bindTexture(pageTextures[1]);
         }
         int offsetFromScreenLeft = (width - imageWidth ) / 2;
         drawTexturedModalRect(offsetFromScreenLeft, 2, 0, 0, imageWidth, imageHeight);
         int widthOfString;
         String pageIndicator = I18n.format("book.pageIndicator", new Object[] {Integer.valueOf(currentPage + 1), totalPages});
-        widthOfString = fontRendererObj.getStringWidth(pageIndicator);
-        fontRendererObj.drawString(pageIndicator, offsetFromScreenLeft - widthOfString + imageWidth - 44, 18, 0);
-        fontRendererObj.drawSplitString(pageText[currentPage], offsetFromScreenLeft + 36, 34, 116, 0);
+        widthOfString = Minecraft.getMinecraft().fontRendererObj.getStringWidth(pageIndicator);
+        Minecraft.getMinecraft().fontRendererObj.drawString(pageIndicator, offsetFromScreenLeft - widthOfString + imageWidth - 44, 18, 0);
+        Minecraft.getMinecraft().fontRendererObj.drawSplitString(pageText[currentPage], offsetFromScreenLeft + 36, 34, 116, 0);
         super.drawScreen(width, height, partialTicks);
     }
 
     @Override
     protected void actionPerformed(GuiButton button) {
         if (button == closeButton) {
-            mc.displayGuiScreen((GuiScreen) null);
+            Minecraft.getMinecraft().displayGuiScreen((GuiScreen) null);
         } else if (button == nextPageButton) {
             if (currentPage < totalPages - 1) {
                 ++currentPage;
@@ -103,7 +103,7 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
             if (visible) {
                 boolean isButtonPressed = (mouseX >= xPosition && mouseY >= yPosition && mouseX < xPosition + width && mouseY < yPosition + height);
                 GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-                mc.getTextureManager().bindTexture(pageTextures[1]);
+                Minecraft.getMinecraft().getTextureManager().bindTexture(pageTextures[1]);
                 int textureX = 0;
                 int textureY = 192;
                 if (isButtonPressed) {
