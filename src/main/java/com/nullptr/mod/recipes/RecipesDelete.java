@@ -13,7 +13,7 @@ import net.minecraft.item.crafting.IRecipe;
 public class RecipesDelete {
  @SubscribeEvent 
  public static void registerRecipes(RegistryEvent.Register<IRecipe> event) { 
-        ResourceLocation WoodenAxe = new ResourceLocation("minecraft:crafting_table");
+        ResourceLocation WoodenAxe = new ResourceLocation("minecraft:wooden_sword");
         IForgeRegistryModifiable modRegistry = (IForgeRegistryModifiable) event.getRegistry();
         modRegistry.remove(WoodenAxe);
  }
