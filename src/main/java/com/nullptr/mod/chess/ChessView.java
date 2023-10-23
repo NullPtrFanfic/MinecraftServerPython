@@ -19,19 +19,19 @@ import org.apache.commons.lang3.tuple.Pair;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ChessView {
-    private static final float CELL_SIDE = 5f;
-    private static float ORIGIN_X = 2.5f;
-    private static float ORIGIN_Y = 50f;
+    private static final float CELL_SIDE = 20f;
+    private static float ORIGIN_X = 10f;
+    private static float ORIGIN_Y = 200f;
     public static final int BOARD_SIZE = 8;
 
     private int selectedRow = 0;
     private int selectedColumn = 0;
-    private boolean drawAvailableMoves = true;
-
+    private boolean drawAvailableMoves = false;
+    public boolean boardActive = true;
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public void doTheOtherThing(RenderGameOverlayEvent event) {
-      if (drawAvailableMoves == true) {
+      if (boardActive == true) {
         Minecraft mc = Minecraft.getMinecraft();
         ScaledResolution scaledRes = new ScaledResolution(mc);
         int screenWidth = scaledRes.getScaledWidth();
