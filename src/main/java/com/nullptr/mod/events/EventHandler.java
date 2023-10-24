@@ -58,6 +58,7 @@ import com.nullptr.mod.util.handlers.SoundsHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemBook;
+import net.minecraft.item.Item;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
     @SubscribeEvent
@@ -65,7 +66,7 @@ public class EventHandler {
     if (event.player instanceof EntityPlayerMP) {
         EntityPlayerMP player = (EntityPlayerMP) event.player;
         // Остальная часть вашего кода.
-        player.inventory.addItemStackToInventory(new ItemStack(GameRegistry.findItem("mod", "book")));
+        player.inventory.addItemStackToInventory(new ItemStack(Item.REGISTRY.getValue(new ResourceLocation("mod", "book")));
     }
     }
     @SubscribeEvent
