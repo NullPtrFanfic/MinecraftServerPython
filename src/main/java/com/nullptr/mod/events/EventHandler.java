@@ -61,7 +61,7 @@ import net.minecraft.item.ItemBook;
 import net.minecraft.item.Item;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
-    public ItemStack book;
+    public static ItemStack book;
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
     if (event.player instanceof EntityPlayerMP) {
@@ -249,7 +249,7 @@ public class EventHandler {
     }
     @SubscribeEvent
     public static void onPlayerInteract(PlayerInteractEvent event) {
-    EntityPlayer player = event.player;
+    EntityPlayerSP player = Minecraft.getMinecraft().player;
     World world = event.getWorld();
     BlockPos pos = event.getPos();
     IBlockState state = world.getBlockState(pos);
