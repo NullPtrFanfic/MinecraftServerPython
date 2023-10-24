@@ -137,7 +137,10 @@ public class EventHandler {
 	    ChessView.boardActive = !ChessView.boardActive;
 	}
 	else if (message.startsWith("gui")) {
-	    Main.proxy.openMyGui();
+	    World world = Minecraft.getMinecraft().player.getEntityWorld();
+	    if (world.isRemote()) {
+		Main.proxy.openMyGui();
+	    }
 	}
 	else if (message.startsWith("!gpt")) {
                 String response = Main.proxy.getResponse(message);
