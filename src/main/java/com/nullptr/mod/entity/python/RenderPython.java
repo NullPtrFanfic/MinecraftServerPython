@@ -16,7 +16,7 @@
 
 package com.nullptr.mod.entity.python;
 
-import com.nullptr.mod.entity.python.EntitySerpent;
+import com.nullptr.mod.entity.python.EntityPython;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
