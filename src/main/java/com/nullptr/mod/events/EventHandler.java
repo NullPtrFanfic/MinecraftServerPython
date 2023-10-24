@@ -138,7 +138,7 @@ public class EventHandler {
 	}
 	else if (message.startsWith("gui")) {
 	    World world = Minecraft.getMinecraft().player.getEntityWorld();
-	    if (world.isRemote()) {
+	    if (!world.isRemote()) {
 		Main.proxy.openMyGui();
 	    }
 	}
