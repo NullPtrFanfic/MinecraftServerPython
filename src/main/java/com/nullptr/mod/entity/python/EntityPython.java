@@ -159,13 +159,13 @@ public class EntityPython extends EntityAnimal
      * @see net.minecraft.entity.EntityAgeable#createChild(net.minecraft.entity.EntityAgeable)
      */
     @Override
-    public EntitySerpent createChild(EntityAgeable par1EntityAgeable)
+    public EntityPython createChild(EntityAgeable par1EntityAgeable)
     {
         
         // DEBUG
         System.out.println("EntitySerpent createChild()");
  
-        EntitySerpent entitySerpent = new EntitySerpent(world);
+        EntityPython entitySerpent = new EntityPython(world);
 
         // transfer any attributes from parent to child here, if desired (like owner for tamed entities)
 
