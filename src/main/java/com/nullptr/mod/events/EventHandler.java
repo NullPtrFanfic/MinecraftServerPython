@@ -62,10 +62,11 @@ import net.minecraft.item.ItemBook;
 public class EventHandler {
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
-           if(event.player instanceof EntityPlayerMP){   
-	      EntityplayerMP player = (EntityPlayerMP) event.player;   //Rest of your code. 
-	      player.inventory.addItemStackToInventory(new ItemStack(GameRegistry.findItem("mod", "book")));
-	   }
+    if (event.player instanceof EntityPlayerMP) {
+        EntityPlayerMP player = (EntityPlayerMP) event.player;
+        // Остальная часть вашего кода.
+        player.inventory.addItemStackToInventory(new ItemStack(GameRegistry.findItem("mod", "book")));
+    }
     }
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) { // Use the correct event parameter
