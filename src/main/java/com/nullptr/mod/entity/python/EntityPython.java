@@ -1,73 +1,217 @@
+/**
+    Copyright (C) 2017 by jabelar
+
+    This file is part of jabelar's Minecraft Forge modding examples; as such,
+    you can redistribute it and/or modify it under the terms of the GNU
+    General Public License as published by the Free Software Foundation,
+    either version 3 of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    For a copy of the GNU General Public License see <http://www.gnu.org/licenses/>.
+*/
+
 package com.nullptr.mod.entity.python;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.world.World;
-import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
-import net.minecraft.entity.ai.EntityAIAvoidEntity;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAILeapAtTarget;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIMate;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAIPanic;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
-import com.nullptr.mod.util.handlers.LootTableHandler;
-import com.nullptr.mod.util.SoundsUtil;
+import net.minecraft.item.Item;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.world.World;
 
-public class EntityPython extends EntityAgeable
+// TODO: Auto-generated Javadoc
+public class EntityPython extends EntityAnimal
 {
-   public EntityPython(World worldIn)
-   {
-      super(worldIn);
-      this.setSize(width, height);
-   }
-   @Override
-   protected void initEntityAI()
-   {
-      this.tasks.addTask(2, new EntityAISwimming(this));
-      this.tasks.addTask(1, new EntityAIWander(this, 0.3D));
-      this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.5D, true));
-      this.tasks.addTask(3, new EntityAIAvoidEntity<>(this, EntityMob.class, 4.0F, 2.2D, 2.2D));
-      this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 1.0F));
-   }
-   @Override
-   protected void applyEntityAttributes()
-   {
-       super.applyEntityAttributes();
-       this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(5.0D);
-       this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.201115D);
-       this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(10.0D);
-   }
-   @Override
-   public EntityAgeable createChild(EntityAgeable ageable)
-   {
-      this.setSize(0.5f, 0.5f);
-      return new EntityPython(world);
-   }
+    protected static final DataParameter<Float> SCALE_FACTOR = EntityDataManager.<Float>createKey(EntityPython.class, DataSerializers.FLOAT);
+
+	// use fields for sounds to allow easy changes in child classes
+//	protected SoundEvent soundHurtSnake = new SoundEvent(new ResourceLocation("wildanimals:mob.serpent.death"));
+//	protected SoundEvent soundDeathSnake = new SoundEvent(new ResourceLocation("wildanimals:mob.serpent.death"));
+//	protected SoundEvent soundCallSnake = new SoundEvent(new ResourceLocation("wildanimals:mob.serpent.hiss"));
+
+	/**
+	 * Instantiates a new entity serpent.
+	 *
+	 * @param par1World the par 1 world
+	 */
+	public EntityPython(World par1World)
+	{
+	super(par1World);
+        
+        // DEBUG
+        System.out.println("EntitySerpent constructor(), "+"on Client="
+        		+par1World.isRemote+", EntityID = "+getEntityId()+", ModEntityID = "+entityUniqueID);
+
+        setSize(1.0F, 0.25F);
+ 	}
 	
-   @Override
-   protected SoundEvent getAmbientSound() 
-   {
-	return SoundsUtil.SOUND_2;
-   }
-	
-   @Override
-   protected SoundEvent getHurtSound(DamageSource damageSourceIn) 
-   {
-	return SoundsUtil.SOUND_3;
-   }
-	
-   @Override
-   protected ResourceLocation getLootTable() 
-   {
-        return LootTableHandler.TEST;
-   }
-	
-   @Override
-   protected boolean canDropLoot() 
-   {
-	return true;
-   }
-  }
+	/* (non-Javadoc)
+	 * @see net.minecraft.entity.EntityAgeable#entityInit()
+	 */
+	@Override
+	public void entityInit()
+	{
+		super.entityInit();
+		dataManager.register(SCALE_FACTOR, 1.0F);
+	}
+    
+    /* (non-Javadoc)
+     * @see com.blogspot.jabelarminecraft.wildanimals.entities.IModEntity#clearAITasks()
+     */
+    // use clear tasks for subclasses then build up their ai task list specifically
+        @Override
+        public void clearAITasks()
+        {
+        tasks.taskEntries.clear();
+        targetTasks.taskEntries.clear();
+        }
+
+	/* (non-Javadoc)
+	 * @see net.minecraft.entity.EntityLiving#initEntityAI()
+	 */
+        @SuppressWarnings({ "rawtypes", "unchecked" })
+        @Override
+        public void initEntityAI() 
+        {
+	clearAITasks(); // clear any tasks assigned in super classes
+        tasks.addTask(1, new EntityAISwimming(this));
+        tasks.addTask(2, new EntityAIPanic(this, 2.0D));
+        tasks.addTask(3, new EntityAILeapAtTarget(this, 0.4F));
+        tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, true));
+        tasks.addTask(5, new EntityAIMate(this, 1.0D));
+        tasks.addTask(6, new EntityAIWander(this, 1.0D));
+        tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+        tasks.addTask(8, new EntityAILookIdle(this));
+        targetTasks.addTask(9, new EntityAIHurtByTarget(this, true));
+        targetTasks.addTask(10, new EntityAINearestAttackableTarget(this, EntityChicken.class, true, true));
+        }    
+
+    /* (non-Javadoc)
+     * @see net.minecraft.entity.EntityLiving#applyEntityAttributes()
+     */
+    // you don't have to call this as it is called automatically during entityLiving subclass creation
+       @Override
+       protected void applyEntityAttributes()
+       {
+        super.applyEntityAttributes();
+        getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+        getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(8.0D);
+      }
+
+    /**
+     * Returns the sound this mob makes while it's alive.
+     *
+     * @return the ambient sound
+     */
+
+    /* (non-Javadoc)
+     * @see net.minecraft.entity.EntityLiving#getDropItem()
+     */
+    @Override
+    protected Item getDropItem()
+    {
+        return Item.getItemById(-1);
+    }
+
+    /**
+     * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
+     * use this to react to sunlight and start to burn.
+     */
+    @Override
+    public void onLivingUpdate()
+    {
+        super.onLivingUpdate();
+    }
+
+    /* (non-Javadoc)
+     * @see net.minecraft.entity.EntityLivingBase#attackEntityAsMob(net.minecraft.entity.Entity)
+     */
+    @Override
+    public boolean attackEntityAsMob(Entity par1Entity)
+    {
+        setLastAttackedEntity(par1Entity);
+        return false; // serpents don't currently attack par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), (float) getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getBaseValue());
+    }
+
+    /* (non-Javadoc)
+     * @see net.minecraft.entity.EntityAgeable#createChild(net.minecraft.entity.EntityAgeable)
+     */
+    @Override
+    public EntitySerpent createChild(EntityAgeable par1EntityAgeable)
+    {
+        
+        // DEBUG
+        System.out.println("EntitySerpent createChild()");
+ 
+        EntitySerpent entitySerpent = new EntitySerpent(world);
+
+        // transfer any attributes from parent to child here, if desired (like owner for tamed entities)
+
+        return entitySerpent;
+    }
+
+    /* (non-Javadoc)
+     * @see net.minecraft.entity.passive.EntityAnimal#writeEntityToNBT(net.minecraft.nbt.NBTTagCompound)
+     */
+    @Override
+    public void writeEntityToNBT(NBTTagCompound compound)
+    {
+	    super.writeEntityToNBT(compound);
+	    compound.setFloat("scaleFactor", getScaleFactor());
+    }
+
+    /* (non-Javadoc)
+     * @see net.minecraft.entity.passive.EntityAnimal#readEntityFromNBT(net.minecraft.nbt.NBTTagCompound)
+     */
+    @Override
+    public void readEntityFromNBT(NBTTagCompound compound)
+    {
+        super.readEntityFromNBT(compound);
+        setScaleFactor(compound.getFloat("scaleFactor"));
+    }
+    
+    // *****************************************************
+    // ENCAPSULATION SETTER AND GETTER METHODS
+    // Don't forget to send sync packets in setters
+    // *****************************************************
+    
+    /* (non-Javadoc)
+     * @see com.blogspot.jabelarminecraft.wildanimals.entities.IModEntity#setScaleFactor(float)
+     */
+    @Override
+    public void setScaleFactor(float parScaleFactor)
+    {
+    	dataManager.set(SCALE_FACTOR, Math.abs(parScaleFactor));
+    }
+    
+    /* (non-Javadoc)
+     * @see com.blogspot.jabelarminecraft.wildanimals.entities.IModEntity#getScaleFactor()
+     */
+    @Override
+    public float getScaleFactor()
+    {
+    	return dataManager.get(SCALE_FACTOR);
+    }
+}
