@@ -1,27 +1,149 @@
+/**
+    Copyright (C) 2017 by jabelar
+
+    This file is part of jabelar's Minecraft Forge modding examples; as such,
+    you can redistribute it and/or modify it under the terms of the GNU
+    General Public License as published by the Free Software Foundation,
+    either version 3 of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    For a copy of the GNU General Public License see <http://www.gnu.org/licenses/>.
+*/
+
 package com.nullptr.mod.entity.python;
 
-import com.nullptr.mod.Main;
+import com.nullptr.mod.entity.python.EntitySerpent;
 
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import com.nullptr.mod.entity.python.ModelPython;
-import com.nullptr.mod.entity.python.EntityPython;
-@SideOnly(Side.CLIENT)
-public class RenderPython extends RenderLiving<EntityPython>
+import net.minecraftforge.fml.client.registry.IRenderFactory;
+
+// TODO: Auto-generated Javadoc
+@SuppressWarnings("rawtypes")
+public class RenderPython extends RenderLiving
 {
-	public static final ResourceLocation TEXTURE = new ResourceLocation(Main.MODID + ":textures/entity/test/test.png");
+    protected ResourceLocation serpentTexture;
+
+    /**
+     * Instantiates a new render serpent.
+     *
+     * @param parRenderManager the par render manager
+     * @param par1ModelBase the par 1 model base
+     * @param parShadowSize the par shadow size
+     * @param parNormalTexture the par normal texture
+     */
+    public RenderPython(
+    		RenderManager parRenderManager, 
+    		ModelBase par1ModelBase, 
+    		float parShadowSize,
+    		ResourceLocation parNormalTexture
+    		)
+    {
+        super(parRenderManager, par1ModelBase, parShadowSize);
+        serpentTexture = parNormalTexture;      
+    }
 	
-	public RenderPython(RenderManager manager) 
+    /**
+     * Pre render callback.
+     *
+     * @param entity the entity
+     * @param f the f
+     */
+    @Override
+	protected void preRenderCallback(EntityLivingBase entity, float f){
+    	preRenderCallbackSerpent((EntityPython) entity, f);
+    }
+
+    
+	/**
+	 * Pre render callback serpent.
+	 *
+	 * @param entity the entity
+	 * @param f the f
+	 */
+	protected void preRenderCallbackSerpent(EntityPython entity, float f)
 	{
-		super(manager, new ModelPython(), 0.2f);
-	}
-	
-	@Override
-	protected ResourceLocation getEntityTexture(EntityPython entity) 
+    }
+    
+    /**
+     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
+     *
+     * @param par1EntitySerpent the par 1 entity serpent
+     * @return the entity texture
+     */
+    protected ResourceLocation getEntityTexture(EntityPython par1EntitySerpent)
+    {
+        return serpentTexture;
+    }
+
+    /**
+     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
+     *
+     * @param par1Entity the par 1 entity
+     * @return the entity texture
+     */
+    @Override
+	protected ResourceLocation getEntityTexture(Entity par1Entity)
+    {
+        return this.getEntityTexture((EntityPython)par1Entity);
+    }
+    
+    
+    /**
+     * Gets the render factory.
+     *
+     * @param parModelBase1 the par model base 1
+     * @param parShadowSize the par shadow size
+     * @param parNormalTexture the par normal texture
+     * @return the render factory
+     */
+    public static IRenderFactory getRenderFactory(
+	        ModelBase parModelBase1, 
+	        float parShadowSize, 
+	        ResourceLocation parNormalTexture
+			)
+    {
+    	return new RenderFactory(
+    	        parModelBase1, 
+    	        parShadowSize, 
+    	        parNormalTexture 
+    			);
+    }
+    
+	private static class RenderFactory implements IRenderFactory
 	{
-		return TEXTURE;
+        ModelBase model1;
+        float shadowSize;
+        ResourceLocation normalTexture; 
+		
+		public RenderFactory(
+	        ModelBase parModelBase1, 
+	        float parShadowSize, 
+	        ResourceLocation parNormalTexture) 
+		{
+			model1 = parModelBase1;
+			shadowSize = parShadowSize;
+			normalTexture = parNormalTexture;
+		}
+
+		@Override
+		public Render createRenderFor(RenderManager manager) 
+		{
+			return new RenderSerpent(
+				manager,
+				model1,
+				shadowSize,
+				normalTexture
+			);
+		}	
 	}
-}
+	}
