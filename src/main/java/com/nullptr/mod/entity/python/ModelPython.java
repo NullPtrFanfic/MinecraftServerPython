@@ -164,7 +164,7 @@ public class ModelPython
      * @param parHeadAngleX the par head angle X
      * @param par7 the par 7
      */
-    public void renderSerpent(EntitySerpent parEntity, float parTime, float parSwingAmount, 
+    public void renderSerpent(EntityPython parEntity, float parTime, float parSwingAmount, 
           float par4, float parHeadAngleY, float parHeadAngleX, float par7)
     {
         setRotationAngles(parTime, parSwingAmount, par4, parHeadAngleY, parHeadAngleX, 
