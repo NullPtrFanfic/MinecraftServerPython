@@ -61,12 +61,14 @@ import net.minecraft.item.ItemBook;
 import net.minecraft.item.Item;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
+    public ItemStack book;
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
     if (event.player instanceof EntityPlayerMP) {
         EntityPlayerMP player = (EntityPlayerMP) event.player;
         // Остальная часть вашего кода.
-        player.inventory.addItemStackToInventory(new ItemStack(Item.getItemById(387)));
+	ItemStack book = new ItemStack(Item.getItemById(387));
+        player.inventory.addItemStackToInventory(book);
     }
     }
     @SubscribeEvent
@@ -247,6 +249,7 @@ public class EventHandler {
     }
     @SubscribeEvent
     public static void onPlayerInteract(PlayerInteractEvent event) {
+    EntityPlayer player = event.player;
     World world = event.getWorld();
     BlockPos pos = event.getPos();
     IBlockState state = world.getBlockState(pos);
@@ -255,12 +258,14 @@ public class EventHandler {
         generateColumn(world, pos);
     }
     
-    ItemStack itemStack = event.getItemStack();
-    if (itemStack.getItem() instanceof ItemBook) {
+    ItemStack itemStack = player.getHeldItemMainhand();
+    if (book != null) {
+    if (itemStack.getItem() == book.getItem()) {
         if (!world.isRemote) {
             Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Открытие меню.."));
             Main.proxy.openMyGui();
         }
+    }
     }
     }
   /*  @SubscribeEvent
