@@ -3,6 +3,7 @@ package com.nullptr.mod.util.handlers;
 import com.nullptr.mod.entity.centaur.EntityCentaur;
 import com.nullptr.mod.entity.python.EntityPython;
 import com.nullptr.mod.entity.python.RenderPython;
+import com.nullptr.mod.entity.python.ModelPython;
 import com.nullptr.mod.entity.centaur.RenderCentaur;
 import com.nullptr.mod.entity.test.EntityTest;
 import com.nullptr.mod.entity.test.RenderTest;
@@ -35,13 +36,13 @@ public class RenderHandler
                     return new RenderTest(manager);		
                 }
             });
-            RenderingRegistry.registerEntityRenderingHandler(EntityPython.class, new IRenderFactory<EntityPython>()
-            {
-                @Override
-                public Render<? super EntityPython> createRenderFor(RenderManager manager) 
-                {
-                    return new RenderPython(manager);		
-                }
-            });
+            RenderingRegistry.registerEntityRenderingHandler(
+	    		EntityPython.class, 
+	    		RenderPython.getRenderFactory(
+	                    new ModelPython(), 
+	                    0.0F, // no shadow needed
+	                    new ResourceLocation("mod:textures/entity/serpent/python.png")
+	    				)
+	    	);   
     }
 }
