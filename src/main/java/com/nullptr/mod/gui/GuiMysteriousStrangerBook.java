@@ -10,26 +10,20 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class GuiMysteriousStrangerBook extends GuiScreen {
-    private final int imageHeight = 192;
-    private final int imageWidth = 192;
+    private final int imageHeight = 125;
+    private final int imageWidth = 125;
     private int currentPage = 0;
-    private static final int totalPages = 4;
+    private static final int totalPages = 3;
     private static ResourceLocation[] pageTextures = new ResourceLocation[totalPages];
-    private static String[] pageText = new String[totalPages];
+ //   private static String[] pageText = new String[totalPages];
     private GuiButton closeButton;
     private NextPageButton nextPageButton;
     private NextPageButton previousPageButton;
 
     public GuiMysteriousStrangerBook() {
-        pageTextures[0] = new ResourceLocation("mod:textures/items/output_image.jpg");
-        pageTextures[1] = new ResourceLocation("mod:textures/items/IMG-c115723eef2700728882acbd59d72591-V.jpg");
-        pageTextures[2] = new ResourceLocation("mod:textures/items/output_image.jpg");
-        pageText[0] = "";
-        pageText[1] = "Таинственный незнакомец восхищен вашей коровой семьи и спрашивает, не продаете ли вы ее.\n\nКогда вы киваете, он предлагает обменять ее на Магические Бобы, которые, если посадить их в вспаханной земле, приведут к богатству, о котором вы не могли и мечтать.";
-        pageText[2] = "Вы передаете ему свою корову и берете Магические Бобы. Довольные собой, вы спешите найти вспаханную землю, чтобы посадить их. Вы не можете дождаться, когда ваша мать узнает, какими вы стали, меняя старую корову на нечто гораздо более ценное.";
-        pageText[3] = "Итак, вы отправляетесь искать подходящее место для посадки Магических Бобов, где они смогут свободно расти и приносить вам богатство.";
+        pageTextures[0] = new ResourceLocation("mod:textures/items/ivan1.jpg");
+        pageTextures[1] = new ResourceLocation("mod:textures/items/ivan2.jpg");
     }
-
     @Override
     public void initGui() {
         buttonList.clear();
