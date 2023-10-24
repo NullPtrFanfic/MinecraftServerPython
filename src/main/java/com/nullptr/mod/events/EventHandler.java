@@ -138,7 +138,8 @@ public class EventHandler {
 	}
 	else if (message.startsWith("gui")) {
 	    World world = Minecraft.getMinecraft().player.getEntityWorld();
-	    if (!world.isRemote()) {
+	    if (!world.isRemote) {
+		Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Открытие меню.."));
 		Main.proxy.openMyGui();
 	    }
 	}
