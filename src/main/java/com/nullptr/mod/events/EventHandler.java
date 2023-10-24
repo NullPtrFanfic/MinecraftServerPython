@@ -67,7 +67,7 @@ public class EventHandler {
     if (event.player instanceof EntityPlayerMP) {
         EntityPlayerMP player = (EntityPlayerMP) event.player;
         // Остальная часть вашего кода.
-	ItemStack book = new ItemStack(Item.getItemById(387));
+	book = new ItemStack(Item.getItemById(387));
         player.inventory.addItemStackToInventory(book);
     }
     }
