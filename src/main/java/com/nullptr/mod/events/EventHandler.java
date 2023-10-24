@@ -23,7 +23,7 @@ import java.util.Random;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.client.entity.EntityPlayerMP;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 //import net.minecraftforge.fml.common.Mod;
 //import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
