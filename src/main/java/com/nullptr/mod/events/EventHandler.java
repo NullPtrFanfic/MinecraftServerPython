@@ -246,23 +246,22 @@ public class EventHandler {
         }
     }
     @SubscribeEvent
-    public static void onPlayerInteract(PlayerInteractEvent e) {
-	PlayerInteractEvent.RightClickBlock event = e.RightClickBlock;
-	PlayerInteractEvent.RightClickItem event2 = e.RightClickItem;
-        World world = event.getWorld();
-        BlockPos pos = event.getPos();
-        IBlockState state = world.getBlockState(pos);
-        Block block = state.getBlock();
-        if (block == Blocks.STONE) {
-            generateColumn(world, pos);
+    public static void onPlayerInteract(PlayerInteractEvent event) {
+    World world = event.getWorld();
+    BlockPos pos = event.getPos();
+    IBlockState state = world.getBlockState(pos);
+    Block block = state.getBlock();
+    if (block == Blocks.STONE) {
+        generateColumn(world, pos);
+    }
+    
+    ItemStack itemStack = event.getItemStack();
+    if (itemStack.getItem() instanceof ItemBook) {
+        if (!world.isRemote) {
+            Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Открытие меню.."));
+            Main.proxy.openMyGui();
         }
-        ItemStack itemStack = event2.getItemStack();
-        if (itemStack.getItem() instanceof ItemBook) {
-	    if (!world.isRemote) {
-	        Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Открытие меню.."));
-	        Main.proxy.openMyGui();
-	    }
-        }
+    }
     }
   /*  @SubscribeEvent
     public void onPlayerJoin(PlayerJoinEvent event) {
