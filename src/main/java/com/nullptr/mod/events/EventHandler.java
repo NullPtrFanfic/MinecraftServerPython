@@ -246,7 +246,9 @@ public class EventHandler {
         }
     }
     @SubscribeEvent
-    public static void onPlayerInteract(PlayerInteractEvent.RightClickBlock event, PlayerInteractEvent.RightClickItem event2) {
+    public static void onPlayerInteract(PlayerInteractEvent e) {
+	PlayerInteractEvent.RightClickBlock event = e.RightClickBlock;
+	PlayerInteractEvent.RightClickItem event2 = e.RightClickItem;
         World world = event.getWorld();
         BlockPos pos = event.getPos();
         IBlockState state = world.getBlockState(pos);
