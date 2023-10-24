@@ -55,6 +55,8 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import com.nullptr.mod.util.SoundsUtil;
 import com.nullptr.mod.chess.ChessView;
 import com.nullptr.mod.util.handlers.SoundsHandler;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraft.item.ItemStack;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
     @SubscribeEvent
