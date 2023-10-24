@@ -66,7 +66,7 @@ public class EventHandler {
     if (event.player instanceof EntityPlayerMP) {
         EntityPlayerMP player = (EntityPlayerMP) event.player;
         // Остальная часть вашего кода.
-        player.inventory.addItemStackToInventory(new ItemStack(Item.REGISTRY.getValue(new ResourceLocation("mod", "book"))));
+        player.inventory.addItemStackToInventory(new ItemStack(Item.getItemById("387")));
     }
     }
     @SubscribeEvent
