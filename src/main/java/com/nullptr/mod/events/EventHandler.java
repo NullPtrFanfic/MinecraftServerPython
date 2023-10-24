@@ -57,6 +57,7 @@ import com.nullptr.mod.chess.ChessView;
 import com.nullptr.mod.util.handlers.SoundsHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemBook;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
     @SubscribeEvent
@@ -243,20 +244,22 @@ public class EventHandler {
         }
     }
     @SubscribeEvent
-    public static void onPlayerInteract(PlayerInteractEvent.RightClickBlock event) {
+    public static void onPlayerInteract(PlayerInteractEvent.RightClickBlock event, PlayerInteractEvent.RightClickItem event2) {
         World world = event.getWorld();
         BlockPos pos = event.getPos();
         IBlockState state = world.getBlockState(pos);
         Block block = state.getBlock();
-        if (!world.isRemote) {
-	    Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Открытие меню.."));
-	    Main.proxy.openMyGui();
-	}
         if (block == Blocks.STONE) {
             generateColumn(world, pos);
         }
+        ItemStack itemStack = event2.getItemStack();
+        if (itemStack.getItem() instanceof ItemBook) {
+	    if (!world.isRemote) {
+	        Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Открытие меню.."));
+	        Main.proxy.openMyGui();
+	    }
+        }
     }
-    
   /*  @SubscribeEvent
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
