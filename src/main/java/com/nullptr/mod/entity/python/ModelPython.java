@@ -27,7 +27,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 // TODO: Auto-generated Javadoc
 @SideOnly(Side.CLIENT)
-public class ModelPython
+public class ModelPython extends ModelBase
 {
     public ModelRenderer head;
     public ModelRenderer tongue;
