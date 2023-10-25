@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 //import net.minecraftforge.fml.common.FMLCommonHandler;
-
+import net.minecraft.util.ResourceLocation;
 @SideOnly(Side.CLIENT)
 public class RenderHandler 
 {
