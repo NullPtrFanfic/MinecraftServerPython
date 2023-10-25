@@ -138,7 +138,7 @@ public class RenderPython extends RenderLiving
 		@Override
 		public Render createRenderFor(RenderManager manager) 
 		{
-			return new RenderSerpent(
+			return new RenderPython(
 				manager,
 				model1,
 				shadowSize,
