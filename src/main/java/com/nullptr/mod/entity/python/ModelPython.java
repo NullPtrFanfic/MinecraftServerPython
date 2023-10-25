@@ -60,7 +60,40 @@ public class ModelPython extends ModelBase
         { 0F, -45F, 45F, 45F, 0F, -45F, -45F, 0F },
         { 45F, -90F, 0F, 45F, 45F, 0F, -45F, -45F },
     };
+    protected double distanceMovedTotal = 0.0D;
+    protected void updateDistanceMovedTotal(Entity parEntity) 
+    {
+        distanceMovedTotal += parEntity.getDistance(parEntity.prevPosX, parEntity.prevPosY, 
+              parEntity.prevPosZ);
+    }
     
+    /**
+     * Gets the distance moved total.
+     *
+     * @param parEntity the par entity
+     * @return the distance moved total
+     */
+    protected double getDistanceMovedTotal(Entity parEntity) 
+    {
+        return (distanceMovedTotal);
+    }
+
+    /**
+     * Deg to rad.
+     *
+     * @param degrees the degrees
+     * @return the float
+     */
+    protected float degToRad(float degrees)
+    {
+        return degrees * (float)Math.PI / 180 ;
+    }
+    protected void setRotation(ModelRenderer model, float rotX, float rotY, float rotZ)
+    {
+        model.rotateAngleX = degToRad(rotX);
+        model.rotateAngleY = degToRad(rotY);
+        model.rotateAngleZ = degToRad(rotZ);        
+    }
     /**
      * Instantiates a new model serpent.
      */
