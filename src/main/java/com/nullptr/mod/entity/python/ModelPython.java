@@ -60,8 +60,8 @@ public class ModelPython extends ModelBase
         { 0F, -45F, 45F, 45F, 0F, -45F, -45F, 0F },
         { 45F, -90F, 0F, 45F, 45F, 0F, -45F, -45F },
     };
-    protected double distanceMovedTotal = 0.0D;
-  //  protected void updateDistanceMovedTotal(Entity parEntity) 
+   // protected double distanceMovedTotal = 0.0D;
+    protected void updateDistanceMovedTotal(Entity parEntity) 
     {
         distanceMovedTotal += parEntity.getDistance(parEntity.prevPosX, parEntity.prevPosY, 
               parEntity.prevPosZ);
