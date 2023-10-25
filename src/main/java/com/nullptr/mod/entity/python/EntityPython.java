@@ -81,7 +81,7 @@ public class EntityPython extends EntityAnimal
      * @see com.blogspot.jabelarminecraft.wildanimals.entities.IModEntity#clearAITasks()
      */
     // use clear tasks for subclasses then build up their ai task list specifically
-        @Override
+       // @Override
         public void clearAITasks()
         {
         tasks.taskEntries.clear();
@@ -200,7 +200,7 @@ public class EntityPython extends EntityAnimal
     /* (non-Javadoc)
      * @see com.blogspot.jabelarminecraft.wildanimals.entities.IModEntity#setScaleFactor(float)
      */
-    @Override
+  //  @Override
     public void setScaleFactor(float parScaleFactor)
     {
     	dataManager.set(SCALE_FACTOR, Math.abs(parScaleFactor));
@@ -209,7 +209,7 @@ public class EntityPython extends EntityAnimal
     /* (non-Javadoc)
      * @see com.blogspot.jabelarminecraft.wildanimals.entities.IModEntity#getScaleFactor()
      */
-    @Override
+    //@Override
     public float getScaleFactor()
     {
     	return dataManager.get(SCALE_FACTOR);
