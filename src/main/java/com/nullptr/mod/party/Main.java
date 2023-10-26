@@ -1,4 +1,4 @@
-package com.comze_instancelabs.minigamesparty;
+package com.nullptr.mod.party;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
 
-import net.milkbowl.vault.economy.Economy;
+/*import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.economy.EconomyResponse;
 
 import org.bukkit.Bukkit;
@@ -67,22 +67,56 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
-import org.bukkit.util.BlockIterator;
+import org.bukkit.util.BlockIterator;*/
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CommandEvent;
+import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.PotionEvent;
+import net.minecraftforge.event.entity.item.ItemTossEvent;
+import net.minecraftforge.event.entity.item.ItemEntityEvent;
+import net.minecraftforge.event.entity.ProjectileImpactEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.world.PortalTravelAgentEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.registries.ObjectHolder;
+import net.minecraft.potion.Effect;
+import net.minecraft.scoreboard.Scoreboard;
+import net.minecraft.scoreboard.ScoreCriteria;
+import net.minecraft.scoreboard.ScoreObjective;
+import net.minecraft.scoreboard.ScoreCriteria;
+import net.minecraft.scoreboard.ScoreDisplay;
+import net.minecraft.util.ResourceLocation;
 
-import com.comze_instancelabs.minigamesparty.minigames.ChickenTag;
-import com.comze_instancelabs.minigamesparty.minigames.DeadEnd;
-import com.comze_instancelabs.minigamesparty.minigames.DisIntegration;
-import com.comze_instancelabs.minigamesparty.minigames.JumpnRun;
-import com.comze_instancelabs.minigamesparty.minigames.LastArcherStanding;
-import com.comze_instancelabs.minigamesparty.minigames.MineField;
-import com.comze_instancelabs.minigamesparty.minigames.SheepFreenzy;
-import com.comze_instancelabs.minigamesparty.minigames.SlapFight;
+import com.nullptr.mod.party.minigames.ChickenTag;
+import com.nullptr.mod.party.minigames.DeadEnd;
+import com.nullptr.mod.party.minigames.DisIntegration;
+import com.nullptr.mod.party.minigames.JumpnRun;
+import com.nullptr.mod.party.minigames.LastArcherStanding;
+import com.nullptr.mod.party.minigames.MineField;
+import com.nullptr.mod.party.minigames.SheepFreenzy;
+import com.nullptr.mod.party.minigames.SlapFight;
 //import com.comze_instancelabs.minigamesparty.minigames.SmokeMonster;
-import com.comze_instancelabs.minigamesparty.minigames.Spleef;
+import com.nullptr.mod.party.minigames.Spleef;
 //import com.comze_instancelabs.minigamesparty.nms.NMSEffectManager;
 //import com.comze_instancelabs.minigamesparty.sql.MainSQL;
 
-public class Main extends JavaPlugin implements Listener {
+public class Main {
 
 	/* setup pattern:
 	 * 
@@ -106,7 +140,7 @@ public class Main extends JavaPlugin implements Listener {
 	 * 
 	 */
 
-	public static Economy econ = null;
+	//public static Economy econ = null;
 
 	public ArrayList<Minigame> minigames = new ArrayList<Minigame>();
 	public ArrayList<String> players = new ArrayList<String>();
@@ -126,7 +160,7 @@ public class Main extends JavaPlugin implements Listener {
 	
 	public int item_id = 264;
 	
-	boolean economy = true;
+	//boolean economy = true;
 	boolean item_rewards = true;
 	
 	public Location mainlobby = null;
@@ -136,8 +170,8 @@ public class Main extends JavaPlugin implements Listener {
 	Main m;
 
 	@Override
-	public void onEnable(){
-		Bukkit.getServer().getPluginManager().registerEvents(this, this);
+	public void init(){
+		//Bukkit.getServer().getPluginManager().registerEvents(this, this);
 		m = this;
 		int id = Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
 			@Override
@@ -200,12 +234,6 @@ public class Main extends JavaPlugin implements Listener {
 			Metrics metrics = new Metrics(this);
 			metrics.start();
 		} catch (IOException e) { }
-
-		if(economy){
-			if (!setupEconomy()) {
-	            getLogger().severe(String.format("[%s] - No iConomy dependency found! Disabling Economy.", getDescription().getName()));
-	            economy = false;
-	        }
 		}
 		
 		// let's check which version we're on.
