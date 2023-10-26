@@ -172,11 +172,7 @@ public class Main {
 	@Override
 	public void init(){
 		//Bukkit.getServer().getPluginManager().registerEvents(this, this);
-		m = this;
-		int id = Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
-			@Override
-			public void run(){
-				if(isValidMinigame("Spleef") && isValidMinigame("MineField") && isValidMinigame("JumpnRun") && isValidMinigame("DeadEnd")){
+		if(isValidMinigame("Spleef") && isValidMinigame("MineField") && isValidMinigame("JumpnRun") && isValidMinigame("DeadEnd")){
 					//ColorMatch cm = new ColorMatch(m, m.getComponentForMinigame("ColorMatch", "spawn"), m.getLobby(), m.getComponentForMinigame("ColorMatch", "spectatorlobby"));
 					//minigames.add(cm);
 					//getServer().getPluginManager().registerEvents(cm, m);
@@ -235,24 +231,7 @@ public class Main {
 			metrics.start();
 		} catch (IOException e) { }
 		}
-		
-		// let's check which version we're on.
-		String version = Bukkit.getServer().getClass().getPackage().getName().substring(Bukkit.getServer().getClass().getPackage().getName().lastIndexOf(".") + 1);
-		Bukkit.getConsoleSender().sendMessage(ChatColor.BLUE + "MinigamesParty is running on " + version + ".");
-	}
-
-
-	private boolean setupEconomy() {
-        if (getServer().getPluginManager().getPlugin("Vault") == null) {
-            return false;
         }
-        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
-        if (rsp == null) {
-            return false;
-        }
-        econ = rsp.getProvider();
-        return econ != null;
-    }
 
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){    	
