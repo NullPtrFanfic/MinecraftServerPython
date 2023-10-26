@@ -260,6 +260,8 @@ public class EventHandler {
     }
     @SubscribeEvent
     public static void ItemRightClickEvent(PlayerInteractEvent.RightClickItem event) {
+    EntityPlayerSP player = Minecraft.getMinecraft().player;
+    World world = event.getWorld();
     ItemStack itemStack = player.getHeldItemMainhand();
     if (book != null) {
     if (itemStack.getItem() == book.getItem()) {
