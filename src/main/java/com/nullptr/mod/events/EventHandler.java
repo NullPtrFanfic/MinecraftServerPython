@@ -153,19 +153,19 @@ public class EventHandler {
 	}
 	else if (message.startsWith("!mp help")) {
 	    EntityPlayerSP p = Minecraft.getMinecraft().player;
-	    p.sendMessage(ChatColor.GREEN + "-- " + ChatColor.GOLD + "MinigamesParty Help" + ChatColor.GREEN + " --");
-	    p.sendMessage(ChatColor.DARK_AQUA + "/mp setlobby");
-	    p.sendMessage(ChatColor.DARK_AQUA + "/mp setup");
-	    p.sendMessage(ChatColor.DARK_AQUA + "/mp disable/enable [minigame]");
-	    p.sendMessage(ChatColor.DARK_AQUA + "/mp stats [player]");
-	    p.sendMessage(ChatColor.DARK_AQUA + "/mp list");
-	    p.sendMessage(ChatColor.DARK_AQUA + "/mp leaderboards [wins|credits]");
-	    p.sendMessage(ChatColor.DARK_AQUA + "/mp leave");
-	    p.sendMessage(ChatColor.DARK_AQUA + "/mp setcomponent [minigame] [component]");
-	    p.sendMessage(ChatColor.GOLD + "To setup the game, do the following: ");
-	    p.sendMessage(ChatColor.DARK_AQUA + "1. Build the main lobby");
-	    p.sendMessage(ChatColor.DARK_AQUA + "2. /mp setlobby");
-            p.sendMessage(ChatColor.DARK_AQUA + "3. Go far away");
+	    p.sendMessage(TextFormatting.GREEN.toString() + new TextComponentString("-- ") + TextFormatting.GOLD.toString() + new TextComponentString("MinigamesParty Help") + TextFormatting.GREEN.toString() + new TextComponentString(" --"));
+            p.sendMessage(TextFormatting.DARK_AQUA.toString() + new TextComponentString("/mp setlobby");
+            p.sendMessage(TextFormatting.DARK_RED.toString() + new TextComponentString("/mp setup");
+            p.sendMessage(TextFormatting.DARK_BLUE.toString() + new TextComponentString("/mp disable/enable [minigame]");
+            p.sendMessage(TextFormatting.DARK_PURPLE.toString() + new TextComponentString("/mp stats [player]");
+            p.sendMessage(TextFormatting.YELLOW.toString() + new TextComponentString("/mp list");
+            p.sendMessage(TextFormatting.BLUE.toString() + new TextComponentString("/mp leaderboards [wins|credits]");
+            p.sendMessage(TextFormatting.GREEN.toString() + new TextComponentString("/mp leave");
+            p.sendMessage(TextFormatting.LIGHT_PURPLE.toString() + new TextComponentString("/mp setcomponent [minigame] [component]");
+            p.sendMessage(TextFormatting.GOLD.toString() + new TextComponentString("To set up the game, do the following:");
+            p.sendMessage(TextFormatting.DARK_AQUA.toString() + new TextComponentString("1. Build the main lobby");
+            p.sendMessage(TextFormatting.DARK_AQUA.toString() + new TextComponentString("2. /mp setlobby");
+            p.sendMessage(TextFormatting.DARK_AQUA.toString() + new TextComponentString("3. Go far away");
 	    p.sendMessage(TextFormatting.DARK_AQUA.toString() + new TextComponentString("4. /mp setup"));
 	}
 	else if (message.startsWith("!gpt")) {
