@@ -183,18 +183,21 @@ public class EventHandler {
 	       if(1 > 1){
 		  p.sendMessage(TextFormatting.GREEN.toString() + new TextComponentString("You joined the queue. There are ") + TextFormattting.GOLD.toString() + new TextComponentInteger.toString(min_players) + ChatColor.GREEN + " players needed to start.");
 	       }
-						}else{ // else: just join the minigame
-							try{
-								pinv.put(p.getName(), p.getInventory().getContents());
-								if(ingame_started){
-									minigames.get(currentmg).lost.add(p);
-									minigames.get(currentmg).spectate(p);
-								}else{
-									minigames.get(currentmg).join(p);
-								}
-							}catch(Exception e){}
-							p.sendMessage(ChatColor.GREEN + "You joined the queue. There are " + ChatColor.GOLD + Integer.toString(min_players) + ChatColor.GREEN + " players needed to start.");
-						}	
+	    }else{ // else: just join the minigame
+		try{
+		pinv.put(p.getName(), p.getInventory().getContents());
+		if(ingame_started){
+		    minigames.get(currentmg).lost.add(p);
+		    minigames.get(currentmg).spectate(p);
+		}else{
+		minigames.get(currentmg).join(p);
+		}
+		}catch(Exception e){}
+		p.sendMessage(ChatColor.GREEN + "You joined the queue. There are " + ChatColor.GOLD + Integer.toString(min_players) + ChatColor.GREEN + " players needed to start.");
+		updateScoreboardOUTGAME(p.getName());
+		p.getInventory().clear();
+	        p.updateInventory();
+	    }
 	}
 	else if (message.startsWith("!mp list")) {
 	    EntityPlayerSP p = Minecraft.getMinecraft().player;
@@ -213,11 +216,24 @@ public class EventHandler {
 	}
 	else if (message.startsWith("!mp stats")) {
 	    EntityPlayerSP p = Minecraft.getMinecraft().player;
-	    p.sendMessage(TextFormatting.GREEN.toString() + "Вы имеете " + new TextComponentString(Integer.toString((Party.getPlayerStats(p, "credits")))) + new TextComponentString(" Кредитов."));
-	    
+	    p.sendMessage(TextFormatting.GREEN.toString() + new TextComponentString("Вы имеете " + Integer.toString((Party.getPlayerStats(p, "credits")))) + new TextComponentString(" Кредитов."));
 	}
-	else if (message.startsWith("!chess")) {
-	   
+	else if (message.startsWith("!mp lb")) {
+	    EntityPlayerSP p = Minecraft.getMinecraft().player;
+	    outputLeaderboardsByWins(p);
+	    outputLeaderboardsByCredits(p);
+	}
+	/*else if (message.startsWith("!chess")) {
+	   String count = args[1];
+						currentmg += Integer.parseInt(count) - 1;
+						minigames.get(currentmg).join(p);
+      if(currentmg > -1){
+						c_ += seconds-c;
+						c = seconds;
+					}
+     this.saveComponentForMinigame(args[1], args[2], p.getLocation());
+							p.sendMessage(ChatColor.GREEN + "Сохранено!");this.disableMinigame(sender, args[1]);	this.enableMinigame(sender, args[1]);p.teleport(getLobby());
+    */
 	else if (message.startsWith("!gpt")) {
                 String response = Main.proxy.getResponse(message);
                 Minecraft.getMinecraft().player.sendMessage(new TextComponentString(response));
