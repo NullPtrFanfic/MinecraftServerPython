@@ -1,4 +1,4 @@
-package com.comze_instancelabs.minigamesparty.minigames;
+package com.nullptr.mod.party.minigames;
 
 import java.util.Random;
 
@@ -11,15 +11,15 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Sheep;
-import org.bukkit.event.Listener;
+//import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitTask;
 
-import com.comze_instancelabs.minigamesparty.Main;
-import com.comze_instancelabs.minigamesparty.Minigame;
-import com.comze_instancelabs.minigamesparty.PluginUtil;
+import com.nullptr.mod.party.Main;
+import com.nullptr.mod.party.Minigame;
+import com.nullptr.mod.party.PluginUtil;
 
-public class SheepFreenzy extends Minigame implements Listener{
+public class SheepFreenzy extends Minigame {
 
 	public SheepFreenzy(Main arg2, Location arg3, Location arg4, Location arg5) {
 		super("SheepFreenzy", MinigameUtil.getDescription(arg2, "SheepFreenzy"), arg2, arg3, arg4, arg5, null);
@@ -32,17 +32,14 @@ public class SheepFreenzy extends Minigame implements Listener{
 
 		final Random r = new Random();
 		
-		final BukkitTask id__ = Bukkit.getServer().getScheduler().runTaskTimer(m, new Runnable() {
-			@Override
-			public void run(){
-				int x = r.nextInt(60) - 30;
-				int z = r.nextInt(60) - 30;
+		int x = r.nextInt(60) - 30;
+		int z = r.nextInt(60) - 30;
 				
-				Location s = new Location(spawn.getWorld(), spawn.getBlockX() + x, spawn.getBlockY() + 2, spawn.getBlockZ() + z);
-				spawn.getWorld().spawn(s, Sheep.class);
-				spawn.getWorld().spawnEntity(s, EntityType.SHEEP);
-			}
-		}, 20, 40); // 7 seconds
+		Location s = new Location(spawn.getWorld(), spawn.getBlockX() + x, spawn.getBlockY() + 2, spawn.getBlockZ() + z);
+		spawn.getWorld().spawn(s, Sheep.class);
+		spawn.getWorld().spawnEntity(s, EntityType.SHEEP);
+			//}
+		//}, 20, 40); // 7 seconds
 		
 		return id__;
 	}
@@ -50,15 +47,10 @@ public class SheepFreenzy extends Minigame implements Listener{
 	@Override
 	public void join(final Player p){
 		super.join(p);
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(m, new Runnable() {
-			@Override
-			public void run() {
-				p.getInventory().clear();
-				p.updateInventory();
-				p.getInventory().addItem(new ItemStack(Material.SHEARS, 1));
-				p.updateInventory();
-			}
-		}, 5);
+		p.getInventory().clear();
+		p.updateInventory();
+		p.getInventory().addItem(new ItemStack(Material.SHEARS, 1));
+	        p.updateInventory();
 	}
 	
 	public static void setup(Location start, Main main, String name_){
