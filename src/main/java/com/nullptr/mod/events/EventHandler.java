@@ -60,7 +60,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemBook;
 import net.minecraft.item.Item;
 //import com.nullptr.mod.party.Shop;
-import com.nullptr.mod.party.Party;
+//import com.nullptr.mod.party.Party;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
     public static ItemStack book;
@@ -185,7 +185,7 @@ public class EventHandler {
 	else if (message.startsWith("!chess")) {
 	    ChessView.boardActive = !ChessView.boardActive;
 	}
-	else if (message.startsWith("!mp help")) {
+	/*else if (message.startsWith("!mp help")) {
 	    EntityPlayerSP p = Minecraft.getMinecraft().player;
 	    p.sendMessage(TextFormatting.GREEN.toString() + new TextComponentString("-- ") + TextFormatting.GOLD.toString() + new TextComponentString("MinigamesParty Help") + TextFormatting.GREEN.toString() + new TextComponentString(" --"));
             p.sendMessage(TextFormatting.DARK_AQUA.toString() + new TextComponentString("/mp setlobby");
@@ -254,7 +254,7 @@ public class EventHandler {
 	    EntityPlayerSP p = Minecraft.getMinecraft().player;
 	    outputLeaderboardsByWins(p);
 	    outputLeaderboardsByCredits(p);
-	}
+	}*/
 	/*else if (message.startsWith("!chess")) {
 	   String count = args[1];
 						currentmg += Integer.parseInt(count) - 1;
