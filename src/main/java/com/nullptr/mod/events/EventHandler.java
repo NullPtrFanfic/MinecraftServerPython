@@ -67,10 +67,42 @@ public class EventHandler {
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
     if (event.player instanceof EntityPlayerMP) {
-        EntityPlayerMP player = (EntityPlayerMP) event.player;
+        EntityPlayerMP p = (EntityPlayerMP) event.player;
         // Остальная часть вашего кода.
 	book = new ItemStack(Item.getItemById(387));
-        player.inventory.addItemStackToInventory(book);
+        p.inventory.addItemStackToInventory(book);
+		// update credits from mysql
+       /* if(Party.players_left.contains(p.getName())){
+	   p.teleport(getLobby());
+	   p.getInventory().setContents(Party.pinv.get(p.getName()));
+	   p.updateInventory();
+	   Party.players_left.remove(p.getName());
+	}
+
+	if(Party.players.contains(event.getPlayer().getName())){
+	   p.sendMessage(TextFormatting.RED.toString() + TextFormatting.BOLD.toString() + new TextComponentString("Вы уже в игре!"));
+	   return;
+	}
+	Party.players.add(p.getName());
+	event.setJoinMessage(TextFormatting.GREEN.toString() + TextFormatting.BOLD.toString() + p.getName() + new TextComponentString(" присоеденился к игре!"));
+
+
+	if(Party.players.size() < min_players + 1){
+	   Party.pinv.put(p.getName(), p.getInventory().getContents());
+	   Party.startNew();
+	   return;
+	}
+				
+	try {
+	   pinv.put(p.getName(), p.getInventory().getContents());
+	   if (currentmg > -1) {
+		minigames.get(currentmg).join(p);
+		p.teleport(minigames.get(currentmg).spawn);
+	}
+		} catch (Exception ex) {
+		     p.sendMessage(TextFormatting.RED.toString() + "Внутренняя ошибка.");
+				}
+    */
     }
     }
     @SubscribeEvent
