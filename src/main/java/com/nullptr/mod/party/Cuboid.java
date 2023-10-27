@@ -1,4 +1,4 @@
-package com.comze_instancelabs.minigamesparty;
+package com.nullptr.mod.party;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
