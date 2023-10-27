@@ -251,7 +251,14 @@ dependencies {
 
 
 }
-
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+            exclude '**/com/nullptr/mod/party/**'
+        }
+    }
+}
 
 
 // Example for how to get properties into the manifest for reading by the runtime..
