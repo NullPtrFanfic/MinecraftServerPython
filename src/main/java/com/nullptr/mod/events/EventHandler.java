@@ -131,25 +131,42 @@ public class EventHandler {
     @SubscribeEvent
     public void onChat(ClientChatEvent event) {
         String message = event.getMessage();
-        if (message.contains("tree")) {
+        if (message.contains("!tree")) {
 	    Minecraft.getMinecraft().player.sendChatMessage("Генерация дерева..");
 	    EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
             BlockPos playerPos = playerSP.getPosition();
             World world = playerSP.getEntityWorld();
             generateTree(world, playerPos);
         }
-	else if (message.contains("house")) {
+	else if (message.contains("!house")) {
 	    Minecraft.getMinecraft().player.sendChatMessage("Генерация дома..");
 	    EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
             BlockPos playerPos = playerSP.getPosition();
             World world = playerSP.getEntityWorld();
             generateHouse(world, playerPos);
 	}
-	else if (message.startsWith("sound")) {
+	else if (message.startsWith("!sound")) {
 	    SoundsUtil.playSound(SoundsUtil.SOUND_1);
 	}
-	else if (message.startsWith("chess")) {
+	else if (message.startsWith("!chess")) {
 	    ChessView.boardActive = !ChessView.boardActive;
+	}
+	else if (message.startsWith("!mp help")) {
+	    EntityPlayerSP p = Minecraft.getMinecraft().player;
+	    p.sendMessage(ChatColor.GREEN + "-- " + ChatColor.GOLD + "MinigamesParty Help" + ChatColor.GREEN + " --");
+	    p.sendMessage(ChatColor.DARK_AQUA + "/mp setlobby");
+	    p.sendMessage(ChatColor.DARK_AQUA + "/mp setup");
+	    p.sendMessage(ChatColor.DARK_AQUA + "/mp disable/enable [minigame]");
+	    p.sendMessage(ChatColor.DARK_AQUA + "/mp stats [player]");
+	    p.sendMessage(ChatColor.DARK_AQUA + "/mp list");
+	    p.sendMessage(ChatColor.DARK_AQUA + "/mp leaderboards [wins|credits]");
+	    p.sendMessage(ChatColor.DARK_AQUA + "/mp leave");
+	    p.sendMessage(ChatColor.DARK_AQUA + "/mp setcomponent [minigame] [component]");
+	    p.sendMessage(ChatColor.GOLD + "To setup the game, do the following: ");
+	    p.sendMessage(ChatColor.DARK_AQUA + "1. Build the main lobby");
+	    p.sendMessage(ChatColor.DARK_AQUA + "2. /mp setlobby");
+            p.sendMessage(ChatColor.DARK_AQUA + "3. Go far away");
+	    p.sendMessage(TextFormatting.DARK_AQUA.toString() + new TextComponentString("4. /mp setup"));
 	}
 	else if (message.startsWith("!gpt")) {
                 String response = Main.proxy.getResponse(message);
