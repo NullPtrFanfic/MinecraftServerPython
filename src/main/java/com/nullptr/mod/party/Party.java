@@ -232,59 +232,6 @@ public class Party {
 		} catch (IOException e) { }
 		}
         }
-	@EventHandler
-	public void onPlayerLeave(PlayerQuitEvent event){
-		if(players.contains(event.getPlayer().getName())){
-			players.remove(event.getPlayer().getName());
-			players_left.add(event.getPlayer().getName());
-			
-			if(players.size() < min_players){
-				stopFull();
-			}
-		}
-
-		/*if(players.size() < min_players){
-			stopFull();
-		}*/
-	}
-
-	@EventHandler 
-	public void onPlayerJoin(PlayerJoinEvent event) {
-		final EntityPlayerSP p = event.getPlayer();
-		
-		// update credits from mysql
-
-		if(players_left.contains(p.getName())){
-			p.teleport(getLobby());
-			p.getInventory().setContents(pinv.get(p.getName()));
-		        p.updateInventory();
-			players_left.remove(p.getName());
-		}
-
-		if(players.contains(event.getPlayer().getName())){
-			p.sendMessage(TextFormatting.RED.toString() + TextFormatting.BOLD.toString() + new TextComponentString("Вы уже в игре!"));
-			return;
-		}
-		players.add(p.getName());
-		event.setJoinMessage(TextFormatting.GREEN.toString() + TextFormatting.BOLD.toString() + p.getName() + new TextComponentString(" присоеденился к игре!"));
-
-
-		if(players.size() < min_players + 1){
-		   pinv.put(p.getName(), p.getInventory().getContents());
-		   startNew();
-		   return;
-	        }
-				
-	        try {
-		   pinv.put(p.getName(), p.getInventory().getContents());
-		   if (currentmg > -1) {
-		       minigames.get(currentmg).join(p);
-		       p.teleport(minigames.get(currentmg).spawn);
-		   }
-		} catch (Exception ex) {
-		     p.sendMessage(TextFormatting.RED.toString() + "Внутренняя ошибка.");
-		}
-	}
 
 	@EventHandler
 	public void onSignUse(PlayerInteractEvent event)
