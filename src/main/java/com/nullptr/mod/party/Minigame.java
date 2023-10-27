@@ -1,196 +1,98 @@
-package com.comze_instancelabs.minigamesparty;
+package com.nullptr.mod.party;
 
-import java.util.ArrayList;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
-import org.bukkit.Location;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
-import org.bukkit.potion.PotionEffectType;
-import org.bukkit.scheduler.BukkitTask;
+import com.nullptr.mod.party.Party;
 
-import com.comze_instancelabs.minigamesparty.minigames.MinigameUtil;
-
+@Mod.EventBusSubscriber
 public class Minigame {
-	
-	public ArrayList<Player> lost = new ArrayList<Player>();
-	
-	public String name = "";
-	public static Main m;
-	public Location spawn;
-	public Location lobby;
-	public Location spectatorlobby;
-	public Location finish;
-	public String description;
-	public boolean enabled;
-	
-	public Minigame(String arg1, String arg2, Main arg3, Location arg4, Location arg5, Location arg6, Location arg7){
-		name = arg1;
-		description = arg2;
-		m = arg3;
-		spawn = arg4;
-		lobby = arg5;
-		spectatorlobby = arg6;
-		finish = arg7;
-	}
-	
-	public void getWinner(){
-		for(String pl : m.players){
-			Player p = Bukkit.getPlayerExact(pl);
-			if(p.isOnline()){
-				if(!lost.contains(p)){
-					m.win(p);
-				}
-			}
-		}
-		
-		lost.clear();
-	}
-	
-	int count = 5;
-	BukkitTask cooldown = null;
-	
-	public void startCooldown(){
-		//final BukkitTask id__ = Bukkit.getServer().getScheduler().runTaskTimerAsynchronously(m, new Runnable() {
 
-		final BukkitTask id__ = Bukkit.getServer().getScheduler().runTaskTimer(m, new Runnable() {
-			public void run(){
-				
-				for(String p_ : m.players){
-					Player p = Bukkit.getPlayerExact(p_);
-					if(p.isOnline()){
-						p.sendMessage(ChatColor.GREEN + "Starting in " + ChatColor.GOLD + Integer.toString(count));
-					}
-				}
-				count--;
-				if(count < 0){
-					m.registerMinigameStart(m.minigames.get(m.currentmg).start());
-					m.ingame_started = true;
-					count = 5;
-					cooldown.cancel();
-					cooldown = null;
-				}
-			}
-		}, 20, 20);
-		cooldown = id__;
-	}
-	
-	public BukkitTask start(){
-		return null;
-	}
-	
-	public void join(final Player p){
-		if(p.hasPotionEffect(PotionEffectType.JUMP)){
-			p.removePotionEffect(PotionEffectType.JUMP);
-		}
-		if(p.hasPotionEffect(PotionEffectType.SPEED)){
-			p.removePotionEffect(PotionEffectType.SPEED);
-		}
-		if(p.getPassenger()  != null){
-			Entity t = p.getPassenger();
-			p.eject();
-			t.remove();
-		}
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(m, new Runnable() {
-			@Override
-			public void run() {
-				if(p.getPassenger() != null){
-					Entity t = p.getPassenger();
-					p.eject();
-					t.remove();
-				}
-				p.teleport(spawn);
-				p.setGameMode(GameMode.SURVIVAL);
-				p.setAllowFlight(false);
-				p.setFlying(false);
-				p.sendMessage(MinigameUtil.nowPlaying(name));
-				p.sendMessage(MinigameUtil.description(m.minigames.get(m.currentmg), description));
-			}
-		}, 5);
-	}
-	
-	public void leave(final Player p){
-		/*for (PotionEffect effect : p.getActivePotionEffects()) {
-			if(p.hasPotionEffect(effect.getType())){
-				try {
-					p.removePotionEffect(effect.getType());
-				} catch (Exception e) {
-					
-				}
-			}
-		}*/
-		if(p.hasPotionEffect(PotionEffectType.JUMP)){
-			p.removePotionEffect(PotionEffectType.JUMP);
-		}
-		if(p.hasPotionEffect(PotionEffectType.SPEED)){
-			p.removePotionEffect(PotionEffectType.SPEED);
-		}
+    private String name = "";
+    private static Party m;
+    private boolean enabled;
+    private int countdown = 5;
+    private int cooldownTicks = -1;
 
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(m, new Runnable() {
-			@Override
-			public void run() {
-				if(p.getPassenger() != null){
-					Entity t = p.getPassenger();
-					p.eject();
-					t.remove();
-				}
-				p.teleport(lobby);
-				p.setAllowFlight(false);
-				p.setFlying(false);
-				if(p.hasPotionEffect(PotionEffectType.JUMP)){
-					p.removePotionEffect(PotionEffectType.JUMP);
-				}
-				if(p.hasPotionEffect(PotionEffectType.SPEED)){
-					p.removePotionEffect(PotionEffectType.SPEED);
-				}
-				
-			}
-		}, 5);
-		
-		Bukkit.getScheduler().runTaskLater(m, new Runnable(){
-			public void run(){
-				m.giveItemRewards(p, true);
-			}
-		}, 15L);
-		
-	}
-	
-	public void spectate(final Player p){
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(m, new Runnable() {
-			@Override
-			public void run() {
-				if(p.getPassenger() != null){
-					Entity t = p.getPassenger();
-					p.eject();
-					t.remove();
-				}
-				p.setAllowFlight(true);
-				p.setFlying(true);
-				p.teleport(spectatorlobby);
-				p.getInventory().clear();
-			}
-		}, 5);
-	}
-	
-	
-	public void reset(final Location location){
-	}
-	
-	public void setEnabled(boolean f){
-		enabled = f;
-		m.getConfig().set("minigames." + name + ".enabled", f);
-		m.saveConfig();
-	}
-	
-	public boolean isEnabled(){
-		if(!m.getConfig().isSet("minigames." + name + ".enabled")){
-			setEnabled(true);
-			return true;
-		}else{
-			return m.getConfig().getBoolean("minigames." + name + ".enabled");
-		}
-	}
-	
+    public Minigame(String arg1, String arg2, Party arg3) {
+        name = arg1;
+        m = arg3;
+        enabled = true;
+    }
+
+    public void getWinner() {
+        for (EntityPlayer player : m.getPlayers()) {
+            if (!lost.contains(player)) {
+                m.win(player);
+            }
+        }
+        lost.clear();
+    }
+
+    public void startCooldown() {
+        cooldownTicks = countdown * 20;
+    }
+
+    public void startGame() {
+        m.registerMinigameStart(start());
+        m.setIngameStarted(true);
+    }
+
+    public Object start() {
+        return null; // Implement your game logic here
+    }
+
+    public void join(EntityPlayer player) {
+        player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 200, 2));
+        player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 200, 2));
+        player.dismountRidingEntity();
+        player.setPositionAndUpdate(spawn.x, spawn.y, spawn.z);
+        player.sendMessage(new TextComponentString("Now playing " + name));
+        player.sendMessage(new TextComponentString(description));
+    }
+
+    public void leave(EntityPlayer player) {
+        player.removePotionEffect(MobEffects.JUMP_BOOST);
+        player.removePotionEffect(MobEffects.SPEED);
+        player.dismountRidingEntity();
+        player.setPositionAndUpdate(lobby.x, lobby.y, lobby.z);
+        m.scheduleTask(() -> giveItemRewards(player, true), 15L);
+    }
+
+    public void spectate(EntityPlayer player) {
+        player.dismountRidingEntity();
+        player.setInvisible(true);
+        player.setPositionAndUpdate(spectatorlobby.x, spectatorlobby.y, spectatorlobby.z);
+    }
+
+    public void reset(World world) {
+        // Reset game state in the world
+    }
+
+    
+
+    @SubscribeEvent
+    public void onPlayerTick(TickEvent.PlayerTickEvent event) {
+        if (cooldownTicks > 0) {
+            if (cooldownTicks % 20 == 0) {
+                EntityPlayer player = event.player;
+                player.sendMessage(new TextComponentString("Starting in " + countdown));
+                countdown--;
+            }
+            cooldownTicks--;
+
+            if (cooldownTicks == 0) {
+                startGame();
+                cooldownTicks = -1;
+                countdown = 5;
+            }
+        }
+    }
 }
