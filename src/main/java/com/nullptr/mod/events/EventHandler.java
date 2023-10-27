@@ -59,7 +59,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemBook;
 import net.minecraft.item.Item;
-import com.nullptr.mod.party.Shop;
+//import com.nullptr.mod.party.Shop;
 import com.nullptr.mod.party.Party;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
@@ -170,9 +170,31 @@ public class EventHandler {
             p.sendMessage(TextFormatting.DARK_AQUA.toString() + new TextComponentString("3. Go far away");
 	    p.sendMessage(TextFormatting.DARK_AQUA.toString() + new TextComponentString("4. /mp setup"));
 	}
-	else if (message.startsWith("!mp shop")) {
+	else if (message.startsWith("!mp join")) {
 	    EntityPlayerSP p = Minecraft.getMinecraft().player;
-	    Shop.openShop(p.getName());
+	    if(Party.players.size() > 12 - 1){
+		p.sendMessage(TextFormatting.RED.toString() + new TextComponentString("You can't join because the minigames party is full!"));
+	    }
+	    Party.players.add(p.getName());
+						// if its the first player to join, start the whole minigame
+	    if(Party.players.size() < 1 + 1){
+	       Party.pinv.put(p.getName(), p.getInventory().getContents());
+	       Party.startNew();
+	       if(1 > 1){
+		  p.sendMessage(TextFormatting.GREEN.toString() + new TextComponentString("You joined the queue. There are ") + TextFormattting.GOLD.toString() + new TextComponentInteger.toString(min_players) + ChatColor.GREEN + " players needed to start.");
+	       }
+						}else{ // else: just join the minigame
+							try{
+								pinv.put(p.getName(), p.getInventory().getContents());
+								if(ingame_started){
+									minigames.get(currentmg).lost.add(p);
+									minigames.get(currentmg).spectate(p);
+								}else{
+									minigames.get(currentmg).join(p);
+								}
+							}catch(Exception e){}
+							p.sendMessage(ChatColor.GREEN + "You joined the queue. There are " + ChatColor.GOLD + Integer.toString(min_players) + ChatColor.GREEN + " players needed to start.");
+						}	
 	}
 	else if (message.startsWith("!mp list")) {
 	    EntityPlayerSP p = Minecraft.getMinecraft().player;
