@@ -1,4 +1,4 @@
-package com.comze_instancelabs.minigamesparty.minigames;
+package com.nullptr.mod.party.minigames;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,16 +13,16 @@ import org.bukkit.entity.Chicken;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
+//import org.bukkit.event.Listener;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitTask;
 
-import com.comze_instancelabs.minigamesparty.Main;
-import com.comze_instancelabs.minigamesparty.Minigame;
-import com.comze_instancelabs.minigamesparty.Shop;
+import com.nullptr.mod.party.Main;
+import com.nullptr.mod.party.Minigame;
+import com.nullptr.mod.party.Shop;
 
-public class ChickenTag extends Minigame implements Listener{
+public class ChickenTag extends Minigame {
 	
 	static ArrayList<Integer> ints = new ArrayList<Integer>();
 	
@@ -39,7 +39,7 @@ public class ChickenTag extends Minigame implements Listener{
 	  { 1, 1, 1, 1, 0, 1, 0, 0, 1, 0,1, 0, 1, 1, 1, 1, 0, 1, 0, 0,1, 0, 1, 1, 1, 1, 0, 1, 0, 0,0, 1 }
 	};
 	
-	public static void setup(Location start, Main main, String name_){
+	public static void setup(Location start, Party main, String name_){
 		int x = start.getBlockX() - 32;
 		int y = start.getBlockY();
 		int y_ = start.getBlockY() - 4;
