@@ -60,6 +60,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemBook;
 import net.minecraft.item.Item;
 import com.nullptr.mod.party.Shop;
+import com.nullptr.mod.party.Party;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
     public static ItemStack book;
@@ -170,6 +171,7 @@ public class EventHandler {
 	    p.sendMessage(TextFormatting.DARK_AQUA.toString() + new TextComponentString("4. /mp setup"));
 	}
 	else if (message.startsWith("!mp shop")) {
+	    EntityPlayerSP p = Minecraft.getMinecraft().player;
 	    Shop.openShop(p.getName());
 	}
 	else if (message.startsWith("!mp list")) {
@@ -183,8 +185,15 @@ public class EventHandler {
 		}
 	    }
 	}
-	else if (message.startsWith("!chess")) {
-	else if (message.startsWith("!chess")) {
+	else if (message.startsWith("!mp setup")) {
+	    EntityPlayerSP p = Minecraft.getMinecraft().player;
+	    Party.setupAll(p.getLocation());
+	}
+	else if (message.startsWith("!mp stats")) {
+	    EntityPlayerSP p = Minecraft.getMinecraft().player;
+	    p.sendMessage(TextFormatting.GREEN.toString() + "Вы имеете " + new TextComponentString(Integer.toString((Party.getPlayerStats(p, "credits")))) + new TextComponentString(" Кредитов."));
+	    
+	}
 	else if (message.startsWith("!chess")) {
 	   
 	else if (message.startsWith("!gpt")) {
