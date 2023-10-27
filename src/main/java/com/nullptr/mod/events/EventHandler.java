@@ -185,16 +185,16 @@ public class EventHandler {
 	       }
 	    }else{ // else: just join the minigame
 		try{
-		pinv.put(p.getName(), p.getInventory().getContents());
-		if(ingame_started){
-		    minigames.get(currentmg).lost.add(p);
-		    minigames.get(currentmg).spectate(p);
+		Party.pinv.put(p.getName(), p.getInventory().getContents());
+		if(Party.ingame_started){
+		    Party.minigames.get(Party.currentmg).lost.add(p);
+		    Party.minigames.get(Party.currentmg).spectate(p);
 		}else{
-		minigames.get(currentmg).join(p);
+		Party.minigames.get(Party.currentmg).join(p);
 		}
 		}catch(Exception e){}
-		p.sendMessage(ChatColor.GREEN + "You joined the queue. There are " + ChatColor.GOLD + Integer.toString(min_players) + ChatColor.GREEN + " players needed to start.");
-		updateScoreboardOUTGAME(p.getName());
+		p.sendMessage(TextFormatting.GREEN.toString() + new TextComponentString("You joined the queue. There are ") + TextFormatting.GOLD.toString() + new TextComponentString("1") + TextFormatting.GREEN.toString() + " игрок нужен для старта.");
+		Party.updateScoreboardOUTGAME(p.getName());
 		p.getInventory().clear();
 	        p.updateInventory();
 	    }
