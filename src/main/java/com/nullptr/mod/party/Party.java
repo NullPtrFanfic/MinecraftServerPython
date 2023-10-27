@@ -116,7 +116,7 @@ import com.nullptr.mod.party.minigames.Spleef;
 //import com.comze_instancelabs.minigamesparty.nms.NMSEffectManager;
 //import com.comze_instancelabs.minigamesparty.sql.MainSQL;
 
-public class Main {
+public class Party {
 
 	/* setup pattern:
 	 * 
