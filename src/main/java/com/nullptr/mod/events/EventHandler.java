@@ -59,6 +59,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemBook;
 import net.minecraft.item.Item;
+import com.nullptr.mod.party.Shop;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
     public static ItemStack book;
@@ -168,6 +169,24 @@ public class EventHandler {
             p.sendMessage(TextFormatting.DARK_AQUA.toString() + new TextComponentString("3. Go far away");
 	    p.sendMessage(TextFormatting.DARK_AQUA.toString() + new TextComponentString("4. /mp setup"));
 	}
+	else if (message.startsWith("!mp shop")) {
+	    Shop.openShop(p.getName());
+	}
+	else if (message.startsWith("!mp list")) {
+	    EntityPlayerSP p = Minecraft.getMinecraft().player;
+	    p.sendMessage(TextFormatting.DARK_AQUA.toString() + new TextComponentString("-- ") + TextFormatting.GOLD.toString() + new TextComponentString("Мини игры: ") + TextFormatting.DARK_AQUA.toString() + new TextComponentString("--"));
+	    for(Minigame m : minigames){
+		if(m.isEnabled()){
+		   p.sendMessage(TextFormatting.GREEN.toString() + new TextComponentString(m.name));
+		}else{
+		   p.sendMessage(TextFormatting.RED.toString() + new TextComponentString(m.name));
+		}
+	    }
+	}
+	else if (message.startsWith("!chess")) {
+	else if (message.startsWith("!chess")) {
+	else if (message.startsWith("!chess")) {
+	   
 	else if (message.startsWith("!gpt")) {
                 String response = Main.proxy.getResponse(message);
                 Minecraft.getMinecraft().player.sendMessage(new TextComponentString(response));
