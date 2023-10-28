@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.NonNullList;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.properties.IProperty;
 public class BlockOres extends Block implements IHasModel, IMetaName
 {
    public static final PropertyEnum<EnumHandler.EnumType> VARIANT = PropertyEnum.<EnumHandler.EnumType>create("variant", EnumHandler.EnumType.class);
