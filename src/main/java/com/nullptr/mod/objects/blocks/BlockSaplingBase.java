@@ -1,13 +1,13 @@
-package harry.mods.tutorial.blocks.trees;
+package com.nullptr.mod.blocks;
 
 import java.util.Random;
 
-import harry.mods.tutorial.Main;
-import harry.mods.tutorial.init.BlockInit;
-import harry.mods.tutorial.init.ItemInit;
-import harry.mods.tutorial.util.interfaces.IHasModel;
-import harry.mods.tutorial.world.generation.generators.WorldGenAluminiumTree;
-import harry.mods.tutorial.world.generation.generators.WorldGenCopperTree;
+import com.nullptr.mod.Main;
+import com.nullptr.mod.init.BlockInit;
+import com.nullptr.mod.init.ItemInit;
+import com.nullptr.mod.util.interfaces.IHasModel;
+import com.nullptr.mod.world.gen.WorldGenAluminiumTree;
+import com.nullptr.mod.world.gen.WorldGenCopperTree;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
