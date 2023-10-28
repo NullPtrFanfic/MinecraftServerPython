@@ -1,8 +1,8 @@
-package harry.mods.tutorial.world.generation.generators;
+package com.nullptr.mod.world.gen;
 
 import java.util.Random;
 
-import harry.mods.tutorial.init.BlockInit;
+import com.nullptr.mod.init.BlockInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
