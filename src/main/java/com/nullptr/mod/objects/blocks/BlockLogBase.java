@@ -1,4 +1,4 @@
-package com.nullptr.mod.blocks;
+package com.nullptr.mod.objects.blocks;
 
 import com.nullptr.mod.Main;
 import com.nullptr.mod.init.BlockInit;
