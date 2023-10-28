@@ -25,9 +25,9 @@ public class BlockOres extends Block implements IHasModel, IMetaName
 {
    public static final PropertyEnum<EnumHandler.EnumType> VARIANT = PropertyEnum.<EnumHandler.EnumType>create("variant", EnumHandler.EnumType.class);
    private String name, dimension;
-   public BlockOres(String name, Material material)
+   public BlockOres(String name, String dimension)
    {
-      super(material);
+      super(Material.ROCK);
       setUnlocalizedName(name);
       setRegistryName(name);
       setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
