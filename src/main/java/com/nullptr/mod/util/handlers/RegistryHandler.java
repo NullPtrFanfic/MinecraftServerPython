@@ -22,6 +22,8 @@ import com.nullptr.mod.init.EntityInit;
 import com.nullptr.mod.util.handlers.RenderHandler;
 import com.nullptr.mod.util.handlers.SoundsHandler;
 import com.nullptr.mod.world.gen.WorldGenCustomOres;
+import com.nullptr.mod.world.gen.WorldGenCustomTrees;
+import com.nullptr.mod.init.BiomeInit;
 @EventBusSubscriber
 public class RegistryHandler {
     @SubscribeEvent
@@ -54,6 +56,8 @@ public class RegistryHandler {
     public static void preInitRegistries(FMLPreInitializationEvent event)
     {
 		GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
+	        GameRegistry.registerWorldGenerator(new WorldGenCustomTrees(), 0);
+		BiomeInit.registerBiomes();
 		EntityInit.registerEntities();
 		//EventHandler.registerEvents();
 	       // SoundsHandler.registerSounds();
