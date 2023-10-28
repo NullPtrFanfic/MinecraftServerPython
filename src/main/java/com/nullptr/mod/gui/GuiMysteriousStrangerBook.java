@@ -21,8 +21,9 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
     private NextPageButton previousPageButton;
 
     public GuiMysteriousStrangerBook() {
-        pageTextures[0] = new ResourceLocation("mod:textures/items/ivan1.jpg");
-        pageTextures[1] = new ResourceLocation("mod:textures/items/ivan2.jpg");
+        pageTextures[0] = new ResourceLocation("mod:textures/items/unknown.png");
+        pageTextures[1] = new ResourceLocation("mod:textures/items/unknown-2.png");
+        pageTextures[2] = new ResourceLocation("mod:textures/items/unknown-3.png");
     }
     @Override
     public void initGui() {
