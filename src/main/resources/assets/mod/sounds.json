@@ -1,7 +1,7 @@
 { 
   "sound1": { 
     "category" : "player", 
-    "sounds": [{ "name": "mod:ivan", "stream": false } ] 
+    "sounds": [{ "name": "mod:song", "stream": false } ] 
   },
   "sound2": { 
     "category" : "player", 
