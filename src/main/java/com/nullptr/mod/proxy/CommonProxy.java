@@ -31,6 +31,7 @@ public class CommonProxy {
     public void registerRenders() {}
     public void registerTextures() {}
     public void registerModels() {}
+    public void registerModel(Item item, int metadata) {}
     public String getResponse(String message) {
             String response = ChatGPTBot.getResponse(message);
 	    return response;
