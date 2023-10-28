@@ -38,7 +38,7 @@ public class BlockSaplingBase extends BlockBush implements IGrowable, IHasModel
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
-		setCreativeTab(Main.TUTORIAL);
+		setCreativeTab(Main.MODTAB);
 		
 		type = name.replaceAll("_sapling", "").trim();
 				
