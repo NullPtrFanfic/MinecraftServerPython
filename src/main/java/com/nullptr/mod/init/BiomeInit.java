@@ -1,7 +1,7 @@
-package harry.mods.tutorial.init;
+package com.nullptr.mod.init;
 
-import harry.mods.tutorial.util.ModConfiguration;
-import harry.mods.tutorial.world.biomes.BiomeCopper;
+import com.nullptr.mod.util.ModConfiguration;
+import com.nullptr.mod.world.biomes.BiomeCopper;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
