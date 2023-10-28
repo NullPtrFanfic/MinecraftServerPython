@@ -4,6 +4,7 @@ import com.nullptr.mod.Main;
 import com.nullptr.mod.objects.blocks.item.ItemBlockVariants;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import com.nullptr.mod.util.interfaces.IMetaName;
 import com.nullptr.mod.util.IHasModel;
 import com.nullptr.mod.util.handlers.EnumHandler;
@@ -11,6 +12,7 @@ import com.nullptr.mod.init.ItemInit;
 import com.nullptr.mod.init.BlockInit;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.IBlockState;
 public class BlockOres extends Block implements IHasModel, IMetaName
 {
    public static final PropertyEnum<EnumHandler.EnumType> VARIANT = PropertyEnum.<EnumHandler.EnumType>create("variant", EnumHandler.EnumType.class);
@@ -28,11 +30,36 @@ public class BlockOres extends Block implements IHasModel, IMetaName
       ItemInit.ITEMS.add(new ItemBlockVariants(this).setRegistryName(this.getRegistryName()));
    }
    @Override
+   public int damageDropped(IBlockState state)
+   {
+      return ((EnumHandler.EnumType)state.getValue(VARIANT)).getMeta();
+   }
+   @Override
+   public int getMetaFromState(IBlockState state)
+   {
+      return ((EnumHandler.EnumType)state.getValue(VARIANT)).getMeta();
+   }
+   @Override
+   public IBlockState getStateFromMeta(int meta)
+   {
+      return this.getDefaultState().withProperty(VARIANT, EnumHandler.EnumType.byMetadata(meta));
+   }
+   @Override
+   public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
+   {
+      return new ItemStack(item.getItemFromBlock(this), 1, getMetaFromState(world.getBlockState(pos)));
+   }
+   @Override
+   public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items)
+   {
+      for 
+   }
+   @Override
    public void registerModels()
    {
       for(int i = 0; i < EnumHandler.EnumType.values().length; i++)
       {
-          Main.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, "ore_" + this.dimension + EnumHandler.EnumType.values()[i].getName(), "inventory");
+          Main.proxy.registerVariantRenderer(Item.getItemFromBlock(this), i, "ore_" + this.dimension + "_" + EnumHandler.EnumType.values()[i].getName(), "inventory");
       }
    }
 }
