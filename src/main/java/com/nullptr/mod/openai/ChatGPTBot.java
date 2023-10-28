@@ -34,7 +34,7 @@ public class ChatGPTBot {
     public static CompletableFuture<Void> init() {
         return CompletableFuture.runAsync(() -> {
             try {
-                api = new OpenAiService("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", Duration.ofSeconds(45));
+                api = new OpenAiService("", Duration.ofSeconds(45));
             } catch (Exception e) {
                 StringWriter sw = new StringWriter();
                 PrintWriter pw = new PrintWriter(sw);
