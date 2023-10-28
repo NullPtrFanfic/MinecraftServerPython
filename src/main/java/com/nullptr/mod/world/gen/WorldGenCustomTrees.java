@@ -17,8 +17,8 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import com.nullptr.mod.biomes.BiomeCopper;
-import com.nullptr.mod.biomes.BiomePlains;
+import com.nullptr.mod.world.biomes.BiomeCopper;
+//import com.nullptr.mod.biomes.BiomePlains;
 public class WorldGenCustomTrees implements IWorldGenerator
 {
 	private final WorldGenerator COPPER = new WorldGenCopperTree();
