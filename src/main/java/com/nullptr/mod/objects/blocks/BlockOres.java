@@ -12,6 +12,12 @@ import com.nullptr.mod.init.ItemInit;
 import com.nullptr.mod.init.BlockInit;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.material.Material;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.World;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.NonNullList;
 import net.minecraft.block.state.IBlockState;
 public class BlockOres extends Block implements IHasModel, IMetaName
 {
