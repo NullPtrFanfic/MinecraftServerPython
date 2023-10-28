@@ -1,13 +1,13 @@
-package harry.mods.tutorial.blocks.trees;
+package com.nullptr.mod.objects.blocks;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import harry.mods.tutorial.Main;
-import harry.mods.tutorial.init.BlockInit;
-import harry.mods.tutorial.init.ItemInit;
-import harry.mods.tutorial.util.interfaces.IHasModel;
+import com.nullptr.mod.Main;
+import com.nullptr.mod.init.BlockInit;
+import com.nullptr.mod.init.ItemInit;
+import com.nullptr.mod.util.interfaces.IHasModel;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.SoundType;
@@ -38,7 +38,7 @@ public class BlockLeavesBase extends BlockLeaves implements IHasModel
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setSoundType(SoundType.PLANT);
-		setCreativeTab(Main.TUTORIAL);
+		setCreativeTab(Main.MODTAB);
 		setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
 				
 		BlockInit.BLOCKS.add(this);
