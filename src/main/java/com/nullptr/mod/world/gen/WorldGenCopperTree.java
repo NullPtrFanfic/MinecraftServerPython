@@ -2,7 +2,7 @@ package com.nullptr.mod.world.gen;
 
 import java.util.Random;
 
-import com.nullptr.mod.blocks.BlockSaplingBase;
+import com.nullptr.mod.objects.blocks.BlockSaplingBase;
 import com.nullptr.mod.init.BlockInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
