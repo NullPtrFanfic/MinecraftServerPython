@@ -1,6 +1,6 @@
 package com.nullptr.mod.init;
 
-import com.nullptr.mod.util.ModConfiguration;
+//import com.nullptr.mod.util.ModConfiguration;
 import com.nullptr.mod.world.biomes.BiomeCopper;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -26,10 +26,7 @@ public class BiomeInit
 		BiomeDictionary.addTypes(biome, types);
 		BiomeManager.addBiome(biomeType, new BiomeEntry(biome, 10));
 		
-		if(ModConfiguration.spawnCustomBiomesInOverworld) 
-		{
-			BiomeManager.addSpawnBiome(biome);
-		}
+		BiomeManager.addSpawnBiome(biome);
 		return biome;
 	}
 }
