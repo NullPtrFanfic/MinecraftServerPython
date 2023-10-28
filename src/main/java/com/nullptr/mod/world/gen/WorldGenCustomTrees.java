@@ -35,7 +35,7 @@ public class WorldGenCustomTrees implements IWorldGenerator
 			
 		case 0:
 			
-			runGenerator(COPPER, world, random, chunkX, chunkZ, 5, BlockInit.COPPER_DIRT, BiomeCopper.class);
+			//runGenerator(COPPER, world, random, chunkX, chunkZ, 5, BlockInit.COPPER_DIRT, BiomeCopper.class);
 			runGenerator(ALUMINIUM, world, random, chunkX, chunkZ, 5, Blocks.GRASS, BiomePlains.class);
 			
 			break;
