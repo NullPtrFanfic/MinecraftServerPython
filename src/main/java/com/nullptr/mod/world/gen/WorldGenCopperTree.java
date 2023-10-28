@@ -16,8 +16,8 @@ import net.minecraftforge.common.IPlantable;
 
 public class WorldGenCopperTree extends WorldGenAbstractTree 
 {
-	public static final IBlockState LOG = BlockInit.LOG.getDefaultState();
-	public static final IBlockState LEAF = BlockInit.LEAVES.getDefaultState();
+	public static final IBlockState LOG = BlockInit.COPPER_LOG.getDefaultState();
+	public static final IBlockState LEAF = BlockInit.COPPER_LEAVES.getDefaultState();
 	
 	private final int minHeight;
 	
