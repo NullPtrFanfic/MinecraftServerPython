@@ -1,7 +1,7 @@
-package harry.mods.tutorial.world.biomes;
+package com.nullptr.mod.world.biomes;
 
-import harry.mods.tutorial.entity.EntityCentaur;
-import harry.mods.tutorial.init.BlockInit;
+import com.nullptr.mod.entity.EntityCentaur;
+import com.nullptr.mod.init.BlockInit;
 import net.minecraft.world.biome.Biome;
 
 public class BiomeCopper extends Biome 
