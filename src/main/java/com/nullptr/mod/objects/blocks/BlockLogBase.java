@@ -1,9 +1,9 @@
-package harry.mods.tutorial.blocks.trees;
+package com.nullptr.mod.blocks;
 
-import harry.mods.tutorial.Main;
-import harry.mods.tutorial.init.BlockInit;
-import harry.mods.tutorial.init.ItemInit;
-import harry.mods.tutorial.util.interfaces.IHasModel;
+import com.nullptr.mod.Main;
+import com.nullptr.mod.init.BlockInit;
+import com.nullptr.mod.init.ItemInit;
+import com.nullptr.mod.util.interfaces.IHasModel;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
@@ -21,7 +21,7 @@ public class BlockLogBase extends BlockLog implements IHasModel
 		setRegistryName(name);
 		setSoundType(SoundType.WOOD);
 		setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, EnumAxis.Y));
-		setCreativeTab(Main.TUTORIAL);
+		setCreativeTab(Main.MODTAB);
 				
 		BlockInit.BLOCKS.add(this);
 		ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
