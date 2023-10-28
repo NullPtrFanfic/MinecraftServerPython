@@ -1,7 +1,3 @@
 {
-    "parent": "block/cube_all",
-    "textures":
-    {
-        "all": "mod:blocks/ore_overworld_aluminium"
-    }
+    "parent": "mod:block/ore_overworld_aluminium",
 }
