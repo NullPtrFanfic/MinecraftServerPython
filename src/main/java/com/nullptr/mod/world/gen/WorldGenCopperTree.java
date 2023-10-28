@@ -1,9 +1,9 @@
-package harry.mods.tutorial.world.generation.generators;
+package com.nullptr.mod.world.gen;
 
 import java.util.Random;
 
-import harry.mods.tutorial.blocks.trees.BlockSaplingBase;
-import harry.mods.tutorial.init.BlockInit;
+import com.nullptr.mod.blocks.BlockSaplingBase;
+import com.nullptr.mod.init.BlockInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -16,8 +16,8 @@ import net.minecraftforge.common.IPlantable;
 
 public class WorldGenCopperTree extends WorldGenAbstractTree 
 {
-	public static final IBlockState LOG = BlockInit.COPPER_LOG.getDefaultState();
-	public static final IBlockState LEAF = BlockInit.COPPER_LEAVES.getDefaultState();
+	public static final IBlockState LOG = BlockInit.LOG.getDefaultState();
+	public static final IBlockState LEAF = BlockInit.LEAVES.getDefaultState();
 	
 	private final int minHeight;
 	
