@@ -1,3 +1,0 @@
-# MinecraftServerPython
-# MinecraftServerPython
-# MinecraftServerPython
