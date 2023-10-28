@@ -55,7 +55,7 @@ public class BlockOres extends Block implements IHasModel, IMetaName
    @Override
    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
    {
-      return new ItemStack(item.getItemFromBlock(this), 1, getMetaFromState(world.getBlockState(pos)));
+      return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(world.getBlockState(pos)));
    }
    @Override
    public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items)
@@ -73,7 +73,7 @@ public class BlockOres extends Block implements IHasModel, IMetaName
    @Override
    public String getSpecialName(ItemStack stack)
    {
-      return EnumHandler.EnumTypr.values()[stack.getItemDamage()].getName();
+      return EnumHandler.EnumType.values()[stack.getItemDamage()].getName();
    }
    @Override
    public void registerModels()
