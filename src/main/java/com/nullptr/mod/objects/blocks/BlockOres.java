@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import com.nullptr.mod.util.interfaces.IMetaName;
-import com.nullptr.mod.util.IHasModel;
+import com.nullptr.mod.util.interfaces.IHasModel;
 import com.nullptr.mod.util.handlers.EnumHandler;
 import com.nullptr.mod.init.ItemInit;
 import com.nullptr.mod.init.BlockInit;
@@ -20,6 +20,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.NonNullList;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockStateContainer;
 public class BlockOres extends Block implements IHasModel, IMetaName
 {
    public static final PropertyEnum<EnumHandler.EnumType> VARIANT = PropertyEnum.<EnumHandler.EnumType>create("variant", EnumHandler.EnumType.class);
