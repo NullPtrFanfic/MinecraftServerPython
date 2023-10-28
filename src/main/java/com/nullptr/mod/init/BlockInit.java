@@ -18,10 +18,10 @@ public class BlockInit
   // public static final Block ORE_END = new BlockOres("ore_end", "end");
    public static final Block ORE_OVERWORLD = new BlockOres("ore_overworld", "overworld");
    public static final Block COPPER_LEAVES = new BlockLeavesBase("copper_leaves");
-	public static final Block COPPER_LOG = new BlockLogBase("copper_log");
-	public static final Block COPPER_SAPLING = new BlockSaplingBase("copper_sapling");
-	public static final Block ALUMINIUM_LEAVES = new BlockLeavesBase("aluminium_leaves");
-	public static final Block ALUMINIUM_LOG = new BlockLogBase("aluminium_log");
-	public static final Block ALUMINIUM_SAPLING = new BlockSaplingBase("aluminium_sapling");
+   public static final Block COPPER_LOG = new BlockLogBase("copper_log");
+   public static final Block COPPER_SAPLING = new BlockSaplingBase("copper_sapling");
+   public static final Block ALUMINIUM_LEAVES = new BlockLeavesBase("aluminium_leaves");
+   public static final Block ALUMINIUM_LOG = new BlockLogBase("aluminium_log");
+   public static final Block ALUMINIUM_SAPLING = new BlockSaplingBase("aluminium_sapling");
   // public static final Block ORE_NETHER = new BlockOres("ore_nether", "nether");
 }
