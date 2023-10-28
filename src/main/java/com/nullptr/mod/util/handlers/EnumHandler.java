@@ -39,7 +39,7 @@ public class EnumHandler
       {
          return this.name;
       }
-      public static EnumType byMetaData(int meta)
+      public static EnumType byMetadata(int meta)
       {
          return META_LOOKUP[meta];
       }
