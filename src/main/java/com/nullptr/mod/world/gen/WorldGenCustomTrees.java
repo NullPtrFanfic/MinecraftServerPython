@@ -1,13 +1,12 @@
-package harry.mods.tutorial.world.generation;
+package com.nullptr.mod.world.gen;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-import harry.mods.tutorial.init.BlockInit;
-import harry.mods.tutorial.world.biomes.BiomeCopper;
-import harry.mods.tutorial.world.generation.generators.WorldGenAluminiumTree;
-import harry.mods.tutorial.world.generation.generators.WorldGenCopperTree;
+import com.nullptr.mod.init.BlockInit;
+import com.nullptr.mod.world.gen.WorldGenAluminiumTree;
+import com.nullptr.mod.world.gen.WorldGenCopperTree;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -18,7 +17,8 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-
+import com.nullptr.mod.biomes.BiomeCopper;
+import com.nullptr.mod.biomes.BiomePlains;
 public class WorldGenCustomTrees implements IWorldGenerator
 {
 	private final WorldGenerator COPPER = new WorldGenCopperTree();
