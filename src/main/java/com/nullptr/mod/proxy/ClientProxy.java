@@ -105,6 +105,11 @@ public class ClientProxy extends CommonProxy {
 	return response;
     }*/
     @Override
+    public void registerModel(Item item, int metadata) 
+    {
+		ModelLoader.setCustomModelResourceLocation(item, metadata, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+    }
+    @Override
     public void registerModels() {
 		//AssetManager.registerModels();
     }
