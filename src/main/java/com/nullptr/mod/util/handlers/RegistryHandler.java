@@ -21,7 +21,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import com.nullptr.mod.init.EntityInit;
 import com.nullptr.mod.util.handlers.RenderHandler;
 import com.nullptr.mod.util.handlers.SoundsHandler;
-
+import com.nullptr.mod.world.gen.WorldGenCustomOres;
 @EventBusSubscriber
 public class RegistryHandler {
     @SubscribeEvent
@@ -53,7 +53,7 @@ public class RegistryHandler {
     }
     public static void preInitRegistries(FMLPreInitializationEvent event)
     {
-		//GameRegistry.registerWorldGenerator(new WorldGenOres(), 3);
+		GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
 		EntityInit.registerEntities();
 		//EventHandler.registerEvents();
 	       // SoundsHandler.registerSounds();
