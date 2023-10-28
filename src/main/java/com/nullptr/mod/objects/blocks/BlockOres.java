@@ -52,7 +52,20 @@ public class BlockOres extends Block implements IHasModel, IMetaName
    @Override
    public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items)
    {
-      for 
+      for (EnumHandler.EnumType variant : EnumHandler.EnumType.values())
+      {
+           items.add(new ItemStack(this, 1, variant.getMeta()));
+      }
+   }
+   @Override
+   protected BlockStateContainer createBlockState()
+   {
+      return new BlockStateContainer(this, new IProperty[] {VARIANT});
+   }
+   @Override
+   public String getSpecialName(ItemStack stack)
+   {
+      return EnumHandler.EnumTypr.values()[stack.getItemDamage()].getName();
    }
    @Override
    public void registerModels()
