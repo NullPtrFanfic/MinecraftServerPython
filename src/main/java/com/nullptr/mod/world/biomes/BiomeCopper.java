@@ -1,6 +1,6 @@
 package com.nullptr.mod.world.biomes;
 
-import com.nullptr.mod.entity.EntityCentaur;
+import com.nullptr.mod.entity.centaur.EntityCentaur;
 import com.nullptr.mod.init.BlockInit;
 import net.minecraft.world.biome.Biome;
 
