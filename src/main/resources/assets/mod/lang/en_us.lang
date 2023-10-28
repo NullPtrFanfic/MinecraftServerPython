@@ -13,3 +13,5 @@ entity.WeirdZombie.name=Weird Zombie
 entity.Netero.name=Netero
 tile.silver_block.name=Silver Block
 itemGroup.modtab=Tab
+tile.ore_overworld_aluminium.name=Aluminium Ore
+tile.ore_overworld_copper.name=Copper Ore
