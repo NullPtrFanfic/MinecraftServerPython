@@ -363,18 +363,7 @@ public class EventHandler {
         }
     }
     @SubscribeEvent
-    public static void BlockRightClickEvent(PlayerInteractEvent.RightClickBlock event) {
-    EntityPlayerSP player = Minecraft.getMinecraft().player;
-    World world = event.getWorld();
-    BlockPos pos = event.getPos();
-    IBlockState state = world.getBlockState(pos);
-    Block block = state.getBlock();
-    if (block == Blocks.STONE) {
-        generateColumn(world, pos);
-    }
-    }
-    @SubscribeEvent
-    public static void ItemRightClickEvent(PlayerInteractEvent.RightClickItem event) {
+    public static void onPlayerInteract(PlayerInteractEvent.RightClickItem event) {
     EntityPlayerSP player = Minecraft.getMinecraft().player;
     World world = event.getWorld();
     ItemStack itemStack = player.getHeldItemMainhand();
