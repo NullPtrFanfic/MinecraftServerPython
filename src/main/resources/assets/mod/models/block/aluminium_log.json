@@ -1,3 +1,6 @@
 {
-    "parent": "mod:block/aluminium_log"
+      "parent": "block/cube_all", 
+      "textures": { 
+          "all":  "mod:block/aluminium_log"
+      }
 }
