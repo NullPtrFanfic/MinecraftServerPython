@@ -1,6 +1,6 @@
 {
-      "parent": "block/cube_all", 
+      "parent": "block/cross", 
       "textures": { 
-          "all": "mod:block/aluminium_sapling"
+          "all": "mod:blocks/aluminium_sapling"
       }
 }
