@@ -1,3 +1,6 @@
 {
-    "parent": "mod:block/copper_leaves"
+      "parent": "block/cube_all", 
+      "textures": { 
+          "all": "mod:blocks/copper_leaves"
+      }
 }
