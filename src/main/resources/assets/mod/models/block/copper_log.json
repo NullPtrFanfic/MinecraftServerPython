@@ -1,3 +1,7 @@
 {
-    "parent": "mod:block/copper_log"
+      "parent": "block/cube_column", 
+      "textures": { 
+          "end": "mod:blocks/copper_log_top",
+          "side": "mod:blocks/copper_log_side"
+      }
 }
