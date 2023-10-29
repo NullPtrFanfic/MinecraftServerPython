@@ -1,6 +1,7 @@
 {
-      "parent": "block/cube_all", 
+      "parent": "block/cube_column", 
       "textures": { 
-          "all":  "mod:block/aluminium_log"
+          "end": "mod:blocks/aluminium_log_top",
+          "side": "mod:blocks/aluminium_log_side"
       }
 }
