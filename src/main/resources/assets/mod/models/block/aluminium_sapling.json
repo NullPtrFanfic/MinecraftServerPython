@@ -1,6 +1,6 @@
 {
       "parent": "block/cross", 
       "textures": { 
-          "all": "mod:blocks/aluminium_sapling"
+          "cross": "mod:blocks/aluminium_sapling"
       }
 }
