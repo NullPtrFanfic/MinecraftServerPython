@@ -1,6 +1,6 @@
 {
       "parent": "block/cube_all", 
       "textures": { 
-          "all":  "mod:block/aluminium_leaves"
+          "all":  "mod:blocks/aluminium_leaves"
       }
 }
