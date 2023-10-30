@@ -3,7 +3,6 @@
     {
         "axis=y":  { "model": "mod:copper_log" },
         "axis=z":   { "model": "mod:copper_log", "x": 90 },
-        "axis=x":   { "model": "mod:copper_log", "x": 90, "y": 90 },
-        "axis=none": { "model": "mod:copper_bark" }
+        "axis=x":   { "model": "mod:copper_log", "x": 90, "y": 90 }
     }
 }
