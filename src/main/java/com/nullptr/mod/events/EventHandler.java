@@ -377,6 +377,7 @@ public class EventHandler {
         }
     }
     }
+    return item;
     }
   /*  @SubscribeEvent
     public void onPlayerJoin(PlayerJoinEvent event) {
