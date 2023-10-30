@@ -24,7 +24,7 @@ import com.nullptr.mod.model.Netero;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.init.Items;
 import net.minecraft.util.ResourceLocation;
-import com.nullptr.mod.objects.items.ItemBook;
+import com.nullptr.mod.objects.items.BookItem;
 
 public class ItemInit
 {
