@@ -23,5 +23,5 @@ public class BlockInit
    public static final Block ALUMINIUM_LEAVES = new BlockLeavesBase("aluminium_leaves");
    public static final Block ALUMINIUM_LOG = new BlockLogBase("aluminium_log");
    public static final Block ALUMINIUM_SAPLING = new BlockSaplingBase("aluminium_sapling");
-  // public static final Block ORE_NETHER = new BlockOres("ore_nether", "nether");
+   public static final Block CHR_SWORD = new BlockChrSword("chr_sword");
 }
