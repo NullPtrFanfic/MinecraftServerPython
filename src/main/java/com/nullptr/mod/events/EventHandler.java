@@ -363,7 +363,9 @@ public class EventHandler {
         }
     }
     @SubscribeEvent
-    public static void onPlayerInteract(PlayerInteractEvent.RightClickItem event) {
+    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) 	{
+    Minecraft.getMinecraft().player.sendMessage(new TextComponentString("DEBUG: onItemRightClick(временно)"));
+    //public static void onPlayerInteract(PlayerInteractEvent.RightClickItem event) {
     EntityPlayerSP player = Minecraft.getMinecraft().player;
     World world = event.getWorld();
     ItemStack itemStack = player.getHeldItemMainhand();
