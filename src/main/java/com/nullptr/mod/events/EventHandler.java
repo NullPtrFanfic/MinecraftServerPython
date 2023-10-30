@@ -55,6 +55,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import com.nullptr.mod.util.SoundsUtil;
 import com.nullptr.mod.chess.ChessView;
 import com.nullptr.mod.util.handlers.SoundsHandler;
+import com.nullptr.mod.init.ItemInit;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemBook;
@@ -63,14 +64,12 @@ import net.minecraft.item.Item;
 //import com.nullptr.mod.party.Party;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
-    public static ItemStack book;
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
     if (event.player instanceof EntityPlayerMP) {
         EntityPlayerMP p = (EntityPlayerMP) event.player;
         // Остальная часть вашего кода.
-	book = new ItemStack(Item.getItemById(387));
-        p.inventory.addItemStackToInventory(book);
+        p.inventory.addItemStackToInventory(ItemInit.BOOK);
 		// update credits from mysql
        /* if(Party.players_left.contains(p.getName())){
 	   p.teleport(getLobby());
