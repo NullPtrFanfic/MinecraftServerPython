@@ -13,7 +13,7 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
     private final int imageHeight = 125;
     private final int imageWidth = 125;
     private int currentPage = 0;
-    private static final int totalPages = 3;
+    private static final int totalPages = 4;
     private static ResourceLocation[] pageTextures = new ResourceLocation[totalPages];
  //   private static String[] pageText = new String[totalPages];
     private GuiButton closeButton;
