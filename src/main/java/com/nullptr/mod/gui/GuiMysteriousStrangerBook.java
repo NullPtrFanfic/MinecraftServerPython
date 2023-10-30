@@ -45,10 +45,16 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
     @Override
     public void drawScreen(int width, int height, float partialTicks) {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        if (currentPage == 0) {
+        if (currentPage >= 0 && currentPage < pageTextures.length) {
+           if (currentPage == 0) {
             Minecraft.getMinecraft().getTextureManager().bindTexture(pageTextures[0]);
-        } else {
+           } 
+           else if {
             Minecraft.getMinecraft().getTextureManager().bindTexture(pageTextures[1]);
+           }
+           else if {
+            Minecraft.getMinecraft().getTextureManager().bindTexture(pageTextures[2]);
+           }
         }
         int offsetFromScreenLeft = (width - imageWidth ) / 2;
         Minecraft.getMinecraft().ingameGUI.drawTexturedModalRect(offsetFromScreenLeft, 2, 0, 0, imageWidth, imageHeight);
