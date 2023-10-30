@@ -12,8 +12,8 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-
-public class LightningStaff extends Item
+import com.nullptr.mod.util.interfaces.IHasModel;
+public class LightningStaff extends Item implements IHasModel
 {
 	public LightningStaff(String name) 
 	{
