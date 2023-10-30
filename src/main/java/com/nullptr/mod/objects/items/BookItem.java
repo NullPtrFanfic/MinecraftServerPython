@@ -11,9 +11,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-public class ItemBook extends ItemBook implements IHasModel
+public class BookItem extends ItemBook implements IHasModel
 {
-   public ItemBook(String name)
+   public BookItem(String name)
    {
       setUnlocalizedName(name);
       setRegistryName(name);
