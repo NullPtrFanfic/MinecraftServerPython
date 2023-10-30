@@ -11,6 +11,7 @@ import com.nullptr.mod.objects.blocks.BlockOres;
 import com.nullptr.mod.objects.blocks.BlockLogBase;
 import com.nullptr.mod.objects.blocks.BlockLeavesBase;
 import com.nullptr.mod.objects.blocks.BlockSaplingBase;
+import com.nullptr.mod.objects.blocks.BlockChrSword;
 public class BlockInit
 {
    public static final List<Block> BLOCKS = new ArrayList<Block>();
