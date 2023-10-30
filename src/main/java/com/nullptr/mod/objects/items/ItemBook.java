@@ -5,7 +5,12 @@ import com.nullptr.mod.util.interfaces.IHasModel;
 import com.nullptr.mod.init.ItemInit;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBook;
-
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.world.World;
 public class ItemBook extends ItemBook implements IHasModel
 {
    public ItemBook(String name)
@@ -16,21 +21,19 @@ public class ItemBook extends ItemBook implements IHasModel
       ItemInit.ITEMS.add(this);
    }
    @Override 
-   public ActionResult<ItemStack> onItemRightClick(ItemStack item, World world, EntityPlayer entityPlayer) 	{
+   public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer entityPlayer, EnumHand handIn) 	
+   {
+    ItemStack item = playerIn.getHeldItem(handIn);
     Minecraft.getMinecraft().player.sendMessage(new TextComponentString("DEBUG: onItemRightClick(временно)"));
     //public static void onPlayerInteract(PlayerInteractEvent.RightClickItem event) {
    // EntityPlayerSP player = Minecraft.getMinecraft().player;
     //World world = event.getWorld();
    // ItemStack itemStack = player.getHeldItemMainhand();
-    if (book != null) {
-    if (item.getItem() == book.getItem()) {
-        if (!world.isRemote) {
-            Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Открытие меню.."));
-            Main.proxy.openMyGui();
-        }
+    if (!world.isRemote) {
+        Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Открытие меню.."));
+        Main.proxy.openMyGui();
     }
-    }
-    return item;
+    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, item);
    }
    @Override
    public void registerModels()
