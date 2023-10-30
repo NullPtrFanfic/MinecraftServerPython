@@ -24,8 +24,8 @@ import com.nullptr.mod.model.Netero;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.init.Items;
 import net.minecraft.util.ResourceLocation;
+import com.nullptr.mod.objects.items.ItemBook;
 
-@Mod.EventBusSubscriber(modid = Main.MODID)// bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ItemInit
 {
     public static final List<Item> ITEMS = new ArrayList<Item>();
@@ -37,22 +37,5 @@ public class ItemInit
     public static final Item BOOTS_RUBY =  new ArmorBase("boots_ruby", ARMOR_RUBY, 1, EntityEquipmentSlot.FEET);
     public static final Item LARGE_FIREBALL_STAFF = new LargeFireballStaff("large_fireball_staff", 50);
     public static final Item LIGHTNING_STAFF = new LightningStaff("lightning_staff");
-
-    public static Item spawnEgg = getSpawnEgg();
-
-    public static Item getSpawnEgg() {
-        ItemStack stack = new ItemStack(Items.SPAWN_EGG, 1);
-        ItemMonsterPlacer.applyEntityIdToItemStack(stack, new ResourceLocation(Main.MODID, "test"));
-        return stack.getItem();
-    }
-
-    @SubscribeEvent
-    public static void onItemRightClick(PlayerInteractEvent.RightClickItem event) {
-        ItemStack itemStack = event.getItemStack();
-        if (itemStack.getItem() == spawnEgg) {
-            // Вызов метода класса при клике по предмету spawnEgg
-            Main.proxy.init();
-            event.setCanceled(true); // Отмена стандартного действия при клике по предмету (не обязательно)
-        }
-    }
+    public static final Item BOOK = new BookItem("book_item");
 }
