@@ -16,7 +16,7 @@ public class BlockChrSword extends BlockBase
    @Override
    public boolean isOpaqueCube(IBlockState state)
    {
-      return false,
+      return false;
    }
    @Override
    public boolean isFullCube(IBlockState state)
