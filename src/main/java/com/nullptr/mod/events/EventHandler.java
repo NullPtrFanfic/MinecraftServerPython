@@ -363,14 +363,14 @@ public class EventHandler {
         }
     }
     @SubscribeEvent
-    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) 	{
+    public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer entityPlayer) 	{
     Minecraft.getMinecraft().player.sendMessage(new TextComponentString("DEBUG: onItemRightClick(временно)"));
     //public static void onPlayerInteract(PlayerInteractEvent.RightClickItem event) {
-    EntityPlayerSP player = Minecraft.getMinecraft().player;
-    World world = event.getWorld();
-    ItemStack itemStack = player.getHeldItemMainhand();
+   // EntityPlayerSP player = Minecraft.getMinecraft().player;
+    //World world = event.getWorld();
+   // ItemStack itemStack = player.getHeldItemMainhand();
     if (book != null) {
-    if (itemStack.getItem() == book.getItem()) {
+    if (item.getItem() == book.getItem()) {
         if (!world.isRemote) {
             Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Открытие меню.."));
             Main.proxy.openMyGui();
