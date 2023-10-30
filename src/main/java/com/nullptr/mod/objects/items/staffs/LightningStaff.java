@@ -39,4 +39,9 @@ public class LightningStaff extends Item
 		worldIn.spawnEntity(lightningBall);
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, item);
 	}
+	@Override
+        public void registerModels()
+        {
+                Main.proxy.registerItemRenderer(this, 0, "inventory");
+        }
 }
