@@ -362,23 +362,7 @@ public class EventHandler {
             world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + i, pos.getZ() + 3 + depth), Blocks.BRICK_BLOCK.getDefaultState());
         }
     }
-    @Subscribe
-    public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer entityPlayer) 	{
-    Minecraft.getMinecraft().player.sendMessage(new TextComponentString("DEBUG: onItemRightClick(временно)"));
-    //public static void onPlayerInteract(PlayerInteractEvent.RightClickItem event) {
-   // EntityPlayerSP player = Minecraft.getMinecraft().player;
-    //World world = event.getWorld();
-   // ItemStack itemStack = player.getHeldItemMainhand();
-    if (book != null) {
-    if (item.getItem() == book.getItem()) {
-        if (!world.isRemote) {
-            Minecraft.getMinecraft().player.sendMessage(new TextComponentString("Открытие меню.."));
-            Main.proxy.openMyGui();
-        }
-    }
-    }
-    return item;
-    }
+    
   /*  @SubscribeEvent
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
