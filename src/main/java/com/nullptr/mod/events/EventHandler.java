@@ -362,7 +362,7 @@ public class EventHandler {
             world.setBlockState(new BlockPos(pos.getX() + width - i, pos.getY() + height + i, pos.getZ() + 3 + depth), Blocks.BRICK_BLOCK.getDefaultState());
         }
     }
-    @SubscribeEvent
+    @Subscribe
     public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer entityPlayer) 	{
     Minecraft.getMinecraft().player.sendMessage(new TextComponentString("DEBUG: onItemRightClick(временно)"));
     //public static void onPlayerInteract(PlayerInteractEvent.RightClickItem event) {
