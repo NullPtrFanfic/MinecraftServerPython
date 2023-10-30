@@ -1,6 +1,7 @@
 package com.nullptr.mod.objects.items;
 
 import com.nullptr.mod.Main;
+import net.minecraft.util.ActionResult;
 import com.nullptr.mod.util.interfaces.IHasModel;
 import com.nullptr.mod.init.ItemInit;
 import net.minecraft.creativetab.CreativeTabs;
