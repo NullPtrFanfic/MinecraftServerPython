@@ -69,7 +69,7 @@ public class EventHandler {
     if (event.player instanceof EntityPlayerMP) {
         EntityPlayerMP p = (EntityPlayerMP) event.player;
         // Остальная часть вашего кода.
-        p.inventory.addItemStackToInventory(ItemInit.BOOK);
+        p.inventory.addItemStackToInventory(new ItemStack(ItemInit.BOOK));
 		// update credits from mysql
        /* if(Party.players_left.contains(p.getName())){
 	   p.teleport(getLobby());
