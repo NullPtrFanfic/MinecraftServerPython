@@ -3,6 +3,7 @@
     {
         "axis=y":  { "model": "mod:aluminium_log" },
         "axis=z":   { "model": "mod:aluminium_log", "x": 90 },
-        "axis=x":   { "model": "mod:aluminium_log", "x": 90, "y": 90 }
+        "axis=x":   { "model": "mod:aluminium_log", "x": 90, "y": 90 },
+        "axis=none": { "model": "mod:aluminium_log" }
     }
 }
