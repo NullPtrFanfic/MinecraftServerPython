@@ -27,7 +27,7 @@ public class BookItem extends ItemBook implements IHasModel
    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer entityPlayer, EnumHand handIn) 	
    {
     ItemStack item = entityPlayer.getHeldItem(handIn);
-    Minecraft.getMinecraft().player.sendMessage(new TextComponentString("DEBUG: onItemRightClick(временно)"));
+    //Minecraft.getMinecraft().player.sendMessage(new TextComponentString("DEBUG: onItemRightClick(временно)"));
     //public static void onPlayerInteract(PlayerInteractEvent.RightClickItem event) {
    // EntityPlayerSP player = Minecraft.getMinecraft().player;
     //World world = event.getWorld();
