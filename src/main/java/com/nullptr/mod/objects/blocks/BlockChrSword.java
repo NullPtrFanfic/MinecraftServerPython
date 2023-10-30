@@ -1,4 +1,4 @@
-package com.nullptr.mod.objects.blocks.BlockChrSword;
+package com.nullptr.mod.objects.blocks;
 
 import net.minecraft.block.material.Material;
 import com.nullptr.mod.objects.blocks.BlockBase;
