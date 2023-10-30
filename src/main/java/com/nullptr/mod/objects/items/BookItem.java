@@ -12,6 +12,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.text.TextComponentString;
 public class BookItem extends ItemBook implements IHasModel
 {
    public BookItem(String name)
