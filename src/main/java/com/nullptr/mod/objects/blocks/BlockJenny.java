@@ -63,8 +63,8 @@ public class BlockJenny extends Block {
   public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
     super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
     TileEntity tileentity = worldIn.getTileEntity(pos);
-    if (tileentity instanceof TileEntityMBE21) { // prevent a crash if not the right type, or is null
-      TileEntityMBE21 tileEntityMBE21 = (TileEntityMBE21)tileentity;
+    if (tileentity instanceof TileEntityJenny) { // prevent a crash if not the right type, or is null
+      TileEntityJenny tileEntityMBE21 = (TileEntityJenny)tileentity;
 
       // chose a random colour for the gem:
       Color [] colorChoices = {Color.BLUE, Color.CYAN, Color.YELLOW, Color.GREEN, Color.WHITE, Color.ORANGE, Color.RED};
