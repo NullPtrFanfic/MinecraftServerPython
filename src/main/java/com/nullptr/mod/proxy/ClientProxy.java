@@ -47,6 +47,8 @@ import net.minecraft.entity.Entity;
 import com.nullptr.mod.openai.ChatGPTBot;
 import com.nullptr.mod.recipes.RecipesDelete;
 import com.nullptr.mod.gui.GuiMysteriousStrangerBook;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import com.nullptr.mod.commands.CommandTeleportDimension;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
     @Override
@@ -65,7 +67,10 @@ public class ClientProxy extends CommonProxy {
 	addOBJLoaderDomainIfOnClient();
 	ChatGPTBot.init();
     }
-
+    public static void serverRegistries(FMLServerStartingEvent event)
+    {
+		event.registerServerCommand(new CommandTeleportDimension());
+    }
     @Override
     public void registerItemRenderer(Item item, int meta, String id) {
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
@@ -88,10 +93,6 @@ public class ClientProxy extends CommonProxy {
         //Netero.init();
     }
    // @Override
-    public void serverLoad(FMLServerStartingEvent event) 	 
-    { 	
-        event.registerServerCommand(new RTPCommand()); 	 
-    } 
     @Override
     public String getResponse(String message)
     {
