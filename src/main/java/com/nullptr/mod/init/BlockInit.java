@@ -28,5 +28,5 @@ public class BlockInit
    public static final Block ALUMINIUM_SAPLING = new BlockSaplingBase("aluminium_sapling");
    public static final Block CHR_SWORD = new BlockChrSword("chr_sword");
    public static final Block TELEPORTER = new BlockTeleporter("teleporter");
-   public static final Block JENNY = new BlockJenny("jenny");
+   public static final Block JENNY = new BlockJenny();
 }
