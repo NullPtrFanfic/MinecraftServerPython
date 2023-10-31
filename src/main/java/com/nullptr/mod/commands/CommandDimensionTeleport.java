@@ -51,7 +51,7 @@ public class CommandDimensionTeleport extends CommandBase {
             else {
                 Teleport.teleportToDimension((EntityPlayer)sender, dimensionID, sender.getPosition().getX(), sender.getPosition().getY() + 5, sender.getPosition().getZ());
             }
-            player.sendMessage(new TextComponentString("You have been teleported."));
+            sender.sendMessage(new TextComponentString("You have been teleported."));
         }
     }
 }
