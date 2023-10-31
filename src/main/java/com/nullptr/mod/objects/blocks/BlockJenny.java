@@ -15,6 +15,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import com.nullptr.mod.objects.blocks.TileEntityJenny;
+import net.minecraft.item.ItemBlock;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+//import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.awt.*;
 import java.util.Random;
@@ -26,12 +29,22 @@ import java.util.Random;
  * BlockTileEntityData is a simple block with an associated TileEntity.  The base block is shaped like a hopper, the gem is
  *   rendered in the TESR.
 */
-public class BlockJenny extends Block
-{
+public class BlockJenny extends Block {
+  public ItemBlock itemBlock;
   public BlockJenny()
   {
     super(Material.IRON);
     this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);   // the block will appear on the Blocks tab in creative
+    this.setUnlocalizedName("jenny"));
+    this.setRegistryName("jenny");
+    ForgeRegistries.BLOCKS.register(this);
+
+    // We also need to create and register an ItemBlock for this block otherwise it won't appear in the inventory
+    itemBlock = new ItemBlock(this);
+    itemBlock.setRegistryName("jenny");
+    ForgeRegistries.ITEMS.register(itemBlock);
+
+    // Each of your tile entities needs to be registered with a name that is unique 
   }
 
   @Override
