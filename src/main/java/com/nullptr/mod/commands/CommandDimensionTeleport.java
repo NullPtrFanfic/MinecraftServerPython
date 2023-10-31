@@ -23,7 +23,10 @@ public class CommandDimensionTeleport extends CommandBase {
     @Override
     public List<String> getAliases()
     {
+        return aliases;
     }
+    @Override
+    public boolean checkPermission(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         if (args.length < 1) return;
