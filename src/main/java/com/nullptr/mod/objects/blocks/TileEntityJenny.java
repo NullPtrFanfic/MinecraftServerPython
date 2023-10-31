@@ -16,6 +16,11 @@ import java.awt.*;
  * The gem colour is saved to disk, the angular position isn't.
  */
 public class TileEntityJenny extends TileEntity {
+       private Color gemColour = INVALID_COLOR;  // the RGB colour of the gem
+
+	private final long INVALID_TIME = 0;
+	private long lastTime = INVALID_TIME;  // used for animation
+	private double lastAngularPosition; // used for animation
 
 	public static final Color INVALID_COLOR = null;
 
@@ -158,9 +163,4 @@ public class TileEntityJenny extends TileEntity {
 		return aabb;
 	}
 
-	private Color gemColour = INVALID_COLOR;  // the RGB colour of the gem
-
-	private final long INVALID_TIME = 0;
-	private long lastTime = INVALID_TIME;  // used for animation
-	private double lastAngularPosition; // used for animation
 }
