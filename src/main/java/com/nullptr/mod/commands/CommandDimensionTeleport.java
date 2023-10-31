@@ -26,6 +26,11 @@ public class CommandDimensionTeleport extends CommandBase {
         if (args.length < 1) return;
         String s = args[0];
         int dimensionID;
+        try {
+            dimensionID = Integer.parseInt(s);
+        } catch(NumberFormatException e) {
+            sender.sendMessage(new TextComponentString("Dimension ID invalid");
+        }
         if (sender instanceof EntityPlayerMP) {
             EntityPlayerMP player = getCommandSenderAsPlayer(sender);
             Random random = new Random();
