@@ -8,7 +8,7 @@ import com.nullptr.mod.model.ModelObjOld;
 import com.nullptr.mod.model.ModelCreatureObj;
 import net.minecraft.util.ResourceLocation;
 import com.nullptr.mod.model.projectile.LightBallModel;
-import com.nullptr.mod.commands.RTPCommand;
+//import com.nullptr.mod.commands.RTPCommand;
 //import com.nullptr.mod.BakedModelLoader;
 import com.nullptr.mod.events.EventHandler;
 import net.minecraft.client.Minecraft;
@@ -48,7 +48,7 @@ import com.nullptr.mod.openai.ChatGPTBot;
 import com.nullptr.mod.recipes.RecipesDelete;
 import com.nullptr.mod.gui.GuiMysteriousStrangerBook;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import com.nullptr.mod.commands.CommandTeleportDimension;
+import com.nullptr.mod.commands.CommandDimensionTeleport;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
     @Override
