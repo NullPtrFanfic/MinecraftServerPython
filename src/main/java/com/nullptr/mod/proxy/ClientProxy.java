@@ -75,6 +75,7 @@ public class ClientProxy extends CommonProxy {
         final int DEFAULT_ITEM_SUBTYPE = 0;
         ModelLoader.setCustomModelResourceLocation(BlockInit.JENNY, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityJenny.class, new TileEntitySpecialRenderer());
+	GameRegistry.registerTileEntity(TileEntityJenny.class, "mod:jenny");
     }
     public static void serverRegistries(FMLServerStartingEvent event)
     {
