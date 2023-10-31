@@ -12,6 +12,7 @@ import com.nullptr.mod.objects.blocks.BlockLogBase;
 import com.nullptr.mod.objects.blocks.BlockLeavesBase;
 import com.nullptr.mod.objects.blocks.BlockSaplingBase;
 import com.nullptr.mod.objects.blocks.BlockChrSword;
+import com.nullptr.mod.objects.blocks.BlockTeleporter;
 public class BlockInit
 {
    public static final List<Block> BLOCKS = new ArrayList<Block>();
@@ -25,4 +26,5 @@ public class BlockInit
    public static final Block ALUMINIUM_LOG = new BlockLogBase("aluminium_log");
    public static final Block ALUMINIUM_SAPLING = new BlockSaplingBase("aluminium_sapling");
    public static final Block CHR_SWORD = new BlockChrSword("chr_sword");
+   public static final Block TELEPORTER = new BlockTeleporter("teleporter");
 }
