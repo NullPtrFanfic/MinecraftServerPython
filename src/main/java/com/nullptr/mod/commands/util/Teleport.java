@@ -45,7 +45,7 @@ public class Teleport extends Teleporter
             throw new IllegalArgumentException("Dimension: "+dimension+" doesn't exist!");
         }
 
-        worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, dimension, new Teleporter(worldServer, x, y, z));
+        worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, dimension, new Teleport(worldServer, x, y, z));
         player.setPositionAndUpdate(x, y, z);
  }
 }
