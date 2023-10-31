@@ -20,7 +20,7 @@ import java.awt.*;
  * This class renders the gem floating above the block.
  * The base model (the hopper shape) is drawn by the block model, not this class.
  */
-public class TileEntitySpecialRenderer extends TileEntitySpecialRenderer<TileEntityJenny>
+public class TileEntityRenderer extends TileEntitySpecialRenderer<TileEntityJenny>
 {
 
   /**
