@@ -22,4 +22,5 @@ tile.copper_leaves.name=Copper Leaves
 tile.copper_log.name=Copper Log
 tile.copper_sapling.name=Copper Sapling
 tile.chr_sword.name=Chr Sword
+tile.teleporter.name=Block Teleporter
 item.book_item.name=Special Book
