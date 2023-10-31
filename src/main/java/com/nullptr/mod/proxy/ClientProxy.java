@@ -69,7 +69,7 @@ public class ClientProxy extends CommonProxy {
     }
     public static void serverRegistries(FMLServerStartingEvent event)
     {
-		event.registerServerCommand(new CommandTeleportDimension());
+		event.registerServerCommand(new CommandDimensionTeleport());
     }
     @Override
     public void registerItemRenderer(Item item, int meta, String id) {
