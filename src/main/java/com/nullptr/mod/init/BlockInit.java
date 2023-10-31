@@ -13,7 +13,7 @@ import com.nullptr.mod.objects.blocks.BlockLeavesBase;
 import com.nullptr.mod.objects.blocks.BlockSaplingBase;
 import com.nullptr.mod.objects.blocks.BlockChrSword;
 import com.nullptr.mod.objects.blocks.BlockTeleporter;
-import com.nullptr.mod.objects.blocks.TileEntityJenny;
+import com.nullptr.mod.objects.blocks.BlockJenny;
 public class BlockInit
 {
    public static final List<Block> BLOCKS = new ArrayList<Block>();
@@ -28,5 +28,5 @@ public class BlockInit
    public static final Block ALUMINIUM_SAPLING = new BlockSaplingBase("aluminium_sapling");
    public static final Block CHR_SWORD = new BlockChrSword("chr_sword");
    public static final Block TELEPORTER = new BlockTeleporter("teleporter");
-   public static final Block TILE_ENTITY_JENNY = new TileEntityJenny("jenny");
+   public static final Block JENNY = new BlockJenny("jenny");
 }
