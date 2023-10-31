@@ -49,6 +49,11 @@ import com.nullptr.mod.recipes.RecipesDelete;
 import com.nullptr.mod.gui.GuiMysteriousStrangerBook;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import com.nullptr.mod.commands.CommandDimensionTeleport;
+import com.nullptr.mod.objects.blocks.TileEntityJenny;
+import com.nullptr.mod.objects.blocks.TileEntitySpecialRenderer;
+//import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+//import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
     @Override
@@ -66,6 +71,10 @@ public class ClientProxy extends CommonProxy {
 	registerRenders();
 	addOBJLoaderDomainIfOnClient();
 	ChatGPTBot.init();
+        ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("mod:jenny", "inventory");
+        final int DEFAULT_ITEM_SUBTYPE = 0;
+        ModelLoader.setCustomModelResourceLocation(BlockInit.JENNY, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityJenny.class, new TileEntitySpecialRenderer());
     }
     public static void serverRegistries(FMLServerStartingEvent event)
     {
