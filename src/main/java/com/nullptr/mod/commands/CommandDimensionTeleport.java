@@ -39,7 +39,7 @@ public class CommandDimensionTeleport extends CommandBase {
         try {
             dimensionID = Integer.parseInt(s);
         } catch(NumberFormatException e) {
-            sender.sendMessage(new TextComponentString("Dimension ID invalid");
+            sender.sendMessage(new TextComponentString("Dimension ID invalid"));
         }
         if (sender instanceof EntityPlayer) {
             Teleport.teleportToDimension((EntityPlayer)sender, dimensionID, sender.getPosition().getX(), sender.getPosition().getY() + 5, sender.getPosition().getZ());
