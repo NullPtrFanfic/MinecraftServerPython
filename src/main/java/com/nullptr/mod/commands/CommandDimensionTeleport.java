@@ -1,7 +1,7 @@
 package com.nullptr.mod.commands;
 
 import net.minecraft.command.*;
-import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.EntityPlayer;
 //import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
@@ -13,14 +13,17 @@ public class CommandDimensionTeleport extends CommandBase {
     private final List<String> aliases = Lists.newArrayList(Main.MODID, "tp", "tpdim", "tpdimension", "teleportdimension", "teleport");
     @Override
     public String getName() {
-        return "rtp";
+        return "tpdimension";
     }
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "/rtp - Teleports the player to a random location within 500 blocks.";
+        return "tpdimension <id>";
     }
-
+    @Override
+    public List<String> getAliases()
+    {
+    }
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         if (args.length < 1) return;
@@ -31,7 +34,7 @@ public class CommandDimensionTeleport extends CommandBase {
         } catch(NumberFormatException e) {
             sender.sendMessage(new TextComponentString("Dimension ID invalid");
         }
-        if (sender instanceof EntityPlayerMP) {
+        if (sender instanceof EntityPlayer) {
             EntityPlayerMP player = getCommandSenderAsPlayer(sender);
             Random random = new Random();
             int range = 500;
