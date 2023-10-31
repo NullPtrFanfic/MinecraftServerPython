@@ -8,6 +8,7 @@ import net.minecraft.util.text.TextComponentString;
 import java.util.Random;
 import com.nullptr.mod.Main;
 import net.minecraft.server.MinecraftServer;
+import com.nullptr.mod.commands.util.Teleport;
 
 public class CommandDimensionTeleport extends CommandBase {
     private final List<String> aliases = Lists.newArrayList(Main.MODID, "tp", "tpdim", "tpdimension", "teleportdimension", "teleport");
@@ -26,7 +27,10 @@ public class CommandDimensionTeleport extends CommandBase {
         return aliases;
     }
     @Override
-    public boolean checkPermission(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException
+    public boolean checkPermission(MinecraftServer server, ICommandSender sender)
+    {
+        return true;
+    }
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         if (args.length < 1) return;
@@ -38,16 +42,7 @@ public class CommandDimensionTeleport extends CommandBase {
             sender.sendMessage(new TextComponentString("Dimension ID invalid");
         }
         if (sender instanceof EntityPlayer) {
-            EntityPlayerMP player = getCommandSenderAsPlayer(sender);
-            Random random = new Random();
-            int range = 500;
-
-            double offsetX = random.nextInt(range * 2) - range;
-            double offsetZ = random.nextInt(range * 2) - range;
-
-            BlockPos newPos = new BlockPos(player.posX + offsetX, 60, player.posZ + offsetZ);
-            player.connection.setPlayerLocation(newPos.getX() + 0.5, newPos.getY(), newPos.getZ() + 0.5, player.rotationYaw, player.rotationPitch);
-
+            Teleport.teleportToDimension((EntityPlayer)sender, dimensionID, sender.getPosition().getX(), sender.getPosition().getY() + 5, sender.getPosition().getZ());
             player.sendMessage(new TextComponentString("You have been randomly teleported."));
         }
     }
