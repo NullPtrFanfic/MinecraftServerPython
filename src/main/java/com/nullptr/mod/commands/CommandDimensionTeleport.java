@@ -9,6 +9,8 @@ import java.util.Random;
 import com.nullptr.mod.Main;
 import net.minecraft.server.MinecraftServer;
 import com.nullptr.mod.commands.util.Teleport;
+import java.util.List;
+import com.google.common.collect.Lists;
 
 public class CommandDimensionTeleport extends CommandBase {
     private final List<String> aliases = Lists.newArrayList(Main.MODID, "tp", "tpdim", "tpdimension", "teleportdimension", "teleport");
