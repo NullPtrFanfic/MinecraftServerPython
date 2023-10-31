@@ -56,6 +56,7 @@ import com.nullptr.mod.objects.blocks.TileEntityRenderer;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import com.nullptr.mod.init.BlockInit;
+import net.minecraft.item.ItemBlock;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
     @Override
@@ -75,7 +76,7 @@ public class ClientProxy extends CommonProxy {
 	ChatGPTBot.init();
         ModelResourceLocation itemModelResourceLocation = new ModelResourceLocation("mod:jenny", "inventory");
         final int DEFAULT_ITEM_SUBTYPE = 0;
-        ModelLoader.setCustomModelResourceLocation(BlockInit.JENNY, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
+        ModelLoader.setCustomModelResourceLocation(new ItemBlock(BlockInit.JENNY), DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation);
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityJenny.class, new TileEntityRenderer());
 	GameRegistry.registerTileEntity(TileEntityJenny.class, "mod:jenny");
     }
