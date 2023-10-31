@@ -122,7 +122,7 @@ public class TileEntityRenderer extends TileEntitySpecialRenderer<TileEntityJenn
       // set the rendering colour as the gem base colour
       Color fullBrightnessColor = tileEntityMBE21.getGemColour();
       float red = 0, green = 0, blue = 0;
-      if (fullBrightnessColor != TileEntityMBE21.INVALID_COLOR) {
+      if (fullBrightnessColor != TileEntityJenny.INVALID_COLOR) {
         red = (float) (fullBrightnessColor.getRed() / 255.0);
         green = (float) (fullBrightnessColor.getGreen() / 255.0);
         blue = (float) (fullBrightnessColor.getBlue() / 255.0);
