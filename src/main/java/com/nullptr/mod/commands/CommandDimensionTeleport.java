@@ -42,10 +42,16 @@ public class CommandDimensionTeleport extends CommandBase {
             dimensionID = Integer.parseInt(s);
         } catch(NumberFormatException e) {
             sender.sendMessage(new TextComponentString("Dimension ID invalid"));
+            return;
         }
         if (sender instanceof EntityPlayer) {
-            Teleport.teleportToDimension((EntityPlayer)sender, dimensionID, sender.getPosition().getX(), sender.getPosition().getY() + 5, sender.getPosition().getZ());
-            player.sendMessage(new TextComponentString("You have been randomly teleported."));
+            if (dimensionID == 1) {
+                Teleport.teleportToDimension((EntityPlayer)sender, dimensionID, 0, 55, 0);
+            }
+            else {
+                Teleport.teleportToDimension((EntityPlayer)sender, dimensionID, sender.getPosition().getX(), sender.getPosition().getY() + 5, sender.getPosition().getZ());
+            }
+            player.sendMessage(new TextComponentString("You have been teleported."));
         }
     }
 }
