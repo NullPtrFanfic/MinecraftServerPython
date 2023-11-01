@@ -11,7 +11,7 @@ public class RenderJenny extends RenderLiving<EntityJenny>
 {
 	public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/entity/jenny/jenny.png");
 	
-	public RenderCentaur(RenderManager manager) 
+	public RenderJenny(RenderManager manager) 
 	{
 		super(manager, new ModelJenny(), 0.5F);
 	}
