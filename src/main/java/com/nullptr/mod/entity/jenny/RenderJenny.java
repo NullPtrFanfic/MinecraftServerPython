@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderJenny extends RenderLiving<EntityJenny>
 {
-	public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/entity/jenny/jenny.png");
+	public static final ResourceLocation TEXTURES = new ResourceLocation(Main.MODID + ":textures/blocks/voxel_palette2");
 	
 	public RenderJenny(RenderManager manager) 
 	{
