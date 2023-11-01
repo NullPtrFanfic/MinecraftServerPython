@@ -20,7 +20,11 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
+import com.nullptr.mod.entity.python.EntityPython;
+import com.nullptr.mod.entity.python.RenderPython;
+import com.nullptr.mod.entity.python.ModelPython;
+import com.nullptr.mod.entity.jenny.EntityJenny;
+import com.nullptr.mod.entity.jenny.RenderJenny;
 public class EntityInit {
     public static void init() {
         // Every entity in our mod has an ID (local to this mod)
@@ -47,6 +51,14 @@ public class EntityInit {
                     return new RenderCentaur(manager);
                 }
         });
+	RenderingRegistry.registerEntityRenderingHandler(EntityJenny.class, new IRenderFactory<EntityJenny>()
+        {
+                @Override
+                public Render<? super EntityJenny> createRenderFor(RenderManager manager) 
+                {
+                    return new RenderJenny(manager);
+                }
+        });
         RenderingRegistry.registerEntityRenderingHandler(EntityTest.class, new IRenderFactory<EntityTest>()
         {
                 @Override
@@ -55,6 +67,15 @@ public class EntityInit {
                     return new RenderTest(manager);		
                 }
         });
+	RenderingRegistry.registerEntityRenderingHandler(
+	    		EntityPython.class, 
+	    		RenderPython.getRenderFactory(
+	                    new ModelPython(), 
+	                    0.0F, // no shadow needed
+	                    new ResourceLocation("mod:textures/entity/serpent/python.png")
+	    				)
+	    	);
+	
         /*RenderingRegistry.registerEntityRenderingHandler(Netero.class, new IRenderFactory<Netero>() {
 			@Override
 			public Render<? super Netero> createRenderFor(RenderManager manager) {
