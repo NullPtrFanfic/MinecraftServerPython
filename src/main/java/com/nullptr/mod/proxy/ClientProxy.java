@@ -80,8 +80,8 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityJenny.class, new TileEntityRenderer());
 	GameRegistry.registerTileEntity(TileEntityJenny.class, "mod:jenny");
     }
-    @Override
-    public static void serverLoads(FMLServerStartingEvent event)
+    @EventHandler
+    public static void serverInit(FMLServerStartingEvent event)
     {
 		event.registerServerCommand(new CommandDimensionTeleport());
     }
