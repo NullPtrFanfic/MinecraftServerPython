@@ -1,12 +1,17 @@
 // Made with Blockbench 4.8.3
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
+package com.nullptr.mod.entity.jenny;
 
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.entity.Entity;
+import net.minecraft.client.model.ModelBox;
 
-public class custom_model extends ModelBase {
+public class ModelJenny extends ModelBase {
 	private final ModelRenderer voxel_file;
 
-	public custom_model() {
+	public ModelJenny() {
 		textureWidth = 16;
 		textureHeight = 16;
 
