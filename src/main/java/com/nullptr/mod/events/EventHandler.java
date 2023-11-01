@@ -66,7 +66,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 //import com.nullptr.mod.party.Party;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
-    @EventHandler
+    @Mod.EventHandler
     public static void serverInit(FMLServerStartingEvent event)
     {
 		event.registerServerCommand(new CommandDimensionTeleport());
