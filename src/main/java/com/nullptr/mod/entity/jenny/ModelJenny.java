@@ -549,7 +549,7 @@ public class ModelJenny extends ModelBase {
 	private final ModelRenderer emerald2;
 	private final ModelRenderer emerald3;
 
-	public custom_model() {
+	public ModelJenny() {
 		textureWidth = 16;
 		textureHeight = 16;
 
