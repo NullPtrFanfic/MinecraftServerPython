@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "blocks/voxel_palette",
-		"particle": "blocks/voxel_palette"
+		"0": "mod:blocks/voxel_palette2",
+		"particle": "mod:blocks/voxel_palette2"
 	},
 	"elements": [
 		{
