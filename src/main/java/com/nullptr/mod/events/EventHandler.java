@@ -60,10 +60,17 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemBook;
 import net.minecraft.item.Item;
+import com.nullptr.mod.commands.CommandDimensionTeleport;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 //import com.nullptr.mod.party.Shop;
 //import com.nullptr.mod.party.Party;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class EventHandler {
+    @SubscribeEvent
+    public static void serverInit(FMLServerStartingEvent event)
+    {
+		event.registerServerCommand(new CommandDimensionTeleport());
+    }
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
     if (event.player instanceof EntityPlayerMP) {
