@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
-public class WorldGenStructure extends WorldGenerator
+public class WorldGenStructure extends WorldGenerator implements IStructure
 {
    public static String structureName;
   
@@ -27,7 +27,7 @@ public class WorldGenStructure extends WorldGenerator
    public static void generateStructure(World world, BlockPos pos)
    {
       MinecraftServer mcServer = world.getMinecraftServer();
-      TemplateManager manager = worldServer.genStructureTemplateManager();
+      TemplateManager manager = worldServer.getStructureTemplateManager();
       ResourceLocation location = new ResourceLocation(Main.MODID, structureName);
       Template template = manager.get(mcServer, location);
       if (template != null)
