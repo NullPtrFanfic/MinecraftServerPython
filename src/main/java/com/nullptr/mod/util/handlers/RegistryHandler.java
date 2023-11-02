@@ -24,6 +24,7 @@ import com.nullptr.mod.util.handlers.SoundsHandler;
 import com.nullptr.mod.world.gen.WorldGenCustomOres;
 import com.nullptr.mod.world.gen.WorldGenCustomTrees;
 import com.nullptr.mod.init.BiomeInit;
+import com.nullptr.mod.world.gen.WorldGenCustomStructures;
 @EventBusSubscriber
 public class RegistryHandler {
     @SubscribeEvent
@@ -57,6 +58,7 @@ public class RegistryHandler {
     {
 		GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
 	        GameRegistry.registerWorldGenerator(new WorldGenCustomTrees(), 0);
+	        GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
 		BiomeInit.registerBiomes();
 		EntityInit.registerEntities();
 		//EventHandler.registerEvents();
