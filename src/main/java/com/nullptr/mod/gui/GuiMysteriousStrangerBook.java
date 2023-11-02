@@ -23,7 +23,7 @@ public class GuiMysteriousStrangerBook extends GuiScreen {
     public GuiMysteriousStrangerBook() {
         pageTextures[0] = new ResourceLocation("mod:textures/items/unknown.png");
         pageTextures[1] = new ResourceLocation("mod:textures/items/unknown-2.png");
-        pageTextures[2] = new ResourceLocation("mod:textures/items/unknown-3.png");
+        pageTextures[2] = new ResourceLocation("mod:textures/items/unknown-3.jpg");
     }
     @Override
     public void initGui() {
