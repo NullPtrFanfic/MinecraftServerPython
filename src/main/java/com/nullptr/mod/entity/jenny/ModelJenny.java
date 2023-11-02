@@ -838,7 +838,7 @@ public class ModelJenny extends ModelBase {
 	private final ModelRenderer rside2_r16;
 	private final ModelRenderer rside2_r17;
 
-	public ellie() {
+	public ModelJenny() {
 		textureWidth = 64;
 		textureHeight = 64;
 
