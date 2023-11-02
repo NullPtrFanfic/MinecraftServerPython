@@ -2899,7 +2899,9 @@ public class ModelJenny extends ModelBase {
 		innerCheekR2.addChild(innerCheekR2_r46);
 		setRotationAngle(innerCheekR2_r46, -1.5708F, 0.0F, 0.0F);
 		innerCheekR2_r46.cubeList.add(new ModelBox(innerCheekR2_r46, 0, 0, 1.2142F, -0.5516F, -1.1198F, 1, 1, 0, 0.0F, false));
-
+	        twopart();
+	}
+	public void twopart() {
 		cheekL2 = new ModelRenderer(this);
 		cheekL2.setRotationPoint(1.05F, -3.1979F, -0.0185F);
 		booty.addChild(cheekL2);
