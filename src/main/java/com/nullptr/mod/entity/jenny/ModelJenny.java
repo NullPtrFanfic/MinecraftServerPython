@@ -1,9 +1,14 @@
 // Made with Blockbench 4.8.3
 // Exported for Minecraft version 1.7 - 1.12
 // Paste this class into your mod and generate all required imports
+package com.nullptr.mod.entity.jenny;
 
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.entity.Entity;
+import net.minecraft.client.model.ModelBox;
 
-public class ellie extends ModelBase {
+public class ModelJenny extends ModelBase {
 	private final ModelRenderer body;
 	private final ModelRenderer legR;
 	private final ModelRenderer legR_r1;
@@ -230,7 +235,7 @@ public class ellie extends ModelBase {
 	private final ModelRenderer ponyTail_r10;
 	private final ModelRenderer ponyTail_r11;
 
-	public ellie() {
+	public ModelJenny() {
 		textureWidth = 64;
 		textureHeight = 64;
 
