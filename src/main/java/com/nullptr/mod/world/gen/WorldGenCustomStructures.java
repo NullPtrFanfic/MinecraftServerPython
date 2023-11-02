@@ -8,6 +8,10 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import java.util.Random;
+import net.minecraft.world.WorldType;
+import net.minecraft.util.math.BlockPos;
+import scala.actors.threadpool.Arrays;
+import net.minecraft.init.Blocks;
 import com.nullptr.mod.world.biome.BiomeCopper;
 public class WorldGenCustomStructures implements IWorldGenerator
 {
@@ -27,7 +31,7 @@ public class WorldGenCustomStructures implements IWorldGenerator
 			
 		case 0:
 			
-			generateStructure(ARMOURY, world, random, chunkX, chunkZ, 20, Blocks.G, BiomeCopper.class);
+			generateStructure(ARMOURY, world, random, chunkX, chunkZ, 20, Blocks.GRASS, BiomeCopper.class);
 			
 			break;
 			
