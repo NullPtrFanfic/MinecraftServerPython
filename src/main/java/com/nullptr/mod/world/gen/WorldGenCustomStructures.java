@@ -8,6 +8,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import java.util.Random;
+import java.util.ArrayList;
 import net.minecraft.world.WorldType;
 import net.minecraft.util.math.BlockPos;
 import scala.actors.threadpool.Arrays;
