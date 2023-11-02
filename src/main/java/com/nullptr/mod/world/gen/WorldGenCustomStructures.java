@@ -12,10 +12,10 @@ import net.minecraft.world.WorldType;
 import net.minecraft.util.math.BlockPos;
 import scala.actors.threadpool.Arrays;
 import net.minecraft.init.Blocks;
-import com.nullptr.mod.world.biome.BiomeCopper;
+import com.nullptr.mod.world.biomes.BiomeCopper;
 public class WorldGenCustomStructures implements IWorldGenerator
 {
-   public static final WorldGenStructure ARMOURY = new WorldGenStructure("armoury");
+   public static final WorldGenStructure ARMOURY = new WorldGenStructure("house");
    @Override
    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
    {
