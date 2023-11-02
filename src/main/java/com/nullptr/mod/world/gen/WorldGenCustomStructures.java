@@ -11,7 +11,7 @@ import java.util.Random;
 import java.util.ArrayList;
 import net.minecraft.world.WorldType;
 import net.minecraft.util.math.BlockPos;
-import scala.actors.threadpool.Arrays;
+import java.util.Arrays;
 import net.minecraft.init.Blocks;
 import com.nullptr.mod.world.biomes.BiomeCopper;
 public class WorldGenCustomStructures implements IWorldGenerator
