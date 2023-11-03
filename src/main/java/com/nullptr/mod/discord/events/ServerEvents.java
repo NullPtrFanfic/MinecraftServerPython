@@ -35,32 +35,15 @@ public class ServerEvents
     @SubscribeEvent
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event)
     {
-        Utils.sendInfoMessage(event.getPlayer().getName().getFormattedText()+" зашел на сервер!");
+        Utils.sendInfoMessage(event.player.getName().getFormattedText()+" зашел на сервер!");
     }
 
     @SubscribeEvent
     public static void onPlayerLeft(PlayerEvent.PlayerLoggedOutEvent event)
     {
         if (Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) { 
-            Utils.sendInfoMessage(event.getPlayer().getName().getFormattedText()+" вышел из сервера");
+            Utils.sendInfoMessage(event.player.getName().getFormattedText()+" вышел из сервера");
         }
-    }
-
-    @SubscribeEvent
-    public static void onServerTick(TickEvent.ServerTickEvent event)
-    {
-        InterModComms.getMessages("mod").forEach(imcMessage ->
-        {
-                if (imcMessage.getMethod().equals("info_channel"))
-                    Utils.sendInfoMessage(imcMessage.getMessageSupplier().get().toString());
-
-                if (imcMessage.getMethod().equals("chat_channel"))
-                    Utils.sendChatMessage(imcMessage.getMessageSupplier().get().toString());
-
-                if (imcMessage.getMethod().matches("\\d+"))
-                    Utils.sendMessage(Minecraft2Discord.getDiscordBot().getTextChannelById(imcMessage.getMethod()),
-                        imcMessage.getMessageSupplier().get().toString());
-        });
     }
 
     @SubscribeEvent
