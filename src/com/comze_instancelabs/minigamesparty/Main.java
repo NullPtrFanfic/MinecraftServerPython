@@ -169,7 +169,7 @@ public class Main extends JavaPlugin implements Listener {
 					//getServer().getPluginManager().registerEvents(sf, m);
 					//SmokeMonster sm = new SmokeMonster(m, m.getComponentForMinigame("SmokeMonster", "spawn"), m.getLobby(), m.getComponentForMinigame("SmokeMonster", "spectatorlobby"));
 					//minigames.add(sm);
-					getServer().getPluginManager().registerEvents(sm, m);
+					//getServer().getPluginManager().registerEvents(sm, m);
 					SlapFight slf = new SlapFight(m, m.getComponentForMinigame("SlapFight", "spawn"), m.getLobby(), m.getComponentForMinigame("SlapFight", "spectatorlobby"));
 					minigames.add(slf);
 					getServer().getPluginManager().registerEvents(slf, m);
@@ -636,28 +636,6 @@ public class Main extends JavaPlugin implements Listener {
 								Location under = new Location(w, event.getPlayer().getLocation().getBlockX(), event.getPlayer().getLocation().getBlockY() - 1, event.getPlayer().getLocation().getBlockZ());
 								if(w.getBlockAt(under).getType() == Material.LAPIS_BLOCK){
 									w.getBlockAt(under).setType(Material.AIR);
-								}
-							}
-							if(current.name.equalsIgnoreCase("SmokeMonster")){
-								for(Location l : SmokeMonster.locs){
-									if(event.getPlayer().getLocation().distance(l) < 3 || event.getPlayer().getLocation().distance(l.add(0D, -1.5D, 0D))  < 3){
-										current.lost.add(event.getPlayer());
-										int count = 0;
-										for(String pl : m.players){
-											Player p = Bukkit.getPlayerExact(pl);
-											if(p.isOnline()){
-												if(!current.lost.contains(p)){
-													count++;
-												}
-											}
-										}
-										sendPlace(count, event.getPlayer());
-										current.spectate(event.getPlayer());
-										if(count < 2){
-											c_ += seconds-c;
-											c = seconds; 
-										}
-									}
 								}
 							}
 							if(current.name.equalsIgnoreCase("JumpnRun") || current.name.equalsIgnoreCase("MineField")){
