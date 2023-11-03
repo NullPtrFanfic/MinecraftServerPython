@@ -57,7 +57,11 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import com.nullptr.mod.init.BlockInit;
 import net.minecraft.item.ItemBlock;
-import net.minecraftforge.fml.ModLoadingContext
+import net.minecraftforge.fml.ModLoadingContext;
+import com.nullptr.mod.discord.Minecraft2Discord:
+import org.apache.commons.lang3.tuple.Pair;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.fml.ExtensionPoint;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
     @Override
@@ -70,10 +74,10 @@ public class ClientProxy extends CommonProxy {
 	MinecraftForge.EVENT_BUS.register(new ChessView());
 	MinecraftForge.EVENT_BUS.register(new SoundsHandler());
 	MinecraftForge.EVENT_BUS.register(new RecipesDelete());
-	MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::onServerReady);
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::onServerStarting);
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::onServerStop);
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::onServerStopped);
+	MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, Minecraft2Discord::onServerReady);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, Minecraft2Discord::onServerStarting);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, Minecraft2Discord::onServerStop);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, Minecraft2Discord::onServerStopped);
        // ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SERVER_SPECS);
         ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST, ()-> Pair.of(()-> FMLNetworkConstants.IGNORESERVERONLY, (in, net) -> true));
         //Netero.init();
