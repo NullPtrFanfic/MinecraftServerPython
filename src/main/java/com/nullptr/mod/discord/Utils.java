@@ -1,4 +1,4 @@
-package ml.denis3d.minecraft2discord;
+package com.nullptr.mod.discord;
 
 import net.dv8tion.jda.api.entities.*;
 import com.nullptr.mod.discord.Minecraft2Discord;
