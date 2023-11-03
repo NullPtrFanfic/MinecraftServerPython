@@ -203,7 +203,13 @@ dependencies {
     implementation 'com.theokanning.openai-gpt3-java:service:0.12.0'
 
     compile "com.theokanning.openai-gpt3-java:service:0.12.0"
+    compile(shadow('net.dv8tion:JDA:4.1.1_101')) {
+        exclude module: 'opus-java'
+    }
 
+    compile(shadow("org.slf4j:slf4j-simple:1.7.28"))
+    compile(shadow("club.minnced:discord-webhooks:0.3.0"))
+    compile(shadow('com.vdurmont:emoji-java:5.1.1'))
     shade "com.theokanning.openai-gpt3-java:service:0.12.0"
 
 	
@@ -326,7 +332,27 @@ shadowJar {
 		exclude(dependency('net.minecraftforge:forge:1.12.2-14.23.5.2860'))
 
 	}*/
+        relocate 'org.apache.commons.collections4', '${project.group}.shadow.org.apache.commons.collections4'
+        relocate 'gnu.trove', '${project.group}.shadow.gnu.trove'
+        relocate "com.neovisionaries.ws.client", "${project.group}.shadow.com.neovisionaries.ws.client"
+        relocate "com.iwebpp.crypto", "${project.group}.shadow.com.iwebpp.crypto"
+        relocate "net.dv8tion.jda", "${project.group}.shadow.net.dv8tion.jda"
+        relocate "org.json", "${project.group}.shadow.org.json"
+        relocate "okio", "${project.group}.shadow.okio"
+        relocate "okhttp3", "${project.group}.shadow.okhttp3"
+      //  relocate "okhttp3", "${project.group}.shadow.okhttp3"
+        relocate "org.slf4j", "${project.group}.shadow.org.slf4j"
+        relocate "com.fasterxml.jackson", "${project.group}.shadow.com.fasterxml.jackson"
+        relocate "club.minnced.discord", "${project.group}.shadow.club.minnced.discord"
 
+        relocate "com.vdurmont.emoji", "${project.group}.shadow.com.vdurmont.emoji"
+
+   // classifier ''
+    //configurations = [project.configurations.shadow]
+        dependencies{
+        exclude(dependency('org.jetbrains:annotations'))
+        exclude(dependency('com.google.code.findbugs:jsr305'))
+        }
 	relocate 'com.theokanning.openai-gpt3-java', "${project.group}.shadow.com.theokanning.openai-gpt3-java"
 
 	classifier = ''
