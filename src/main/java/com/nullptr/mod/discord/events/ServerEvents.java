@@ -103,7 +103,7 @@ public class ServerEvents
             discordWebhookClient.send(builder.build());
         } else
         {
-            Utils.sendChatMessage("Чета с вебхуком не так" + event.getName().toString() + event.getMessage()));
+            Utils.sendChatMessage("Чета с вебхуком не так" + event.getName().toString() + event.getMessage());
         }
     }
 }
