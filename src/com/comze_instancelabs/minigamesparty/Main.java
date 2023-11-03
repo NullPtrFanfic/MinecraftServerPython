@@ -132,7 +132,7 @@ public class Main extends JavaPlugin implements Listener {
 	public Location mainlobby = null;
 
 	public int seconds = 60;
-	
+	public boolean gameStarted = false;
 	Main m;
 
 	@Override
@@ -511,7 +511,6 @@ public class Main extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onSignUse(PlayerInteractEvent event)
 	{	
-		event.getPlayer().sendMessage("Matvei top!");
 		if (event.getAction() == Action.RIGHT_CLICK_BLOCK)
 		{
 			if(event.hasBlock()){
@@ -519,6 +518,8 @@ public class Main extends JavaPlugin implements Listener {
 				{
 					final Sign s = (Sign) event.getClickedBlock().getState();
 					if (s.getLine(1).equalsIgnoreCase(ChatColor.BOLD + "" + ChatColor.DARK_PURPLE + "[PARTY]")){
+						event.getPlayer().sendMessage("Matvei top!");
+						gameStarted != gameStarted;
 						if(players.contains(event.getPlayer().getName())){
 							event.getPlayer().sendMessage(ChatColor.GOLD + "Use /mp leave to leave!");
 						}else{
@@ -1251,7 +1252,7 @@ public class Main extends JavaPlugin implements Listener {
 		
 		for(String pl : players){
 			final Player p = Bukkit.getPlayerExact(pl);
-			if(p.isOnline() && started && ingame_started){
+			if(p.isOnline() && gameStarted){
 				p.setAllowFlight(false);
 				p.setFlying(false);
 				p.getInventory().clear();
