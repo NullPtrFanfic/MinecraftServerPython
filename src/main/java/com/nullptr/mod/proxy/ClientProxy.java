@@ -60,9 +60,10 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.ModLoadingContext;
 import com.nullptr.mod.discord.Minecraft2Discord;
 import org.apache.commons.lang3.tuple.Pair;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.fml.ExtensionPoint;
-import net.minecraftforge.fml.network.FMLNetworkConstants;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
+//import net.minecraftforge.eventbus.api.EventPriority;
+//import net.minecraftforge.fml.ExtensionPoint;
+//import net.minecraftforge.fml.network.FMLNetworkConstants;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
     @Override
@@ -80,7 +81,7 @@ public class ClientProxy extends CommonProxy {
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, Minecraft2Discord::onServerStop);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, Minecraft2Discord::onServerStopped);
        // ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SERVER_SPECS);
-        ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST, ()-> Pair.of(()-> FMLNetworkConstants.IGNORESERVERONLY, (in, net) -> true));
+       // ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST, ()-> Pair.of(()-> FMLNetworkConstants.IGNORESERVERONLY, (in, net) -> true));
         //Netero.init();
 	registerModels();
 	registerRenders();
