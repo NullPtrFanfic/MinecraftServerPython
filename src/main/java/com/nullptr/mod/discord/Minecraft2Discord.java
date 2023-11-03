@@ -1,12 +1,13 @@
 package com.nullptr.mod.discord;
 
 import com.nullptr.mod.discord.events.DiscordEvents;
-import com.nullptr.mod.discord.events.Utils;
+import com.nullptr.mod.discord.Utils;
 import com.nullptr.mod.discord.events.ServerEvents;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.EventPriority;
+//import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.ExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
