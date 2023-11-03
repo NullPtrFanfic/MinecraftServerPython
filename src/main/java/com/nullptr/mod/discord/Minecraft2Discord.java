@@ -30,15 +30,6 @@ public class Minecraft2Discord {
     private static final Logger LOGGER = LogManager.getLogger();
     private static JDA DISCORD_BOT = null;
 
-    public Minecraft2Discord() {
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::onServerReady);
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::onServerStarting);
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::onServerStop);
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, this::onServerStopped);
-       // ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SERVER_SPECS);
-        ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST, ()-> Pair.of(()-> FMLNetworkConstants.IGNORESERVERONLY, (in, net) -> true));
-    }
-
     public static JDA getDiscordBot() {
         return DISCORD_BOT;
     }
