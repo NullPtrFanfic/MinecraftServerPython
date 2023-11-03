@@ -11,10 +11,10 @@ import net.minecraftforge.fml.ExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.server.FMLServerStartedEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
-import net.minecraftforge.fml.event.server.FMLServerStoppedEvent;
-import net.minecraftforge.fml.event.server.FMLServerStoppingEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartedEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.event.FMLServerStoppedEvent;
+import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 import net.minecraftforge.fml.network.FMLNetworkConstants;
 import okhttp3.OkHttpClient;
 import org.apache.commons.lang3.tuple.Pair;
@@ -55,8 +55,9 @@ public class Minecraft2Discord {
 
     public void onServerStop(FMLServerStoppingEvent event)
     {
-            if (getDiscordBot() == null)
+            if (getDiscordBot() == null) {
                 return;
+            }
 
             Utils.sendInfoMessage("Server down!");
     }
