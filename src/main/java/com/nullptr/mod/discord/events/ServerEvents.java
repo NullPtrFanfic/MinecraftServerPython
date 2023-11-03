@@ -36,7 +36,7 @@ public class ServerEvents
     @SubscribeEvent
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event)
     {
-        Utils.sendInfoMessage(event.player.getName().getFormattedText()+" зашел на сервер!");
+        Utils.sendInfoMessage(event.player.getName().toString()+" зашел на сервер!");
     }
 
     @SubscribeEvent
@@ -98,12 +98,12 @@ public class ServerEvents
             }
             WebhookMessageBuilder builder = new WebhookMessageBuilder();
             builder.setContent(event.getMessage())
-                .setUsername(event.player.getName().toString())
+                .setUsername("sumeru")
                 .setAvatarUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb7brumDODi9RhjQwxqILPKJKXK7UuLN2zXUbOAYMcurRF0RMV6Rxv7Fppa3K3gRv5Ek&usqp=CAU");
             discordWebhookClient.send(builder.build());
         } else
         {
-            Utils.sendChatMessage("Чета с вебхуком не так" + event.getName().toString() + event.getMessage());
+            Utils.sendChatMessage("Чета с вебхуком не так" + event.getMessage());
         }
     }
 }
