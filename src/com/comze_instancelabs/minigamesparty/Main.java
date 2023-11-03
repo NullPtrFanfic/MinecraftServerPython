@@ -1250,7 +1250,7 @@ public class Main extends JavaPlugin implements Listener {
 		
 		for(String pl : players){
 			final Player p = Bukkit.getPlayerExact(pl);
-			if(p.isOnline()){
+			if(p.isOnline() && started && ingame_started){
 				p.setAllowFlight(false);
 				p.setFlying(false);
 				p.getInventory().clear();
