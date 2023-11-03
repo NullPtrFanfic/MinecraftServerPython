@@ -8,8 +8,9 @@ import com.nullptr.mod.discord.Minecraft2Discord;
 import com.nullptr.mod.discord.Utils;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Webhook;
+import net.minecraftforge.fml.relauncher.Side;
 //import net.minecraft.command.arguments.MessageArgument;
-import net.minecraft.entity.player.PlayerEntity;
+//import net.minecraft.entity.player.PlayerEntity;
 //import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.CommandEvent;
 import net.minecraftforge.event.ServerChatEvent;
@@ -24,7 +25,7 @@ import net.minecraftforge.fml.event.server.ServerLifecycleEvent;
 import net.minecraftforge.client.event.ClientChatEvent
 import java.util.List;
 import java.util.stream.Collectors;
-
+import net.minecraft.entity.player.EntityPlayer;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ServerEvents
 {
