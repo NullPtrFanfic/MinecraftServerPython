@@ -5,11 +5,9 @@ import com.nullptr.mod.discord.Utils;
 
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.minecraft.command.CommandSource;
-import net.minecraft.command.Commands;
-import net.minecraft.util.math.Vec2f;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.text.StringTextComponent;
+//import net.minecraft.command.CommandSource;
+//import net.minecraft.command.Commands;
+
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.fml.server.ServerLifecycleHooks;
 
