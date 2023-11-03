@@ -113,7 +113,7 @@ public class ServerEvents
             WebhookMessageBuilder builder = new WebhookMessageBuilder();
             builder.setContent(event.getMessage())
                 .setUsername(event.getUsername())
-                .setAvatarUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb7brumDODi9RhjQwxqILPKJKXK7UuLN2zXUbOAYMcurRF0RMV6Rxv7Fppa3K3gRv5Ek&usqp=CAU"));
+                .setAvatarUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb7brumDODi9RhjQwxqILPKJKXK7UuLN2zXUbOAYMcurRF0RMV6Rxv7Fppa3K3gRv5Ek&usqp=CAU");
             discordWebhookClient.send(builder.build());
         } else
         {
