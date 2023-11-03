@@ -41,6 +41,7 @@ public class ServerEvents
     {
         if (Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) { 
             Utils.sendInfoMessage(event.getPlayer().getName().getFormattedText()+" вышел из сервера");
+        }
     }
 
     @SubscribeEvent
