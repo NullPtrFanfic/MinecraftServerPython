@@ -85,18 +85,6 @@ public class ServerEvents
     }
 
     @SubscribeEvent
-    public static void onCommand(CommandEvent event) throws CommandSyntaxException
-    {
-        if (event.getParseResults().getContext().getCommand() != null && event.getParseResults().getContext().getNodes().get(0).getNode().getName().equals("say"))
-        {
-            Utils.sendInfoMessage(Config.SERVER.noneWebhookChatMessageFormat.get()
-                .replace("$1", event.getParseResults().getContext().getSource().getDisplayName().getFormattedText())
-                .replace("$2", ((MessageArgument.Message) event.getParseResults().getContext().getArguments().get("message").getResult())
-                    .toComponent(event.getParseResults().getContext().getSource(), true).getFormattedText()));
-        }
-    }
-
-    @SubscribeEvent
     public static void onServerChat(final ServerChatEvent event)
     {
         if (true)
@@ -106,7 +94,7 @@ public class ServerEvents
                 if (Utils.discordWebhook == null)
                 {
                     if (Utils.chatChannel == null)
-                        Utils.chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("");
+                        Utils.chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("1097828057018015836");
                     if (Utils.chatChannel != null)
                     {
                         List<Webhook> discordWebhooks = Utils.chatChannel.retrieveWebhooks().complete().stream()
@@ -125,9 +113,7 @@ public class ServerEvents
             WebhookMessageBuilder builder = new WebhookMessageBuilder();
             builder.setContent(event.getMessage())
                 .setUsername(event.getUsername())
-                .setAvatarUrl(Utils.globalVariableReplacement(Config.SERVER.discordPictureAPI.get())
-            event.getUsername())
-                    .replace("$2", event.getPlayer().getUniqueID().toString()));
+                .setAvatarUrl(Utils.globalVariableReplacement(Config.SERVER.discordPictureAPI.get())));
             discordWebhookClient.send(builder.build());
         } else
         {
