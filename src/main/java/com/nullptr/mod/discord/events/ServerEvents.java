@@ -63,7 +63,7 @@ public class ServerEvents
         if (event.getEntityLiving() instanceof EntityPlayer && event.getAdvancement().getDisplay() != null)
         {
                 EntityPlayerMP player = (EntityPlayerMP) event.getEntityLiving();
-                String message = "Кто-то получил ачивку"+player.getName().getFormattedText()+event.getAdvancement().getDisplayText().getString();
+                String message = "Кто-то получил ачивку"+player.getName().getFormattedText()+event.getAdvancement().getDisplayText().toString();
                 message += event.getAdvancement().getDisplay().getDescription().getUnformattedComponentText();
 
                 Utils.sendInfoMessage(message);
@@ -98,7 +98,7 @@ public class ServerEvents
             }
             WebhookMessageBuilder builder = new WebhookMessageBuilder();
             builder.setContent(event.getMessage())
-                .setUsername(event.getUsername())
+                .setUsername(event.player.getDisplayName())
                 .setAvatarUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb7brumDODi9RhjQwxqILPKJKXK7UuLN2zXUbOAYMcurRF0RMV6Rxv7Fppa3K3gRv5Ek&usqp=CAU");
             discordWebhookClient.send(builder.build());
         } else
