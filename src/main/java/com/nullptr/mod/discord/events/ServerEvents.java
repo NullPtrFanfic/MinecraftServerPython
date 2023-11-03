@@ -26,6 +26,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.client.event.ClientChatEvent;
 import java.util.List;
 import java.util.stream.Collectors;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ServerEvents
@@ -51,7 +52,7 @@ public class ServerEvents
     {
         if (event.getEntityLiving() instanceof EntityPlayer)
         {
-                EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+                EntityPlayerMP player = (EntityPlayerMP) event.getEntityLiving();
                 Utils.sendInfoMessage("Кто-то сдох"+player.getCombatTracker().getDeathMessage().getFormattedText() + player.getName().getFormattedText()+player.getCombatTracker().getDeathMessage().getUnformattedComponentText()+"death.attack." + event.getSource().damageType);
         }
     }
@@ -59,9 +60,9 @@ public class ServerEvents
     @SubscribeEvent
     public static void onAdvancement(AdvancementEvent event)
     {
-        if (event.getEntityLiving() instanceof PlayerEntity && event.getAdvancement().getDisplay() != null)
+        if (event.getEntityLiving() instanceof EntityPlayer && event.getAdvancement().getDisplay() != null)
         {
-                PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+                EntityPlayerMP player = (EntityPlayerMP) event.getEntityLiving();
                 String message = "Кто-то получил ачивку"+player.getName().getFormattedText()+event.getAdvancement().getDisplayText().getString();
                 message += event.getAdvancement().getDisplay().getDescription().getUnformattedComponentText();
 
