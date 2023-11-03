@@ -86,7 +86,7 @@ public class Shop {
 				if (d.equalsIgnoreCase("grenades")) {
 					if (currentcredits >= grenades_price) {
 						m.updatePlayerStats(p.getName(), "credits", currentcredits - grenades_price);
-						m.msql.updateShopperStats(p.getName(), grenades_price);
+						//m.msql.updateShopperStats(p.getName(), grenades_price);
 						addToPlayerShopComponent(m, p.getName(), "grenades", 1);
 						p.sendMessage(ChatColor.GREEN + "You bought a Grenade!");
 					} else {
@@ -95,7 +95,7 @@ public class Shop {
 				}else if (d.equalsIgnoreCase("jump boost")) {
 					if (currentcredits >= jumpboost_price) {
 						m.updatePlayerStats(p.getName(), "credits", currentcredits - jumpboost_price);
-						m.msql.updateShopperStats(p.getName(), jumpboost_price);
+						//m.msql.updateShopperStats(p.getName(), jumpboost_price);
 						addToPlayerShopComponent(m, p.getName(), "jump_boost", 1);
 						p.sendMessage(ChatColor.GREEN + "You bought a Jump Boost!");
 					} else {
@@ -104,7 +104,7 @@ public class Shop {
 				}else if (d.equalsIgnoreCase("speed boost")) {
 					if (currentcredits >= deadendboost_price) {
 						m.updatePlayerStats(p.getName(), "credits", currentcredits - deadendboost_price);
-						m.msql.updateShopperStats(p.getName(), deadendboost_price);
+						//m.msql.updateShopperStats(p.getName(), deadendboost_price);
 						addToPlayerShopComponent(m, p.getName(), "speed_boost", 1);
 						p.sendMessage(ChatColor.GREEN + "You bought a Speed Boost!");
 					} else {
@@ -161,7 +161,7 @@ public class Shop {
 		int currentcredits = m.getPlayerStats(p.getName(), "credits");
 		if (currentcredits >= price) {
 			m.updatePlayerStats(p.getName(), "credits", currentcredits - price);
-			m.msql.updateShopperStats(p.getName(), price);
+			//m.msql.updateShopperStats(p.getName(), price);
 			addToPlayerShopComponent(m, p.getName(), comp, 1);
 			p.sendMessage(ChatColor.GREEN + message);
 		} else {
