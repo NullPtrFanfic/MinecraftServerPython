@@ -1,7 +1,7 @@
 package ml.denis3d.minecraft2discord;
 
 import net.dv8tion.jda.api.entities.*;
-
+import com.nullptr.mod.discord.Minecraft2Discord;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,8 +26,9 @@ public class Utils
     {
         if (true)
         {
-            if (chatChannel == null)
+            if (chatChannel == null) {
                 chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("1097828057018015836");
+            }
             return sendMessage(chatChannel, message);
         }
         return false;
@@ -37,8 +38,9 @@ public class Utils
     {
         if (true)
         {
-            if (infoChannel == null)
+            if (infoChannel == null) {
                 infoChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("1097828057018015836");
+            }
             return sendMessage(infoChannel, message);
         }
         return false;
@@ -51,8 +53,9 @@ public class Utils
 
     public static boolean sendMessage(TextChannel channel, String message, Boolean global_variable_replacement)
     {
-        if (Minecraft2Discord.getDiscordBot() == null || channel == null)
+        if (Minecraft2Discord.getDiscordBot() == null || channel == null) {
             return false;
+        }
 
         try
         {
