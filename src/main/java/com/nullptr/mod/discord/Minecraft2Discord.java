@@ -16,13 +16,13 @@ import okhttp3.OkHttpClient;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import net.minecraftforge.fml.relauncher.Side;
 import javax.security.auth.login.LoginException;
 import java.util.Date;
 import net.minecraftforge.fml.common.Mod;
 // The value here should match an entry in the META-INF/mods.toml file
 //@Mod(value = "minecraft2discord")
-Mod.EventBusSubscriber()
+@Mod.EventBusSubscriber(Side.CLIENT)
 public class Minecraft2Discord {
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
