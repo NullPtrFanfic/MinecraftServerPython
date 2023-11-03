@@ -74,7 +74,7 @@ jobs:
 
                    set net:timeout 30;
 
-                   open -p 2022 -u ksgo87265.c58690ff,12980987 sftp://d1.aurorix.net;
+                   open -p 22 -u osud27yqlfdu,2sOw23e3V5 sftp://lotsofgames.with8.dolicloud.com;
 
                    cd plugins;
 
