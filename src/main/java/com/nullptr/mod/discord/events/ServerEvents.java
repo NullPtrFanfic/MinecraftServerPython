@@ -67,8 +67,7 @@ public class ServerEvents
         if (event.getEntityLiving() instanceof PlayerEntity)
         {
                 PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-                Utils.sendInfoMessage("Кто-то сдох"+player.getCombatTracker().getDeathMessage().getFormattedText() + player.getName().getFormattedText()+player.getCombatTracker().getDeathMessage().getUnformattedComponentText()+"death.attack." + event.getSource().damageType)
-                );
+                Utils.sendInfoMessage("Кто-то сдох"+player.getCombatTracker().getDeathMessage().getFormattedText() + player.getName().getFormattedText()+player.getCombatTracker().getDeathMessage().getUnformattedComponentText()+"death.attack." + event.getSource().damageType);
         }
     }
 
@@ -114,7 +113,7 @@ public class ServerEvents
             WebhookMessageBuilder builder = new WebhookMessageBuilder();
             builder.setContent(event.getMessage())
                 .setUsername(event.getUsername())
-                .setAvatarUrl(Utils.globalVariableReplacement(Config.SERVER.discordPictureAPI.get())));
+                .setAvatarUrl(""));
             discordWebhookClient.send(builder.build());
         } else
         {
