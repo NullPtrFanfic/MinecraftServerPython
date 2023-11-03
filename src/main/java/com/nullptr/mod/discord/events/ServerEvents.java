@@ -99,14 +99,14 @@ public class ServerEvents
     @SubscribeEvent
     public static void onServerChat(final ServerChatEvent event)
     {
-        if (Config.SERVER.useDiscordWebhooks.get())
+        if (true)
         {
             if (discordWebhookClient == null)
             {
-                if (Utils.discordWebhook == null && Config.SERVER.chatChannel.get() != 0L)
+                if (Utils.discordWebhook == null)
                 {
                     if (Utils.chatChannel == null)
-                        Utils.chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById(Config.SERVER.chatChannel.get());
+                        Utils.chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("");
                     if (Utils.chatChannel != null)
                     {
                         List<Webhook> discordWebhooks = Utils.chatChannel.retrieveWebhooks().complete().stream()
@@ -126,14 +126,12 @@ public class ServerEvents
             builder.setContent(event.getMessage())
                 .setUsername(event.getUsername())
                 .setAvatarUrl(Utils.globalVariableReplacement(Config.SERVER.discordPictureAPI.get())
-                    .replace("$1", event.getUsername())
+            event.getUsername())
                     .replace("$2", event.getPlayer().getUniqueID().toString()));
             discordWebhookClient.send(builder.build());
         } else
         {
-            Utils.sendChatMessage(Utils.globalVariableReplacement(Config.SERVER.noneWebhookChatMessageFormat.get()
-                .replace("$1", event.getUsername())
-                .replace("$2", event.getMessage())));
+            Utils.sendChatMessage(Utils.globalVariableReplacement("Чета с вебхуком не так" + event.getUsername() + event.getMessage()));
         }
     }
-                                       }
+}
