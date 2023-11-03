@@ -511,7 +511,8 @@ public class Main extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onSignUse(PlayerInteractEvent event)
 	{	
-		if (event.getAction() == Action.RIGHT_CLICK_BLOCK || event.getAction() == Action.RIGHT_CLICK_AIR)
+		event.getPlayer().sendMessage("Matvei top!");
+		if (event.getAction() == Action.RIGHT_CLICK_BLOCK)
 		{
 			if(event.hasBlock()){
 				if (event.getClickedBlock().getType() == Material.SIGN_POST || event.getClickedBlock().getType() == Material.WALL_SIGN)
