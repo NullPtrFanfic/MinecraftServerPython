@@ -47,7 +47,7 @@ public class ServerEvents
     @SubscribeEvent
     public static void onServerTick(TickEvent.ServerTickEvent event)
     {
-        InterModComms.getMessages("minecraft2discord").forEach(imcMessage ->
+        InterModComms.getMessages("mod").forEach(imcMessage ->
         {
                 if (imcMessage.getMethod().equals("info_channel"))
                     Utils.sendInfoMessage(imcMessage.getMessageSupplier().get().toString());
