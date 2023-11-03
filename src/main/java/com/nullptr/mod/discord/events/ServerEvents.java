@@ -43,7 +43,7 @@ public class ServerEvents
     public static void onPlayerLeft(PlayerEvent.PlayerLoggedOutEvent event)
     {
         if (Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) { 
-            Utils.sendInfoMessage(event.player.getName().getFormattedText()+" вышел из сервера");
+            Utils.sendInfoMessage(event.player.getName().toString()+" вышел из сервера");
         }
     }
 
@@ -53,7 +53,7 @@ public class ServerEvents
         if (event.getEntityLiving() instanceof EntityPlayer)
         {
                 EntityPlayerMP player = (EntityPlayerMP) event.getEntityLiving();
-                Utils.sendInfoMessage("Кто-то сдох"+player.getCombatTracker().getDeathMessage().getFormattedText() + player.getName().getFormattedText()+player.getCombatTracker().getDeathMessage().getUnformattedComponentText()+"death.attack." + event.getSource().damageType);
+                Utils.sendInfoMessage("Кто-то сдох"+player.getCombatTracker().getDeathMessage().toString() + player.getName().toString()+player.getCombatTracker().getDeathMessage().toString()+"death.attack." + event.getSource().damageType);
         }
     }
 
@@ -63,7 +63,7 @@ public class ServerEvents
         if (event.getEntityLiving() instanceof EntityPlayer && event.getAdvancement().getDisplay() != null)
         {
                 EntityPlayerMP player = (EntityPlayerMP) event.getEntityLiving();
-                String message = "Кто-то получил ачивку"+player.getName().getFormattedText()+event.getAdvancement().getDisplayText().toString();
+                String message = "Кто-то получил ачивку"+player.getName().toString()+event.getAdvancement().getDisplayText().toString();
                 message += event.getAdvancement().getDisplay().getDescription().getUnformattedComponentText();
 
                 Utils.sendInfoMessage(message);
@@ -98,12 +98,12 @@ public class ServerEvents
             }
             WebhookMessageBuilder builder = new WebhookMessageBuilder();
             builder.setContent(event.getMessage())
-                .setUsername(event.player.getDisplayName())
+                .setUsername(event.player.getName().toString())
                 .setAvatarUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb7brumDODi9RhjQwxqILPKJKXK7UuLN2zXUbOAYMcurRF0RMV6Rxv7Fppa3K3gRv5Ek&usqp=CAU");
             discordWebhookClient.send(builder.build());
         } else
         {
-            Utils.sendChatMessage(Utils.globalVariableReplacement("Чета с вебхуком не так" + event.getUsername() + event.getMessage()));
+            Utils.sendChatMessage("Чета с вебхуком не так" + event.getName().toString() + event.getMessage()));
         }
     }
 }
