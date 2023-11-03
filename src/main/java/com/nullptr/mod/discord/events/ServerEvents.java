@@ -2,30 +2,30 @@ package com.nullptr.mod.discord.events;
 
 import club.minnced.discord.webhook.WebhookClient;
 import club.minnced.discord.webhook.send.WebhookMessageBuilder;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
+//import com.mojang.brigadier.exceptions.CommandSyntaxException;
 //import com.nullptr.mod.discord.Config;
 import com.nullptr.mod.discord.Minecraft2Discord;
 import com.nullptr.mod.discord.Utils;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Webhook;
-import net.minecraft.command.arguments.MessageArgument;
+//import net.minecraft.command.arguments.MessageArgument;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraftforge.api.distmarker.Dist;
+//import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.CommandEvent;
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.event.entity.player.PlayerEvent;//i)mport net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+//import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.server.ServerLifecycleEvent;
-
+import net.minecraftforge.client.event.ClientChatEvent
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Mod.EventBusSubscriber(Dist.DEDICATED_SERVER)
+@Mod.EventBusSubscriber(Side.CLIENT)
 public class ServerEvents
 {
     public static WebhookClient discordWebhookClient;
@@ -85,7 +85,7 @@ public class ServerEvents
     }
 
     @SubscribeEvent
-    public static void onServerChat(final ServerChatEvent event)
+    public static void onServerChat(ClientChatEvent event)
     {
         if (true)
         {
