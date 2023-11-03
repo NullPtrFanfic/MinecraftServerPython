@@ -62,6 +62,7 @@ import com.nullptr.mod.discord.Minecraft2Discord:
 import org.apache.commons.lang3.tuple.Pair;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.ExtensionPoint;
+import net.minecraftforge.fml.network.FMLNetworkConstants;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
     @Override
