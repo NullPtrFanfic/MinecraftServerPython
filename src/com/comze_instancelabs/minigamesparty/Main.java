@@ -1100,8 +1100,9 @@ public class Main extends JavaPlugin implements Listener {
 		
 		// update scoreboard
 		updateScoreboard(seconds - c);
-                for (Entity entity : Bukkit.getWorld("party").getEntities()) {
-                     entity.remove();
+		for (Entity entity : Bukkit.getWorld("party").getEntities())
+		{
+		     entity.remove();
 		}
 		// stop the whole party after some rounds
 		if(c_ > (minigames.size() - disabledMinigamesC) * seconds - 3){
