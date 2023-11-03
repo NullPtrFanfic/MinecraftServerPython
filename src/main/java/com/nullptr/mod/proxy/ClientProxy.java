@@ -58,6 +58,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import com.nullptr.mod.init.BlockInit;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.ModLoadingContext;
+import com.nullptr.mod.discord.ServerEvents;
 import com.nullptr.mod.discord.Minecraft2Discord;
 import org.apache.commons.lang3.tuple.Pair;
 //import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -77,6 +78,7 @@ public class ClientProxy extends CommonProxy {
 	MinecraftForge.EVENT_BUS.register(new SoundsHandler());
 	MinecraftForge.EVENT_BUS.register(new RecipesDelete());
 	MinecraftForge.EVENT_BUS.register(new Minecraft2Discord());
+	MinecraftForge.EVENT_BUS.register(new ServerEvents());
         // ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SERVER_SPECS);
        // ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST, ()-> Pair.of(()-> FMLNetworkConstants.IGNORESERVERONLY, (in, net) -> true));
         //Netero.init();
