@@ -519,7 +519,7 @@ public class Main extends JavaPlugin implements Listener {
 					final Sign s = (Sign) event.getClickedBlock().getState();
 					if (s.getLine(1).equalsIgnoreCase(ChatColor.BOLD + "" + ChatColor.DARK_PURPLE + "[PARTY]")){
 						event.getPlayer().sendMessage("Matvei top!");
-						gameStarted != gameStarted;
+						gameStarted = !gameStarted;
 						if(players.contains(event.getPlayer().getName())){
 							event.getPlayer().sendMessage(ChatColor.GOLD + "Use /mp leave to leave!");
 						}else{
