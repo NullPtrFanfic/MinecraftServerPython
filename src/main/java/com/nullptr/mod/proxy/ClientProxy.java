@@ -58,7 +58,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import com.nullptr.mod.init.BlockInit;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.ModLoadingContext;
-import com.nullptr.mod.discord.Minecraft2Discord:
+import com.nullptr.mod.discord.Minecraft2Discord;
 import org.apache.commons.lang3.tuple.Pair;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.ExtensionPoint;
