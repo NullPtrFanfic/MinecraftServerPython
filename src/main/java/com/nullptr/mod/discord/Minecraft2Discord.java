@@ -19,9 +19,10 @@ import org.apache.logging.log4j.Logger;
 
 import javax.security.auth.login.LoginException;
 import java.util.Date;
-
+import net.minecraftforge.fml.common.Mod;
 // The value here should match an entry in the META-INF/mods.toml file
 //@Mod(value = "minecraft2discord")
+Mod.EventBusSubscriber()
 public class Minecraft2Discord {
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
@@ -30,7 +31,7 @@ public class Minecraft2Discord {
     public static JDA getDiscordBot() {
         return DISCORD_BOT;
     }
-
+    @Mod.EventHandler
     public void onServerReady(FMLServerStartedEvent event)
     {
         Utils.started_time = new Date().getTime();
@@ -43,12 +44,12 @@ public class Minecraft2Discord {
             LOGGER.error(e.getMessage());
         }
     }
-
+    @Mod.EventHandler
     public void onServerStarting(FMLServerStartingEvent event)
     {
         
     }
-
+    @Mod.EventHandler
     public void onServerStop(FMLServerStoppingEvent event)
     {
             if (getDiscordBot() == null) {
@@ -57,7 +58,7 @@ public class Minecraft2Discord {
 
             Utils.sendInfoMessage("Server down!");
     }
-
+    @Mod.EventHandler
     public void onServerStopped(FMLServerStoppedEvent event)
     {
        // Utils.updateOfflineVoiceChannel();
