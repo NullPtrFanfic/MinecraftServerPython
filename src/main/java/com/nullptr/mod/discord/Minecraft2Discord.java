@@ -49,7 +49,7 @@ public class Minecraft2Discord {
 
         try
         {
-            DISCORD_BOT = new JDABuilder("").addEventListeners(new DiscordEvents()).build();
+            DISCORD_BOT = new JDABuilder("MTE2ODIxMjg0NDI1MzI4MjQxNg.GHLt-S.prUaAEf0TkBSBdkdSdb65u6zisXFrIVc80CPNM").addEventListeners(new DiscordEvents()).build();
         } catch (LoginException e)
         {
             LOGGER.error(e.getMessage());
