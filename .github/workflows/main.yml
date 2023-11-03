@@ -41,7 +41,7 @@ jobs:
           #pushd src-common/
           pushd src/
 
-          javac -cp ".:../lib-spigot/spigot-1.12.2.jar" -d .. com/**/**/*.java
+          javac -cp ".:../lib-spigot/spigot-1.12.2.jar:../lib-spigot/Vault.jar" -d .. com/**/**/*.java
           #javac -cp ".:../lib-spigot/forge-1.12.2-14.23.5.2768-universal.jar:../lib-spigot/spigot-1.12.2.jar" -d .. com/nullptr/mod/*.java
           jar cvf ../party.jar ../plugin.yml ../com/
 
