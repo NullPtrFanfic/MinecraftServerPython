@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 //import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.server.ServerLifecycleEvent;
-import net.minecraftforge.client.event.ClientChatEvent
+import net.minecraftforge.client.event.ClientChatEvent;
 import java.util.List;
 import java.util.stream.Collectors;
 import net.minecraft.entity.player.EntityPlayer;
