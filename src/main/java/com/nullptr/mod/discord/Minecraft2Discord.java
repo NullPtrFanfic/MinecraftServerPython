@@ -24,7 +24,7 @@ import javax.security.auth.login.LoginException;
 import java.util.Date;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(value = "minecraft2discord")
+//@Mod(value = "minecraft2discord")
 public class Minecraft2Discord {
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
