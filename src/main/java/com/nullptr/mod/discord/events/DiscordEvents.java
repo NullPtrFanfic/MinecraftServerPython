@@ -1,4 +1,4 @@
-package ml.denis3d.minecraft2discord.events;
+package com.nullptr.mod.discord.events;
 
 
 import com.nullptr.mod.discord.Utils;
