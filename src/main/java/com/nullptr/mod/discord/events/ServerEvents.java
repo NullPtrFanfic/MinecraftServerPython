@@ -13,8 +13,9 @@ import net.minecraftforge.fml.relauncher.Side;
 //import net.minecraft.entity.player.PlayerEntity;
 //import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.CommandEvent;
-import net.minecraftforge.event.ServerChatEvent;
-import net.minecraftforge.event.TickEvent;
+//import net.minecraftforge.event.ServerChatEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
+//import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;//i)mport net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -65,9 +66,9 @@ public class ServerEvents
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event)
     {
-        if (event.getEntityLiving() instanceof PlayerEntity)
+        if (event.getEntityLiving() instanceof EntityPlayer)
         {
-                PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+                EntityPlayer player = (EntityPlayer) event.getEntityLiving();
                 Utils.sendInfoMessage("Кто-то сдох"+player.getCombatTracker().getDeathMessage().getFormattedText() + player.getName().getFormattedText()+player.getCombatTracker().getDeathMessage().getUnformattedComponentText()+"death.attack." + event.getSource().damageType);
         }
     }
