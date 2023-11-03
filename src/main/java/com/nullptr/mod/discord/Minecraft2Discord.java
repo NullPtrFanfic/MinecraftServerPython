@@ -1,6 +1,7 @@
 package com.nullptr.mod.discord;
 
 import com.nullptr.mod.discord.events.DiscordEvents;
+import com.nullptr.mod.discord.events.Utils;
 import com.nullptr.mod.discord.events.ServerEvents;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -49,10 +50,7 @@ public class Minecraft2Discord {
 
     public void onServerStarting(FMLServerStartingEvent event)
     {
-        if (Config.SERVER.enabledDiscordCommand.get())
-        {
-            DiscordCommand.register(event.getCommandDispatcher());
-        }
+        
     }
 
     public void onServerStop(FMLServerStoppingEvent event)
@@ -65,8 +63,8 @@ public class Minecraft2Discord {
 
     public void onServerStopped(FMLServerStoppedEvent event)
     {
-        Utils.updateOfflineVoiceChannel();
-        Utils.updateOfflineChannelTopic();
+       // Utils.updateOfflineVoiceChannel();
+       // Utils.updateOfflineChannelTopic();
         ServerEvents.discordWebhookClient.close();
         DISCORD_BOT.shutdown();
         OkHttpClient client = DISCORD_BOT.getHttpClient();
