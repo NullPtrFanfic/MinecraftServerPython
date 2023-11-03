@@ -478,11 +478,11 @@ public class Main extends JavaPlugin implements Listener {
 		}
 
 		if(players.contains(event.getPlayer().getName())){
-			p.sendMessage(ChatColor.RED + ChatColor.BOLD + "Вы уже в игре!");
+			p.sendMessage(ChatColor.RED.toString() + ChatColor.BOLD.toString() + "Вы уже в игре!");
 			return;
 		}
 		players.add(p.getName());
-		event.setJoinMessage(ChatColor.GREEN + ChatColor.BOLD + p.getName() + " присоеденился к игре!");
+		event.setJoinMessage(ChatColor.GREEN.toString() + ChatColor.BOLD.toString() + p.getName() + " присоеденился к игре!");
 
 
 		Bukkit.getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
@@ -1030,7 +1030,7 @@ public class Main extends JavaPlugin implements Listener {
 
 		p.sendMessage("§aYou earned " + Integer.toString(reward) + " Credits this round.");
 
-		msql.updateWinnerStats(p.getName(), reward);
+		//msql.updateWinnerStats(p.getName(), reward);
 		
 		if(economy){
 			EconomyResponse r_ = econ.depositPlayer(p.getName(), reward);
@@ -1707,7 +1707,7 @@ public class Main extends JavaPlugin implements Listener {
 		DisIntegration.setup(new Location(start.getWorld(), x + 64 * 2 + 20 * 2, y, z), this, "DisIntegration");
 		LastArcherStanding.setup(new Location(start.getWorld(), x + 64 * 3 + 20 * 3, y, z), this, "LastArcherStanding");
 		SheepFreenzy.setup(new Location(start.getWorld(), x + 64 + 20, y, z + 64 + 20), this, "SheepFreenzy");
-		SmokeMonster.setup(new Location(start.getWorld(), x + 64 * 2 + 20 * 2, y, z + 64 + 20), this, "SmokeMonster");
+		//SmokeMonster.setup(new Location(start.getWorld(), x + 64 * 2 + 20 * 2, y, z + 64 + 20), this, "SmokeMonster");
 		SlapFight.setup(new Location(start.getWorld(), x + 64 * 3 + 20 * 3, y, z + 64 + 20), this, "SlapFight");
 		ChickenTag.setup(new Location(start.getWorld(), x + 64 + 20, y, z + 64 * 2 + 20 * 2), this, "ChickenTag");
 
@@ -1742,7 +1742,7 @@ public class Main extends JavaPlugin implements Listener {
 		minigames.add(new DisIntegration(this, this.getComponentForMinigame("DisIntegration", "spawn"), this.getComponentForMinigame("DisIntegration", "lobby"), this.getComponentForMinigame("DisIntegration", "spectatorlobby")));
 		minigames.add(new LastArcherStanding(this, this.getComponentForMinigame("LastArcherStanding", "spawn"), this.getComponentForMinigame("LastArcherStanding", "lobby"), this.getComponentForMinigame("LastArcherStanding", "spectatorlobby")));
 		minigames.add(new SheepFreenzy(this, this.getComponentForMinigame("SheepFreenzy", "spawn"), this.getComponentForMinigame("SheepFreenzy", "lobby"), this.getComponentForMinigame("SheepFreenzy", "spectatorlobby")));
-		minigames.add(new SmokeMonster(this, this.getComponentForMinigame("SmokeMonster", "spawn"), this.getComponentForMinigame("SmokeMonster", "lobby"), this.getComponentForMinigame("SmokeMonster", "spectatorlobby")));
+		//minigames.add(new SmokeMonster(this, this.getComponentForMinigame("SmokeMonster", "spawn"), this.getComponentForMinigame("SmokeMonster", "lobby"), this.getComponentForMinigame("SmokeMonster", "spectatorlobby")));
 		minigames.add(new SlapFight(this, this.getComponentForMinigame("SlapFight", "spawn"), this.getComponentForMinigame("SlapFight", "lobby"), this.getComponentForMinigame("SlapFight", "spectatorlobby")));
 		minigames.add(new ChickenTag(this, this.getComponentForMinigame("ChickenTag", "spawn"), this.getComponentForMinigame("ChickenTag", "lobby"), this.getComponentForMinigame("ChickenTag", "spectatorlobby")));
 
