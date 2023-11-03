@@ -41,11 +41,11 @@ jobs:
           #pushd src-common/
           pushd src/
 
-          #javac -cp ".:../lib-spigot/spigot-1.12.2.jar:../lib-common/java_websocket.jar" -d .. com/**/**/*.java
-          javac -cp ".:../lib-spigot/forge-1.12.2-14.23.5.2768-universal.jar:../lib-spigot/spigot-1.12.2.jar" -d .. com/nullptr/mod/*.java
-          jar cvf ../astgrief.jar ../pack.mcmeta ../mcmod.info ../com/
+          javac -cp ".:../lib-spigot/spigot-1.12.2.jar" -d .. com/**/**/*.java
+          #javac -cp ".:../lib-spigot/forge-1.12.2-14.23.5.2768-universal.jar:../lib-spigot/spigot-1.12.2.jar" -d .. com/nullptr/mod/*.java
+          jar cvf ../party.jar ../plugin.yml ../com/
 
-          #cp ../astgrief.jar ..
+          #cp ../party.jar ..
 
       - name: Install SFTP client and Expect
 
@@ -78,7 +78,7 @@ jobs:
 
                    cd plugins;
 
-                   put astgrief.jar;
+                   put party.jar;
 
                    exit;
 
