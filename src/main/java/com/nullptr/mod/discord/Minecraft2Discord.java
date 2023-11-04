@@ -34,7 +34,7 @@ public class Minecraft2Discord {
         return DISCORD_BOT;
     }
     @Mod.EventHandler
-    public static void onServerReady(FMLServerStartedEvent event)
+    public void onServerReady(FMLServerStartedEvent event)
     {
         Utils.started_time = new Date().getTime();
         MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say  Server Ready!");
