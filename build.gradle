@@ -1,5 +1,4 @@
 import org.gradle.api.artifacts.type.ArtifactTypeDefinition
-import transform.JavaModuleTransform
 buildscript {
 
     repositories {
@@ -95,6 +94,19 @@ version = '0.1'
 group = 'com.nullptr.mod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 
 archivesBaseName = 'mod'
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+            exclude '**/com/nullptr/mod/party/**'
+        }
+	kotlin {
+	    srcDirs = ['src/main/kotlin']
+	}
+    }
+}
+
+import transform.JavaModuleTransform
 javaModuleAttribute = Attribute.of("javaModule", Boolean.class.javaObjectType)
 configurations.compileClasspath {
     attributes.attribute(javaModuleAttribute, true)
@@ -285,17 +297,6 @@ dependencies {
 
 
 
-}
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java']
-            exclude '**/com/nullptr/mod/party/**'
-        }
-	kotlin {
-	    srcDirs = ['src/main/kotlin']
-	}
-    }
 }
 
 //sourceSets { main.java.srcDirs += 'src/main/kotlin' } 
