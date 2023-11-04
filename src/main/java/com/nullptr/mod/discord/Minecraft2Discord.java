@@ -20,6 +20,7 @@ import org.apache.logging.log4j.Logger;
 import net.minecraftforge.fml.relauncher.Side;
 import javax.security.auth.login.LoginException;
 import java.util.Date;
+import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.fml.common.Mod;
 // The value here should match an entry in the META-INF/mods.toml file
 //@Mod(value = "minecraft2discord")
@@ -36,16 +37,18 @@ public class Minecraft2Discord {
     public void onServerReady(FMLServerStartedEvent event)
     {
         Utils.started_time = new Date().getTime();
-
+        MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say onServerReady");
         try
         {
             DISCORD_BOT = JDABuilder.createDefault("MTE2ODIxMjg0NDI1MzI4MjQxNg.GHLt-S.prUaAEf0TkBSBdkdSdb65u6zisXFrIVc80CPNM")
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(new DiscordEvents())
                 .build();
+            MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say Jda connected!");
         } catch (LoginException e)
         {
             LOGGER.error(e.getMessage());
+            MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say "+event.getModLog().toString());
         }
     }
     @Mod.EventHandler
