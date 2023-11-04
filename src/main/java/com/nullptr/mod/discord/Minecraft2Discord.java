@@ -25,7 +25,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.fml.common.Mod;
 // The value here should match an entry in the META-INF/mods.toml file
 //@Mod(value = "minecraft2discord")
-@Mod.EventBusSubscriber()
+@Mod.EventBusSubscriber
 public class Minecraft2Discord {
     // Directly reference a log4j logger.
  //   private static final Logger LOGGER = LogManager.getLogger();
