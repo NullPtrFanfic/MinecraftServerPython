@@ -106,8 +106,8 @@ configurations.runtimeClasspath {
 dependencies.artifactTypes.maybeCreate("jar").attributes.attribute(javaModuleAttribute, false)
 
 dependencies.registerTransform(JavaModuleTransform.class) {
-    from.attributes.attribute(ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, false)
-    to.attributes.attribute(ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, true)
+    from.attributes.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, false)
+    to.attributes.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, true)
 }
 
 
