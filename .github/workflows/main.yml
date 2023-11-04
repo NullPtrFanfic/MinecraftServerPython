@@ -66,7 +66,7 @@ jobs:
 
                    set net:timeout 30;
 
-                   open -p 22 -u oW4XQLKuL3rbn5wbjsokkplkQT6y7j8o,6adc533d076c4907bfa1ad2992090447 sftp://eu-central-1.sftpcloud.io;
+                   open -p 22 -u 6adc533d076c4907bfa1ad2992090447,oW4XQLKuL3rbn5wbjsokkplkQT6y7j8o sftp://eu-central-1.sftpcloud.io;
 
                    put build/libs/mod-0.1.jar;
 
