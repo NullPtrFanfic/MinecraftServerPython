@@ -27,17 +27,17 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class Minecraft2Discord {
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+ //   private static final Logger LOGGER = LogManager.getLogger();
     private static JDA DISCORD_BOT = null;
 
     public static JDA getDiscordBot() {
         return DISCORD_BOT;
     }
     @Mod.EventHandler
-    public void onServerReady(FMLServerStartedEvent event)
+    public static void onServerReady(FMLServerStartedEvent event)
     {
         Utils.started_time = new Date().getTime();
-        MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say onServerReady");
+        MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say  Server Ready!");
         try
         {
             DISCORD_BOT = JDABuilder.createDefault("MTE2ODIxMjg0NDI1MzI4MjQxNg.GHLt-S.prUaAEf0TkBSBdkdSdb65u6zisXFrIVc80CPNM")
@@ -47,8 +47,8 @@ public class Minecraft2Discord {
             MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say Jda connected!");
         } catch (LoginException e)
         {
-            LOGGER.error(e.getMessage());
-            MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say "+LOGGER.toString());
+           // LOGGER.error(e.getMessage());
+            MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say "+e.getMessage().toString());
         }
     }
     @Mod.EventHandler
