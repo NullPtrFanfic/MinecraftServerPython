@@ -95,7 +95,7 @@ version = '0.1'
 group = 'com.nullptr.mod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 
 archivesBaseName = 'mod'
-javaModuleAttribute = Attribute.of("javaModule", Boolean::class.javaObjectType)
+javaModuleAttribute = Attribute.of("javaModule", Boolean.class.javaObjectType)
 configurations.compileClasspath {
     attributes.attribute(javaModuleAttribute, true)
 }
@@ -105,7 +105,7 @@ configurations.runtimeClasspath {
 
 dependencies.artifactTypes.maybeCreate("jar").attributes.attribute(javaModuleAttribute, false)
 
-dependencies.registerTransform(JavaModuleTransform::class) {
+dependencies.registerTransform(JavaModuleTransform.class) {
     from.attributes.attribute(ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, false)
     to.attributes.attribute(ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, true)
 }
