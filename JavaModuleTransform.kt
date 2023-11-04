@@ -1,5 +1,3 @@
-package transform
-
 import org.gradle.api.artifacts.transform.InputArtifact
 import org.gradle.api.artifacts.transform.TransformAction
 import org.gradle.api.artifacts.transform.TransformOutputs
