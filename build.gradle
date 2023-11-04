@@ -348,6 +348,7 @@ shadowJar {
         relocate 'gnu.trove', '${project.group}.shadow.gnu.trove'
         relocate "com.neovisionaries.ws.client", "${project.group}.shadow.com.neovisionaries.ws.client"
         relocate "com.iwebpp.crypto", "${project.group}.shadow.com.iwebpp.crypto"
+	relocate "org.ow2.asm", "${project.group}.shadow.org.ow2.asm"
         relocate "net.dv8tion.jda", "${project.group}.shadow.net.dv8tion.jda"
         relocate "org.json", "${project.group}.shadow.org.json"
         relocate "okio", "${project.group}.shadow.okio"
