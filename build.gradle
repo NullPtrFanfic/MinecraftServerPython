@@ -209,17 +209,17 @@ dependencies {
     implementation "club.minnced:discord-webhooks:0.8.4"
    // implementation "com.vdurmont:emoji-java:5.1.1"
     implementation 'com.theokanning.openai-gpt3-java:service:0.12.0'
-    implementation files("JDA-4.1.1_101-withDependencies-no-opus.jar")
+    implementation files("JDA-4.4.1_353-withDependencies-no-opus.jar")
    // implementation group: 'club.minnced', name: 'discord-webhooks', version: '0.5.4-rc'
    // implementation("club.minnced:discord-webhooks:0.8.4")
     compile "com.theokanning.openai-gpt3-java:service:0.12.0"
-    compile(files("JDA-4.1.1_101-withDependencies-no-opus.jar"))
+    compile(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
 
    // compile "org.slf4j:slf4j-simple:1.7.28"
     compile "club.minnced:discord-webhooks:0.8.4"
    // compile "com.vdurmont:emoji-java:5.1.1"
     shade "com.theokanning.openai-gpt3-java:service:0.12.0"
-    shade files("JDA-4.1.1_101-withDependencies-no-opus.jar")
+    shade files("JDA-4.4.1_353-withDependencies-no-opus.jar")
    // shade "org.slf4j:slf4j-simple:1.7.28"
     shade "club.minnced:discord-webhooks:0.8.4"
    // shade "com.vdurmont:emoji-java:5.1.1"
@@ -351,11 +351,11 @@ shadowJar {
         relocate "okio", "${project.group}.shadow.okio"
         relocate "okhttp3", "${project.group}.shadow.okhttp3"
       //  relocate "okhttp3", "${project.group}.shadow.okhttp3"
-        relocate "org.slf4j", "${project.group}.shadow.org.slf4j"
+        //relocate "org.slf4j", "${project.group}.shadow.org.slf4j"
         relocate "com.fasterxml.jackson", "${project.group}.shadow.com.fasterxml.jackson"
         relocate "club.minnced.discord", "${project.group}.shadow.club.minnced.discord"
 
-        relocate "com.vdurmont.emoji", "${project.group}.shadow.com.vdurmont.emoji"
+       // relocate "com.vdurmont.emoji", "${project.group}.shadow.com.vdurmont.emoji"
 
    // classifier ''
     //configurations = [project.configurations.shadow]
