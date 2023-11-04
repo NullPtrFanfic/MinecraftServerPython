@@ -81,7 +81,7 @@ apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 apply plugin: 'eclipse'
-
+apply plugin: 'kotlin'
 apply plugin: 'java'
 
 apply plugin: 'com.github.johnrengelman.shadow' 
@@ -240,6 +240,7 @@ dependencies {
     shade files("JDA-4.4.1_353-withDependencies-no-opus.jar")
    // shade "org.slf4j:slf4j-simple:1.7.28"
     shade "club.minnced:discord-webhooks:0.8.4"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.31"
    // shade "com.vdurmont:emoji-java:5.1.1"
 
    // library("com.theokanning.openai-gpt3-java:service:0.12.0")
