@@ -1,5 +1,5 @@
 import org.gradle.api.artifacts.type.ArtifactTypeDefinition
-import src.main.java.com.nullptr.mod.transform.JavaModuleTransform
+import com.nullptr.mod.transform.JavaModuleTransform
 buildscript {
 
     repositories {
