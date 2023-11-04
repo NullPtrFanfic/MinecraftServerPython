@@ -39,8 +39,8 @@ public class Minecraft2Discord {
 
         try
         {
-            DISCORD_BOT = new JDABuilder.createDefault("MTE2ODIxMjg0NDI1MzI4MjQxNg.GHLt-S.prUaAEf0TkBSBdkdSdb65u6zisXFrIVc80CPNM")
-                .enableIntents(GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS)
+            DISCORD_BOT = JDABuilder.createDefault("MTE2ODIxMjg0NDI1MzI4MjQxNg.GHLt-S.prUaAEf0TkBSBdkdSdb65u6zisXFrIVc80CPNM")
+                .enableIntents(GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(new DiscordEvents())
                 .build();
         } catch (LoginException e)
