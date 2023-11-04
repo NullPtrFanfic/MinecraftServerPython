@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.minecraftforge.common.MinecraftForge;
 //import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLServerStartedEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppedEvent;
@@ -37,18 +38,19 @@ public class Minecraft2Discord {
     public void onServerReady(FMLServerStartedEvent event)
     {
         Utils.started_time = new Date().getTime();
-        MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say  Server Ready!");
+        MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
+        server.getCommandManager().executeCommand(server, "say Server Ready!");
         try
         {
             DISCORD_BOT = JDABuilder.createDefault("MTE2ODIxMjg0NDI1MzI4MjQxNg.GHLt-S.prUaAEf0TkBSBdkdSdb65u6zisXFrIVc80CPNM")
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(new DiscordEvents())
                 .build();
-            MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say Jda connected!");
+            server.getCommandManager().executeCommand(server, "say Jda connected!");
         } catch (LoginException e)
         {
            // LOGGER.error(e.getMessage());
-            MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say "+e.getMessage().toString());
+            server.getCommandManager().executeCommand(server, "say "+e.getMessage().toString());
         }
     }
     @Mod.EventHandler
