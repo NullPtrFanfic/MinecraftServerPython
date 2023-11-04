@@ -5,6 +5,7 @@ import com.nullptr.mod.discord.Utils;
 import com.nullptr.mod.discord.events.ServerEvents;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.minecraftforge.common.MinecraftForge;
 //import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.common.event.FMLServerStartedEvent;
@@ -38,7 +39,7 @@ public class Minecraft2Discord {
 
         try
         {
-            DISCORD_BOT = new JDABuilder("MTE2ODIxMjg0NDI1MzI4MjQxNg.GHLt-S.prUaAEf0TkBSBdkdSdb65u6zisXFrIVc80CPNM").addEventListeners(new DiscordEvents()).build();
+            DISCORD_BOT = new JDABuilder("MTE2ODIxMjg0NDI1MzI4MjQxNg.GHLt-S.prUaAEf0TkBSBdkdSdb65u6zisXFrIVc80CPNM", GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_MESSAGES).addEventListeners(new DiscordEvents()).build();
         } catch (LoginException e)
         {
             LOGGER.error(e.getMessage());
