@@ -344,11 +344,12 @@ shadowJar {
 		exclude(dependency('net.minecraftforge:forge:1.12.2-14.23.5.2860'))
 
 	}*/
-        relocate 'org.apache.commons.collections4', '${project.group}.shadow.org.apache.commons.collections4'
-        relocate 'gnu.trove', '${project.group}.shadow.gnu.trove'
+	relocate "org.ow2.asm", "${project.group}.shadow.org.objectweb.asm"
+        relocate 'org.apache.commons.collections4', "${project.group}.shadow.org.apache.commons.collections4"
+        relocate 'gnu.trove', "${project.group}.shadow.gnu.trove"
         relocate "com.neovisionaries.ws.client", "${project.group}.shadow.com.neovisionaries.ws.client"
         relocate "com.iwebpp.crypto", "${project.group}.shadow.com.iwebpp.crypto"
-	relocate "org.ow2.asm", "${project.group}.shadow.org.ow2.asm"
+	
         relocate "net.dv8tion.jda", "${project.group}.shadow.net.dv8tion.jda"
         relocate "org.json", "${project.group}.shadow.org.json"
         relocate "okio", "${project.group}.shadow.okio"
