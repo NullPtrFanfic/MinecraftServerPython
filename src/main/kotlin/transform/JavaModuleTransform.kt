@@ -1,4 +1,4 @@
-package com.nullptr.mod.transform
+package transform
 
 import org.gradle.api.artifacts.transform.InputArtifact
 import org.gradle.api.artifacts.transform.TransformAction
