@@ -48,7 +48,7 @@ public class Minecraft2Discord {
         } catch (LoginException e)
         {
             LOGGER.error(e.getMessage());
-            MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say "+event.getModLog().toString());
+            MinecraftServer.getServer().getCommandManager().executeCommand(MinecraftServer.getServer(), "say "+LOGGER.toString());
         }
     }
     @Mod.EventHandler
