@@ -292,10 +292,13 @@ sourceSets {
             srcDirs = ['src/main/java']
             exclude '**/com/nullptr/mod/party/**'
         }
+	kotlin {
+	    srcDirs = ['src/main/kotlin']
+	}
     }
 }
 
-sourceSets { main.java.srcDirs += 'src/main/kotlin' } 
+//sourceSets { main.java.srcDirs += 'src/main/kotlin' } 
 // Example for how to get properties into the manifest for reading by the runtime..
 
 jar {
