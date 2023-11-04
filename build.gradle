@@ -100,13 +100,10 @@ sourceSets {
             srcDirs = ['src/main/java']
             exclude '**/com/nullptr/mod/party/**'
         }
-	kotlin {
-	    srcDirs = ['src/main/kotlin']
-	}
     }
 }
 
-import transform.JavaModuleTransform
+import JavaModuleTransform
 javaModuleAttribute = Attribute.of("javaModule", Boolean.class.javaObjectType)
 configurations.compileClasspath {
     attributes.attribute(javaModuleAttribute, true)
