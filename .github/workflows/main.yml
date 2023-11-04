@@ -66,7 +66,7 @@ jobs:
 
                    set net:timeout 30;
 
-                   open -p 22 -u muxidbvqjb.d8890bba,CsjbZb1Ds sftp://rubin-free.falixserver.net:393;
+                   open -p 393 -u muxidbvqjb.d8890bba,CsjbZb1Ds sftp://rubin-free.falixserver.net;
 
                    put build/libs/mod-0.1.jar;
 
