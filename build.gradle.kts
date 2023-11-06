@@ -116,7 +116,7 @@ apply {
 
 version = "0.1"
 
-group = "com.maha.mod"
+group = "com.nullptr.mod"
 
 
 
@@ -128,7 +128,7 @@ sourceSets {
 
             srcDirs("src/main/java")
 
-            exclude("**/com/maha/mod/party/**")
+            exclude("**/com/nullptr/mod/party/**")
 
         }
 
