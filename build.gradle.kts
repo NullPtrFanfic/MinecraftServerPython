@@ -91,7 +91,7 @@ buildscript {
 
 
 plugins {
-    id("wtf.gofancy.fancygradle") version "1.1.3-0"
+    id("wtf.gofancy.fancygradle") version "1.1.3"
     id("com.github.johnrengelman.shadow") version "4.0.4"
 
     kotlin("jvm") version "1.5.31"
