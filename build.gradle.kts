@@ -99,8 +99,8 @@ fancyGradle {
 
 
 plugins {
-    id('wtf.gofancy.fancygradle') version '1.1.+'
-    id('net.minecraftforge.gradle') version '5.+'
+    id("wtf.gofancy.fancygradle") version "1.1.+"
+    id("net.minecraftforge.gradle") version "5.+"
     //id("wtf.gofancy.fancygradle") version "1.1.2-0"
     id("com.github.johnrengelman.shadow") version "4.0.4"
 
