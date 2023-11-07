@@ -2,7 +2,7 @@ import net.minecraftforge.gradle.common.util.MinecraftExtension
 
 import net.minecraftforge.gradle.patcher.tasks.ReobfuscateJar
 
-import org.gradle.api.artifacts.type.ArtifactTypeDefinition
+import org.gradle.api.artifacts.type.ArtifactTypeDefinition 
 
 import org.gradle.api.artifacts.transform.InputArtifact
 
