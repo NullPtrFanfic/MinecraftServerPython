@@ -365,7 +365,6 @@ publishing {
 }
 
 
-
 // @CacheableTransform - if transform results should also be shared via remote build cache
 
 abstract class JavaModuleTransform : TransformAction<TransformParameters.None> {
@@ -410,7 +409,7 @@ abstract class JavaModuleTransform : TransformAction<TransformParameters.None> {
 
                         output.putNextEntry(jarEntry)
 
-                        output.write(input.readAllBytes())
+                        output.write(readAllBytes(input))
 
                         output.closeEntry()
 
@@ -424,11 +423,11 @@ abstract class JavaModuleTransform : TransformAction<TransformParameters.None> {
 
                     output.write(
 
-                        this::class.java.getResourceAsStream(
+                        readAllBytes(this::class.java.getResourceAsStream(
 
                             "${originalJar.nameWithoutExtension}/module-info.class"
 
-                        )!!.readAllBytes()
+                        ))
 
                     )
 
