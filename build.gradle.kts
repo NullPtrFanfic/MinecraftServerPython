@@ -88,7 +88,7 @@ plugins {
 
     id("com.github.johnrengelman.shadow") version "4.0.4"
 
-    kotlin("jvm") version "1.2.71"
+    kotlin("jvm") version "1.5.31"
 
     id("java")
 
