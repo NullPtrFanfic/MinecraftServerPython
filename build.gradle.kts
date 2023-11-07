@@ -401,7 +401,7 @@ abstract class JavaModuleTransform : TransformAction<TransformParameters.None> {
             throw exception
         }
     }
-    return null;
+    return byteArrayOf()
     }
 
 
