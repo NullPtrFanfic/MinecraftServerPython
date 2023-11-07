@@ -33,7 +33,7 @@ jobs:
 
       with:
 
-        java-version: '8'  # Установка JDK 11
+        java-version: '9'  # Установка JDK 11
     - name: Make gradlew executable
       run: chmod +x ./gradlew
     - name: Build with Gradle
