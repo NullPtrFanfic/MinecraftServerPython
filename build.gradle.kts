@@ -49,6 +49,10 @@ buildscript {
             url = "https://mvnrepository.com/artifact/"
 
         )
+        maven { 
+            name = "gofancyReleases" 
+            url = uri("https://maven.gofancy.wtf/releases") 
+        }
 
         mavenCentral()
 
@@ -74,7 +78,7 @@ buildscript {
 
     dependencies {
 
-        classpath("net.minecraftforge.gradle:ForgeGradle:5.+")
+       // classpath("net.minecraftforge.gradle:ForgeGradle:5.+")
 
         classpath("com.github.jengelman.gradle.plugins:shadow:4.0.4")
 
@@ -87,7 +91,7 @@ buildscript {
 
 
 plugins {
-
+    id 'wtf.gofancy.fancygradle' version '1.1.3-0'
     id("com.github.johnrengelman.shadow") version "4.0.4"
 
     kotlin("jvm") version "1.5.31"
