@@ -101,7 +101,7 @@ plugins {
 
 
 apply {
-
+    plugin("java-base")
     plugin("net.minecraftforge.gradle")
 
     plugin("eclipse")
