@@ -30,7 +30,9 @@ import java.util.jar.JarOutputStream
 
 import javax.inject.Inject
 
-
+import java.io.ByteArrayOutputStream
+import java.io.IOException
+import java.io.InputStream
 
 buildscript {
 
@@ -380,7 +382,26 @@ abstract class JavaModuleTransform : TransformAction<TransformParameters.None> {
     @get:Inject
 
     abstract val archiveOperations: ArchiveOperations
+    fun readAllBytes(inputStream: InputStream): ByteArray {
+    val bufLen = 1024
+    val buf = ByteArray(bufLen)
+    var readLen: Int
+    var exception: IOException? = null
 
+    try {
+        val outputStream = ByteArrayOutputStream()
+        // Далее ваш код для чтения из inputStream и записи в outputStream
+        // ...
+        return outputStream.toByteArray()
+    } catch (e: IOException) {
+        exception = e
+    } finally {
+        if (exception != null) {
+            // Обработка исключения, если необходимо
+            throw exception
+        }
+    }
+    }
 
 
     override fun transform(outputs: TransformOutputs) {
