@@ -48,9 +48,6 @@ buildscript {
     }
     maven {
         url = uri("https://repo.spongepowered.org/repository/maven-public/")
-        content {
-            includeGroup "org.spongepowered"
-        }
     }
     maven {
         url = uri("https://maven.minecraftforge.net/")
