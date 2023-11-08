@@ -35,6 +35,39 @@ import java.io.IOException
 import java.io.InputStream
 
 buildscript {
+    repositories {
+
+        maven(
+
+            url = "https://maven.minecraftforge.net/"
+
+        )
+
+        maven(
+
+            url = "https://mvnrepository.com/artifact/"
+
+        )
+
+        mavenCentral()
+
+        jcenter()
+
+        gradlePluginPortal()
+
+        mavenLocal()
+
+        maven(url = "https://jitpack.io")
+
+        maven(url = "https://libraries.minecraft.net")
+
+        maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
+
+        maven(url = "https://repo.spring.io/milestone")
+
+
+
+    }
 
     dependencies {
 
