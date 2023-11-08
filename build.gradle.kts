@@ -39,7 +39,7 @@ buildscript {
 
         maven {
             name="ForgeGradle"
-            url = "https://maven.minecraftforge.net/"
+            url = uri("https://maven.minecraftforge.net/")
 
         }
 
