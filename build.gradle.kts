@@ -39,27 +39,27 @@ buildscript {
     repositories {
         maven
         {
-        name "Jared"
-        url "https://maven.blamejared.com"
+        name = "Jared"
+        url = uri("https://maven.blamejared.com")
         }
         maven
         {
-        name "Su5ed LegacyDev Fork"
-        url = "https://su5ed.jfrog.io/artifactory/maven/"
+        name = "Su5ed LegacyDev Fork"
+        url = uri("https://su5ed.jfrog.io/artifactory/maven/")
         }
 	maven {
-		url = "https://repo.spongepowered.org/repository/maven-public/"
+		url = uri("https://repo.spongepowered.org/repository/maven-public/")
 		content { includeGroup "org.spongepowered" }
 	}
         maven(
 
-            url = "https://maven.minecraftforge.net/"
+            url = uri("https://maven.minecraftforge.net/")
 
         )
 
         maven(
 
-            url = "https://mvnrepository.com/artifact/"
+            url = uri("https://mvnrepository.com/artifact/")
 
         )
         maven { 
