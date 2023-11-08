@@ -212,66 +212,24 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
 
 }
-
-
-
 minecraft {
-    mappings {
-        channel = "stable"
-        version = "39-1.12"
-    }
-
+    mappings("stable", "39-1.12")
     runs {
-        client {
-            workingDirectory = file("run")
-
-            // Recommended logging data for a userdev environment
+        create("client") {
+            workingDirectory(project.file("run"))
             property("forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP")
-
-            // Recommended logging level for the console
             property("forge.logging.console.level", "debug")
-
-            property("fml.coreMods.load", "thecodex6824.tcresearchpatcher.TCResearchPatcher")
-            if (needCustomNatives) {
-                property("java.library.path", "")
-                environment("nativesDirectory", "${project.projectDir}/natives")
-            }
-
-            environment("MC_VERSION", "1.12.2")
-
-            mods {
-                tcresearchpatcher {
-                    source(sourceSets.main)
-                }
-            }
+          //  jvmArgs(args)
         }
 
-        server {
-            workingDirectory = file("run")
-
-            // Recommended logging data for a userdev environment
+        create("server") {
+            workingDirectory(project.file("run"))
             property("forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP")
-
-            // Recommended logging level for the console
             property("forge.logging.console.level", "debug")
-
-            property("fml.coreMods.load", "thecodex6824.tcresearchpatcher.TCResearchPatcher")
-            if (needCustomNatives) {
-                property("java.library.path", "")
-                environment("nativesDirectory", "${project.projectDir}/natives")
-            }
-
-            environment("MC_VERSION", "1.12.2")
-
-            mods {
-                tcresearchpatcher {
-                    source(sourceSets.main)
-                }
-            }
+         //   jvmArgs(args)
         }
     }
 }
-
 
 
 configurations {
