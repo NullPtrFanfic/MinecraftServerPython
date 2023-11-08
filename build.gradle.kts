@@ -37,12 +37,6 @@ import java.io.InputStream
 buildscript {
     repositories {
 
-        maven {
-            name="ForgeGradle"
-            url = uri("https://maven.minecraftforge.net/")
-
-        }
-
         maven(
 
             url = "https://mvnrepository.com/artifact/"
