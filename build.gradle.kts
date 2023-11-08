@@ -36,6 +36,7 @@ import java.io.InputStream
 
 buildscript {
 
+   // repositories {
     repositories {
     maven {
         name = "Jared"
@@ -47,7 +48,9 @@ buildscript {
     }
     maven {
         url = uri("https://repo.spongepowered.org/repository/maven-public/")
-        content { includeGroup "org.spongepowered" }
+        content {
+            includeGroup "org.spongepowered"
+        }
     }
     maven {
         url = uri("https://maven.minecraftforge.net/")
