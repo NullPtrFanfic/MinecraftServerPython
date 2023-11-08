@@ -75,7 +75,7 @@ buildscript {
 
     dependencies {
 
-        //classpath("net.minecraftforge.gradle:ForgeGradle:5.+")
+        classpath("net.minecraftforge.gradle:ForgeGradle:5.+")
 
         classpath("com.github.jengelman.gradle.plugins:shadow:7.0.0")
 
