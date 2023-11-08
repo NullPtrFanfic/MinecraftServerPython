@@ -215,24 +215,61 @@ dependencies {
 
 
 
-minecraft.run {
-
-    mappings("snapshot", "20171003-1.12")
-
-    runs {
-
-        create("client") {
-
-            workingDirectory(project.file("run"))
-
-        }
-
-        create("server") {
-
-        }
-
+minecraft {
+    mappings {
+        channel = "stable"
+        version = "39-1.12"
     }
 
+    runs {
+        client {
+            workingDirectory = file("run")
+
+            // Recommended logging data for a userdev environment
+            property("forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP")
+
+            // Recommended logging level for the console
+            property("forge.logging.console.level", "debug")
+
+            property("fml.coreMods.load", "thecodex6824.tcresearchpatcher.TCResearchPatcher")
+            if (needCustomNatives) {
+                property("java.library.path", "")
+                environment("nativesDirectory", "${project.projectDir}/natives")
+            }
+
+            environment("MC_VERSION", "1.12.2")
+
+            mods {
+                tcresearchpatcher {
+                    source(sourceSets.main)
+                }
+            }
+        }
+
+        server {
+            workingDirectory = file("run")
+
+            // Recommended logging data for a userdev environment
+            property("forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP")
+
+            // Recommended logging level for the console
+            property("forge.logging.console.level", "debug")
+
+            property("fml.coreMods.load", "thecodex6824.tcresearchpatcher.TCResearchPatcher")
+            if (needCustomNatives) {
+                property("java.library.path", "")
+                environment("nativesDirectory", "${project.projectDir}/natives")
+            }
+
+            environment("MC_VERSION", "1.12.2")
+
+            mods {
+                tcresearchpatcher {
+                    source(sourceSets.main)
+                }
+            }
+        }
+    }
 }
 
 
