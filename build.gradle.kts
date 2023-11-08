@@ -37,7 +37,20 @@ import java.io.InputStream
 buildscript {
 
     repositories {
-
+        maven
+        {
+        name "Jared"
+        url "https://maven.blamejared.com"
+        }
+        maven
+        {
+        name 'Su5ed LegacyDev Fork'
+        url = 'https://su5ed.jfrog.io/artifactory/maven/'
+        }
+	maven {
+		url = 'https://repo.spongepowered.org/repository/maven-public/'
+		content { includeGroup 'org.spongepowered' }
+	}
         maven(
 
             url = "https://maven.minecraftforge.net/"
