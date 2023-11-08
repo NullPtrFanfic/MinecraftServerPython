@@ -77,7 +77,7 @@ buildscript {
 
         //classpath("net.minecraftforge.gradle:ForgeGradle:5.+")
 
-        classpath("com.github.jengelman.gradle.plugins:shadow:4.0.4")
+        classpath("com.github.jengelman.gradle.plugins:shadow:7.0.0")
 
     }
 
@@ -99,7 +99,7 @@ plugins {
     id("wtf.gofancy.fancygradle") version "1.1.3-0"
     id("net.minecraftforge.gradle") version "5.+"
     //id("wtf.gofancy.fancygradle") version "1.1.2-0"
-    id("com.github.johnrengelman.shadow") version "4.0.4"
+    id("com.github.johnrengelman.shadow") version "7.0.0"
 
     kotlin("jvm") version "1.5.31"
 
