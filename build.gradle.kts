@@ -37,11 +37,11 @@ import java.io.InputStream
 buildscript {
     repositories {
 
-        maven(
-
+        maven {
+            name="ForgeGradle"
             url = "https://maven.minecraftforge.net/"
 
-        )
+        }
 
         maven(
 
@@ -71,7 +71,7 @@ buildscript {
 
     dependencies {
 
-        classpath("net.minecraftforge.gradle:ForgeGradle:5.+")
+        classpath("net.minecraftforge.gradle:ForgeGradle:5.1.+")
         classpath("gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.0.0")
       //  classpath("com.github.jengelman.gradle.plugins:shadow:7.0.0")
 
@@ -93,7 +93,7 @@ fancyGradle {
 
 plugins {
     id("wtf.gofancy.fancygradle") version "1.1.+"
-    id("net.minecraftforge.gradle") version "5.+"
+    id("net.minecraftforge.gradle") version "5.1.+"
     //id("wtf.gofancy.fancygradle") version "1.1.2-0"
     id("com.github.johnrengelman.shadow") version "7.0.0"
 
@@ -108,6 +108,7 @@ plugins {
 
 
 apply {
+    plugin("wtf.gofancy.fancygradle")
     plugin("java-base")
     plugin("net.minecraftforge.gradle")
 
