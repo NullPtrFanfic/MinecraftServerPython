@@ -44,12 +44,12 @@ buildscript {
         }
         maven
         {
-        name 'Su5ed LegacyDev Fork'
-        url = 'https://su5ed.jfrog.io/artifactory/maven/'
+        name "Su5ed LegacyDev Fork"
+        url = "https://su5ed.jfrog.io/artifactory/maven/"
         }
 	maven {
-		url = 'https://repo.spongepowered.org/repository/maven-public/'
-		content { includeGroup 'org.spongepowered' }
+		url = "https://repo.spongepowered.org/repository/maven-public/"
+		content { includeGroup "org.spongepowered" }
 	}
         maven(
 
