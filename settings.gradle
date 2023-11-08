@@ -1,36 +1,8 @@
 
 pluginManagement {
     repositories {
-        maven {
-        url = "https://maven.blamejared.com"
-        }
-        maven {
-        url = "https://su5ed.jfrog.io/artifactory/maven/"
-        }
-        maven {
-        url = "https://repo.spongepowered.org/repository/maven-public/"
-        }
-        maven {
-        url = "https://mvnrepository.com/artifact/"
-        }
-        maven {
-        url = "https://squiddev.cc/maven/"
-        }
-        mavenCentral()
-        jcenter()
-        //gradlePluginPortal()
-        mavenLocal()
-        maven { url = "https://jitpack.io" }
-        maven { url = "https://libraries.minecraft.net" }
-        maven { url = "https://oss.sonatype.org/content/repositories/snapshots" }
-        maven { url = "https://repo.spring.io/milestone" }
-   
         gradlePluginPortal()
-        maven {
-        url = "https://maven.minecraftforge.net/"
-        }
-       // maven { url="https://plugins.gradle.org/m2/"}
-        maven { url="https://maven.gofancy.wtf/releases"}
+        maven { name="Garden of Fancy" url="https://maven.gofancy.wtf/releases" } 
     }
 }
 rootProject.name = 'SumeruMod'
