@@ -217,7 +217,7 @@ dependencies {
 
 minecraft.run {
 
-    mappings("snapshot", "39-1.12")
+    mappings("stable", "39-1.12")
 
     runs {
 
