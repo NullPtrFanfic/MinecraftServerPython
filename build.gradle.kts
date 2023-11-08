@@ -59,6 +59,10 @@ buildscript {
         name = "gofancyReleases"
         url = uri("https://maven.gofancy.wtf/releases")
     }
+    maven {
+        name = "SquidDev"
+        url = uri("https://squiddev.cc/maven/")
+    }
     mavenCentral()
     jcenter()
     gradlePluginPortal()
