@@ -37,57 +37,37 @@ import java.io.InputStream
 buildscript {
 
     repositories {
-        maven
-        {
+    maven {
         name = "Jared"
         url = uri("https://maven.blamejared.com")
-        }
-        maven
-        {
+    }
+    maven {
         name = "Su5ed LegacyDev Fork"
         url = uri("https://su5ed.jfrog.io/artifactory/maven/")
-        }
-	maven {
-		url = uri("https://repo.spongepowered.org/repository/maven-public/")
-		content { includeGroup "org.spongepowered" }
-	}
-        maven(
-
-            url = uri("https://maven.minecraftforge.net/")
-
-        )
-
-        maven(
-
-            url = uri("https://mvnrepository.com/artifact/")
-
-        )
-        maven { 
-            name = "gofancyReleases" 
-            url = uri("https://maven.gofancy.wtf/releases") 
-        }
-
-        mavenCentral()
-
-        jcenter()
-
-        gradlePluginPortal()
-
-        mavenLocal()
-
-        maven(url = "https://jitpack.io")
-
-        maven(url = "https://libraries.minecraft.net")
-
-        maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
-
-        maven(url = "https://repo.spring.io/milestone")
-
-
-
     }
-
-
+    maven {
+        url = uri("https://repo.spongepowered.org/repository/maven-public/")
+        content { includeGroup "org.spongepowered" }
+    }
+    maven {
+        url = uri("https://maven.minecraftforge.net/")
+    }
+    maven {
+        url = uri("https://mvnrepository.com/artifact/")
+    }
+    maven {
+        name = "gofancyReleases"
+        url = uri("https://maven.gofancy.wtf/releases")
+    }
+    mavenCentral()
+    jcenter()
+    gradlePluginPortal()
+    mavenLocal()
+    maven { url = uri("https://jitpack.io") }
+    maven { url = uri("https://libraries.minecraft.net") }
+    maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
+    maven { url = uri("https://repo.spring.io/milestone") }
+    }
 
     dependencies {
 
