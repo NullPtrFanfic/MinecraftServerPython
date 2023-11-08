@@ -1,8 +1,9 @@
-rootProject.name = 'SumeruMod'
-include 'mod'
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
         maven{ url="https://maven.gofancy.wtf/releases"}
     }
 }
+rootProject.name = 'SumeruMod'
+include 'mod'
