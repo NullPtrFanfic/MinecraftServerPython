@@ -36,43 +36,6 @@ import java.io.InputStream
 
 buildscript {
 
-   // repositories {
-    repositories {
-    maven {
-        name = "Jared"
-        url = uri("https://maven.blamejared.com")
-    }
-    maven {
-        name = "Su5ed LegacyDev Fork"
-        url = uri("https://su5ed.jfrog.io/artifactory/maven/")
-    }
-    maven {
-        url = uri("https://repo.spongepowered.org/repository/maven-public/")
-    }
-    maven {
-        url = uri("https://maven.minecraftforge.net/")
-    }
-    maven {
-        url = uri("https://mvnrepository.com/artifact/")
-    }
-    maven {
-        name = "gofancyReleases"
-        url = uri("https://maven.gofancy.wtf/releases")
-    }
-    maven {
-        name = "SquidDev"
-        url = uri("https://squiddev.cc/maven/")
-    }
-    mavenCentral()
-    jcenter()
-    gradlePluginPortal()
-    mavenLocal()
-    maven { url = uri("https://jitpack.io") }
-    maven { url = uri("https://libraries.minecraft.net") }
-    maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
-    maven { url = uri("https://repo.spring.io/milestone") }
-    }
-
     dependencies {
 
         classpath("net.minecraftforge.gradle:ForgeGradle:5.+")
