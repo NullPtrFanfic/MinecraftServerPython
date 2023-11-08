@@ -5,7 +5,8 @@ pluginManagement {
         maven {
         url = "https://maven.minecraftforge.net/"
         }
-        maven{ url="https://maven.gofancy.wtf/releases"}
+        maven { url="https://plugins.gradle.org/m2/"}
+        maven { url="https://maven.gofancy.wtf/releases"}
     }
 }
 rootProject.name = 'SumeruMod'
