@@ -114,7 +114,15 @@ version = "0.1"
 //java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 group = "com.nullptr.mod"
 
-
+fancyGradle { 
+     patches { 
+        resources 
+        coremods 
+        codeChickenLib 
+        asm 
+        mergetool 
+    } 
+}
 
 sourceSets {
 
@@ -209,15 +217,13 @@ minecraft {
 
     runs {
         val config = Action<RunConfig> {
-            properties(
-                mapOf(
-                    "forge.logging.markers" to "SCAN,REGISTRIES,REGISTRYDUMP,COREMODLOG",
-                    "forge.logging.console.level" to "debug"
-                )
-            )
-            workingDirectory = project.file("run").canonicalPath
+            properties(mapOf(
+                "forge.logging.markers" to "COREMODLOG",
+                "forge.logging.console.level" to "debug",
+                "fml.coreMods.load" to "com.nullptr.asm.CoreLoader"
+            ))
+            workingDirectory = project.file("run" + if (name == "server") "/server" else "").canonicalPath
             source(sourceSets["main"])
-            //jvmArgs.add("-Dfml.coreMods.load=$coremodPath")
         }
 
         create("client", config)
@@ -458,15 +464,7 @@ abstract class JavaModuleTransform : TransformAction<TransformParameters.None> {
 }
 
 
-fancyGradle { 
-     patches { 
-        resources 
-        coremods 
-        codeChickenLib 
-        asm 
-        mergetool 
-    } 
-}
+
 fun DependencyHandler.minecraft(
 
     dependencyNotation: Any
