@@ -124,7 +124,16 @@ fancyGradle {
         mergetool 
     } 
 }
-
+configurations.all {
+    resolutionStrategy {
+        dependencySubstitution {
+            substitute(module('net.minecraftforge:legacydev')) {
+                using(module('net.minecraftforge:legacydev:0.2.4.0'))
+                because("Fixes ATs")
+            }
+        }
+    }
+}
 sourceSets {
 
     main {
