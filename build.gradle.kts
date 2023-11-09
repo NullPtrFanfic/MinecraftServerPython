@@ -64,7 +64,7 @@ buildscript {
 
     dependencies {
         //classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.2-0")
-        classpath("net.minecraftforge.gradle:ForgeGradle:5.0.38")
+        //classpath("net.minecraftforge.gradle:ForgeGradle:5.0.38")
         classpath("gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.0.0")
     }
 
@@ -76,8 +76,9 @@ buildscript {
 
 
 plugins {
+    id("net.minecraftforge.gradle") version "5.0.+"
     id("wtf.gofancy.fancygradle") version "1.1.2-0"
-    id("net.minecraftforge.gradle") version "5.0.38"
+    
     //id("wtf.gofancy.fancygradle") version "1.1.2-0"
     id("com.github.johnrengelman.shadow") version "7.0.0"
 
@@ -92,9 +93,10 @@ plugins {
 
 
 apply {
+    plugin("net.minecraftforge.gradle")
     plugin("wtf.gofancy.fancygradle")
     plugin("java-base")
-    plugin("net.minecraftforge.gradle")
+    
 
     plugin("eclipse")
 
