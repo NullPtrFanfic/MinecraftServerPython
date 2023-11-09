@@ -77,11 +77,6 @@ buildscript {
 }
 
 
-fancyGradle {
-    patches {
-        patch(Patch.RESOURCES, Patch.COREMODS, Patch.ASM)
-    }
-}
 
 
 plugins {
