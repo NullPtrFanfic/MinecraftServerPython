@@ -63,9 +63,9 @@ buildscript {
     }
 
     dependencies {
-        //classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.2-0")
-        //classpath("net.minecraftforge.gradle:ForgeGradle:5.0.38")
-        classpath("gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.0.0")
+        classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.2-0")
+        classpath("net.minecraftforge.gradle:ForgeGradle:5.0.+")
+        classpath("gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.1.2")
     }
 
 
@@ -80,7 +80,7 @@ plugins {
     id("wtf.gofancy.fancygradle") version "1.1.2-0"
     
     //id("wtf.gofancy.fancygradle") version "1.1.2-0"
-    id("com.github.johnrengelman.shadow") version "7.0.0"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 
     kotlin("jvm") version "1.5.10"
 
