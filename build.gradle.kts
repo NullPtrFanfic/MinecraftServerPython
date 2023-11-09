@@ -128,7 +128,7 @@ configurations.all {
     resolutionStrategy {
         dependencySubstitution {
             substitute(module("net.minecraftforge:legacydev")) {
-                it.withModule("net.minecraftforge:legacydev:0.2.4.0")
+                it.withVersion("0.2.4.0")
                 because("Fixes ATs")
             }
         }
