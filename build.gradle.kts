@@ -21,7 +21,8 @@ import org.gradle.api.provider.Provider
 import java.text.SimpleDateFormat
 
 import java.util.*
-
+import org.gradle.api.file.FileCollection
+import java.util.List
 import java.util.jar.JarEntry
 import net.minecraftforge.gradle.common.util.RunConfig
 import java.util.jar.JarInputStream
@@ -290,8 +291,8 @@ tasks {
 
     shadowJar {
 
-        configurations = mutableListOf(project.configurations.shadow.get())
-
+        //configurations = mutableListOf(project.configurations.shadow.get())
+        configurations = mutableListOf(project.configurations.shadow.get() as List<FileCollection>)
         relocate("org.ow2.asm", "${project.group}.shadow.org.objectweb.asm")
 
         relocate("org.apache.commons.collections4", "${project.group}.shadow.org.apache.commons.collections4")
