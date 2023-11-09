@@ -205,7 +205,8 @@ dependencies {
 
 }
 minecraft {
-    mappings("stable", "39-1.12")
+    mappings channel: 'snapshot', version: '20171003-1.12'
+  //  mappings("stable", "39-1.12")
 
     runs {
         val config = Action<RunConfig> {
