@@ -222,7 +222,7 @@ minecraft {
             )
             workingDirectory = project.file("run").canonicalPath
             source(sourceSets["main"])
-            jvmArgs.add("-Dfml.coreMods.load=$coremodPath")
+            //jvmArgs.add("-Dfml.coreMods.load=$coremodPath")
         }
 
         create("client", config)
@@ -463,7 +463,15 @@ abstract class JavaModuleTransform : TransformAction<TransformParameters.None> {
 }
 
 
-
+fancyGradle { 
+     patches { 
+        resources 
+        coremods 
+        codeChickenLib 
+        asm 
+        mergetool 
+    } 
+}
 fun DependencyHandler.minecraft(
 
     dependencyNotation: Any
