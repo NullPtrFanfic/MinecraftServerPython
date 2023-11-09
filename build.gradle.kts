@@ -205,7 +205,7 @@ dependencies {
 
 }
 minecraft {
-    mappings channel: 'snapshot', version: '20171003-1.12'
+    mappings("snapshot", "20171003-1.12")
   //  mappings("stable", "39-1.12")
 
     runs {
