@@ -23,7 +23,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 import java.util.jar.JarEntry
-
+import net.minecraftforge.gradle.common.util.RunConfig
 import java.util.jar.JarInputStream
 
 import java.util.jar.JarOutputStream
