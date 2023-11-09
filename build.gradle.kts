@@ -113,7 +113,7 @@ apply {
 
 
 version = "0.1"
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
+//java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 group = "com.nullptr.mod"
 
 
