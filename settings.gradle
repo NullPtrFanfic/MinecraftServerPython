@@ -4,7 +4,10 @@ pluginManagement {
         gradlePluginPortal()
         mavenCentral();
         maven { url="https://maven.minecraftforge.net/"}
-        maven { url="https://gitlab.com/api/v4/projects/26758973/packages/maven" }
+        maven { // name = "Garden of Fancy" // 
+            url = "https://maven.gofancy.wtf/releases" // 
+        }
+        //maven { url="https://gitlab.com/api/v4/projects/26758973/packages/maven" }
     }
 }
 rootProject.name = 'SumeruMod'
