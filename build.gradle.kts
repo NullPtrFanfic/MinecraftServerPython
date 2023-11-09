@@ -471,4 +471,4 @@ fun DependencyHandler.minecraft(
 
 ): Dependency = add("minecraft", dependencyNotation)!!
 
-sourceSets.all { it.output.resourcesDir = it.output.classesDirs.files.iterator().next() }
+sourceSets.all { output.resourcesDir = output.classesDirs.files.iterator().next() }
