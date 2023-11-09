@@ -292,9 +292,8 @@ tasks {
     shadowJar {
 
         //configurations = mutableListOf(project.configurations.shadow.get())
-        configurations = mutableListOf<FileCollection>().apply {
-    addAll(project.configurations.shadow.get())
-        }
+
+
         relocate("org.ow2.asm", "${project.group}.shadow.org.objectweb.asm")
 
         relocate("org.apache.commons.collections4", "${project.group}.shadow.org.apache.commons.collections4")
