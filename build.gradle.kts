@@ -220,7 +220,7 @@ minecraft {
             properties(mapOf(
                 "forge.logging.markers" to "COREMODLOG",
                 "forge.logging.console.level" to "debug",
-                "fml.coreMods.load" to "com.nullptr.asm.CoreLoader"
+                "fml.coreMods.load" to "com.nullptr.mod.asm.CoreLoader"
             ))
             workingDirectory = project.file("run" + if (name == "server") "/server" else "").canonicalPath
             source(sourceSets["main"])
