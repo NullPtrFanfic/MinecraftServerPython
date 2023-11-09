@@ -87,7 +87,7 @@ fancyGradle {
 
 
 plugins {
-    id("wtf.gofancy.fancygradle") version "1.1.+"
+    id("wtf.gofancy.fancygradle") version "latest.release"
     id("net.minecraftforge.gradle") version "5.1.69"
     //id("wtf.gofancy.fancygradle") version "1.1.2-0"
     id("com.github.johnrengelman.shadow") version "7.0.0"
@@ -186,7 +186,6 @@ val Project.minecraft: MinecraftExtension
 dependencies {
 
     minecraft("net.minecraftforge:forge:1.12.2-14.23.5.2860")
-    implementation("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.3-0")
     implementation("club.minnced:discord-webhooks:0.8.4")
 
     implementation("org.ow2.asm:asm:7.1")
