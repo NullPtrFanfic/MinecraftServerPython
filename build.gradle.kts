@@ -27,7 +27,7 @@ import java.util.jar.JarEntry
 import java.util.jar.JarInputStream
 
 import java.util.jar.JarOutputStream
-
+import wtf.gofancy.fancygradle.patch.Patch
 import javax.inject.Inject
 
 import java.io.ByteArrayOutputStream
@@ -76,13 +76,11 @@ buildscript {
 
 }
 
+
 fancyGradle {
-	patches {
-		resources
-		coremods
-		asm
-		mergetool
-	}
+    patches {
+        patch(Patch.RESOURCES, Patch.COREMODS, Patch.ASM)
+    }
 }
 
 
@@ -120,7 +118,7 @@ apply {
 
 
 version = "0.1"
-
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 group = "com.nullptr.mod"
 
 
@@ -213,20 +211,22 @@ dependencies {
 }
 minecraft {
     mappings("stable", "39-1.12")
+
     runs {
-        create("client") {
-            workingDirectory(project.file("run"))
-            property("forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP")
-            property("forge.logging.console.level", "debug")
-          //  jvmArgs(args)
+        val config = Action<RunConfig> {
+            properties(
+                mapOf(
+                    "forge.logging.markers" to "SCAN,REGISTRIES,REGISTRYDUMP,COREMODLOG",
+                    "forge.logging.console.level" to "debug"
+                )
+            )
+            workingDirectory = project.file("run").canonicalPath
+            source(sourceSets["main"])
+            jvmArgs.add("-Dfml.coreMods.load=$coremodPath")
         }
 
-        create("server") {
-            workingDirectory(project.file("run"))
-            property("forge.logging.markers", "SCAN,REGISTRIES,REGISTRYDUMP")
-            property("forge.logging.console.level", "debug")
-         //   jvmArgs(args)
-        }
+        create("client", config)
+        create("server", config)
     }
 }
 
