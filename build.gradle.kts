@@ -471,5 +471,7 @@ fun DependencyHandler.minecraft(
 
 ): Dependency = add("minecraft", dependencyNotation)!!
 
-
+//When Forge 1.12 loads mods from a directory that's been put on the classpath, it expects to find resources in the same directory.
+//Default Gradle behavior puts resources in ./build/resources/main instead of ./build/classes/main/java. Let's change that.
+sourceSets.all { it.output.resourcesDir = it.output.classesDirs.getFiles().iterator().next() }
 
