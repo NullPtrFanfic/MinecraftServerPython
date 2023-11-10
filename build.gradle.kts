@@ -81,11 +81,11 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization") version "1.5.10"
     //id("wtf.gofancy.fancygradle") version "1.1.2-0"
     id("com.github.johnrengelman.shadow") version "7.1.2"
-
+    
     kotlin("jvm") version "1.5.10"
 
     id("java")
-
+    
     `maven-publish`
 
 }
@@ -188,17 +188,10 @@ val Project.minecraft: MinecraftExtension
 
 
 dependencies {
-    minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2855")
-    //minecraft("net.minecraftforge:forge:1.12.2-14.23.5.2860")
-    implementation("club.minnced:discord-webhooks:0.8.4")
-
-    implementation("org.ow2.asm:asm:7.1")
-
-    implementation("com.theokanning.openai-gpt3-java:service:0.12.0")
-
-    implementation( files ("JDA-4.4.1_353-withDependencies-no-opus.jar"))
-
     implementation(gradleApi())
+    minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2855")
+    
+    implementation("club.minnced:discord-webhooks:0.8.4")
 
     implementation("com.theokanning.openai-gpt3-java:service:0.12.0")
 
