@@ -84,7 +84,7 @@ plugins {
 
     id("java")
     
-    `maven-publish`
+    //`maven-publish`
 
 }
 
@@ -132,10 +132,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
 
 }
-minecraft.run {
+minecraft {
    
-    mappings("snapshot", "20180814")
-    //mappings("stable", "39-1.12")
+    //mappings("snapshot", "20180814")
+    mappings("stable", "39-1.12")
 
     runs {
         val config = Action<RunConfig> {
