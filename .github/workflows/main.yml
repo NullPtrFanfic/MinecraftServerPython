@@ -38,7 +38,7 @@ jobs:
       run: chmod +x ./gradlew
     - name: Build with Gradle
 
-      run: ./gradlew build  # Запускаем сборку проекта
+      run: ./gradlew build -PdisallowDoctype=true # Запускаем сборку проекта
     - name: Install SFTP client and Expect
 
       run: |
