@@ -64,7 +64,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.2-0")
+        classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.1")
         classpath("net.minecraftforge.gradle:ForgeGradle:5.0.+")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:7.1.2")
     }
@@ -78,7 +78,7 @@ buildscript {
 
 plugins {
     id("net.minecraftforge.gradle") version "5.0.+"
-    id("wtf.gofancy.fancygradle") version "1.1.2-0"
+    id("wtf.gofancy.fancygradle") version "1.1.1"
     
     //id("wtf.gofancy.fancygradle") version "1.1.2-0"
     id("com.github.johnrengelman.shadow") version "7.1.2"
@@ -115,15 +115,12 @@ version = "0.1"
 //java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 group = "com.nullptr.mod"
 
-fancyGradle { 
-     patches { 
-        resources 
-        coremods 
-        codeChickenLib 
-        asm 
-        mergetool 
-    } 
+fancyGradle {
+    patches {
+        patch(Patch.RESOURCES, Patch.COREMODS, Patch.ASM)
+    }
 }
+
 configurations.all {
     resolutionStrategy {
         dependencySubstitution {
@@ -190,8 +187,8 @@ val Project.minecraft: MinecraftExtension
 
 
 dependencies {
-
-    minecraft("net.minecraftforge:forge:1.12.2-14.23.5.2860")
+    minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2855")
+    //minecraft("net.minecraftforge:forge:1.12.2-14.23.5.2860")
     implementation("club.minnced:discord-webhooks:0.8.4")
 
     implementation("org.ow2.asm:asm:7.1")
