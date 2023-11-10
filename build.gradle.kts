@@ -64,7 +64,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.1-0")
+        classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.+")
         classpath("net.minecraftforge.gradle:ForgeGradle:5.0.+")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:7.1.2")
     }
@@ -78,7 +78,7 @@ buildscript {
 
 plugins {
     id("net.minecraftforge.gradle") version "5.0.+"
-    id("wtf.gofancy.fancygradle") version "1.1.1-0"
+    id("wtf.gofancy.fancygradle") version "1.1.+"
     
     //id("wtf.gofancy.fancygradle") version "1.1.2-0"
     id("com.github.johnrengelman.shadow") version "7.1.2"
@@ -117,7 +117,9 @@ group = "com.nullptr.mod"
 
 fancyGradle {
     patches {
-        patch(Patch.RESOURCES, Patch.COREMODS, Patch.ASM)
+        resources
+        coremods
+        asm
     }
 }
 
