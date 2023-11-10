@@ -208,7 +208,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
 
 }
-minecraft {
+minecraft.run {
    
  //   mappings("snapshot", "20171003-1.12")
     mappings("stable", "39-1.12")
