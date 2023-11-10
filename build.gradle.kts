@@ -67,6 +67,7 @@ buildscript {
         classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.+")
         classpath("net.minecraftforge.gradle:ForgeGradle:5.0.+")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:7.1.2")
+        classpath("org.jetbrains.kotlin:kotlin-serialization:1.5.10")
     }
 
 
@@ -79,7 +80,7 @@ buildscript {
 plugins {
     id("net.minecraftforge.gradle") version "5.0.+"
     id("wtf.gofancy.fancygradle") version "1.1.+"
-    
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.5.10"
     //id("wtf.gofancy.fancygradle") version "1.1.2-0"
     id("com.github.johnrengelman.shadow") version "7.1.2"
 
@@ -97,7 +98,7 @@ apply {
     plugin("net.minecraftforge.gradle")
     plugin("wtf.gofancy.fancygradle")
     plugin("java-base")
-    
+    plugin("org.jetbrains.kotlin.plugin.serialization")
 
     plugin("eclipse")
 
