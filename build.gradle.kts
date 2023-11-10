@@ -1,5 +1,3 @@
-import net.minecraftforge.gradle.common.util.MinecraftExtension
-
 import net.minecraftforge.gradle.patcher.tasks.ReobfuscateJar
 
 import org.gradle.api.artifacts.type.ArtifactTypeDefinition 
@@ -111,9 +109,49 @@ apply {
 
 
 version = "0.1"
-//java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 group = "com.nullptr.mod"
+dependencies {
+    implementation(gradleApi())
+    minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
+    
+    implementation("club.minnced:discord-webhooks:0.8.4")
 
+    implementation("com.theokanning.openai-gpt3-java:service:0.12.0")
+
+    implementation("org.ow2.asm:asm:7.1")
+
+    implementation(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
+
+    shadow("org.ow2.asm:asm:7.1")
+
+    shadow("com.theokanning.openai-gpt3-java:service:0.12.0")
+
+    shadow( files ("JDA-4.4.1_353-withDependencies-no-opus.jar"))
+
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
+
+}
+minecraft.run {
+   
+    mappings("snapshot", "20180814")
+    //mappings("stable", "39-1.12")
+
+    runs {
+        val config = Action<RunConfig> {
+            properties(mapOf(
+                "forge.logging.markers" to "COREMODLOG",
+                "forge.logging.console.level" to "debug",
+                "fml.coreMods.load" to "com.nullptr.mod.asm.CoreLoader"
+            ))
+            workingDirectory = project.file("run" + if (name == "server") "/server" else "").canonicalPath
+            source(sourceSets["main"])
+        }
+
+        create("client", config)
+        create("server", config)
+    }
+}
 fancyGradle {
     patches {
         resources
@@ -175,59 +213,8 @@ dependencies.registerTransform(JavaModuleTransform::class.java) {
 
 
 
-val sourceCompatibility = JavaVersion.VERSION_1_8
-
-val targetCompatibility = JavaVersion.VERSION_1_8
 
 
-
-val Project.minecraft: MinecraftExtension
-
-    get() = extensions.getByType()
-
-
-
-dependencies {
-    implementation(gradleApi())
-    minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
-    
-    implementation("club.minnced:discord-webhooks:0.8.4")
-
-    implementation("com.theokanning.openai-gpt3-java:service:0.12.0")
-
-    implementation("org.ow2.asm:asm:7.1")
-
-    implementation(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
-
-    shadow("org.ow2.asm:asm:7.1")
-
-    shadow("com.theokanning.openai-gpt3-java:service:0.12.0")
-
-    shadow( files ("JDA-4.4.1_353-withDependencies-no-opus.jar"))
-
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
-
-}
-minecraft.run {
-   
-    mappings("snapshot", "20180814")
-    //mappings("stable", "39-1.12")
-
-    runs {
-        val config = Action<RunConfig> {
-            properties(mapOf(
-                "forge.logging.markers" to "COREMODLOG",
-                "forge.logging.console.level" to "debug",
-                "fml.coreMods.load" to "com.nullptr.mod.asm.CoreLoader"
-            ))
-            workingDirectory = project.file("run" + if (name == "server") "/server" else "").canonicalPath
-            source(sourceSets["main"])
-        }
-
-        create("client", config)
-        create("server", config)
-    }
-}
 
 
 configurations {
@@ -236,15 +223,6 @@ configurations {
 
 }
 
-
-
-java {
-
-    sourceCompatibility = JavaVersion.VERSION_1_8
-
-    targetCompatibility = JavaVersion.VERSION_1_8
-
-}
 
 
 
