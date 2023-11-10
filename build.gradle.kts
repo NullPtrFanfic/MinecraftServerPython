@@ -127,7 +127,7 @@ fancyGradle {
 configurations.all {
     resolutionStrategy {
         dependencySubstitution {
-            substitue(module("net.minecraftfoge:legacydev")) using module("net.minecraftforge:legacydev:0.2.4.0") because "Fixes ATs"
+            substitute(module("net.minecraftfoge:legacydev")) using module("net.minecraftforge:legacydev:0.2.4.0") because "Fixes ATs"
         }
     }
 }
