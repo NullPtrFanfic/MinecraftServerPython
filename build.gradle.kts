@@ -133,9 +133,9 @@ dependencies {
 
 }
 minecraft {
-   
+   mappings("snapshot", "20171003-1.12")
     //mappings("snapshot", "20180814")
-    mappings("stable", "39-1.12")
+    //mappings("stable", "39-1.12")
 
     runs {
         val config = Action<RunConfig> {
