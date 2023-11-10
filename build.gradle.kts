@@ -317,30 +317,6 @@ tasks {
 
 
 
-publishing {
-
-    publications {
-
-        register<MavenPublication>("maven") {
-
-            from(components["java"])
-
-        }
-
-    }
-
-    repositories {
-
-        maven(
-
-            url = "file:///${project.projectDir}/mcmodsrepo"
-
-        )
-
-    }
-
-}
-
 
 // @CacheableTransform - if transform results should also be shared via remote build cache
 
@@ -439,13 +415,3 @@ abstract class JavaModuleTransform : TransformAction<TransformParameters.None> {
     }
 
 }
-
-
-
-fun DependencyHandler.minecraft(
-
-    dependencyNotation: Any
-
-): Dependency = add("minecraft", dependencyNotation)!!
-
-sourceSets.all { output.resourcesDir = output.classesDirs.files.iterator().next() }
