@@ -78,12 +78,6 @@ buildscript {
 
 }
 
-configurations.all {
-    resolutionStrategy {
-        useModule("net.minecraftforge.gradle:ForgeGradle:5.0.+")
-    }
-}
-
 
 plugins {
     id("net.minecraftforge.gradle") version "5.0.+"
