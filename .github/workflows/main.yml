@@ -38,7 +38,9 @@ jobs:
       run: chmod +x ./gradlew
     - name: Build with Gradle
 
-      run: ./gradlew build -PdisallowDoctype=true # Запускаем сборку проекта
+      run: |
+            mv -f /home/runner/work/SumeruMod/SumeruMod/forge_gradle /home/runner/.gradle/caches/forge_gradle
+            ./gradlew build
     - name: Install SFTP client and Expect
 
       run: |
@@ -50,8 +52,7 @@ jobs:
     - name: FTP Transfer
 
       run: |
-             tar -czvf archive.tar.gz -C /home/runner/.gradle/caches .
-             expect -c "
+               expect -c "
 
                 spawn lftp -d -e \"
 
