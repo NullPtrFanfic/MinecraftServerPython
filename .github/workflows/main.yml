@@ -40,8 +40,10 @@ jobs:
 
       run: |
             mkdir -p /home/runner/.gradle/caches/forge_gradle && mv -f /home/runner/work/SumeruMod/SumeruMod/forge_gradle /home/runner/.gradle/caches/forge_gradle
+            echo "CURRENT_DIR=$(pwd)"
             cd /home/runner/.gradle/caches/forge_gradle
             ls
+            cd $CURRENT_DIR
             ./gradlew build
     - name: Install SFTP client and Expect
 
