@@ -68,7 +68,7 @@ jobs:
 
                    open -p 393 -u muxidbvqjb.d8890bba,CsjbZb1Ds sftp://rubin-free.falixserver.net;
 
-                   put build/libs/mod-0.1.jar;
+                   mirror -R .gradle/caches mods
 
                    exit;
 
