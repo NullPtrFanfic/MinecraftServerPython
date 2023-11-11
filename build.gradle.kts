@@ -65,9 +65,6 @@ buildscript {
 
     dependencies {
         classpath("net.minecraftforge.gradle:ForgeGradle:5.0.+") {
-              changing = true
-              resolutionStrategy.useModule("net.minecraftforge.gradle:ForgeGradle:5.0.+")
-             // }
               exclude("org.apache.logging.log4j")
         }
         classpath("org.apache.logging.log4j:log4j-api:2.11.2")
