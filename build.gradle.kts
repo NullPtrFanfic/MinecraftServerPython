@@ -117,7 +117,13 @@ apply {
 version = "0.1"
 //java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 group = "com.nullptr.mod"
-
+configurations.all {
+    resolutionStrategy {
+        dependencySubstitution {
+            substitute(module("net.minecraftforge:legacydev")).using(module("net.minecraftforge:legacydev:0.2.3.1")).because("Fixes ATs")
+        }
+    }
+}
 minecraft {
    
     //mappings("snapshot", "20171003-1.12")
