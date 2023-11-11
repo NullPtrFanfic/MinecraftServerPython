@@ -199,8 +199,8 @@ val Project.minecraft: MinecraftExtension
 
 
 dependencies {
-    api("org.apache.logging.log4j:log4j-api:2.11.+")
-    api("org.apache.logging.log4j:log4j-core:2.11.+")
+    implementation(module("org.apache.logging.log4j:log4j-api:2.11.+"))
+    implementation(module("org.apache.logging.log4j:log4j-core:2.11.+"))
     implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     
