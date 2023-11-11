@@ -114,6 +114,27 @@ version = "0.1"
 //java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 group = "com.nullptr.mod"
 
+minecraft {
+   
+    //mappings("snapshot", "20171003-1.12")
+    mappings("stable", "39-1.12")
+
+    runs {
+        val config = Action<RunConfig> {
+            properties(mapOf(
+                "forge.logging.markers" to "COREMODLOG",
+                "forge.logging.console.level" to "debug",
+                "fml.coreMods.load" to "com.nullptr.mod.asm.CoreLoader"
+            ))
+            workingDirectory = project.file("run" + if (name == "server") "/server" else "").canonicalPath
+            source(sourceSets["main"])
+        }
+
+        create("client", config)
+        create("server", config)
+    }
+}
+
 fancyGradle {
     patches {
         resources
@@ -193,26 +214,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
 
 }
-minecraft.run {
-   
-    //mappings("snapshot", "20171003-1.12")
-    mappings("stable", "39-1.12")
 
-    runs {
-        val config = Action<RunConfig> {
-            properties(mapOf(
-                "forge.logging.markers" to "COREMODLOG",
-                "forge.logging.console.level" to "debug",
-                "fml.coreMods.load" to "com.nullptr.mod.asm.CoreLoader"
-            ))
-            workingDirectory = project.file("run" + if (name == "server") "/server" else "").canonicalPath
-            source(sourceSets["main"])
-        }
-
-        create("client", config)
-        create("server", config)
-    }
-}
 
 
 configurations {
