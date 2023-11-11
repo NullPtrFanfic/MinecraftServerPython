@@ -1,12 +1,13 @@
 
 pluginManagement {
-    /*resolutionStrategy {
+    resolutionStrategy {
         eachPlugin {
             if (requested.id.id == "net.minecraftforge.gradle") {
+                exclude("org.apache.logging.log4j")
                 useModule("${requested.id}:ForgeGradle:${requested.version}")
             }
         }
-    }*/
+    }
     repositories {
         gradlePluginPortal()
         mavenCentral()
