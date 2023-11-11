@@ -80,7 +80,7 @@ buildscript {
 
 
 plugins {
-    id("org.apache.logging.log4j") version "2.11.+"
+   // id("org.apache.logging.log4j") version "2.11.+"
     id("net.minecraftforge.gradle") version "5.0.+"
     id("wtf.gofancy.fancygradle") version "1.1.2-0"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.5.10"
@@ -98,7 +98,7 @@ plugins {
 
 
 apply {
-    plugin("org.apache.logging.log4j")
+  //  plugin("org.apache.logging.log4j")
     plugin("net.minecraftforge.gradle")
     plugin("wtf.gofancy.fancygradle")
     plugin("java-base")
