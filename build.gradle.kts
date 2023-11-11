@@ -52,7 +52,7 @@ buildscript {
         mavenLocal()
 
         maven(url = "https://jitpack.io")
-
+        maven(url = "https://maven.apache.org/")
         maven(url = "https://libraries.minecraft.net")
 
         maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
