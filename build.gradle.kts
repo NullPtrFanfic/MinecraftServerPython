@@ -67,7 +67,7 @@ buildscript {
         classpath("org.apache.logging.log4j:log4j-api:2.11.+")
         classpath("org.apache.logging.log4j:log4j-core:2.11.+")
        // classpath("net.minecraftforge.gradle:ForgeGradle:5.0.+")
-        classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.2-0")
+        classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.1-2")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:7.1.2")
         classpath("org.jetbrains.kotlin:kotlin-serialization:1.5.10")
     }
@@ -80,7 +80,7 @@ buildscript {
 plugins {
    // id("org.apache.logging.log4j") version "2.11.+"
     id("net.minecraftforge.gradle") version "5.0.+"
-    id("wtf.gofancy.fancygradle") version "1.1.2-0"
+    id("wtf.gofancy.fancygradle") version "1.1.1-2"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.5.10"
     //id("wtf.gofancy.fancygradle") version "1.1.2-0"
     id("com.github.johnrengelman.shadow") version "7.1.2"
