@@ -2,7 +2,7 @@ name: Java Gradle Build
 
 on:
 
-  push:
+  push: 
 
     branches:
 
