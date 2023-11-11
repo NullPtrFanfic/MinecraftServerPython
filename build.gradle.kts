@@ -64,6 +64,7 @@ buildscript {
     }
 
     dependencies {
+        classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle:1.1.+")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:7.1.2")
         classpath("org.jetbrains.kotlin:kotlin-serialization:1.5.10")
     }
