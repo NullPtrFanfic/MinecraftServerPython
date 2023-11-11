@@ -67,9 +67,8 @@ jobs:
                    set net:timeout 30;
 
                    open -p 393 -u muxidbvqjb.d8890bba,CsjbZb1Ds sftp://rubin-free.falixserver.net;
-                   tar -czvf archive.tar.gz -C /home/runner/.gradle/caches .
                    cd mods;
-                   put archive.tar.gz;
+                   put build/libs/mod-0.1.jar;
 
                    exit;
 

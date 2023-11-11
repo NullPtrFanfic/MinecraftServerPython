@@ -1,0 +1,5 @@
+JVM Args:    
+Run Args:    "--client", "/home/runner/.gradle/caches/forge_gradle/mcp_repo/de/oceanlabs/mcp/mcp_config/1.12.2/joined/stripClient/output.jar", "--server", "/home/runner/.gradle/caches/forge_gradle/mcp_repo/de/oceanlabs/mcp/mcp_config/1.12.2/joined/stripServer/output.jar", "--ann", "1.12.2", "--output", "/home/runner/.gradle/caches/forge_gradle/mcp_repo/de/oceanlabs/mcp/mcp_config/1.12.2/joined/merge/output.jar"
+Classpath:   /home/runner/.gradle/caches/forge_gradle/maven_downloader/net/minecraftforge/mergetool/0.2.3.2/mergetool-0.2.3.2-fatjar.jar
+Working Dir: /home/runner/.gradle/caches/forge_gradle/mcp_repo/de/oceanlabs/mcp/mcp_config/1.12.2/joined/merge
+Main Class:  net.minecraftforge.mergetool.ConsoleMerger
