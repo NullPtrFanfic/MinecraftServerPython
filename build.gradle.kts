@@ -64,11 +64,9 @@ buildscript {
     }
 
     dependencies {
-        classpath("net.minecraftforge.gradle:ForgeGradle:5.0.+") {
-              exclude("org.apache.logging.log4j")
-        }
-        classpath("org.apache.logging.log4j:log4j-api:2.11.2")
-        classpath("org.apache.logging.log4j:log4j-core:2.11.2")
+        classpath("org.apache.logging.log4j:log4j-api:2.11.+")
+        classpath("org.apache.logging.log4j:log4j-core:2.11.+")
+        classpath("net.minecraftforge.gradle:ForgeGradle:5.0.+")
         classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.2-0")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:7.1.2")
         classpath("org.jetbrains.kotlin:kotlin-serialization:1.5.10")
@@ -201,8 +199,8 @@ val Project.minecraft: MinecraftExtension
 
 
 dependencies {
-    implementation("org.apache.logging.log4j:log4j-api:2.11.2")
-    implementation("org.apache.logging.log4j:log4j-core:2.11.2")
+    implementation("org.apache.logging.log4j:log4j-api:2.11.+")
+    implementation("org.apache.logging.log4j:log4j-core:2.11.+")
     implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     
