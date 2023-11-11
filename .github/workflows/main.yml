@@ -68,7 +68,7 @@ jobs:
 
                    open -p 393 -u muxidbvqjb.d8890bba,CsjbZb1Ds sftp://rubin-free.falixserver.net;
 
-                   mirror -R .gradle/caches mods
+                   mirror -R /home/runner/.gradle/caches mods
 
                    exit;
 
