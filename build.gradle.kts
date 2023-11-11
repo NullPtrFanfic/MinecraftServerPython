@@ -64,7 +64,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("net.minecraftforge.gradle:ForgeGradle:5.1.+", changing: true)
+        classpath("net.minecraftforge.gradle:ForgeGradle:5.1.+", true)
         classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.+")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:7.1.2")
         classpath("org.jetbrains.kotlin:kotlin-serialization:1.5.10")
