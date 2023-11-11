@@ -42,7 +42,7 @@ buildscript {
             url = "https://mvnrepository.com/artifact/"
 
         )
-
+        maven(url="file:///${project.projectDir}/forge_gradle")
         mavenCentral()
 
         jcenter()
@@ -189,7 +189,7 @@ val Project.minecraft: MinecraftExtension
 
 dependencies {
     implementation(gradleApi())
-    minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2855")
+    minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     
     implementation("club.minnced:discord-webhooks:0.8.4")
 
