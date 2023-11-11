@@ -2,7 +2,7 @@ import net.minecraftforge.gradle.common.util.MinecraftExtension
 
 import net.minecraftforge.gradle.patcher.tasks.ReobfuscateJar
 
-import org.gradle.api.artifacts.type.ArtifactTypeDefinition 
+import org.gradle.api.artifacts.type.ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE
 
 import org.gradle.api.artifacts.transform.InputArtifact
 
@@ -176,11 +176,11 @@ dependencies.artifactTypes.maybeCreate("jar").attributes.attribute(javaModuleAtt
 
 dependencies.registerTransform(JavaModuleTransform::class.java) {
 
-    from.attributes.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, "jar")
+    from.attributes.attribute(ARTIFACT_TYPE_ATTRIBUTE, "jar")
 
         .attribute(javaModuleAttribute, false)
 
-    to.attributes.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, true)
+    to.attributes.attribute(ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, true)
 
 }
 
