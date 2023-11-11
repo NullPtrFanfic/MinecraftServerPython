@@ -4,6 +4,7 @@ pluginManagement {
     eachPlugin {
         if (requested.id.id == "net.minecraftforge.gradle") {
             useModule("${requested.id}:ForgeGradle:${requested.version}")
+            useModule("net.minecraftforge:legacydev:0.3.2.1")
         }
         if (requested.id.id == "net.minecraftforge:legacydev") {
             useVersion("0.3.2.1")
