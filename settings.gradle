@@ -4,8 +4,10 @@ pluginManagement {
     eachPlugin {
         if (requested.id.id == "net.minecraftforge.gradle") {
             useModule("${requested.id}:ForgeGradle:${requested.version}")
-
-            
+        }
+        if (requested.id.id == "org.apache.logging.log4j") {
+            useModule("${requested.id}:log4j-core:${requested.version}")
+            useModule("${requested.id}:log4j-api:${requested.version}")
         }
     }
     }
