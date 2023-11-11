@@ -17,6 +17,7 @@ pluginManagement {
         maven {
             url = "https://files.minecraftforge.net/maven/"
         }
+        maven { url="https://maven.mcmoddev.com/"}
         maven { url="file:///home/runner/work/SumeruMod/SumeruMod/forge_gradle"}
         maven { url="https://maven.minecraftforge.net/"}
     }
