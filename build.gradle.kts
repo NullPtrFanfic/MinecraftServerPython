@@ -122,28 +122,7 @@ fancyGradle {
     }
 }
 
-configurations.all {
-    resolutionStrategy {
-        dependencySubstitution {
-            substitute(module("net.minecraftfoge:legacydev")).using(module("net.minecraftforge:legacydev:0.2.4.0")).because("Fixes ATs")
-        }
-    }
-}
-sourceSets {
 
-    main {
-
-        java {
-
-            srcDirs("src/main/java")
-
-            exclude("**/com/nullptr/mod/party/**")
-
-        }
-
-    }
-
-}
 
 
 
@@ -210,8 +189,8 @@ dependencies {
 }
 minecraft.run {
    
-    mappings("snapshot", "20171003-1.12")
-    //mappings("stable", "39-1.12")
+    //mappings("snapshot", "20171003-1.12")
+    mappings("stable", "39-1.12")
 
     runs {
         val config = Action<RunConfig> {
