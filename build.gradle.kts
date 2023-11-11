@@ -67,6 +67,8 @@ buildscript {
         classpath("net.minecraftforge.gradle:ForgeGradle:5.0.+") {
               exclude("org.apache.logging.log4j")
         }
+        classpath("org.apache.logging.log4j:log4j-api:2.11.2")
+        classpath("org.apache.logging.log4j:log4j-core:2.11.2")
         classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.2-0")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:7.1.2")
         classpath("org.jetbrains.kotlin:kotlin-serialization:1.5.10")
