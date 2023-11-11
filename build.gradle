@@ -1,0 +1,835 @@
+buildscript {
+
+
+
+    repositories {
+
+
+
+        maven { 
+
+
+
+		//name 'MinecraftForge'
+
+
+
+		url = 'https://maven.minecraftforge.net/'
+
+
+
+	        //url = uri("https://plugins.gradle.org/m2/") 
+
+
+
+	}
+
+
+
+	/*maven { 
+
+
+
+		name 'Garden of Fancy' 
+
+
+
+		url 'https://maven.gofancy.wtf/releases' 
+
+
+
+	}*/
+
+
+
+	maven { 
+
+
+
+		url "https://mvnrepository.com/artifact/"
+
+
+
+	}
+
+
+
+        mavenCentral()
+
+
+
+	jcenter()
+
+
+
+        gradlePluginPortal()
+
+	//mavenCentral()
+
+        mavenLocal()
+
+        maven { url 'https://jitpack.io' }
+
+        maven { url "https://libraries.minecraft.net" }
+
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+
+        maven { url 'https://repo.spring.io/milestone' }
+
+
+
+    }
+
+
+
+    dependencies {
+
+
+
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+
+
+
+        //classpath 'com.github.johnrengelman:shadow:2.0.4' 
+
+
+
+	//classpath("gradle.plugin.com.github.johnrengelman:shadow:8.1.1")
+
+
+
+        classpath("com.github.jengelman.gradle.plugins:shadow:4.0.4")
+
+
+
+	//classpath("wtf.gofancy.fancygradle.gradle.plugin:1.1.3-0")
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+plugins { 
+
+
+
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
+
+
+
+  //  id 'wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin' version '1.1.3-0'
+
+
+
+    //id 'com.github.johnrengelman.shadow' version '7.1.2'
+
+
+
+    id 'java' 
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+apply plugin: 'net.minecraftforge.gradle'
+
+
+
+// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
+
+
+apply plugin: 'eclipse'
+
+
+
+apply plugin: 'java'
+
+
+
+apply plugin: 'com.github.johnrengelman.shadow' 
+
+
+
+apply plugin: 'maven-publish'
+
+
+
+
+
+
+
+version = '0.1'
+
+
+
+group = 'com.nullptr.mod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+
+
+
+archivesBaseName = 'mod'
+
+
+
+
+
+
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+
+
+targetCompatibility = JavaVersion.VERSION_1_8
+
+
+
+//sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+
+
+
+//java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+
+
+
+minecraft {
+
+
+
+    // The mappings can be changed at any time, and must be in the following format.
+
+
+
+    // snapshot_YYYYMMDD   Snapshot are built nightly.
+
+
+
+    // stable_#            Stables are built at the discretion of the MCP team.
+
+
+
+    // Use non-default mappings at your own risk. they may not always work.
+
+
+
+    // Simply re-run your setup task after changing the mappings to update your workspace.
+
+
+
+    //mappings channel: 'snapshot', version: '20171003-1.12'
+
+    mappings channel: 'snapshot', version: '20171003-1.12'
+
+   // mappings channel: 'stable_22', version: '1.8.9-11.15.1.2318-1.8.9'
+
+
+
+    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+
+
+
+    
+
+
+
+    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
+
+
+
+
+
+
+    // Default run configurations.
+
+
+
+    // These can be tweaked, removed, or duplicated as needed.
+
+
+
+    runs {
+
+
+
+        client {
+
+
+
+            workingDirectory project.file('run')
+
+
+
+
+
+
+
+            // Recommended logging data for a userdev environment
+
+
+
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+
+
+
+
+
+
+            // Recommended logging level for the console
+
+
+
+            property 'forge.logging.console.level', 'debug'
+
+
+
+        }
+
+
+
+
+
+
+
+        server {
+
+
+
+
+
+
+
+            // Recommended logging data for a userdev environment
+
+
+
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+
+
+
+
+
+
+            // Recommended logging level for the console
+
+
+
+            property 'forge.logging.console.level', 'debug'
+
+
+
+        }
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+configurations { 
+
+
+
+	/*runtime { 
+
+
+
+		transitive = false 
+
+
+
+	}*/
+
+
+
+	//library
+
+
+
+	//implementation.extendsFrom library
+
+
+
+	shade
+
+
+
+}
+
+
+
+
+
+
+
+dependencies {
+
+
+
+    // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
+
+
+
+    // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
+
+
+
+    // The userdev artifact is a special name and will get all sorts of transformations applied to it.
+
+    
+
+    //minecraft 'net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9'
+
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
+
+    //implementation 'com.theokanning.openai-gpt3-java:api:0.15.0'
+
+    //implementation "org.slf4j:slf4j-simple:1.7.28"
+
+    implementation "club.minnced:discord-webhooks:0.8.4"
+
+    implementation("org.ow2.asm:asm:7.1")
+
+   // implementation "com.vdurmont:emoji-java:5.1.1"
+
+    implementation 'com.theokanning.openai-gpt3-java:service:0.12.0'
+
+    implementation files("JDA-4.4.1_353-withDependencies-no-opus.jar")
+
+   // implementation group: 'club.minnced', name: 'discord-webhooks', version: '0.5.4-rc'
+
+   // implementation("club.minnced:discord-webhooks:0.8.4")
+
+    compile "com.theokanning.openai-gpt3-java:service:0.12.0"
+
+    compile("org.ow2.asm:asm:7.1")
+
+    compile(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
+
+   // compile "org.slf4j:slf4j-simple:1.7.28"
+
+    compile "club.minnced:discord-webhooks:0.8.4"
+
+   // compile "com.vdurmont:emoji-java:5.1.1"
+
+    shade("org.ow2.asm:asm:7.1")
+
+    shade "com.theokanning.openai-gpt3-java:service:0.12.0"
+
+    shade files("JDA-4.4.1_353-withDependencies-no-opus.jar")
+
+   // shade "org.slf4j:slf4j-simple:1.7.28"
+
+    shade "club.minnced:discord-webhooks:0.8.4"
+
+   // shade "com.vdurmont:emoji-java:5.1.1"
+
+
+
+   // library("com.theokanning.openai-gpt3-java:service:0.12.0")
+
+
+
+   // implementation 'com.theokanning.openai-gpt3-java:client:0.15.0'
+
+
+
+   // compileOnly 'net.minecraftforge:distmarker:1.12.2-14.23.5.2860' // Замените на соответствующую версию }
+
+
+
+    // You may put jars on which you depend on in ./libs or you may define them like so..
+
+
+
+    // compile "some.group:artifact:version:classifier"
+
+
+
+    // compile "some.group:artifact:version"
+
+
+
+
+
+
+
+    // Real examples
+
+
+
+    // compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
+
+
+
+    // compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
+
+
+
+
+
+
+
+    // The 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
+
+
+
+    // provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+
+
+
+
+
+
+
+    // These dependencies get remapped to your current MCP mappings
+
+
+
+    // deobf 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+
+
+
+
+
+
+
+    // For more info...
+
+
+
+    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
+
+
+
+    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+
+
+
+
+
+
+
+}
+
+sourceSets {
+
+    main {
+
+        java {
+
+            srcDirs = ['src/main/java']
+
+            exclude '**/com/nullptr/mod/party/**'
+
+        }
+
+    }
+
+}
+
+
+
+
+
+// Example for how to get properties into the manifest for reading by the runtime..
+
+
+
+jar {
+
+
+
+    manifest {
+
+
+
+        attributes([
+
+
+
+            "Specification-Title": "examplemod",
+
+
+
+            "Specification-Vendor": "examplemodsareus",
+
+
+
+            "Specification-Version": "1", // We are version 1 of ourselves
+
+
+
+            "Implementation-Title": project.name,
+
+
+
+            "Implementation-Version": "${version}",
+
+
+
+            "Implementation-Vendor" :"examplemodsareus",
+
+
+
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+
+
+
+        ])
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+// Example configuration to allow publishing using the maven-publish task
+
+
+
+// This is the preferred method to reobfuscate your jar file
+
+
+
+
+
+
+
+/*shadow {
+
+
+
+    configurations = [ project.configurations.library ]
+
+
+
+    //...
+
+
+
+}*/
+
+
+
+shadowJar {
+
+
+
+	
+
+
+
+	configurations = [project.configurations.shade]
+
+
+
+	//relocate 'commoble.databuddy', "${project.group}.shadow.commoble.databuddy"
+
+
+
+	/*dependencies { 
+
+
+
+		//exclude(dependency('com.theokanning.openai-gpt3-java:client:0.15.0')) 
+
+
+
+		//exclude(dependency('com.theokanning.openai-gpt3-java:api:0.15.0'))
+
+
+
+		exclude(dependency('com.theokanning.openai-gpt3-java:service:0.12.0'))
+
+
+
+		exclude(dependency('com.theokanning.openai-gpt3-java:0.12.0'))
+
+
+
+		exclude(dependency('net.minecraftforge:forge:1.12.2-14.23.5.2860'))
+
+
+
+	}*/
+
+	relocate "org.ow2.asm", "${project.group}.shadow.org.objectweb.asm"
+
+        relocate 'org.apache.commons.collections4', "${project.group}.shadow.org.apache.commons.collections4"
+
+        relocate 'gnu.trove', "${project.group}.shadow.gnu.trove"
+
+        relocate "com.neovisionaries.ws.client", "${project.group}.shadow.com.neovisionaries.ws.client"
+
+        relocate "com.iwebpp.crypto", "${project.group}.shadow.com.iwebpp.crypto"
+
+	
+
+        relocate "net.dv8tion.jda", "${project.group}.shadow.net.dv8tion.jda"
+
+        relocate "org.json", "${project.group}.shadow.org.json"
+
+        relocate "okio", "${project.group}.shadow.okio"
+
+        relocate "okhttp3", "${project.group}.shadow.okhttp3"
+
+      //  relocate "okhttp3", "${project.group}.shadow.okhttp3"
+
+        //relocate "org.slf4j", "${project.group}.shadow.org.slf4j"
+
+        relocate "com.fasterxml.jackson", "${project.group}.shadow.com.fasterxml.jackson"
+
+        relocate "club.minnced.discord", "${project.group}.shadow.club.minnced.discord"
+
+
+
+       // relocate "com.vdurmont.emoji", "${project.group}.shadow.com.vdurmont.emoji"
+
+
+
+   // classifier ''
+
+    //configurations = [project.configurations.shadow]
+
+        dependencies{
+
+        exclude(dependency('org.jetbrains:annotations'))
+
+        exclude(dependency('com.google.code.findbugs:jsr305'))
+
+        }
+
+	relocate 'com.theokanning.openai-gpt3-java', "${project.group}.shadow.com.theokanning.openai-gpt3-java"
+
+
+
+	classifier = ''
+
+
+
+}
+
+
+
+
+
+
+
+reobf {
+
+
+
+    shadowJar { }
+
+
+
+}
+
+
+
+// this replaces jar.finalizedBy('reobfJar') in the standard forge mod buildscript
+
+
+
+tasks.build.dependsOn reobfShadowJar
+
+
+
+jar.finalizedBy('reobfShadowJar')
+
+
+
+// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
+
+
+
+//publish.dependsOn('reobfJar')
+
+
+
+
+
+
+
+publishing {
+
+
+
+    publications {
+
+
+
+        mavenJava(MavenPublication) {
+
+
+
+            artifact jar
+
+
+
+        }
+
+
+
+    }
+
+
+
+    repositories {
+
+
+
+        maven {
+
+
+
+            url "file:///${project.projectDir}/mcmodsrepo"
+
+
+
+        }
+
+
+
+    }
+
+
+
+}
