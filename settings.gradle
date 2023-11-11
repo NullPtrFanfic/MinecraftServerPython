@@ -17,6 +17,7 @@ pluginManagement {
         maven {
             url = "https://files.minecraftforge.net/maven/"
         }
+        maven { url="file:///${project.projectDir}/forge_gradle"}
         maven { url="https://maven.minecraftforge.net/"}
     }
 }
