@@ -4,10 +4,6 @@ pluginManagement {
     eachPlugin {
         if (requested.id.id == "net.minecraftforge.gradle") {
             useModule("${requested.id}:ForgeGradle:${requested.version}")
-
-            configurations.all {
-                exclude("org.apache.logging.log4j")
-            }
         }
     }
     }
