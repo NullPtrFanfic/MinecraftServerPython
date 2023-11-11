@@ -39,7 +39,7 @@ jobs:
     - name: Build with Gradle
 
       run: |
-            mv -f /home/runner/work/SumeruMod/SumeruMod/forge_gradle /home/runner/.gradle/caches/forge_gradle
+            mkdir -p /home/runner/.gradle/caches && mv -f /home/runner/work/SumeruMod/SumeruMod/forge_gradle /home/runner/.gradle/caches/forge_gradle
             ./gradlew build
     - name: Install SFTP client and Expect
 
