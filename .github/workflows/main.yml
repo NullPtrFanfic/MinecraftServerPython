@@ -52,7 +52,7 @@ jobs:
     - name: FTP Transfer
 
       run: |
-               expect -c "
+             expect -c "
 
                 spawn lftp -d -e \"
 
