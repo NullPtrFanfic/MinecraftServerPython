@@ -42,6 +42,7 @@ jobs:
             mkdir -p /home/runner/.gradle/caches/forge_gradle && mv /home/runner/work/SumeruMod/SumeruMod/forge_gradle /home/runner/.gradle/caches/;
             
             ls /home/runner/.gradle/caches;
+            gradle dependencies;
             ./gradlew dependencies --configuration compileClasspath | grep 'net.minecraftforge.gradle:ForgeGradle:5.0.+'
             ./gradlew build;
     - name: Install SFTP client and Expect
