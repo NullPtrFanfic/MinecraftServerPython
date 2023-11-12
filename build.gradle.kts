@@ -88,7 +88,7 @@ plugins {
     id("net.minecraftforge.gradle") version "6.+"
     id("wtf.gofancy.fancygradle") version "1.1.+"
     id("com.github.johnrengelman.shadow") version "8.0.0"
-    id("com.gtnewhorizons.retrofuturagradle")
+    id("com.gtnewhorizons.retrofuturagradle") version "1.3.24"
     id("java")
     
     `maven-publish`
@@ -275,6 +275,10 @@ tasks.create<ConfigureShadowRelocation>("relocateShadowJar") {
 tasks.named<ShadowJar>("shadowJar").configure { 
       dependsOn(tasks["relocateShadowJar"]) // Other config 
 }
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}
+
 tasks {
    register<Jar>("mm") {
         archiveBaseName.set("mod")
