@@ -88,7 +88,7 @@ plugins {
     id("net.minecraftforge.gradle") version "6.+"
     id("wtf.gofancy.fancygradle") version "1.1.+"
     id("com.github.johnrengelman.shadow") version "8.0.0"
-    id("com.gtnewhorizons.retrofuturagradle") version "1.3.24"
+    id("com.gtnewhorizons.retrofuturagradle")
     id("java")
     
     `maven-publish`
