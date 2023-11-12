@@ -203,6 +203,17 @@ val Project.minecraft: MinecraftExtension
 
 
 dependencies {
+    components.withModule("net.minecraftforge") {
+        allVariants {
+            withDependencies {
+                removeAll {
+                    it.group == "net.minecraftforge" && it.name == "legacydev" && it.version == "0.2.4.0"
+                }
+               // add("net.minecraftforge:legacydev:0.2.4.0")
+                add("net.minecraftforge:legacydev:0.2.3.1")
+            }
+        }
+    }
     implementation(module("org.apache.logging.log4j:log4j-api:2.11.+"))
     implementation(module("org.apache.logging.log4j:log4j-core:2.11.+"))
     implementation("net.minecraftforge:legacydev:0.2.3.1")
