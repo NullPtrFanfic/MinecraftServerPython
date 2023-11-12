@@ -1,5 +1,5 @@
 import net.minecraftforge.gradle.common.util.MinecraftExtension
-import org.gradle.api.artifacts.DependencyResolveDetails
+//import org.gradle.api.artifacts.DependencyResolveDetails
 import net.minecraftforge.gradle.patcher.tasks.ReobfuscateJar
 
 import org.gradle.api.artifacts.type.ArtifactTypeDefinition
@@ -161,14 +161,9 @@ configurations.all {
     }
 }
 configurations.all {
-    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-        if (details.requested.group == 'net.minecraftforge' && details.requested.name == 'legacydev') {
-            details.useVersion '0.2.3.1' // Замените версию на ту, которую вы хотите использовать
-           /* details.artifact {
-                // Создайте кастомную ссылку для скачивания
-                URL url = new URL('https://ваша_кастомная_ссылка')
-                return new DefaultExternalResource(url, details.requested.group, details.requested.name, details.requested.version)
-            }*/
+    resolutionStrategy.eachDependency { details ->
+        if (details.requested.group == "net.minecraftforge" && details.requested.name == "legacydev") {
+            details.useVersion("0.2.3.1")
         }
     }
 }
