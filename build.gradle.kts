@@ -281,7 +281,7 @@ tasks {
 
 
 
-        tasks.named("jar").finalizedBy("reobf")
+        finalizedBy("reobf")
 
     }
 
