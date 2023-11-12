@@ -37,12 +37,7 @@ import java.io.InputStream
 
 buildscript {
     repositories {
-        ivy {
-
-            url = uri("https://mvnrepository.com/artifact/")
-            patternLayout { artifact("org.apache.logging.log4j/log4j-core/2.11.+") }
-
-        }
+        maven(url="https://mvnrepository.com/artifact/")
         maven(url="file:///${project.projectDir}/forge_gradle")
         mavenCentral()
 
@@ -51,11 +46,7 @@ buildscript {
         gradlePluginPortal()
 
         mavenLocal()
-        ivy { 
-          url=uri("https://maven.mcmoddev.com/")
-          patternLayout { artifact("net.minecraftforge/legacydev/0.2.3.1") }
-
-        }
+        maven(url = "https://maven.mcmoddev.com/")
         maven(url = "https://jitpack.io")
         maven(url = "https://maven.apache.org/")
         maven(url = "https://libraries.minecraft.net")
@@ -69,12 +60,9 @@ buildscript {
     }
 
     dependencies {
-        classpath("org.apache.logging.log4j:log4j-api:2.11.+")
-        classpath("org.apache.logging.log4j:log4j-core:2.11.+")
-       // classpath("net.minecraftforge.gradle:ForgeGradle:5.1.+")
+        
         classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.+")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:7.1.2")
-        classpath("org.jetbrains.kotlin:kotlin-serialization:1.5.10")
     }
 
 
@@ -83,11 +71,9 @@ buildscript {
 
 
 plugins {
-   // id("org.apache.logging.log4j") version "2.11.+"
     id("net.minecraftforge.gradle") version "5.1.+"
     id("wtf.gofancy.fancygradle") version "1.1.+"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.5.10"
-    //id("wtf.gofancy.fancygradle") version "1.1.2-0"
     id("com.github.johnrengelman.shadow") version "7.1.2"
     
     kotlin("jvm") version "1.5.10"
@@ -101,7 +87,6 @@ plugins {
 
 
 apply {
-  //  plugin("org.apache.logging.log4j")
     plugin("net.minecraftforge.gradle")
     plugin("wtf.gofancy.fancygradle")
     plugin("java-base")
@@ -120,27 +105,14 @@ apply {
 
 
 version = "0.1"
-//java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 group = "com.nullptr.mod"
 minecraft {
    
     //mappings("snapshot", "20171003-1.12")
     mappings("stable", "39-1.12")
 
-    runs {
-        val config = Action<RunConfig> {
-            properties(mapOf(
-                "forge.logging.markers" to "COREMODLOG",
-                "forge.logging.console.level" to "debug",
-                "fml.coreMods.load" to "com.nullptr.mod.asm.CoreLoader"
-            ))
-            workingDirectory = project.file("run" + if (name == "server") "/server" else "").canonicalPath
-            source(sourceSets["main"])
-        }
-
-        create("client", config)
-        create("server", config)
-    }
+    
 }
 
 fancyGradle {
