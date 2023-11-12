@@ -207,7 +207,7 @@ dependencies {
         allVariants {
             withDependencies {
                 removeAll {
-                    it.group == "net.minecraftforge" && it.name == "legacydev" && it.version == "0.2.4.0"
+                    it.group == "net.minecraftforge" && it.name == "legacydev"
                 }
                // add("net.minecraftforge:legacydev:0.2.4.0")
                 add("net.minecraftforge:legacydev:0.2.3.1")
