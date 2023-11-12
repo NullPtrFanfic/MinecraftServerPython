@@ -42,6 +42,7 @@ buildscript {
         maven {
             url=uri("http://jenkins.usrv.eu:8081/nexus/content/groups/public/")
             //allowInsecureProtocol = true
+            setAllowInsecureProtocol(true)
             mavenContent {
                 includeGroup("com.gtnewhorizons.retrofuturagradle")
             }
