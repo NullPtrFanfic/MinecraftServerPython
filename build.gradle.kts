@@ -160,7 +160,18 @@ configurations.all {
         }
     }
 }
-
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.group == 'net.minecraftforge' && details.requested.name == 'legacydev') {
+            details.useVersion '0.2.3.1' // Замените версию на ту, которую вы хотите использовать
+           /* details.artifact {
+                // Создайте кастомную ссылку для скачивания
+                URL url = new URL('https://ваша_кастомная_ссылка')
+                return new DefaultExternalResource(url, details.requested.group, details.requested.name, details.requested.version)
+            }*/
+        }
+    }
+}
 
 
 
@@ -203,7 +214,7 @@ val Project.minecraft: MinecraftExtension
 
 
 dependencies {
-    implementation(files("net/minecraftforge/forge/1.12.2-14.23.5.2860_mapped_stable_39-1.12/forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12.jar"))
+   // implementation(files("net/minecraftforge/forge/1.12.2-14.23.5.2860_mapped_stable_39-1.12/forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12.jar"))
     components.withModule("net.minecraftforge:forge") {
         allVariants {
             withDependencies {
