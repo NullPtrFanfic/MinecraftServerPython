@@ -225,7 +225,7 @@ val Project.minecraft: MinecraftExtension
 
 
 dependencies {
-    implementation("net.minecraftforge:legacydev:0.2.3.1")
+    //implementation("net.minecraftforge:legacydev:0.2.3.1")
     implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     
@@ -233,17 +233,11 @@ dependencies {
 
     implementation("com.theokanning.openai-gpt3-java:service:0.12.0")
 
-    implementation("org.ow2.asm:asm:7.1")
-
     implementation(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
-
-    shadow("org.ow2.asm:asm:7.1")
 
     shadow("com.theokanning.openai-gpt3-java:service:0.12.0")
 
     shadow( files ("JDA-4.4.1_353-withDependencies-no-opus.jar"))
-
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
 
 }
 
