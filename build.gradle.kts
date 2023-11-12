@@ -250,7 +250,7 @@ tasks.named<ShadowJar>("shadowJar").configure {
       dependsOn(tasks["relocateShadowJar"]) // Other config 
 }
 tasks {
-   register<Jar>("jar") {
+   register<Jar>("mm") {
         archiveBaseName.set("mod")
 
         manifest {
@@ -290,7 +290,7 @@ tasks {
        archiveBaseName.set("shadow") 
        archiveClassifier.set("") 
        archiveVersion.set("")
-       manifest.inheritFrom(jar.get().manifest) 
+       manifest.inheritFrom(mm.get().manifest) 
        minimize()
 
     }
