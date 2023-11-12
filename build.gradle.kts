@@ -249,7 +249,7 @@ tasks.named("shadowJar", ShadowJar) {
 
 
 tasks {
-    withType<Jar> {
+    jar withType<Jar> {
 
         archiveBaseName.set("mod")
 
@@ -290,9 +290,7 @@ tasks {
        archiveBaseName.set("shadow") 
        archiveClassifier.set("") 
        archiveVersion.set("")
-       manifest { 
-          inheritFrom(manifest) 
-       }
+       manifest.inheritFrom(jar.get().manifest) 
        
        minimize()
 
