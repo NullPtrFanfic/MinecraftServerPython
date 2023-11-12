@@ -19,7 +19,7 @@ import org.gradle.api.file.FileSystemLocation
 import org.gradle.api.provider.Provider
 
 import java.text.SimpleDateFormat
-
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import java.util.*
 import org.gradle.api.file.FileCollection
 import java.util.List
@@ -241,7 +241,10 @@ dependencies {
 
 
 
-
+tasks.named('shadowJar', ShadowJar) { 
+      enableRelocation true 
+      relocationPrefix "$(project.group}" 
+}
 
 
 
@@ -283,38 +286,15 @@ tasks {
     }
 
     shadowJar {
-
-       // configurations = [project.configurations.shade]
-
-        relocate("org.ow2.asm", "${project.group}.shadow.org.objectweb.asm")
-
-        relocate("org.apache.commons.collections4", "${project.group}.shadow.org.apache.commons.collections4")
-
-        relocate("gnu.trove", "${project.group}.shadow.gnu.trove")
-
-        relocate("com.neovisionaries.ws.client", "${project.group}.shadow.com.neovisionaries.ws.client")
-
-        relocate("com.iwebpp.crypto", "${project.group}.shadow.com.iwebpp.crypto")
-
-        relocate("net.dv8tion.jda", "${project.group}.shadow.net.dv8tion.jda")
-
-        relocate("org.json", "${project.group}.shadow.org.json")
-
-        relocate("okio", "${project.group}.shadow.okio")
-
-        relocate("okhttp3", "${project.group}.shadow.okhttp3")
-
-        relocate("club.minnced.discord", "${project.group}.shadow.club.minnced.discord")
-
-        dependencies {
-
-            exclude(dependency("org.jetbrains:annotations"))
-
-            exclude(dependency("com.google.code.findbugs:jsr305"))
-
-        }
-
-        //archiveClassifier = ''
+       configurations = [project.configurations.compileClasspath]
+       archiveBaseName.set('shadow') 
+       archiveClassifier.set('') 
+       archiveVersion.set('')
+       manifest { 
+          inheritFrom(project.tasks.manifest) 
+       }
+       
+       minimize()
 
     }
 
