@@ -47,8 +47,9 @@ buildscript {
                 includeGroup("com.gtnewhorizons.retrofuturagradle")
             }
 	}
-        maven(url="https://mvnrepository.com/artifact/")
         mavenCentral()
+        maven(url="https://mvnrepository.com/artifact/")
+        
 
         jcenter()
 
