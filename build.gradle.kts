@@ -241,17 +241,11 @@ dependencies {
 
 
 
-configurations { 
-    shadowJar
-}
 
 
 
 
 tasks {
-    reobf { 
-      shadowJar {} 
-    }
     withType<Jar> {
 
         archiveBaseName.set("mod")
@@ -284,7 +278,7 @@ tasks {
 
 
 
-        finalizedBy("reobjShadowJar")
+        finalizedBy("shadowJar")
 
     }
 
