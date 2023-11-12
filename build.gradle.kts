@@ -40,7 +40,7 @@ buildscript {
         ivy {
 
             url = uri("https://mvnrepository.com/artifact/")
-            patternLayout { artifact("[module]/[revision]/[artifact].[ext]") }
+            patternLayout { artifact("org.apache.logging.log4j/log4j-core/2.11.+") }
 
         }
         maven(url="file:///${project.projectDir}/forge_gradle")
