@@ -17,8 +17,12 @@ pluginManagement {
         maven {
             url = "https://files.minecraftforge.net/maven/"
         }
-        maven { url="file:///home/runner/.gradle/caches/forge_gradle/minecraft_user_repo"}
         maven { url="https://maven.minecraftforge.net/"}
     }
+}
+plugins {
+
+	id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
+
 }
 rootProject.name = 'SumeruMod'
