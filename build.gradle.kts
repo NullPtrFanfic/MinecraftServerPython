@@ -161,10 +161,11 @@ configurations.all {
     }
 }
 configurations.all {
-    resolutionStrategy.eachDependency -> details {
+    resolutionStrategy.eachDependency { details -> {
         if (details.requested.group == "net.minecraftforge" && details.requested.name == "legacydev") {
             details.useVersion("0.2.3.1")
         }
+    }
     }
 }
 
