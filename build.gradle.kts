@@ -85,7 +85,7 @@ buildscript {
         
         classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.+")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:8.0.0")
-       // classpath("com.gtnewhorizons.retrofuturagradle:com.gtnewhorizons.retrofuturagradle.gradle.plugin:1.3.24")
+        classpath("com.gtnewhorizons.retrofuturagradle:com.gtnewhorizons.retrofuturagradle.gradle.plugin:1.3.24")
     }
 
 
