@@ -137,7 +137,7 @@ minecraft {
 
 			mods {
 
-				create(property("mod").toString()) {
+				create(property("com").toString()) {
 
 					source(sourceSets.main.get())
 
