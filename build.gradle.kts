@@ -203,7 +203,7 @@ val Project.minecraft: MinecraftExtension
 
 
 dependencies {
-    components.withModule("net.minecraftforge.gradle:ForgeGradle") {
+    components.withModule("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin") {
         allVariants {
             withDependencies {
                 removeAll {
