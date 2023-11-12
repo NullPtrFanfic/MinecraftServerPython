@@ -241,9 +241,9 @@ dependencies {
 
 
 
-tasks.named('shadowJar', ShadowJar) { 
-      enableRelocation true 
-      relocationPrefix "$(project.group}" 
+tasks.named("shadowJar", ShadowJar) { 
+      enableRelocation = true 
+      relocationPrefix = "$(project.group}" 
 }
 
 
@@ -287,11 +287,11 @@ tasks {
 
     shadowJar {
        configurations = [project.configurations.compileClasspath]
-       archiveBaseName.set('shadow') 
-       archiveClassifier.set('') 
-       archiveVersion.set('')
+       archiveBaseName.set("shadow") 
+       archiveClassifier.set("") 
+       archiveVersion.set("")
        manifest { 
-          inheritFrom(project.tasks.manifest) 
+          inheritFrom(manifest) 
        }
        
        minimize()
