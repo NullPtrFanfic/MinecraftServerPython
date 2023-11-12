@@ -175,7 +175,7 @@ minecraft {
 
 				"--mod",
 
-				property("mod"),
+				property("com"),
 
 				"--all",
 
