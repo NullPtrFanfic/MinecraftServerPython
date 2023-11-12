@@ -204,7 +204,7 @@ val Project.minecraft: MinecraftExtension
 
 dependencies {
     implementation(files("net/minecraftforge/forge/1.12.2-14.23.5.2860_mapped_stable_39-1.12/forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12.jar"))
-    components.withModule("net.minecraftforge:forge:1.12.2-14.23.5.2860_mapped_stable_39-1.12") {
+    components.withModule("net.minecraftforge:forge") {
         allVariants {
             withDependencies {
                 removeAll {
