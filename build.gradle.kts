@@ -40,7 +40,7 @@ buildscript {
         ivy {
 
             url = uri("https://mvnrepository.com/artifact/")
-            patternLayout { artifact("org.apache.logging.log4j/log4j-core/2.11.2") }
+            patternLayout { artifact("org.apache.logging.log4j/log4j-core/2.11.+") }
 
         }
         maven(url="file:///${project.projectDir}/forge_gradle")
@@ -201,12 +201,6 @@ val Project.minecraft: MinecraftExtension
 dependencies {
     implementation(module("org.apache.logging.log4j:log4j-api:2.11.+"))
     implementation(module("org.apache.logging.log4j:log4j-core:2.11.+"))
-    implementation('net.minecraftforge:artifactural:3.0.8') {
-        transitive = false
-    }
-    implementation('net.minecraftforge:unsafe:0.2.0') {
-        transitive = false
-    }
     implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     
