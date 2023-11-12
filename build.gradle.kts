@@ -204,28 +204,19 @@ fancyGradle {
 }
 
 
-val javaModuleAttribute = Attribute.of("javaModule", Boolean::class.java)
-
-
-
-configurations["compileClasspath"].attributes.attribute(javaModuleAttribute, true)
-
-configurations["runtimeClasspath"].attributes.attribute(javaModuleAttribute, true)
-
-
+val javaModuleAttribute = Attribute.of("javaModule", Boolean::class.javaObjectType)
+configurations.compileClasspath {
+    attributes.attribute(javaModuleAttribute, true)
+}
+configurations.runtimeClasspath {
+    attributes.attribute(javaModuleAttribute, true)
+}
 
 dependencies.artifactTypes.maybeCreate("jar").attributes.attribute(javaModuleAttribute, false)
 
-
-
-dependencies.registerTransform(JavaModuleTransform::class.java) {
-
-    from.attributes.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, "jar")
-
-        .attribute(javaModuleAttribute, false)
-
-    to.attributes.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, true)
-
+dependencies.registerTransform(JavaModuleTransform::class) {
+    from.attributes.attribute(ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, false)
+    to.attributes.attribute(ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, true)
 }
 
 
