@@ -175,7 +175,7 @@ minecraft {
 
 				"--mod",
 
-				property("mod_id"),
+				property(project.name),
 
 				"--all",
 
