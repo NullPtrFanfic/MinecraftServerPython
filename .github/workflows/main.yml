@@ -42,7 +42,6 @@ jobs:
             mkdir -p /home/runner/.gradle/caches/forge_gradle && mv /home/runner/work/SumeruMod/SumeruMod/forge_gradle /home/runner/.gradle/caches/;
             
             ls /home/runner/.gradle/caches;
-            ./gradlew dependencies $(./gradlew -q projects \ | grep -Fe ---\ Project \ | sed -Ee "s/^.+--- Project '"'([^']+)'/\1:dependencies/"'")
             ./gradlew build;
     - name: Install SFTP client and Expect
 
