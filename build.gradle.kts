@@ -74,8 +74,6 @@ plugins {
     id("wtf.gofancy.fancygradle") version "1.1.+"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.5.10"
     id("com.github.johnrengelman.shadow") version "7.1.2"
-    
-    kotlin("jvm") version "1.5.10"
 
     id("java")
     
