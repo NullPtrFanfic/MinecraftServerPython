@@ -52,14 +52,6 @@ buildscript {
         maven(url = "https://maven.apache.org/")
         maven{
         url = uri("https://libraries.minecraft.net")
-        mavenContent {
-                includeGroup("com.ibm.icu")
-                includeGroup("com.mojang")
-                includeGroup("com.paulscode")
-                includeGroup("org.lwjgl.lwjgl")
-                includeGroup("tv.twitch")
-                includeGroup("net.minecraft")
-            }
         }
         
 
