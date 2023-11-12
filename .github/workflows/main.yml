@@ -40,11 +40,13 @@ jobs:
       uses: mainmatter/continue-on-error-comment@v1
             
     - name: Build with Gradle
-      continue-on-error: true
       run: |
             mkdir -p /home/runner/.gradle/caches/forge_gradle/bundeled_repo && mv /home/runner/work/SumeruMod/SumeruMod/forge_gradle/minecraft_user_repo/* /home/runner/.gradle/caches/forge_gradle/bundeled_repo/;
             ls /home/runner/.gradle/caches/forge_gradle/bundeled_repo;
             ./gradlew build;
+      continue-on-error: true
+    - name: Log
+      run: |
             ls /home/runner/.gradle/caches/forge_gradle/bundeled_repo/;
             ls /home/runner/.gradle/caches/forge_gradle/;
             ls /home/runner/.gradle/caches/forge_gradle/bundeled_repo/net/minecraftforge/;
