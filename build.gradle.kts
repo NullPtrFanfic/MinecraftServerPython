@@ -132,7 +132,7 @@ java {
      withJavadocJar()
 }
 group = "com.nullptr.mod"
-minecraft {
+mcraft {
     mappings("stable", "39-1.12")
 
   //  copyIdeResources = true
@@ -253,7 +253,7 @@ dependencies {
     injectedTags.put("TAG_VERSION", version)
     //implementation("net.minecraftforge:legacydev:0.2.3.1")
     implementation(gradleApi())
-    minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
+    mcraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     
     implementation("club.minnced:discord-webhooks:0.8.4")
 
