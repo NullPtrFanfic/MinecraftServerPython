@@ -132,7 +132,7 @@ java {
      withJavadocJar()
 }
 group = "com.nullptr.mod"
-mcraft {
+minecraft {
     mappings("stable", "39-1.12")
 
   //  copyIdeResources = true
@@ -242,18 +242,12 @@ dependencies.registerTransform(JavaModuleTransform::class) {
 }
 
 
-val Project.minecraft: MinecraftExtension
-
-    get() = extensions.getByType()
-
-
-
 dependencies {
     mcVersion.set("1.12.2")
     injectedTags.put("TAG_VERSION", version)
     //implementation("net.minecraftforge:legacydev:0.2.3.1")
     implementation(gradleApi())
-    mcraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
+    minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     
     implementation("club.minnced:discord-webhooks:0.8.4")
 
