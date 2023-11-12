@@ -21,7 +21,13 @@ pluginManagement {
 	flatDir { 
 		dirs("file:/home/runner/.gradle/caches/forge_gradle/bundeled_repo")
 	}
-        maven { url="https://maven.minecraftforge.net/"}
+        maven { url="https://maven.minecraftforge.net/"
+	      mavenContent {
+                includeGroup("net.minecraftforge")
+                includeGroup("net.minecraftforge.srg2source")
+                includeGroup("de.oceanlabs.mcp")
+                includeGroup("cpw.mods")
+	      }}
     }
 }
 plugins {
