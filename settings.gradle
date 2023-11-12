@@ -14,16 +14,7 @@ pluginManagement {
             url = "https://gitlab.com/api/v4/projects/26758973/packages/maven" // 
         }
         maven {
-            url = "https://files.minecraftforge.net/maven/"
-        }
-        maven {
             url = "https://maven.minecraftforge.net/"
-            mavenContent {
-                includeGroup("net.minecraftforge")
-                includeGroup("net.minecraftforge.srg2source")
-                includeGroup("de.oceanlabs.mcp")
-                includeGroup("cpw.mods")
-            }
         }
         
     }
