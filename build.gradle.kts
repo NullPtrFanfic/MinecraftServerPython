@@ -244,7 +244,7 @@ dependencies {
 // Shadow ALL dependencies: 
 tasks.create<ConfigureShadowRelocation>("relocateShadowJar") { 
       target = tasks["shadowJar"] as ShadowJar 
-      prefix = ${project.group} 
+      prefix = "${project.group}"
 }
 tasks.named<ShadowJar>("shadowJar").configure { 
       dependsOn(tasks["relocateShadowJar"]) // Other config 
