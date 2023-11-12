@@ -14,7 +14,7 @@ pluginManagement {
                 includeGroup("com.gtnewhorizons.retrofuturagradle")
             }
         }
-       // gradlePluginPortal()
+       // 
         mavenCentral()
         maven { // name = "Garden of Fancy" // 
             url = "https://gitlab.com/api/v4/projects/26758973/packages/maven" // 
@@ -31,6 +31,7 @@ pluginManagement {
                 includeGroup("cpw.mods")
             }
         }
+        gradlePluginPortal()
     }
 }
 
