@@ -290,7 +290,7 @@ tasks {
        archiveBaseName.set("shadow") 
        archiveClassifier.set("") 
        archiveVersion.set("")
-       manifest.inheritFrom(mm.get().manifest) 
+       manifest.inheritFrom(tasks.named<ShadowJar>("shadowJar").get().manifest) 
        minimize()
 
     }
