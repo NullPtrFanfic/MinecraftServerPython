@@ -71,7 +71,7 @@ buildscript {
 
 
 plugins {
-    id("net.minecraftforge.gradle") version "5.1.+"
+    id("net.minecraftforge.gradle") version "6.+"
     id("wtf.gofancy.fancygradle") version "1.1.+"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.5.10"
     id("com.github.johnrengelman.shadow") version "7.1.2"
@@ -102,17 +102,97 @@ apply {
 
 }
 
+sourceSets.main.configure {
 
+	//kotlin.srcDirs += project.file("src/main/kotlin")
+
+	java.srcDirs += project.file("src/main/java")
+
+	resources.srcDirs += project.file("src/generated/resources")
+
+}
 
 version = "0.1"
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 group = "com.nullptr.mod"
 minecraft {
-   
-    //mappings("snapshot", "20171003-1.12")
     mappings("stable", "39-1.12")
 
-    
+    copyIdeResources = true
+
+
+
+	runs {
+
+		configureEach {
+
+			workingDirectory(project.file("run"))
+
+
+
+			property("forge.logging.markers", "REGISTRIES")
+
+			property("forge.logging.console.level", "debug")
+
+
+
+			mods {
+
+				create(property("mod_id").toString()) {
+
+					source(sourceSets.main.get())
+
+				}
+
+			}
+
+		}
+
+
+
+		create("client") {
+
+			// NO-OP
+
+		}
+
+
+
+		create("server") {
+
+			args("--nogui")
+
+		}
+
+
+
+		create("data") {
+
+			workingDirectory(project.file("run-data"))
+
+
+
+			args(
+
+				"--mod",
+
+				property("mod_id"),
+
+				"--all",
+
+				"--output",
+
+				project.file("src/generated/resources/"),
+
+				"--existing",
+
+				project.file("src/main/resources/")
+
+			)
+
+		}
+
+	}
 }
 
 fancyGradle {
@@ -124,24 +204,6 @@ fancyGradle {
     }
 }
 
-
-configurations.all {
-    resolutionStrategy {
-        dependencySubstitution {
-            substitute(module("net.minecraftforge:legacydev:0.2.4.0")).with(module("net.minecraftforge:legacydev:0.2.3.1"))
-        }
-    }
-}
-configurations {
-   resolutionStrategy { 
-      eachDependency { DependencyResolveDetails details ->//specifying a fixed version for all libraries with 'org.gradle' group 
-        if (details.requested.group == 'net.minecraftforge' && details.requested.name == "legacydev") 
-        { 
-            details.useVersion '0.2.3.1' 
-        }
-      }
-   } 
-} 
 
 val javaModuleAttribute = Attribute.of("javaModule", true.javaClass)
 
@@ -168,13 +230,6 @@ dependencies.registerTransform(JavaModuleTransform::class.java) {
 }
 
 
-
-val sourceCompatibility = JavaVersion.VERSION_1_8
-
-val targetCompatibility = JavaVersion.VERSION_1_8
-
-
-
 val Project.minecraft: MinecraftExtension
 
     get() = extensions.getByType()
@@ -182,20 +237,6 @@ val Project.minecraft: MinecraftExtension
 
 
 dependencies {
-   // implementation(files("net/minecraftforge/forge/1.12.2-14.23.5.2860_mapped_stable_39-1.12/forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12.jar"))
-    components.withModule("net.minecraftforge:forge") {
-        allVariants {
-            withDependencies {
-                removeAll {
-                    it.group == "net.minecraftforge" && it.name == "legacydev"
-                }
-               // add("net.minecraftforge:legacydev:0.2.4.0")
-                add("net.minecraftforge:legacydev:0.2.3.1")
-            }
-        }
-    }
-    implementation(module("org.apache.logging.log4j:log4j-api:2.11.+"))
-    implementation(module("org.apache.logging.log4j:log4j-core:2.11.+"))
     implementation("net.minecraftforge:legacydev:0.2.3.1")
     implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
@@ -226,15 +267,6 @@ configurations {
 
 }
 
-
-
-java {
-
-    sourceCompatibility = JavaVersion.VERSION_1_8
-
-    targetCompatibility = JavaVersion.VERSION_1_8
-
-}
 
 
 
@@ -459,5 +491,3 @@ fun DependencyHandler.minecraft(
     dependencyNotation: Any
 
 ): Dependency = add("minecraft", dependencyNotation)!!
-
-sourceSets.all { output.resourcesDir = output.classesDirs.files.iterator().next() }
