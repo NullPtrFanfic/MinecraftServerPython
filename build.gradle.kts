@@ -249,7 +249,7 @@ tasks.named("shadowJar", ShadowJar) {
 
 
 tasks {
-   jar {
+   jar(type: Jar) {
         archiveBaseName.set("mod")
 
         manifest {
@@ -297,7 +297,7 @@ tasks {
 
 
 
-    reobf (type<ReobfuscateJar>) {
+    reobf(type: ReobfuscateJar) {
 
         shadowJar {
 
