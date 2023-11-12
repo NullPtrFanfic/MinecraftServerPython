@@ -72,7 +72,6 @@ buildscript {
 plugins {
     id("net.minecraftforge.gradle") version "6.+"
     id("wtf.gofancy.fancygradle") version "1.1.+"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.5.10"
     id("com.github.johnrengelman.shadow") version "8.1.1"
 
     id("java")
@@ -87,7 +86,6 @@ apply {
     plugin("net.minecraftforge.gradle")
     plugin("wtf.gofancy.fancygradle")
     plugin("java-base")
-    plugin("org.jetbrains.kotlin.plugin.serialization")
 
     plugin("eclipse")
 
@@ -286,13 +284,13 @@ tasks {
 
 
 
-        finalizedBy("reobfShadowJar")
+        finalizedBy("shadowJar")
 
     }
 
     shadowJar {
 
-        //configurations = mutableListOf(project.configurations.shadow.get())
+        configurations = mutableListOf(project.configurations.shadow.get())
 
 
         relocate("org.ow2.asm", "${project.group}.shadow.org.objectweb.asm")
@@ -323,7 +321,7 @@ tasks {
 
         }
 
-       // classifier = ""
+        archiveClassifier = ""
 
     }
 
