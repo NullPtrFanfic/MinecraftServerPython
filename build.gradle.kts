@@ -160,17 +160,16 @@ configurations.all {
         }
     }
 }
-configurations.all {
-    resolutionStrategy { 
-      eachDependency { DependencyResolveDetails details ->
-        if (details.requested.group == "net.minecraftforge" && details.requested.name == "legacydev") {
-            details.useVersion("0.2.3.1")
+configurations {
+   resolutionStrategy { 
+      eachDependency { DependencyResolveDetails details ->//specifying a fixed version for all libraries with 'org.gradle' group 
+        if (details.requested.group == 'net.minecraftforge' && details.requested.name == "legacydev") 
+        { 
+            details.useVersion '0.2.3.1' 
         }
       }
-    }
-}
-
-
+   } 
+} 
 
 val javaModuleAttribute = Attribute.of("javaModule", true.javaClass)
 
