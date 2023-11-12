@@ -42,6 +42,9 @@ jobs:
             mkdir -p /home/runner/.gradle/caches/forge_gradle/bundeled_repo && mv /home/runner/work/SumeruMod/SumeruMod/forge_gradle/minecraft_user_repo/* /home/runner/.gradle/caches/forge_gradle/bundeled_repo/;
             ls /home/runner/.gradle/caches/forge_gradle/bundeled_repo;
             ./gradlew build;
+            ls /home/runner/.gradle/caches/forge_gradle/bundeled_repo/;
+            ls /home/runner/.gradle/caches/forge_gradle/;
+            ls /home/runner/.gradle/caches/forge_gradle/bundeled_repo/net/minecraftforge/;
     - name: Install SFTP client and Expect
 
       run: |
