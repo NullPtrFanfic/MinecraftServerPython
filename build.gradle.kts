@@ -241,17 +241,18 @@ dependencies {
 
 
 
-configurations {
-
-    shadow
-
+configurations { 
+    shade 
+    implementation.extendsFrom shade 
 }
 
 
 
 
 tasks {
-
+    reobf { 
+      shadowJar {} 
+    }
     withType<Jar> {
 
         archiveBaseName.set("mod")
@@ -284,14 +285,13 @@ tasks {
 
 
 
-        finalizedBy("shadowJar")
+        finalizedBy("reobjShadowJar")
 
     }
 
     shadowJar {
 
-        configurations = mutableListOf(project.configurations.shadow.get())
-
+        configurations = [project.configurations.shade]
 
         relocate("org.ow2.asm", "${project.group}.shadow.org.objectweb.asm")
 
@@ -321,7 +321,7 @@ tasks {
 
         }
 
-        archiveClassifier = ""
+        archiveClassifier = ''
 
     }
 
