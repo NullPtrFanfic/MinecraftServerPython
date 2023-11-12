@@ -242,8 +242,7 @@ dependencies {
 
 
 configurations { 
-    shade 
-    implementation.extendsFrom shade 
+    shadowJar
 }
 
 
@@ -321,7 +320,7 @@ tasks {
 
         }
 
-        archiveClassifier = ''
+        //archiveClassifier = ''
 
     }
 
