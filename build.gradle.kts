@@ -204,7 +204,7 @@ fancyGradle {
 }
 
 
-val javaModuleAttribute = Attribute.of("javaModule", true.javaClass)
+val javaModuleAttribute = Attribute.of("javaModule", Boolean::class.java)
 
 
 
