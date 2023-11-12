@@ -39,8 +39,8 @@ buildscript {
     repositories {
         ivy {
 
-            url = "https://mvnrepository.com/artifact/"
-            patternLayout { artifact = "[module]/[revision]/[artifact].[ext]" }
+            url = uri("https://mvnrepository.com/artifact/")
+            patternLayout { artifact("[module]/[revision]/[artifact].[ext]") }
 
         }
         maven(url="file:///${project.projectDir}/forge_gradle")
