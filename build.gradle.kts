@@ -31,7 +31,6 @@ import java.util.jar.JarInputStream
 import java.util.jar.JarOutputStream
 import wtf.gofancy.fancygradle.patch.Patch
 import javax.inject.Inject
-import com.gtnewhorizons.retrofuturagradle.mcp.InjectTagsTask
 
 import java.io.ByteArrayOutputStream
 import java.io.IOException
@@ -199,9 +198,6 @@ minecraft {
 	}
 }
 
-tasks.injectTags.configure {
-    outputClassName.set("mod.Tags")
-}
 
 fancyGradle {
     patches {
@@ -230,8 +226,6 @@ dependencies.registerTransform(JavaModuleTransform::class) {
 
 
 dependencies {
-    mcVersion.set("1.12.2")
-    injectedTags.put("TAG_VERSION", version)
     //implementation("net.minecraftforge:legacydev:0.2.3.1")
     implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
@@ -256,9 +250,6 @@ tasks.create<ConfigureShadowRelocation>("relocateShadowJar") {
 }
 tasks.named<ShadowJar>("shadowJar").configure { 
       dependsOn(tasks["relocateShadowJar"]) // Other config 
-}
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = "UTF-8"
 }
 
 tasks {
