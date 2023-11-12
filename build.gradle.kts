@@ -31,6 +31,7 @@ import java.util.jar.JarInputStream
 import java.util.jar.JarOutputStream
 import wtf.gofancy.fancygradle.patch.Patch
 import javax.inject.Inject
+import com.gtnewhorizons.retrofuturagradle.mcp.InjectTagsTask
 
 import java.io.ByteArrayOutputStream
 import java.io.IOException
@@ -49,7 +50,18 @@ buildscript {
         maven(url = "https://maven.mcmoddev.com/")
         maven(url = "https://jitpack.io")
         maven(url = "https://maven.apache.org/")
-        maven(url = "https://libraries.minecraft.net")
+        maven{
+        url = "https://libraries.minecraft.net"
+        mavenContent {
+                includeGroup("com.ibm.icu")
+                includeGroup("com.mojang")
+                includeGroup("com.paulscode")
+                includeGroup("org.lwjgl.lwjgl")
+                includeGroup("tv.twitch")
+                includeGroup("net.minecraft")
+            }
+        }
+        
 
         maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
         flatDir {
@@ -76,7 +88,7 @@ plugins {
     id("net.minecraftforge.gradle") version "6.+"
     id("wtf.gofancy.fancygradle") version "1.1.+"
     id("com.github.johnrengelman.shadow") version "8.0.0"
-
+    id("com.gtnewhorizons.retrofuturagradle")
     id("java")
     
     `maven-publish`
@@ -95,7 +107,7 @@ apply {
     plugin("java")
 
     plugin("com.github.johnrengelman.shadow")
-
+    plugin("com.gtnewhorizons.retrofuturagradle")
     plugin("maven-publish")
 
 }
@@ -111,7 +123,11 @@ sourceSets.main.configure {
 }
 
 version = "0.1"
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
+java { toolchain { 
+     languageVersion.set(JavaLanguageVersion.of(8))
+     withSourcesJar()
+     withJavadocJar()
+}}
 group = "com.nullptr.mod"
 minecraft {
     mappings("stable", "39-1.12")
@@ -193,6 +209,10 @@ minecraft {
 	}
 }
 
+tasks.injectTags.configure {
+    outputClassName.set("mod.Tags")
+}
+
 fancyGradle {
     patches {
         resources
@@ -226,6 +246,8 @@ val Project.minecraft: MinecraftExtension
 
 
 dependencies {
+    mcVersion.set("1.12.2")
+    injectedTags.put("TAG_VERSION", version)
     //implementation("net.minecraftforge:legacydev:0.2.3.1")
     implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
