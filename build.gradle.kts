@@ -205,12 +205,15 @@ val Project.minecraft: MinecraftExtension
 dependencies {
     implementation(files("net/minecraftforge/forge/1.12.2-14.23.5.2860_mapped_stable_39-1.12/forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12.jar"))
     components.withModule("net.minecraftforge:forge:1.12.2-14.23.5.2860_mapped_stable_39-1.12") {
-    allVariants {
-        withDependencies { dependencies ->
-            dependencies.removeAll { it.group == "net.minecraftforge" && it.name == "legacydev" }
-            dependencies.add(project.dependencies.create("net.minecraftforge:legacydev:0.2.3.1"))
+        allVariants {
+            withDependencies {
+                removeAll {
+                    it.group == "net.minecraftforge" && it.name == "legacydev"
+                }
+               // add("net.minecraftforge:legacydev:0.2.4.0")
+                add("net.minecraftforge:legacydev:0.2.3.1")
+            }
         }
-    }
     }
     implementation(module("org.apache.logging.log4j:log4j-api:2.11.+"))
     implementation(module("org.apache.logging.log4j:log4j-core:2.11.+"))
