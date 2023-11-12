@@ -51,7 +51,11 @@ buildscript {
         gradlePluginPortal()
 
         mavenLocal()
+        ivy { 
+          url=uri("https://maven.mcmoddev.com/")
+          patternLayout { artifact("net.minecraftforge/legacydev/0.2.3.1") }
 
+        }
         maven(url = "https://jitpack.io")
         maven(url = "https://maven.apache.org/")
         maven(url = "https://libraries.minecraft.net")
@@ -201,6 +205,7 @@ val Project.minecraft: MinecraftExtension
 dependencies {
     implementation(module("org.apache.logging.log4j:log4j-api:2.11.+"))
     implementation(module("org.apache.logging.log4j:log4j-core:2.11.+"))
+    implementation("net.minecraftforge:legacydev:0.2.3.1")
     implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     
