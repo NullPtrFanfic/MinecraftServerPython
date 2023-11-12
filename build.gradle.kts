@@ -48,7 +48,6 @@ buildscript {
             }
 	}
         mavenCentral()
-        maven(url="https://mvnrepository.com/artifact/")
         
 
         jcenter()
