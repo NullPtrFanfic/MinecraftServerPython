@@ -17,7 +17,7 @@ pluginManagement {
         maven {
             url = "https://files.minecraftforge.net/maven/"
         }
-	maven { url="file:///home/runner/.gradle/caches/forge_gradle/bundeled_repo"}
+	maven { url="file:/home/runner/.gradle/caches/forge_gradle/bundeled_repo"}
         maven { url="https://maven.minecraftforge.net/"}
     }
 }
