@@ -248,7 +248,7 @@ tasks.named("shadowJar", ShadowJar) {
 
 
 
-tasks.withType<Jar> {
+tasks {
    jar {
         archiveBaseName.set("mod")
 
@@ -280,7 +280,7 @@ tasks.withType<Jar> {
 
 
 
-        finalizedBy("shadowJar")
+        finalizedBy("reobfShadowJar")
 
     }
 
@@ -297,11 +297,9 @@ tasks.withType<Jar> {
 
 
 
-    withType<ReobfuscateJar> {
+    reobf (type<ReobfuscateJar>) {
 
         shadowJar {
-
-            
 
         }
 
@@ -433,11 +431,3 @@ abstract class JavaModuleTransform : TransformAction<TransformParameters.None> {
     }
 
 }
-
-
-
-fun DependencyHandler.minecraft(
-
-    dependencyNotation: Any
-
-): Dependency = add("minecraft", dependencyNotation)!!
