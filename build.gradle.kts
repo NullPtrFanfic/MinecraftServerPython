@@ -290,7 +290,7 @@ tasks {
 
     shadowJar {
 
-        configurations = [project.configurations.shade]
+       // configurations = [project.configurations.shade]
 
         relocate("org.ow2.asm", "${project.group}.shadow.org.objectweb.asm")
 
