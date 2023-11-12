@@ -38,7 +38,6 @@ import java.io.InputStream
 buildscript {
     repositories {
         maven(url="https://mvnrepository.com/artifact/")
-        maven(url="file:///${project.projectDir}/forge_gradle")
         mavenCentral()
 
         jcenter()
@@ -118,7 +117,7 @@ group = "com.nullptr.mod"
 minecraft {
     mappings("stable", "39-1.12")
 
-    copyIdeResources = true
+  //  copyIdeResources = true
 
 
 
@@ -341,7 +340,7 @@ tasks {
 
         }
 
-        classifier = ""
+       // classifier = ""
 
     }
 
