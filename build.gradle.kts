@@ -51,7 +51,7 @@ buildscript {
         maven(url = "https://jitpack.io")
         maven(url = "https://maven.apache.org/")
         maven{
-        url = "https://libraries.minecraft.net"
+        url = uri("https://libraries.minecraft.net")
         mavenContent {
                 includeGroup("com.ibm.icu")
                 includeGroup("com.mojang")
