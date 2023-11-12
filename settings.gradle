@@ -17,9 +17,7 @@ pluginManagement {
         maven {
             url = "https://files.minecraftforge.net/maven/"
         }
-	flatDir {
-		dirs(project.file("libs"))
-	}
+	
 	flatDir { 
 		dirs("file:/home/runner/.gradle/caches/forge_gradle/bundeled_repo")
 	}
