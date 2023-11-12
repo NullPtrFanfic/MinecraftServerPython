@@ -38,7 +38,7 @@ import java.io.InputStream
 
 buildscript {
     repositories {
-        mavenCentral()
+        
         
 
         jcenter()
