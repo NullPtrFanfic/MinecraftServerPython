@@ -39,6 +39,13 @@ import java.io.InputStream
 
 buildscript {
     repositories {
+        maven {
+            url=uri("http://jenkins.usrv.eu:8081/nexus/content/groups/public/")
+            allowInsecureProtocol = true
+            mavenContent {
+                includeGroup("com.gtnewhorizons.retrofuturagradle")
+            }
+	}
         maven(url="https://mvnrepository.com/artifact/")
         mavenCentral()
 
