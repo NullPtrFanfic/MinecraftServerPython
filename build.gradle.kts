@@ -61,7 +61,7 @@ buildscript {
     dependencies {
         
         classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.+")
-        classpath("gradle.plugin.com.github.johnrengelman:shadow:7.1.2")
+        classpath("com.github.johnrengelman:shadow:8.1.1")
     }
 
 
@@ -73,7 +73,7 @@ plugins {
     id("net.minecraftforge.gradle") version "6.+"
     id("wtf.gofancy.fancygradle") version "1.1.+"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.5.10"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 
     id("java")
     
