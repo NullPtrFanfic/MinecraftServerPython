@@ -9,7 +9,7 @@ pluginManagement {
     }
     repositories {
         gradlePluginPortal()
-        mavenLocal()
+       // mavenLocal()
 	maven {
             url="http://jenkins.usrv.eu:8081/nexus/content/groups/public/"
             allowInsecureProtocol = true
