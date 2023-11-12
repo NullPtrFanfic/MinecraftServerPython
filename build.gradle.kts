@@ -107,7 +107,7 @@ apply {
     plugin("java")
 
     plugin("com.github.johnrengelman.shadow")
-    plugin("com.gtnewhorizons.retrofuturagradle")
+    //plugin("com.gtnewhorizons.retrofuturagradle")
     plugin("maven-publish")
 
 }
