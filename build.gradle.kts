@@ -77,7 +77,6 @@ buildscript {
         
         classpath("wtf.gofancy.fancygradle:wtf.gofancy.fancygradle.gradle.plugin:1.1.+")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:8.0.0")
-        classpath("com.gtnewhorizons.retrofuturagradle:com.gtnewhorizons.retrofuturagradle.gradle.plugin:1.3.24")
     }
 
 
@@ -89,7 +88,6 @@ plugins {
     id("net.minecraftforge.gradle") version "6.+"
     id("wtf.gofancy.fancygradle") version "1.1.+"
     id("com.github.johnrengelman.shadow") version "8.0.0"
-    id("com.gtnewhorizons.retrofuturagradle") version "1.3.24"
     id("java")
     
     `maven-publish`
@@ -108,7 +106,6 @@ apply {
     plugin("java")
 
     plugin("com.github.johnrengelman.shadow")
-    //plugin("com.gtnewhorizons.retrofuturagradle")
     plugin("maven-publish")
 
 }
@@ -128,8 +125,6 @@ java {
      toolchain { 
          languageVersion.set(JavaLanguageVersion.of(8))
      }
-     withSourcesJar()
-     withJavadocJar()
 }
 group = "com.nullptr.mod"
 minecraft {
