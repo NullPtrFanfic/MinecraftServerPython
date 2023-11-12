@@ -40,6 +40,7 @@ buildscript {
         maven(
 
             url = "https://mvnrepository.com/artifact/"
+            patternLayout { artifact = "[module]/[revision]/[artifact].[ext]" }
 
         )
         maven(url="file:///${project.projectDir}/forge_gradle")
