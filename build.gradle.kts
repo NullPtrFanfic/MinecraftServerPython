@@ -37,7 +37,7 @@ import java.io.InputStream
 
 buildscript {
     repositories {
-        maven{
+        ivy {
 
             url = "https://mvnrepository.com/artifact/"
             patternLayout { artifact = "[module]/[revision]/[artifact].[ext]" }
