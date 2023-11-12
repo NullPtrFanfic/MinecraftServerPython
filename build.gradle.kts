@@ -248,9 +248,8 @@ tasks.named("shadowJar", ShadowJar) {
 
 
 
-tasks {
-    jar withType<Jar> {
-
+tasks.withType<Jar> {
+   jar {
         archiveBaseName.set("mod")
 
         manifest {
@@ -286,7 +285,7 @@ tasks {
     }
 
     shadowJar {
-       configurations = [project.configurations.compileClasspath]
+      // configurations = [project.configurations.compileClasspath]
        archiveBaseName.set("shadow") 
        archiveClassifier.set("") 
        archiveVersion.set("")
