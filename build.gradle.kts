@@ -1,5 +1,5 @@
 import net.minecraftforge.gradle.common.util.MinecraftExtension
-//import org.gradle.api.artifacts.DependencyResolveDetails
+import org.gradle.api.artifacts.DependencyResolveDetails
 import net.minecraftforge.gradle.patcher.tasks.ReobfuscateJar
 
 import org.gradle.api.artifacts.type.ArtifactTypeDefinition
@@ -161,15 +161,8 @@ configurations.all {
     }
 }
 configurations.all {
-    compileClasspath.resolutionStrategy { 
-      eachDependency { details ->
-        if (details.requested.group == "net.minecraftforge" && details.requested.name == "legacydev") {
-            details.useVersion("0.2.3.1")
-        }
-      }
-    }
-    runtimeClasspath.resolutionStrategy { 
-      eachDependency { details ->
+    resolutionStrategy { 
+      eachDependency { DependencyResolveDetails details ->
         if (details.requested.group == "net.minecraftforge" && details.requested.name == "legacydev") {
             details.useVersion("0.2.3.1")
         }
