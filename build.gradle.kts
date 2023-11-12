@@ -52,7 +52,9 @@ buildscript {
         maven(url = "https://libraries.minecraft.net")
 
         maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
-
+        flatDir {
+		dirs(project.file("libs"))
+	}
         maven(url = "https://repo.spring.io/milestone")
 
 
