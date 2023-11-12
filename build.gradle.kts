@@ -123,11 +123,13 @@ sourceSets.main.configure {
 }
 
 version = "0.1"
-java { toolchain { 
-     languageVersion.set(JavaLanguageVersion.of(8))
+java { 
+     toolchain { 
+         languageVersion.set(JavaLanguageVersion.of(8))
+     }
      withSourcesJar()
      withJavadocJar()
-}}
+}
 group = "com.nullptr.mod"
 minecraft {
     mappings("stable", "39-1.12")
