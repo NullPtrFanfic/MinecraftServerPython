@@ -20,6 +20,7 @@ import org.gradle.api.provider.Provider
 
 import java.text.SimpleDateFormat
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocation
 import java.util.*
 import org.gradle.api.file.FileCollection
 import java.util.List
