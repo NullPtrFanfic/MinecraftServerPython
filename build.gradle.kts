@@ -241,15 +241,15 @@ dependencies {
 
 
 
-tasks.named("shadowJar", ShadowJar) { 
+tasks.named<ShadowJar>("shadowJar") {
       enableRelocation = true 
-      relocationPrefix = "$(project.group}" 
+      relocationPrefix = "${project.group}" 
 }
 
 
 
 tasks {
-   jar(type: Jar) {
+   tasks.register<Jar>("jar") {
         archiveBaseName.set("mod")
 
         manifest {
@@ -280,7 +280,7 @@ tasks {
 
 
 
-        finalizedBy("reobfShadowJar")
+        tasks.named("jar").finalizedBy("reobf")
 
     }
 
@@ -291,17 +291,15 @@ tasks {
        archiveVersion.set("")
        manifest.inheritFrom(jar.get().manifest) 
        
-       minimize()
+       minimize
 
     }
 
 
 
-    reobf(type: ReobfuscateJar) {
+    tasks.register<ReobfuscateJar>("reobf") {
 
-        shadowJar {
-
-        }
+        shadowJar
 
     }
 
