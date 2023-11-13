@@ -16,9 +16,7 @@ import net.minecraftforge.gradle.common.util.RunConfig
 
 buildscript {
     repositories {
-        
-        
-
+        maven(url="https://mvnrepository.com/artifact/")
         jcenter()
 
         gradlePluginPortal()
