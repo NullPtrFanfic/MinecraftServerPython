@@ -332,6 +332,7 @@ abstract class JavaModuleTransform : TransformAction<TransformParameters.None> {
     @get:Inject
 
     abstract val archiveOperations: ArchiveOperations
+    @Throws(IOException::class)
     fun readAllBytes(inputStream: InputStream): ByteArray {
     val bufLen = 1024
     val buf = ByteArray(bufLen)
@@ -340,14 +341,19 @@ abstract class JavaModuleTransform : TransformAction<TransformParameters.None> {
 
     try {
         val outputStream = ByteArrayOutputStream()
-        // Далее ваш код для чтения из inputStream и записи в outputStream
-        // ...
+
+        // Continue with your code for reading from inputStream and writing to outputStream
+        var bytesRead: Int
+        while (inputStream.read(buf).also { bytesRead = it } != -1) {
+            outputStream.write(buf, 0, bytesRead)
+        }
+
         return outputStream.toByteArray()
     } catch (e: IOException) {
         exception = e
     } finally {
         if (exception != null) {
-            // Обработка исключения, если необходимо
+            // Handle the exception if necessary
             throw exception
         }
     }
