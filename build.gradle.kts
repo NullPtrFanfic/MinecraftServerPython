@@ -3,7 +3,7 @@ import org.gradle.api.artifacts.DependencyResolveDetails
 import net.minecraftforge.gradle.patcher.tasks.ReobfuscateJar
 
 import org.gradle.api.artifacts.type.ArtifactTypeDefinition
-import JavaModuleTransform
+import com.nullptr.mod.JavaModuleTransform
 
 import java.text.SimpleDateFormat
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
