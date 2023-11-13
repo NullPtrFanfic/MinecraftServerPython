@@ -55,7 +55,7 @@ plugins {
     id("java")
     kotlin("jvm") version "1.9.10"
     `maven-publish`
-    `kotlin-dsl`
+   // `kotlin-dsl`
 }
 
 
@@ -69,7 +69,7 @@ apply {
 
     plugin("com.github.johnrengelman.shadow")
     plugin("maven-publish")
-    plugin("kotlin-dsl")
+   // plugin("kotlin-dsl")
 }
 
 sourceSets.main.configure {
