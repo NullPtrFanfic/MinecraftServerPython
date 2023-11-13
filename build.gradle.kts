@@ -76,7 +76,7 @@ buildscript {
 
 
 plugins {
-    id("net.minecraftforge.gradle") version "6.+"
+    id("net.minecraftforge.gradle") version "[6.0,6.2)"
     id("wtf.gofancy.fancygradle") version "1.1.+"
     id("com.github.johnrengelman.shadow") version "8.0.0"
     id("java")
@@ -88,7 +88,6 @@ plugins {
 
 
 apply {
-    plugin("net.minecraftforge.gradle")
     plugin("wtf.gofancy.fancygradle")
     plugin("java-base")
 
