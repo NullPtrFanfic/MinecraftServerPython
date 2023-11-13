@@ -42,6 +42,7 @@ buildscript {
     }
 
     dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10"
         classpath("gradle.plugin.com.github.johnrengelman:shadow:8.0.0")
     }
 
@@ -73,13 +74,13 @@ apply {
 
 }
 
-sourceSets.main.configure {
+sourceSets {
 
-	kotlin.srcDirs += project.file("src/main/kotlin")
+	main.kotlin.srcDirs += project.file("src/main/kotlin")
 
-	java.srcDirs += project.file("src/main/java")
+	main.java.srcDirs += project.file("src/main/java")
 
-	resources.srcDirs += project.file("src/generated/resources")
+	main.resources.srcDirs += project.file("src/generated/resources")
 
 }
 
@@ -175,6 +176,7 @@ minecraft {
 dependencies {
     //implementation("net.minecraftforge:legacydev:0.2.3.1")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
     implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     
