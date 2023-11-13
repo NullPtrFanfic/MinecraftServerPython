@@ -54,7 +54,7 @@ plugins {
     id("net.minecraftforge.gradle") version "6.+"
     id("com.github.johnrengelman.shadow") version "8.0.0"
     id("java")
-    
+    kotlin("jvm") version "1.9.10"
     `maven-publish`
 
 }
@@ -174,6 +174,7 @@ minecraft {
 
 dependencies {
     //implementation("net.minecraftforge:legacydev:0.2.3.1")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
     implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     
