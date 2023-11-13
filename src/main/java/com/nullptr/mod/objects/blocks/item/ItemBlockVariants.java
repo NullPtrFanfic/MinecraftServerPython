@@ -18,7 +18,7 @@ public class ItemBlockVariants extends ItemBlock
       return damage;
    }
    @Override
-   public String getUnlocalizedName(ItemStack stack)
+   public String getTranslationKey(ItemStack stack)
    {
       return super.getTranslationKey() + "_" + ((IMetaName)this.block).getSpecialName(stack);
    }
