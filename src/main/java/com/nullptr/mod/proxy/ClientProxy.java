@@ -2,7 +2,7 @@ package com.nullptr.mod.proxy;
 
 import com.nullptr.mod.Main;
 import com.nullptr.mod.util.handlers.SoundsHandler;
-import com.nullptr.mod.model.Netero;
+//import com.nullptr.mod.model.Netero;
 import net.minecraft.util.ResourceLocation;
 import com.nullptr.mod.events.EventHandler;
 import net.minecraft.client.Minecraft;
