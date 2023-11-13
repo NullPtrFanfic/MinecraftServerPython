@@ -191,20 +191,6 @@ minecraft {
 	}
 }
 
-val javaModuleAttribute = Attribute.of("javaModule", Boolean::class.javaObjectType)
-configurations.compileClasspath {
-    attributes.attribute(javaModuleAttribute, true)
-}
-configurations.runtimeClasspath {
-    attributes.attribute(javaModuleAttribute, true)
-}
-
-dependencies.artifactTypes.maybeCreate("jar").attributes.attribute(javaModuleAttribute, false)
-
-dependencies.registerTransform(JavaModuleTransform::class) {
-    from.attributes.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, false)
-    to.attributes.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, true)
-}
 
 
 dependencies {
@@ -276,7 +262,7 @@ tasks {
        archiveClassifier.set("") 
        archiveVersion.set("")
        manifest.inheritFrom(named<Jar>("mm").get().manifest) 
-       minimize()
+      // minimize()
 
     }
 
@@ -316,6 +302,20 @@ publishing {
 
 }
 
+val javaModuleAttribute = Attribute.of("javaModule", Boolean::class.javaObjectType)
+configurations.compileClasspath {
+    attributes.attribute(javaModuleAttribute, true)
+}
+configurations.runtimeClasspath {
+    attributes.attribute(javaModuleAttribute, true)
+}
+
+dependencies.artifactTypes.maybeCreate("jar").attributes.attribute(javaModuleAttribute, false)
+
+dependencies.registerTransform(JavaModuleTransform::class) {
+    from.attributes.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, false)
+    to.attributes.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, "jar").attribute(javaModuleAttribute, true)
+}
 
 // @CacheableTransform - if transform results should also be shared via remote build cache
 
