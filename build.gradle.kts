@@ -16,6 +16,8 @@ import net.minecraftforge.gradle.common.util.RunConfig
 
 buildscript {
     repositories {
+        maven { url = uri("https://plugins.gradle.org/m2/") }
+        mavenCentral()
         maven(url="https://mvnrepository.com/artifact/")
         jcenter()
 
@@ -40,6 +42,7 @@ buildscript {
     }
 
     dependencies {
+        classpath("org.gradlex:extra-java-module-info:1.5")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:8.0.0")
     }
@@ -54,6 +57,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.0.0"
     id("java")
     kotlin("jvm") version "1.9.10"
+    id("org.gradlex.extra-java-module-info") version "1.5"
     `maven-publish`
    // `kotlin-dsl`
 }
@@ -64,7 +68,7 @@ apply {
     plugin("java-base")
     plugin("kotlin")
     plugin("eclipse")
-
+    plugin("org.gradlex.extra-java-module-info")
     plugin("java")
 
     plugin("com.github.johnrengelman.shadow")
