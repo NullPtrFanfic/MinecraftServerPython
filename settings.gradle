@@ -13,3 +13,4 @@ plugins {
 }
 
 rootProject.name = 'SumeruMod'
+includeBuild("src")
