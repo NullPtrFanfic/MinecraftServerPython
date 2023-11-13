@@ -5,7 +5,6 @@ import com.nullptr.mod.entity.weirdzombie.RenderWeirdZombie;
 import com.nullptr.mod.entity.test.EntityTest;
 import com.nullptr.mod.entity.test.RenderTest;
 //import com.nullptr.mod.model.Netero;
-import com.nullptr.mod.model.ModelRender;
 import com.nullptr.mod.entity.centaur.EntityCentaur;
 import com.nullptr.mod.entity.centaur.RenderCentaur;
 import net.minecraft.client.renderer.entity.RenderManager;
