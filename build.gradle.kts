@@ -192,17 +192,6 @@ minecraft {
 	}
 }
 
-
-fancyGradle {
-    patches {
-        resources
-        coremods
-        asm
-        codeChickenLib
-    }
-}
-
-
 val javaModuleAttribute = Attribute.of("javaModule", Boolean::class.javaObjectType)
 configurations.compileClasspath {
     attributes.attribute(javaModuleAttribute, true)
