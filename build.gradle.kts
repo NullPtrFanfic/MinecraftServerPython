@@ -179,7 +179,7 @@ dependencies {
     //implementation("net.minecraftforge:legacydev:0.2.3.1")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
-    implementation(gradleApi())
+   // implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     
     implementation("club.minnced:discord-webhooks:0.8.4")
