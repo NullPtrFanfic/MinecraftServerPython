@@ -29,7 +29,6 @@ import net.minecraftforge.gradle.common.util.RunConfig
 import java.util.jar.JarInputStream
 
 import java.util.jar.JarOutputStream
-import wtf.gofancy.fancygradle.patch.Patch
 import javax.inject.Inject
 
 import java.io.ByteArrayOutputStream
