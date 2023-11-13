@@ -95,7 +95,7 @@ public class BlockLeavesBase extends BlockLeaves implements IHasModel
 		return new BlockStateContainer(this, new IProperty[] {CHECK_DECAY, DECAYABLE});
 	}
 	
-	@Override
+	//@Override
 	public BlockRenderLayer getBlockLayer() 
 	{
 		return BlockRenderLayer.TRANSLUCENT;
