@@ -35,7 +35,7 @@ public class BlockLeavesBase extends BlockLeaves implements IHasModel
 		type = name.replaceAll("_leaves", "").trim();
 		System.out.println(type);
 		
-		setUnlocalizedName(name);
+		setTranslationKey(name);
 		setRegistryName(name);
 		setSoundType(SoundType.PLANT);
 		setCreativeTab(Main.MODTAB);
