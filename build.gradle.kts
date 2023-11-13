@@ -3,7 +3,7 @@ import org.gradle.api.artifacts.DependencyResolveDetails
 import net.minecraftforge.gradle.patcher.tasks.ReobfuscateJar
 
 import org.gradle.api.artifacts.type.ArtifactTypeDefinition
-import com.nullptr.mod.JavaModuleTransform
+import src.main.com.nullptr.mod.JavaModuleTransform
 
 import java.text.SimpleDateFormat
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
@@ -55,7 +55,7 @@ plugins {
     id("java")
     kotlin("jvm") version "1.9.10"
     `maven-publish`
-
+    `kotlin-dsl`
 }
 
 
@@ -69,16 +69,16 @@ apply {
 
     plugin("com.github.johnrengelman.shadow")
     plugin("maven-publish")
-
+    plugin("kotlin-dsl")
 }
 
-sourceSets {
+sourceSets.main.configure {
 
-	main.kotlin.srcDirs += project.file("src/main/kotlin")
+	kotlin.srcDirs += project.file("src/main/kotlin")
 
-	main.java.srcDirs += project.file("src/main/java")
+	java.srcDirs += project.file("src/main/java")
 
-	main.resources.srcDirs += project.file("src/generated/resources")
+	resources.srcDirs += project.file("src/generated/resources")
 
 }
 
