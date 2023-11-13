@@ -18,7 +18,7 @@ public class BookItem extends ItemBook implements IHasModel
 {
    public BookItem(String name)
    {
-      setUnlocalizedName(name);
+      setTranslationKey(name);
       setRegistryName(name);
       setCreativeTab(Main.MODTAB);
       ItemInit.ITEMS.add(this);
