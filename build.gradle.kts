@@ -401,7 +401,7 @@ abstract class JavaModuleTransform : TransformAction<TransformParameters.None> {
 
                     output.write(
 
-                        readAllBytes(this::class.java.getResourceAsStream(
+                        readAllBytes(this::class.java.getClassLoader().getResourceAsStream(
 
                             "${originalJar.nameWithoutExtension}/module-info.class"
 
