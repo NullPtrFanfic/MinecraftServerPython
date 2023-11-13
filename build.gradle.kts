@@ -179,7 +179,6 @@ dependencies {
     //implementation("net.minecraftforge:legacydev:0.2.3.1")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
-    implementation("org.gradlex:extra-java-module-info:1.3")
     implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     
