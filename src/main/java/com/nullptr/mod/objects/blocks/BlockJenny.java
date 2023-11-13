@@ -35,7 +35,7 @@ public class BlockJenny extends Block {
   {
     super(Material.IRON);
     this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);   // the block will appear on the Blocks tab in creative
-    this.setUnlocalizedName("jenny");
+    this.setTranslationKey("jenny");
     this.setRegistryName("jenny");
     ForgeRegistries.BLOCKS.register(this);
 
