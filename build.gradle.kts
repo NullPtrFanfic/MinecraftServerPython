@@ -40,7 +40,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10"
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:8.0.0")
     }
 
