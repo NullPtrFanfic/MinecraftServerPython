@@ -56,6 +56,7 @@ plugins {
     id("net.minecraftforge.gradle") version "6.+"
     id("com.github.johnrengelman.shadow") version "8.0.0"
     id("java")
+    id("wtf.gofancy.fancygradle") version "1.1.+"
     kotlin("jvm") version "1.9.10"
     id("org.gradlex.extra-java-module-info") version "1.5"
     `maven-publish`
@@ -70,10 +71,21 @@ apply {
     plugin("eclipse")
     plugin("org.gradlex.extra-java-module-info")
     plugin("java")
+    plugin("net.minecraftforge.gradle")
+    plugin("wtf.gofancy.fancygradle")
 
     plugin("com.github.johnrengelman.shadow")
     plugin("maven-publish")
    // plugin("kotlin-dsl")
+}
+
+fancyGradle {
+	patches {
+		resources
+		coremods
+		asm
+		mergetool
+	}
 }
 
 sourceSets.main.configure {
