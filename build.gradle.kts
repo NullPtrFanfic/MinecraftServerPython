@@ -63,7 +63,7 @@ plugins {
 
 apply {
     plugin("java-base")
-
+    plugin("kotlin")
     plugin("eclipse")
 
     plugin("java")
@@ -73,13 +73,13 @@ apply {
 
 }
 
-sourceSets {
+sourceSets.main.configure {
 
-	kotlin { srcDirs("src/main/kotlin") }
+	kotlin.srcDirs += project.file("src/main/kotlin")
 
-	java { srcDirs("src/main/java") }
+	java.srcDirs += project.file("src/main/java")
 
-	resources { srcDirs("src/generated/resources") }
+	resources.srcDirs += project.file("src/generated/resources")
 
 }
 
