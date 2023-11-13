@@ -28,7 +28,7 @@ public class BlockOres extends Block implements IHasModel, IMetaName
    public BlockOres(String name, String dimension)
    {
       super(Material.ROCK);
-      setUnlocalizedName(name);
+      setTranslationKey(name);
       setRegistryName(name);
       setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
       setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumHandler.EnumType.COPPER));
