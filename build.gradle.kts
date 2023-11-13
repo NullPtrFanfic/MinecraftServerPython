@@ -73,13 +73,13 @@ apply {
 
 }
 
-sourceSets.main.configure {
+sourceSets {
 
-	kotlin.srcDirs += project.file("src/main/kotlin")
+	kotlin.srcDirs { project.file("src/main/kotlin") }
 
-	java.srcDirs += project.file("src/main/java")
+	java.srcDirs { project.file("src/main/java") }
 
-	resources.srcDirs += project.file("src/generated/resources")
+	resources.srcDirs { project.file("src/generated/resources") }
 
 }
 
