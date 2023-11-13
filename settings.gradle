@@ -1,8 +1,10 @@
 pluginManagement {
     repositories {
        // 
-        
-        
+        maven {
+            url = "/home/.runner/work/SumeruMod/SumeruMod/src/main/kotlin"
+        }
+        mavenLocal()
         maven {
             url = "https://maven.minecraftforge.net/"
         }
