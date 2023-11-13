@@ -17,7 +17,7 @@ public class BlockLogBase extends BlockLog implements IHasModel
 {
 	public BlockLogBase(String name) 
 	{
-		setUnlocalizedName(name);
+	        setTranslationKey(name);
 		setRegistryName(name);
 		setSoundType(SoundType.WOOD);
 		setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, EnumAxis.Y));
