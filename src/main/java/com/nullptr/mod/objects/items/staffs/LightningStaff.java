@@ -17,7 +17,7 @@ public class LightningStaff extends Item implements IHasModel
 {
 	public LightningStaff(String name) 
 	{
-		setUnlocalizedName(name);
+		setTranslationKey(name);
 		setRegistryName(name);
 		setCreativeTab(Main.MODTAB);
 		
