@@ -75,11 +75,11 @@ apply {
 
 sourceSets {
 
-	kotlin.srcDirs { project.file("src/main/kotlin") }
+	kotlin { srcDirs("src/main/kotlin") }
 
-	java.srcDirs { project.file("src/main/java") }
+	java { srcDirs("src/main/java") }
 
-	resources.srcDirs { project.file("src/generated/resources") }
+	resources { srcDirs("src/generated/resources") }
 
 }
 
