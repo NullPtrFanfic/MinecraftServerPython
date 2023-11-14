@@ -9,10 +9,7 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.minecraftforge.common.MinecraftForge;
 //import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.event.FMLServerStartedEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.event.FMLServerStoppedEvent;
-import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
+
 //import net.minecraftforge.fml.network.FMLNetworkConstants;
 import okhttp3.OkHttpClient;
 import org.apache.commons.lang3.tuple.Pair;
@@ -25,7 +22,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.fml.common.Mod;
 // The value here should match an entry in the META-INF/mods.toml file
 //@Mod(value = "minecraft2discord")
-@Mod.EventBusSubscriber
+//@Mod.EventBusSubscriber
 public class Minecraft2Discord {
     // Directly reference a log4j logger.
  //   private static final Logger LOGGER = LogManager.getLogger();
@@ -34,8 +31,8 @@ public class Minecraft2Discord {
     public static JDA getDiscordBot() {
         return DISCORD_BOT;
     }
-    @Mod.EventHandler
-    public void onServerReady(FMLServerStartedEvent event)
+  //  @Mod.EventHandler
+    public void onServerReady()
     {
         Utils.started_time = new Date().getTime();
         MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
@@ -53,13 +50,13 @@ public class Minecraft2Discord {
             server.getCommandManager().executeCommand(server, "say "+e.getMessage().toString());
         }
     }
-    @Mod.EventHandler
-    public void onServerStarting(FMLServerStartingEvent event)
+    //@Mod.EventHandler
+    public void onServerStarting()
     {
         
     }
-    @Mod.EventHandler
-    public void onServerStop(FMLServerStoppingEvent event)
+   // @Mod.EventHandler
+    public void onServerStop()
     {
             if (getDiscordBot() == null) {
                 return;
@@ -67,8 +64,8 @@ public class Minecraft2Discord {
 
             Utils.sendInfoMessage("Server down!");
     }
-    @Mod.EventHandler
-    public void onServerStopped(FMLServerStoppedEvent event)
+    //@Mod.EventHandler
+    public void onServerStopped()
     {
        // Utils.updateOfflineVoiceChannel();
        // Utils.updateOfflineChannelTopic();
