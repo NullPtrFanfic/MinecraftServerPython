@@ -190,6 +190,16 @@ extraJavaModuleInfo {
      failOnMissingModuleInfo.set(false) 
 }
 
+configurations {
+	library
+	implementation.extendsFrom library
+	shadow.extendsFrom library
+}
+minecraft.runs.all {
+	lazyToken('minecraft_classpath') {
+		configurations.library.copyRecursive().resolve().collect { it.absolutePath }.join(File.pathSeparator)
+	}
+}
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
@@ -255,6 +265,7 @@ tasks {
 
     shadowJar {
       // configurations = [project.configurations.compileClasspath]
+configurations = [project.configurations.shadow]
        archiveBaseName.set("shadow") 
        archiveClassifier.set("") 
        archiveVersion.set("")
@@ -273,6 +284,20 @@ tasks {
 
 }
 
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+processResources {
+	// Ensures this task is redone when the version changes
+	inputs.property 'version', project.version
+	// NB: We need to use 'file.jarVersion' in mods.toml because IntelliJ doesn't run this task when it runs our mod in dev
+	// This works because 'file.jarVersion' gets handled at runtime by Forge
+	// IntelliJ bug: "https://youtrack.jetbrains.com/issue/IDEA-173367/The-processResources-task-is-not-correctly-handled-by-IntelliJ"
+	filesMatching('**/META-INF/mods.toml') {
+		expand 'file': [ jarVersion: project.version ]
+	}
+}
 
 
 publishing {
