@@ -226,8 +226,62 @@ tasks.create<ConfigureShadowRelocation>("relocateShadowJar") {
 tasks.named<ShadowJar>("shadowJar").configure { 
       dependsOn(tasks["relocateShadowJar"]) // Other config 
 }
+javadoc {
+	// Gradle doesn't support Java 8's new tags out of the box
+	options.tags = [
+		'apiNote:a:API Note:',
+		'implSpec:a:Implementation Requirements:',
+		'implNote:a:Implementation Note:',
+	]
+}
 
+artifacts {
+	archives jar
+	archives shadowJar
+	archives sourcesJar
+	archives javadocJar
+}
+// endregion
+
+// region publish
+// TODO: Move this to the publish step, not the build step
+// Sign all the jars
+import net.minecraftforge.gradle.common.tasks.SignJar
+
+[
+	jar,
+	shadowJar,
+	sourcesJar,
+	javadocJar,
+].each { jarTask ->
+	Task signingTask = tasks.create(name: "sign-${jarTask.name}", type: SignJar, dependsOn: jarTask) {
+		// Skips if the keyStore property is missing.
+		onlyIf {
+			project.hasProperty('keyStore')
+		}
+		// findProperty allows us to reference the property without it existing.
+		// Using project.propName would cause the script to fail validation if the property did not exist.
+		keyStore = project.findProperty('keyStore')
+		alias = project.findProperty('keyStoreAlias')
+		storePass = project.findProperty('keyStorePass')
+		keyPass = project.findProperty('keyStoreKeyPass')
+		inputFile = jarTask.archiveFile
+		outputFile = jarTask.archiveFile
+	}
+	jarTask.finalizedBy(signingTask)
+}
 tasks {
+   register<Jar>("sourcesJar") {
+	archiveClassifier.set("sources")
+	from sourceSets.main.allSource
+        dependsOn(classes")
+   }
+   register<Jar>("javadocJar") {
+	archiveClassifier.set("javadoc")
+	from javadoc.destinationDir
+        dependsOn(javadoc)
+   }
+
    register<Jar>("mm") {
         archiveBaseName.set("mod")
 
@@ -265,7 +319,7 @@ tasks {
 
     shadowJar {
       // configurations = [project.configurations.compileClasspath]
-configurations = [project.configurations.shadow]
+       configurations = [project.configurations.shadow]
        archiveBaseName.set("shadow") 
        archiveClassifier.set("") 
        archiveVersion.set("")
@@ -274,7 +328,10 @@ configurations = [project.configurations.shadow]
 
     }
 
-
+    withType<JavaCompile>().configureEach {
+		options.encoding = "UTF-8"
+		destinationDirectory = project.file("compiled")
+    }
 
     register<ReobfuscateJar>("reobf") {
 
@@ -284,18 +341,9 @@ configurations = [project.configurations.shadow]
 
 }
 
-tasks.withType(JavaCompile).configureEach {
-	options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
-}
-
 processResources {
-	// Ensures this task is redone when the version changes
-	inputs.property 'version', project.version
-	// NB: We need to use 'file.jarVersion' in mods.toml because IntelliJ doesn't run this task when it runs our mod in dev
-	// This works because 'file.jarVersion' gets handled at runtime by Forge
-	// IntelliJ bug: "https://youtrack.jetbrains.com/issue/IDEA-173367/The-processResources-task-is-not-correctly-handled-by-IntelliJ"
-	filesMatching('**/META-INF/mods.toml') {
-		expand 'file': [ jarVersion: project.version ]
+	filesMatching("**/META-INF/mods.toml") {
+		expand("file": [ jarVersion: project.version ])
 	}
 }
 
