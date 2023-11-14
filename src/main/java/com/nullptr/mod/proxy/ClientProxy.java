@@ -67,7 +67,6 @@ public class ClientProxy extends CommonProxy {
 	MinecraftForge.EVENT_BUS.register(new ChessView());
 	MinecraftForge.EVENT_BUS.register(new SoundsHandler());
 	MinecraftForge.EVENT_BUS.register(new RecipesDelete());
-	MinecraftForge.EVENT_BUS.register(new Minecraft2Discord());
 	MinecraftForge.EVENT_BUS.register(new ServerEvents());
         // ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SERVER_SPECS);
        // ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST, ()-> Pair.of(()-> FMLNetworkConstants.IGNORESERVERONLY, (in, net) -> true));
