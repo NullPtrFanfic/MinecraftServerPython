@@ -26,6 +26,7 @@ buildscript {
         maven(url = "https://maven.mcmoddev.com/")
         maven(url = "https://jitpack.io")
         maven(url = "https://maven.apache.org/")
+        maven(url = "https://repository.ow2.org/nexus/")
         maven{
         url = uri("https://libraries.minecraft.net")
         }
@@ -193,7 +194,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
    // implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
-    
+    shadow("org.ow2.asm:asm:9.6")
+    implementation("org.ow2.asm:asm:9.6")
     implementation("club.minnced:discord-webhooks:0.8.4")
 
     implementation("com.theokanning.openai-gpt3-java:service:0.12.0")
