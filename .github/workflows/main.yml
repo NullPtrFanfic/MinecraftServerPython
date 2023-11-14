@@ -50,6 +50,7 @@ jobs:
     - name: FTP Transfer
 
       run: |
+             ls build/libs;
              expect -c "
 
                 spawn lftp -d -e \"
@@ -68,7 +69,6 @@ jobs:
 
                    open -p 393 -u muxidbvqjb.d8890bba,CsjbZb1Ds sftp://rubin-free.falixserver.net;
                    cd mods;
-                   ls build/libs/;
                    put build/libs/mod.jar;
 
                    exit;
