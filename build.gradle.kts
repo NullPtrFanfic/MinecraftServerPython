@@ -196,11 +196,6 @@ val shade: Configuration by configurations.creating {
 }
 
 val shadeNoPom: Configuration by configurations.creating
-minecraft.runs.all {
-	lazyToken("minecraft_classpath") {
-		configurations.library.copyRecursive().resolve().collect { it.absolutePath }.join(File.pathSeparator)
-	}
-}
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
@@ -231,16 +226,6 @@ tasks.named<ShadowJar>("shadowJar").configure {
 
 
 tasks {
-   register<Jar>("sourcesJar") {
-	archiveClassifier.set("sources")
-	from sourceSets.main.allSource
-        dependsOn(classes)
-   }
-   register<Jar>("javadocJar") {
-	archiveClassifier.set("javadoc")
-	from javadoc.destinationDir
-        dependsOn(javadoc)
-   }
 
    register<Jar>("mm") {
         archiveBaseName.set("mod")
@@ -279,7 +264,7 @@ tasks {
 
     shadowJar {
       // configurations = [project.configurations.compileClasspath]
-       configurations = [project.configurations.shadow]
+      // configurations = [project.configurations.shadow]
        archiveBaseName.set("shadow") 
        archiveClassifier.set("") 
        archiveVersion.set("")
