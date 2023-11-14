@@ -196,7 +196,7 @@ configurations {
 	shadow.extendsFrom library
 }
 minecraft.runs.all {
-	lazyToken('minecraft_classpath') {
+	lazyToken("minecraft_classpath") {
 		configurations.library.copyRecursive().resolve().collect { it.absolutePath }.join(File.pathSeparator)
 	}
 }
@@ -314,27 +314,7 @@ artifacts {
 	archives sourcesJar
 	archives javadocJar
 }
-import net.minecraftforge.gradle.common.tasks.SignJar
 
-[
-	jar,
-	shadowJar,
-	sourcesJar,
-	javadocJar,
-].each { jarTask ->
-	Task signingTask = tasks.create(name: "sign-${jarTask.name}", type: SignJar, dependsOn: jarTask) {
-		onlyIf {
-			project.hasProperty('keyStore')
-		}
-		keyStore = project.findProperty("keyStore")
-		alias = project.findProperty("keyStoreAlias")
-		storePass = project.findProperty("keyStorePass")
-		keyPass = project.findProperty("keyStoreKeyPass")
-		inputFile = jarTask.archiveFile
-		outputFile = jarTask.archiveFile
-	}
-	jarTask.finalizedBy(signingTask)
-}
 processResources {
 	filesMatching("**/META-INF/mods.toml") {
 		expand("file": [ jarVersion: project.version ])
