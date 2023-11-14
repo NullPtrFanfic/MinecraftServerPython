@@ -65,7 +65,7 @@ public class Main
            Minecraft2Discord.onServerStopping();
     }
     @EventHandler
-    public void onServerStop(FMLServerStopEvent event)
+    public void onServerStop(FMLServerStoppedEvent event)
     {
            Minecraft2Discord.onServerStop();
     }
