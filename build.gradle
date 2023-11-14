@@ -66,7 +66,7 @@ fancyGradle {
 }
 
 sourceSets.main {
-	kotlin.srcDirs += project.file("src/main/kotlin")
+	//kotlin.srcDirs += project.file("src/main/kotlin")
 	java.srcDirs += project.file("src/main/java")
 	resources.srcDirs += project.file("src/generated/resources")
 }
