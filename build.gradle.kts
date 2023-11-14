@@ -242,7 +242,7 @@ tasks {
    register<Jar>("sourcesJar") {
 	archiveClassifier.set("sources")
 	from sourceSets.main.allSource
-        dependsOn(classes")
+        dependsOn(classes)
    }
    register<Jar>("javadocJar") {
 	archiveClassifier.set("javadoc")
@@ -323,16 +323,13 @@ import net.minecraftforge.gradle.common.tasks.SignJar
 	javadocJar,
 ].each { jarTask ->
 	Task signingTask = tasks.create(name: "sign-${jarTask.name}", type: SignJar, dependsOn: jarTask) {
-		// Skips if the keyStore property is missing.
 		onlyIf {
 			project.hasProperty('keyStore')
 		}
-		// findProperty allows us to reference the property without it existing.
-		// Using project.propName would cause the script to fail validation if the property did not exist.
-		keyStore = project.findProperty('keyStore')
-		alias = project.findProperty('keyStoreAlias')
-		storePass = project.findProperty('keyStorePass')
-		keyPass = project.findProperty('keyStoreKeyPass')
+		keyStore = project.findProperty("keyStore")
+		alias = project.findProperty("keyStoreAlias")
+		storePass = project.findProperty("keyStorePass")
+		keyPass = project.findProperty("keyStoreKeyPass")
 		inputFile = jarTask.archiveFile
 		outputFile = jarTask.archiveFile
 	}
