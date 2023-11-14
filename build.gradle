@@ -148,7 +148,7 @@ dependencies {
 }
 
 jar {
-
+    archiveClassifier.set("mod")
     manifest {
 
         attributes([
@@ -179,7 +179,7 @@ shadowJar {
         configurations = [project.configurations.shadow]
       // archiveBaseName.set("shadow") 
         archiveClassifier.set("") 
-        archiveVersion.set("")
+        //archiveVersion.set("")
         manifest.inheritFrom(jar.manifest.getAttributes()) 
        //relocate "org.ow2.asm", "${project.group}.shadow.org.objectweb.asm"
         relocate 'org.apache.commons.collections4', "${project.group}.shadow.org.apache.commons.collections4"
