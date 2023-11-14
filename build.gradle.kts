@@ -200,7 +200,7 @@ dependencies {
 
     module("com.theokanning.openai-gpt3-java:service:0.12.0")
 
-    module(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
+    implementation(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
 
     shadow("com.theokanning.openai-gpt3-java:service:0.12.0")
 
