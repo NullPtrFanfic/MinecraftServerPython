@@ -178,12 +178,17 @@ shadowJar {
        archiveVersion.set("")
        manifest.inheritFrom(jar.manifest.getAttributes()) 
 }
-
-tasks { 
-    withType<JavaCompile>().configureEach {
-        options.encoding = "UTF-8"
-    }
+reobf {
+	shadowJar {}
 }
+task sourcesJar(type: Jar, dependsOn: classes) {
+	archiveClassifier.set("sources")
+	from sourceSets.main.allSource
+}
+tasks.withType<JavaCompile>().configureEach {
+        options.encoding = "UTF-8"
+}
+
 artifacts {
 	archives jar
 	archives shadowJar
