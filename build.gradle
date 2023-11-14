@@ -39,14 +39,14 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id("java")
     id("wtf.gofancy.fancygradle") version "1.1.+"
-    kotlin("jvm") version "1.9.10"
+   // kotlin("jvm") version "1.9.10"
     id("org.gradlex.extra-java-module-info") version "1.5"
     id("maven-publish")
 }
 
 apply {
     plugin("java-base")
-    plugin("kotlin")
+   // plugin("kotlin")
     plugin("eclipse")
     plugin("org.gradlex.extra-java-module-info")
     plugin("java")
