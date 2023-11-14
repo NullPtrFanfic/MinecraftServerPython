@@ -275,7 +275,6 @@ tasks {
 
     withType<JavaCompile>().configureEach {
 		options.encoding = "UTF-8"
-		destinationDirectory = project.file("compiled")
     }
 
     register<ReobfuscateJar>("reobf") {
