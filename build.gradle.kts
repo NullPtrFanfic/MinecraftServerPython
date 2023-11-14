@@ -229,47 +229,15 @@ tasks.named<ShadowJar>("shadowJar").configure {
 javadoc {
 	// Gradle doesn't support Java 8's new tags out of the box
 	options.tags = [
-		'apiNote:a:API Note:',
-		'implSpec:a:Implementation Requirements:',
-		'implNote:a:Implementation Note:',
+		"apiNote:a:API Note:",
+		"implSpec:a:Implementation Requirements:",
+		"implNote:a:Implementation Note:",
 	]
 }
 
-artifacts {
-	archives jar
-	archives shadowJar
-	archives sourcesJar
-	archives javadocJar
-}
-// endregion
 
-// region publish
-// TODO: Move this to the publish step, not the build step
-// Sign all the jars
-import net.minecraftforge.gradle.common.tasks.SignJar
 
-[
-	jar,
-	shadowJar,
-	sourcesJar,
-	javadocJar,
-].each { jarTask ->
-	Task signingTask = tasks.create(name: "sign-${jarTask.name}", type: SignJar, dependsOn: jarTask) {
-		// Skips if the keyStore property is missing.
-		onlyIf {
-			project.hasProperty('keyStore')
-		}
-		// findProperty allows us to reference the property without it existing.
-		// Using project.propName would cause the script to fail validation if the property did not exist.
-		keyStore = project.findProperty('keyStore')
-		alias = project.findProperty('keyStoreAlias')
-		storePass = project.findProperty('keyStorePass')
-		keyPass = project.findProperty('keyStoreKeyPass')
-		inputFile = jarTask.archiveFile
-		outputFile = jarTask.archiveFile
-	}
-	jarTask.finalizedBy(signingTask)
-}
+
 tasks {
    register<Jar>("sourcesJar") {
 	archiveClassifier.set("sources")
@@ -340,7 +308,36 @@ tasks {
     }
 
 }
+artifacts {
+	archives jar
+	archives shadowJar
+	archives sourcesJar
+	archives javadocJar
+}
+import net.minecraftforge.gradle.common.tasks.SignJar
 
+[
+	jar,
+	shadowJar,
+	sourcesJar,
+	javadocJar,
+].each { jarTask ->
+	Task signingTask = tasks.create(name: "sign-${jarTask.name}", type: SignJar, dependsOn: jarTask) {
+		// Skips if the keyStore property is missing.
+		onlyIf {
+			project.hasProperty('keyStore')
+		}
+		// findProperty allows us to reference the property without it existing.
+		// Using project.propName would cause the script to fail validation if the property did not exist.
+		keyStore = project.findProperty('keyStore')
+		alias = project.findProperty('keyStoreAlias')
+		storePass = project.findProperty('keyStorePass')
+		keyPass = project.findProperty('keyStoreKeyPass')
+		inputFile = jarTask.archiveFile
+		outputFile = jarTask.archiveFile
+	}
+	jarTask.finalizedBy(signingTask)
+}
 processResources {
 	filesMatching("**/META-INF/mods.toml") {
 		expand("file": [ jarVersion: project.version ])
