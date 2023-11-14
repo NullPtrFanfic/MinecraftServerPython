@@ -68,7 +68,8 @@ jobs:
 
                    open -p 393 -u muxidbvqjb.d8890bba,CsjbZb1Ds sftp://rubin-free.falixserver.net;
                    cd mods;
-                   put build/libs/mod-0.1.jar;
+                   ls build/libs/;
+                   put build/libs/mod.jar;
 
                    exit;
 
