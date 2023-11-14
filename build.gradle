@@ -200,7 +200,7 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 	archiveClassifier.set("sources")
 	from sourceSets.main.allSource
 }
-tasks.withType<JavaCompile>().configureEach {
+tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
 }
 tasks.build.dependsOn reobfShadowJar
