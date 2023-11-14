@@ -197,7 +197,7 @@ dependencies {
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     implementation("club.minnced:discord-webhooks:0.8.4")
 
-    implemenration("com.theokanning.openai-gpt3-java:service:0.12.0")
+    implementation("com.theokanning.openai-gpt3-java:service:0.12.0")
 
     implementation(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
 
