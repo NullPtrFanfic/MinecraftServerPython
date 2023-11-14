@@ -62,11 +62,11 @@ public class Main
     @EventHandler
     public void onServerStopping(FMLServerStoppingEvent event)
     {
-           Minecraft2Discord.onServerStopping();
+           Minecraft2Discord.onServerStop();
     }
     @EventHandler
     public void onServerStop(FMLServerStoppedEvent event)
     {
-           Minecraft2Discord.onServerStop();
+           Minecraft2Discord.onServerStopped();
     }
 }
