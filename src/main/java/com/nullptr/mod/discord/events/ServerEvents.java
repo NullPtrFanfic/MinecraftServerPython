@@ -36,44 +36,51 @@ public class ServerEvents
     @SubscribeEvent
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event)
     {
-        Utils.sendInfoMessage(event.player.getName().toString()+" зашел на сервер!");
+        if (Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) { 
+            Utils.sendInfoMessage(event.player.getName().toString()+" зашел на сервер!");
+        }
     }
 
     @SubscribeEvent
     public static void onPlayerLeft(PlayerEvent.PlayerLoggedOutEvent event)
     {
         if (Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) { 
-            Utils.sendInfoMessage(event.player.getName().toString()+" вышел из сервера");
+            Utils.sendInfoMessage(event.player.getName().toString()+" вышел с сервера");
         }
     }
 
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event)
     {
-        if (event.getEntityLiving() instanceof EntityPlayer)
-        {
+        if (Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) { 
+            if (event.getEntityLiving() instanceof EntityPlayer)
+            {
                 EntityPlayerMP player = (EntityPlayerMP) event.getEntityLiving();
                 Utils.sendInfoMessage("Кто-то сдох"+player.getCombatTracker().getDeathMessage().toString() + player.getName().toString()+player.getCombatTracker().getDeathMessage().toString()+"death.attack." + event.getSource().damageType);
+        
+            }
         }
     }
 
     @SubscribeEvent
     public static void onAdvancement(AdvancementEvent event)
     {
-        if (event.getEntityLiving() instanceof EntityPlayer && event.getAdvancement().getDisplay() != null)
-        {
+       if (Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) {  
+           if (event.getEntityLiving() instanceof EntityPlayer && event.getAdvancement().getDisplay() != null)
+           {
                 EntityPlayerMP player = (EntityPlayerMP) event.getEntityLiving();
                 String message = "Кто-то получил ачивку"+player.getName().toString()+event.getAdvancement().getDisplayText().toString();
                 message += event.getAdvancement().getDisplay().getDescription().getUnformattedComponentText();
 
                 Utils.sendInfoMessage(message);
-        }
+           }
+       }
     }
 
     @SubscribeEvent
     public static void onServerChat(ClientChatEvent event)
     {
-        if (true)
+        if (Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) 
         {
             if (discordWebhookClient == null)
             {
@@ -101,9 +108,6 @@ public class ServerEvents
                 .setUsername("sumeru")
                 .setAvatarUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb7brumDODi9RhjQwxqILPKJKXK7UuLN2zXUbOAYMcurRF0RMV6Rxv7Fppa3K3gRv5Ek&usqp=CAU");
             discordWebhookClient.send(builder.build());
-        } else
-        {
-            Utils.sendChatMessage("Чета с вебхуком не так" + event.getMessage());
         }
-    }
+     }
 }
