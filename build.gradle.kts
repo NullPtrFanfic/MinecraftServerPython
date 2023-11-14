@@ -105,6 +105,7 @@ java {
          languageVersion.set(JavaLanguageVersion.of(8))
      }
 }
+tasks.build.dependsOn tasks.shadowJar
 group = "com.nullptr.mod"
 minecraft {
     mappings("stable", "39-1.12")
@@ -258,7 +259,7 @@ tasks {
 
 
 
-        finalizedBy("reobf")
+        finalizedBy("reobfJar")
 
     }
 
@@ -270,6 +271,9 @@ tasks {
        archiveVersion.set("")
        manifest.inheritFrom(named<Jar>("mm").get().manifest) 
       // minimize()
+       afterEvaluate {
+        finalizedBy reobfShadowJar
+       }
 
     }
 
