@@ -13,7 +13,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-
+import net.minecraftforge.fml.common.event.FMLServerStartedEvent;
+import net.minecraftforge.fml.common.event.FMLServerStoppedEvent;
+import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 @Mod(modid = Main.MODID, name = Main.NAME, version = Main.VERSION)
 public class Main
 {
@@ -50,8 +52,14 @@ public class Main
        RegistryHandler.postInitRegistries();
     }
     @EventHandler
-    public void serverInit(FMLServerStartingEvent event)
+    public void onServerStart(FMLServerStartingEvent event)
     {
-
+           event.registerServerCommand(new TeleportDimensionCommand());
+           Minecraft2Discord.onServerStart();
+    }
+    @EventHandler
+    public void onServerStopped(FMLServerStoppedEvent event)
+    {
+           Minecraft2Discord.onServerStopped();
     }
 }
