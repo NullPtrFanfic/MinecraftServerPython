@@ -190,17 +190,17 @@ minecraft {
 
 dependencies {
     //implementation("net.minecraftforge:legacydev:0.2.3.1")
-    implementation(module("org.jetbrains.kotlin:kotlin-stdlib:1.9.10"))
-    implementation(module("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10"))
+    module("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
+    module("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
    // implementation(gradleApi())
     minecraft(group = "net.minecraftforge", name = "forge", version = "1.12.2-14.23.5.2860")
     //shadow("org.ow2.asm:asm:9.6")
    // implementation("org.ow2.asm:asm:9.6")
-    implementation(module("club.minnced:discord-webhooks:0.8.4"))
+    module("club.minnced:discord-webhooks:0.8.4")
 
-    implementation(module("com.theokanning.openai-gpt3-java:service:0.12.0"))
+    module("com.theokanning.openai-gpt3-java:service:0.12.0")
 
-    implementation(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
+    module(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
 
     shadow("com.theokanning.openai-gpt3-java:service:0.12.0")
 
