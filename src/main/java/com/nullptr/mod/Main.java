@@ -56,7 +56,7 @@ public class Main
     @EventHandler
     public void onServerReady(FMLServerStartingEvent event)
     {
-           event.registerServerCommand(new TeleportDimensionCommand());
+           event.registerServerCommand(new CommandDimensionTeleport());
            Minecraft2Discord.onServerReady();
     }
     @EventHandler
