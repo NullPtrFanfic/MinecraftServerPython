@@ -32,7 +32,7 @@ public class Minecraft2Discord {
         return DISCORD_BOT;
     }
   //  @Mod.EventHandler
-    public void onServerReady()
+    public static void onServerReady()
     {
         Utils.started_time = new Date().getTime();
         MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
@@ -51,12 +51,12 @@ public class Minecraft2Discord {
         }
     }
     //@Mod.EventHandler
-    public void onServerStarting()
+    public static void onServerStarting()
     {
         
     }
    // @Mod.EventHandler
-    public void onServerStop()
+    public static void onServerStop()
     {
             if (getDiscordBot() == null) {
                 return;
@@ -65,7 +65,7 @@ public class Minecraft2Discord {
             Utils.sendInfoMessage("Server down!");
     }
     //@Mod.EventHandler
-    public void onServerStopped()
+    public static void onServerStopped()
     {
        // Utils.updateOfflineVoiceChannel();
        // Utils.updateOfflineChannelTopic();
