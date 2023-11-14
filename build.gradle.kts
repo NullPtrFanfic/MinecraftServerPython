@@ -211,9 +211,9 @@ dependencies {
 
     implementation(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
 
-    shadow("com.theokanning.openai-gpt3-java:service:0.12.0")
+    library("com.theokanning.openai-gpt3-java:service:0.12.0")
 
-    shadow( files ("JDA-4.4.1_353-withDependencies-no-opus.jar"))
+    library(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
 
 }
 
