@@ -59,7 +59,7 @@ apply {
 fancyGradle {
 	patches {
 		resources
-		coremods
+		//coremods
 		asm
 		mergetool
 	}
