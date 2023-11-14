@@ -190,11 +190,12 @@ extraJavaModuleInfo {
      failOnMissingModuleInfo.set(false) 
 }
 
-configurations {
-	library
-	implementation.extendsFrom library
-	shadow.extendsFrom library
+
+val shade: Configuration by configurations.creating {
+    configurations.api.get().extendsFrom(this)
 }
+
+val shadeNoPom: Configuration by configurations.creating
 minecraft.runs.all {
 	lazyToken("minecraft_classpath") {
 		configurations.library.copyRecursive().resolve().collect { it.absolutePath }.join(File.pathSeparator)
@@ -211,10 +212,11 @@ dependencies {
 
     implementation(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
 
-    library("com.theokanning.openai-gpt3-java:service:0.12.0")
+    shade("com.theokanning.openai-gpt3-java:service:0.12.0")
 
-    library(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
-
+    shade(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
+    configurations.named(JavaPlugin.COMPILE_CLASSPATH_CONFIGURATION_NAME) { extendsFrom(shadeNoPom) }
+    configurations.named(JavaPlugin.RUNTIME_CLASSPATH_CONFIGURATION_NAME) { extendsFrom(shadeNoPom) }
 }
 
 
@@ -226,16 +228,6 @@ tasks.create<ConfigureShadowRelocation>("relocateShadowJar") {
 tasks.named<ShadowJar>("shadowJar").configure { 
       dependsOn(tasks["relocateShadowJar"]) // Other config 
 }
-javadoc {
-	// Gradle doesn't support Java 8's new tags out of the box
-	options.tags = [
-		"apiNote:a:API Note:",
-		"implSpec:a:Implementation Requirements:",
-		"implNote:a:Implementation Note:",
-	]
-}
-
-
 
 
 tasks {
@@ -308,18 +300,7 @@ tasks {
     }
 
 }
-artifacts {
-	archives jar
-	archives shadowJar
-	archives sourcesJar
-	archives javadocJar
-}
 
-processResources {
-	filesMatching("**/META-INF/mods.toml") {
-		expand("file": [ jarVersion: project.version ])
-	}
-}
 
 
 publishing {
