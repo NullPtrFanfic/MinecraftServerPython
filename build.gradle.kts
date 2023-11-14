@@ -144,14 +144,6 @@ dependencies {
     shadow(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
 }
 
-javadoc {
-	options.tags = [
-		"apiNote:a:API Note:",
-		"implSpec:a:Implementation Requirements:",
-		"implNote:a:Implementation Note:",
-	]
-}
-
 jar {
         archiveBaseName.set("mod")
 
@@ -193,7 +185,7 @@ artifacts {
 	archives jar
 	archives shadowJar
 	archives sourcesJar
-	archives javadocJar
+	//archives javadocJar
 }
 
 
