@@ -195,10 +195,11 @@ shadowJar {
         exclude(dependency('org.jetbrains:annotations'))
         exclude(dependency('com.google.code.findbugs:jsr305'))
         }
-	configurations.shadow.allDependencies.each { dep ->
-        relocate dep.group, "${project.group}.shadow.${dep.name}"
-	}
+	
 	finalizedBy('relocateShadowJar')
+}
+configurations.shadow.allDependencies.each { dep ->
+        relocate dep.group, "${project.group}.shadow.${dep.name}"
 }
 reobf {
 	shadowJar {}
