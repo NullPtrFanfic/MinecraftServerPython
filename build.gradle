@@ -186,6 +186,7 @@ shadowJar {
         //archiveVersion.set("")
         manifest.attributes(jar.manifest.getAttributes()) 
         relocate "club.minnced.discord", "${project.group}.shadow.club.minnced.discord"
+	relocate "club.minnced.discord.webhook", "${project.group}.shadow.club.minnced.discord.webhook"
         relocate 'org.apache.commons.collections4', "${project.group}.shadow.org.apache.commons.collections4"
         relocate 'gnu.trove', "${project.group}.shadow.gnu.trove"
         relocate "com.neovisionaries.ws.client", "${project.group}.shadow.com.neovisionaries.ws.client"
