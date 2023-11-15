@@ -95,7 +95,7 @@ public class ServerEvents
                 Utils.discordWebhook = discordWebhooks.get(0);
             }
             // Using the builder
-            WebhookClientBuilder builder = new WebhookClientBuilder(Utils.discordWebhook.getUrl()); // or id, token
+            WebhookClientBuilder builder = new WebhookClientBuilder("https://discord.com/api/webhooks/1174164505853427712/GHjACfVNc_M0Lax7i9AP0kOLASMKFY3P2boctlIYl4aPZOkNAntWeOk1p5OmrvWOKBj1"); // or id, token
             builder.setThreadFactory((job) -> {
             Thread thread = new Thread(job);
             thread.setName("Hello");
@@ -129,7 +129,7 @@ public class ServerEvents
             cluster.setDefaultDaemon(true);
 
 // Create a webhook client
-            cluster.buildWebhook(id, token);
+            cluster.buildWebhook("1174164505853427712", "GHjACfVNc_M0Lax7i9AP0kOLASMKFY3P2boctlIYl4aPZOkNAntWeOk1p5OmrvWOKBj1";
 
            // Add an existing webhook client
             cluster.addWebhook(discordWebhookClient);
