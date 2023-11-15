@@ -128,7 +128,7 @@ extraJavaModuleInfo {
 
 configurations {
 	library
-	implementation.extendsFrom library
+	compileOnly.extendsFrom library
 	shadow.extendsFrom library
 	compileOnly {
 	   transitive = true
@@ -142,8 +142,8 @@ minecraft.runs.all {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
+    compileOnly("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
+    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
     minecraft("net.minecraftforge:forge:1.12.2-14.23.5.2860")
     compileOnly("club.minnced:discord-webhooks:0.7.2")
     library("club.minnced:discord-webhooks:0.7.2")
