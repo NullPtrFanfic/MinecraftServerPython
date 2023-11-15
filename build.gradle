@@ -2,8 +2,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 import org.gradle.api.file.FileCollection
 import java.util.List
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocation
+//import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+//import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocation
 
 buildscript {
     repositories {
@@ -181,10 +181,10 @@ jar {
 }
 
 
-task relocateShadowJar(type: ConfigureShadowRelocation) { 
+/*task relocateShadowJar(type: ConfigureShadowRelocation) { 
       target = tasks.shadowJar as ShadowJar 
       prefix = "${project.group}"
-}
+}*/
 
 shadowJar {
         configurations = [project.configurations.shadow]
@@ -195,7 +195,7 @@ shadowJar {
         exclude(dependency('org.jetbrains:annotations'))
         exclude(dependency('com.google.code.findbugs:jsr305'))
         }
-	tasks.relocateShadowJar.incoming.resolutionResult.allComponents {
+	project.configurations.library.incoming.resolutionResult.allComponents {
         if (it.id instanceof ModuleComponentIdentifier) {
             relocate(it.id.group, "${project.group}.shadow.${it.id.group}")
         }
