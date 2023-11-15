@@ -142,7 +142,7 @@ minecraft.runs.all {
 }
 
 dependencies {
-    compile project(path: ':transform', configuration: 'shadow')
+    compile project(path: ':transform', configuration: 'library')
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
     compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
     minecraft("net.minecraftforge:forge:1.12.2-14.23.5.2860")
