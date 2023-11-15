@@ -131,6 +131,7 @@ configurations {
 	shadow.extendsFrom library
 	compileOnly {
 	   transitive = false
+	   canBeResolved = true
 	}
 }
 
