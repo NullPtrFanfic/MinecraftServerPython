@@ -4,6 +4,8 @@ import club.minnced.discord.webhook.WebhookClient;
 import club.minnced.discord.webhook.WebhookClientBuilder;
 import club.minnced.discord.webhook.send.WebhookCluster;
 import club.minnced.discord.webhook.send.WebhookMessageBuilder;
+import club.minnced.discord.webhook.send.WebhookEmbedBuilder;
+import club.minnced.discord.webhook.WebhookEmbed;
 import okhttp3.OkHttpClient;
 //import com.mojang.brigadier.exceptions.CommandSyntaxException;
 //import com.nullptr.mod.discord.Config;
