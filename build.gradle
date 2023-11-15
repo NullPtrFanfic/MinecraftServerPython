@@ -184,7 +184,7 @@ task relocateShadowJar(type: ConfigureShadowRelocation) {
       target = tasks.shadowJar as ShadowJar 
       prefix = "${project.group}"
 }
-task shadowJar(dependsOn: relocateShadowJar) {
+shadowJar() {
         configurations = [project.configurations.shadow]
         archiveClassifier.set("") 
         manifest.attributes(jar.manifest.getAttributes()) 
@@ -193,6 +193,7 @@ task shadowJar(dependsOn: relocateShadowJar) {
         exclude(dependency('org.jetbrains:annotations'))
         exclude(dependency('com.google.code.findbugs:jsr305'))
         }
+	finalizedBy('relocateShadowJar')
 }
 reobf {
 	shadowJar {}
