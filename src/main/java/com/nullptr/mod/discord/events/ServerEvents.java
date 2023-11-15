@@ -2,10 +2,10 @@ package com.nullptr.mod.discord.events;
 
 import club.minnced.discord.webhook.WebhookClient;
 import club.minnced.discord.webhook.WebhookClientBuilder;
-import club.minnced.discord.webhook.send.WebhookCluster;
+import club.minnced.discord.webhook.WebhookCluster;
 import club.minnced.discord.webhook.send.WebhookMessageBuilder;
 import club.minnced.discord.webhook.send.WebhookEmbedBuilder;
-import club.minnced.discord.webhook.WebhookEmbed;
+import club.minnced.discord.webhook.send.WebhookEmbed;
 import okhttp3.OkHttpClient;
 //import com.mojang.brigadier.exceptions.CommandSyntaxException;
 //import com.nullptr.mod.discord.Config;
@@ -120,11 +120,11 @@ public class ServerEvents
            .thenAccept((message) -> System.out.printf("Message with embed has been sent [%s]%n", message.getId()));
 
 // Change appearance of webhook message
-            WebhookMessageBuilder builder = new WebhookMessageBuilder();
-            builder.setUsername("Minn"); // use this username
-            builder.setAvatarUrl(avatarUrl); // use this avatar
-            builder.setContent("Hello World");
-            discordWebhookClient.send(builder.build());
+            WebhookMessageBuilder builder2 = new WebhookMessageBuilder();
+            builder2.setUsername("Minn"); // use this username
+            builder2.setAvatarUrl(avatarUrl); // use this avatar
+            builder2.setContent("Hello World");
+            discordWebhookClient.send(builder2.build());
             // Create and initialize the cluster
             WebhookCluster cluster = new WebhookCluster(5); // create an initial 5 slots (dynamic like lists)
             cluster.setDefaultHttpClient(new OkHttpClient());
