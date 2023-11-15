@@ -198,7 +198,7 @@ shadowJar {
       //  relocate "okhttp3", "${project.group}.shadow.okhttp3"
         //relocate "org.slf4j", "${project.group}.shadow.org.slf4j"
         relocate "com.fasterxml.jackson", "${project.group}.shadow.com.fasterxml.jackson"
-        relocate "club.minnced", "${project.group}.shadow.club.minnced"
+        relocate "club.minnced.discord.webhook", "${project.group}.shadow.club.minnced.discord.webhook"
 
        // relocate "com.vdurmont.emoji", "${project.group}.shadow.com.vdurmont.emoji"
 
