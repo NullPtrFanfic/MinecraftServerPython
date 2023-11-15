@@ -181,7 +181,7 @@ jar {
 
 
 task relocateShadowJar(type: ConfigureShadowRelocation) { 
-      target = shadowJar as ShadowJar 
+      target = tasks.shadowJar as ShadowJar 
       prefix = "${project.group}"
 }
 task shadowJar(dependsOn: relocateShadowJar) {
