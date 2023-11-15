@@ -185,7 +185,9 @@ task relocateShadowJar(type: ConfigureShadowRelocation) {
       target = tasks.shadowJar as ShadowJar 
       prefix = "${project.group}"
 }
-
+configurations.shadow.allDependencies.each { dep ->
+        relocate "${dep.group}", "${project.group}.shadow.${dep.name}"
+}
 shadowJar {
         configurations = [project.configurations.shadow]
         archiveClassifier.set("") 
@@ -198,9 +200,7 @@ shadowJar {
 	
 	finalizedBy('relocateShadowJar')
 }
-configurations.shadow.allDependencies.each { dep ->
-        relocate dep.group, "${project.group}.shadow.${dep.name}"
-}
+
 reobf {
 	shadowJar {}
 }
