@@ -80,34 +80,24 @@ public class ServerEvents
     @SubscribeEvent
     public static void onServerChat(ClientChatEvent event)
     {
-        if (Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) 
+        if (Utils.chatChannel == null) Utils.chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("1097828057018015836");
+        if (Utils.chatChannel != null)
         {
-            if (discordWebhookClient == null)
+            List<Webhook> discordWebhooks = Utils.chatChannel.retrieveWebhooks().complete().stream().filter(webhook -> webhook.getName().startsWith("Minecraft2Discord")).collect(Collectors.toList());
+            if (discordWebhooks.size() == 0)
             {
-                if (Utils.discordWebhook == null)
-                {
-                    if (Utils.chatChannel == null)
-                        Utils.chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("1097828057018015836");
-                    if (Utils.chatChannel != null)
-                    {
-                        List<Webhook> discordWebhooks = Utils.chatChannel.retrieveWebhooks().complete().stream()
-                            .filter(webhook -> webhook.getName().startsWith("Minecraft2Discord")).collect(Collectors.toList());
-                        if (discordWebhooks.size() == 0)
-                        {
-                            Utils.discordWebhook = Utils.chatChannel.createWebhook("Minecraft2Discord").complete();
-                        } else
-                        {
-                            Utils.discordWebhook = discordWebhooks.get(0);
-                        }
-                    }
-                }
-                discordWebhookClient = WebhookClient.withUrl(Utils.discordWebhook.getUrl());
+                Utils.discordWebhook = Utils.chatChannel.createWebhook("Minecraft2Discord").complete();
+            } else
+            {
+                Utils.discordWebhook = discordWebhooks.get(0);
             }
+            discordWebhookClient = WebhookClient.withUrl(Utils.discordWebhook.getUrl());
             WebhookMessageBuilder builder = new WebhookMessageBuilder();
             builder.setContent(event.getMessage())
                 .setUsername("sumeru")
                 .setAvatarUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb7brumDODi9RhjQwxqILPKJKXK7UuLN2zXUbOAYMcurRF0RMV6Rxv7Fppa3K3gRv5Ek&usqp=CAU");
             discordWebhookClient.send(builder.build());
+            client.send("Hello World"); // Send and log (using embed) WebhookEmbed embed = new WebhookEmbedBuilder() .setColor(0xFF00EE) .setDescription("Hello World") .build(); client.send(embed) .thenAccept((message) -> System.out.printf("Message with embed has been sent [%s]%n", message.getId())); // Change appearance of webhook message WebhookMessageBuilder builder = new WebhookMessageBuilder(); builder.setUsername("Minn"); // use this username builder.setAvatarUrl(avatarUrl); // use this avatar builder.setContent("Hello World"); client.send(builder.build());
         }
      }
 }
