@@ -181,7 +181,7 @@ jar {
 }*/
 
 shadowJar {
-        configurations = [project.configurations.compile]
+        configurations = [project.configurations.compileClasspath]
         archiveClassifier.set("") 
         manifest.attributes(jar.manifest.getAttributes()) 
         
