@@ -108,7 +108,7 @@ public class ServerEvents
             discordWebhookClient = builder.build();
             // Using the factory methods
             // Send and forget
-            discordWeebhookClient.send("Hello World");
+            discordWebhookClient.send("Hello World");
 
 // Send and log (using embed)
             WebhookEmbed embed = new WebhookEmbedBuilder()
@@ -122,7 +122,7 @@ public class ServerEvents
 // Change appearance of webhook message
             WebhookMessageBuilder builder2 = new WebhookMessageBuilder();
             builder2.setUsername("Minn"); // use this username
-            builder2.setAvatarUrl(avatarUrl); // use this avatar
+            builder2.setAvatarUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb7brumDODi9RhjQwxqILPKJKXK7UuLN2zXUbOAYMcurRF0RMV6Rxv7Fppa3K3gRv5Ek&usqp=CAU"); // use this avatar
             builder2.setContent("Hello World");
             discordWebhookClient.send(builder2.build());
             // Create and initialize the cluster
