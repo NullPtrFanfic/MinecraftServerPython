@@ -1,5 +1,6 @@
 package com.nullptr.mod.discord.events;
 
+import club.minnced.discord.webhook.external.JDAWebhookClient;
 import club.minnced.discord.webhook.WebhookClient;
 import club.minnced.discord.webhook.WebhookClientBuilder;
 import club.minnced.discord.webhook.WebhookCluster;
@@ -126,15 +127,6 @@ public class ServerEvents
             builder2.setContent("Hello World");
             discordWebhookClient.send(builder2.build());
             // Create and initialize the cluster
-            WebhookCluster cluster = new WebhookCluster(5); // create an initial 5 slots (dynamic like lists)
-            cluster.setDefaultHttpClient(new OkHttpClient());
-            cluster.setDefaultDaemon(true);
-
-// Create a webhook client
-            cluster.buildWebhook("1174164505853427712", "GHjACfVNc_M0Lax7i9AP0kOLASMKFY3P2boctlIYl4aPZOkNAntWeOk1p5OmrvWOKBj1");
-
-           // Add an existing webhook client
-            cluster.addWebhook(discordWebhookClient);
         }
      }
 }
