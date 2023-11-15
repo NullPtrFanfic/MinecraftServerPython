@@ -23,9 +23,6 @@ public class DiscordEvents extends ListenerAdapter
         WebhookClient.setDefaultErrorHandler((client, message, throwable) -> { 
             System.err.printf("[%s] %s%n", client.getId(), message); 
             if (throwable != null) throwable.printStackTrace(); // Shutdown the webhook client when you get 404 response (may also trigger for client#edit calls, be careful) 
-            if (throwable instanceof HttpException ex && ex.getCode() == 404) { 
-                client.close();
-            } 
         });
     }
 }
