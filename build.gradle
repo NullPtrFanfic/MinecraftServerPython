@@ -199,7 +199,7 @@ shadowJar {
             relocate(it.id.group, "${project.group}.shadow.${it.id.group}")
         }
 	}
-	finalizedBy('reobfShadowJar')
+	
 	//finalizedBy('relocateShadowJar')
 }
 
@@ -216,6 +216,7 @@ tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
 }
 tasks.build.dependsOn reobfShadowJar
+jar.finalizedBy('reobfShadowJar')
 //jar.
 artifacts {
 	archives jar
