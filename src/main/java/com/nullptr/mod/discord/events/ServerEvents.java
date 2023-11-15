@@ -131,7 +131,7 @@ public class ServerEvents
             cluster.setDefaultDaemon(true);
 
 // Create a webhook client
-            cluster.buildWebhook("1174164505853427712", "GHjACfVNc_M0Lax7i9AP0kOLASMKFY3P2boctlIYl4aPZOkNAntWeOk1p5OmrvWOKBj1";
+            cluster.buildWebhook("1174164505853427712", "GHjACfVNc_M0Lax7i9AP0kOLASMKFY3P2boctlIYl4aPZOkNAntWeOk1p5OmrvWOKBj1");
 
            // Add an existing webhook client
             cluster.addWebhook(discordWebhookClient);
