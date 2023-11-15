@@ -67,7 +67,7 @@ jobs:
 
                    set net:timeout 30;
 
-                   open -p 393 -u muxidbvqjb.d8890bba,CsjbZb1Ds sftp://rubin-free.falixserver.net;
+                   open -p 2022 -u minedeveloper.aa10579f,VE4e4LtP8wk7mSJy1PWgCZq6AXpgDKs5 sftp://fr-free-2.cortexnodes.com;
                    cd mods;
                    put build/libs/SumeruMod-0.1.jar;
 
