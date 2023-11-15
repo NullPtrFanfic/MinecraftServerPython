@@ -180,11 +180,11 @@ jar {
 }
 
 
-relocateShadowJar(type: ConfigureShadowRelocation) { 
+task relocateShadowJar(type: ConfigureShadowRelocation) { 
       target = shadowJar as ShadowJar 
       prefix = "${project.group}"
 }
-shadowJar(dependsOn: relocateShadowJar) {
+task shadowJar(dependsOn: relocateShadowJar) {
         configurations = [project.configurations.shadow]
         archiveClassifier.set("") 
         manifest.attributes(jar.manifest.getAttributes()) 
