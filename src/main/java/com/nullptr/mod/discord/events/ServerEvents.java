@@ -91,13 +91,45 @@ public class ServerEvents
             {
                 Utils.discordWebhook = discordWebhooks.get(0);
             }
-            discordWebhookClient = WebhookClient.withUrl(Utils.discordWebhook.getUrl());
+            // Using the builder
+            WebhookClientBuilder builder = new WebhookClientBuilder(Utils.discordWebhook.getUrl()); // or id, token
+            builder.setThreadFactory((job) -> {
+            Thread thread = new Thread(job);
+            thread.setName("Hello");
+            thread.setDaemon(true);
+            return thread;
+            });
+            builder.setWait(true);
+            discordWebhookClient = builder.build();
+            // Using the factory methods
+            // Send and forget
+            discordWeebhookClient.send("Hello World");
+
+// Send and log (using embed)
+            WebhookEmbed embed = new WebhookEmbedBuilder()
+            .setColor(0xFF00EE)
+            .setDescription("Hello World")
+            .build();
+
+            discordWebhookClient.send(embed)
+           .thenAccept((message) -> System.out.printf("Message with embed has been sent [%s]%n", message.getId()));
+
+// Change appearance of webhook message
             WebhookMessageBuilder builder = new WebhookMessageBuilder();
-            builder.setContent(event.getMessage())
-                .setUsername("sumeru")
-                .setAvatarUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb7brumDODi9RhjQwxqILPKJKXK7UuLN2zXUbOAYMcurRF0RMV6Rxv7Fppa3K3gRv5Ek&usqp=CAU");
+            builder.setUsername("Minn"); // use this username
+            builder.setAvatarUrl(avatarUrl); // use this avatar
+            builder.setContent("Hello World");
             discordWebhookClient.send(builder.build());
-            client.send("Hello World"); // Send and log (using embed) WebhookEmbed embed = new WebhookEmbedBuilder() .setColor(0xFF00EE) .setDescription("Hello World") .build(); client.send(embed) .thenAccept((message) -> System.out.printf("Message with embed has been sent [%s]%n", message.getId())); // Change appearance of webhook message WebhookMessageBuilder builder = new WebhookMessageBuilder(); builder.setUsername("Minn"); // use this username builder.setAvatarUrl(avatarUrl); // use this avatar builder.setContent("Hello World"); client.send(builder.build());
+            // Create and initialize the cluster
+            WebhookCluster cluster = new WebhookCluster(5); // create an initial 5 slots (dynamic like lists)
+            cluster.setDefaultHttpClient(new OkHttpClient());
+            cluster.setDefaultDaemon(true);
+
+// Create a webhook client
+            cluster.buildWebhook(id, token);
+
+           // Add an existing webhook client
+            cluster.addWebhook(discordWebhookClient);
         }
      }
 }
