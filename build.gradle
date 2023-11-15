@@ -131,7 +131,7 @@ configurations {
 	compileOnly.extendsFrom library
 	shadow.extendsFrom library
 	compileOnly {
-	   transitive = true
+	   transitive = false
 	}
 }
 
