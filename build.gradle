@@ -31,7 +31,6 @@ buildscript {
     }
     dependencies {
         classpath("org.gradlex:extra-java-module-info:1.5")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
         classpath("gradle.plugin.com.github.johnrengelman:shadow:7.1.2")
     }
 }
@@ -143,8 +142,6 @@ minecraft.runs.all {
 
 dependencies {
     //compile project(path: ':transform', configuration: 'library')
-    compileOnly("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
-    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
     minecraft("net.minecraftforge:forge:1.12.2-14.23.5.2860")
     compileOnly("club.minnced:discord-webhooks:0.7.2")
     library("club.minnced:discord-webhooks:0.7.2")
@@ -195,12 +192,13 @@ shadowJar {
         exclude(dependency('org.jetbrains:annotations'))
         exclude(dependency('com.google.code.findbugs:jsr305'))
         }
+	doFirst {
 	project.configurations.library.incoming.resolutionResult.allComponents {
         if (it.id instanceof ModuleComponentIdentifier) {
             relocate(it.id.group, "${project.group}.shadow.${it.id.group}")
         }
 	}
-	
+	}
 	//finalizedBy('relocateShadowJar')
 }
 
