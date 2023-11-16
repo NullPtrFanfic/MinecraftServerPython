@@ -205,6 +205,7 @@ shadowJar {
             project.configurations.library.incoming.resolutionResult.allComponents {
                 if (it.id instanceof ModuleComponentIdentifier) {
 		    def g = it.id.group
+		    if (g=="club.minnced") {
 		    def module = it.id.module
 		   // def m = it.id.module
 		    module = module.replace("-", "/")
@@ -217,6 +218,10 @@ shadowJar {
 			    include("${g}/${module}/**")
 			    include("${g}/${module}/**/**")
 			    include("${g}/${module}/**/**/**")
+		    }
+		    }
+		    else {
+			relocate("${g}", "${project.group}.shadow.${g}")
 		    }
 		   // println("${project.group}.shadow.${group}")
                 }
