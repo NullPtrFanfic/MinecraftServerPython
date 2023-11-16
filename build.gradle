@@ -207,6 +207,7 @@ shadowJar {
                     def group = it.id.group.replace("-", "/")
 		    group = group.replace("webhooks", "webhook")
                     relocate(group, "${project.group}.shadow.${group}")
+		    println("${project.group}.shadow.${group}")
                 }
             }
 	}
