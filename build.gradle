@@ -210,8 +210,7 @@ shadowJar {
 		    module.replace("-", "/")
 		    module.replace("webhooks", "webhook")
 		    def group = it.id.group.replace(g, "${g}.${module}")
-		    println(group)
-                    relocate(group, "${project.group}.shadow.${group}") {
+                    relocate(g, "${project.group}.shadow.${group}") {
 			    include("${g}/${m}/**")
 			    include("${g}/${m}/**/**")
 			    include("${g}/${m}/**/**/**")
