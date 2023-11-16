@@ -204,8 +204,8 @@ shadowJar {
 	doFirst {
             project.configurations.library.incoming.resolutionResult.allComponents {
                 if (it.id instanceof ModuleComponentIdentifier) {
-                   // def group = it.id.group.replace("-", "")
-                    relocate(it.id.group, "${project.group}.shadow.${it.id.group}")
+                    def group = it.id.group.replace("-", "/")
+                    relocate(group, "${project.group}.shadow.${group}")
                 }
             }
 	}
