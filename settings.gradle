@@ -2,13 +2,19 @@
 pluginManagement {
     repositories {
         maven {
+        name 'm2-dv8tion'
+        url 'https://m2.dv8tion.net/releases'
+        patternLayout { artifact "[module]/[revision]/[artifact].[ext]" }
+        }
+        mavenCentral()
+        maven {
             url = "https://maven.minecraftforge.net/"
         }
         maven {
             url = "https://maven.gofancy.wtf/releases"
         }
         gradlePluginPortal()
-        mavenCentral()
+        
     }
 }
 
