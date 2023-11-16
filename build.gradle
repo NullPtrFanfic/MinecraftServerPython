@@ -145,10 +145,7 @@ dependencies {
     implementation 'net.dv8tion:JDA:4.4.1_353' {
 	    exclude("opus-java")
     }
-    shadow 'net.dv8tion:JDA:4.4.1_353' {
-	    exclude("opus-java")
-    }
-    
+    shadow 'net.dv8tion:JDA:4.4.1_353'
    // implementation("org.slf4j:slf4j-impl:1.7.25")
     implementation("club.minnced:discord-webhooks:0.7.2")
     shadow "club.minnced:discord-webhooks:0.7.2"
