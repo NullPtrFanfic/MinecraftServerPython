@@ -7,15 +7,8 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocatio
 
 buildscript {
     repositories {
-	ivy {
-        url="https://m2.dv8tion.net/releases"
-        patternLayout { 
-		artifact "[module]/[revision]/[artifact]/JDA-[artifact].[ext]"
-		setM2compatible(true)
-        }
-	metadataSources{ artifact() }
-        }
-        mavenCentral()
+	
+       // mavenCentral()
         maven { url = "https://plugins.gradle.org/m2/" }
         //mavenCentral()
         maven { url = "https://mvnrepository.com/artifact/" }
@@ -145,9 +138,7 @@ dependencies {
     implementation("org.slf4j:slf4j-api:1.7.25")
     implementation('org.apache.commons:commons-collections4:4.4')
    // implementation group: 'jflac', name: 'jflac', version: '1.3', ext: 'pom'
-    implementation(shadow('net.dv8tion:JDA:4.4.1_353')) {
-        exclude module: 'opus-java'
-    }
+    implementation(shadow(files('JDA-4.4.1_353-withDependencies-no-opus.jar')))
    // implementation("org.slf4j:slf4j-impl:1.7.25")
     implementation("club.minnced:discord-webhooks:0.7.2")
     shadow "club.minnced:discord-webhooks:0.7.2"
