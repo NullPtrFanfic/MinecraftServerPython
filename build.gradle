@@ -7,8 +7,14 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocatio
 
 buildscript {
     repositories {
-        maven { url = "https://plugins.gradle.org/m2/" }
+	maven {
+        name 'm2-dv8tion'
+        url 'https://m2.dv8tion.net/releases'
+        }
+
         mavenCentral()
+        maven { url = "https://plugins.gradle.org/m2/" }
+        //mavenCentral()
         maven { url = "https://mvnrepository.com/artifact/" }
         jcenter()
 
@@ -126,9 +132,7 @@ extraJavaModuleInfo {
 }
 
 configurations {
-	library
-	shadow.extendsFrom library
-	compile.extendsFrom shadow
+    shadow.extendsFrom implementation
 }
 
 minecraft.runs.all {
@@ -139,10 +143,11 @@ minecraft.runs.all {
 
 dependencies {
     minecraft("net.minecraftforge:forge:1.12.2-14.23.5.2860")
-    library("org.slf4j:slf4j-api:1.7.25")
-    library("club.minnced:discord-webhooks:0.7.2")
-    library("com.theokanning.openai-gpt3-java:service:0.12.0")
-    library(files("JDA-4.4.1_353-withDependencies-no-opus.jar"))
+    implementation("org.slf4j:slf4j-api:1.7.25")
+    implementation("org.slf4j:slf4j-impl:1.7.25")
+    implementation("club.minnced:discord-webhooks:0.7.2")
+    implementation("com.theokanning.openai-gpt3-java:service:0.12.0")
+    implementation("org.apache.commons:commons-collections4:4.4")
 }
 
 jar {
@@ -178,7 +183,14 @@ task relocateShadowJar(type: ConfigureShadowRelocation) {
 }
 
 shadowJar {
-        configurations = [project.configurations.library]
+	project.configurations.shadow.setTransitive(true)
+        minimize()
+	configurations = [project.configurations.shadow]
+        mergeServiceFiles()
+        getMainClassName()
+
+        //classifier '' // Replace the default JAR
+        //configurations = [project.configurations.library]
         archiveClassifier.set("") 
         manifest.attributes(jar.manifest.getAttributes()) 
         
@@ -210,7 +222,7 @@ tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
 }
 tasks.build.dependsOn reobfShadowJar
-jar.finalizedBy('reobfShadowJar')
+jar.finalizedBy('reobfJar')
 //jar.
 artifacts {
 	archives jar
