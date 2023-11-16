@@ -7,9 +7,13 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocatio
 
 buildscript {
     repositories {
-	maven {
+	ivy {
         url="https://m2.dv8tion.net/releases"
-        patternLayout { artifact "[module]/[revision]/[artifact]/JDA-[artifact].[ext]" }
+        patternLayout { 
+		artifact "[module]/[revision]/[artifact]/JDA-[artifact].[ext]"
+		setM2compatible(true)
+        }
+	metadataSources{ artifact() }
         }
         mavenCentral()
         maven { url = "https://plugins.gradle.org/m2/" }
