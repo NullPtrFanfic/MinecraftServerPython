@@ -204,13 +204,14 @@ shadowJar {
 	doFirst {
             project.configurations.library.incoming.resolutionResult.allComponents {
                 if (it.id instanceof ModuleComponentIdentifier) {
+		    def g = it.id.group
                     def group = it.id.group.replace(it.id.group, "${it.id.group}.${it.id.module}")
 		    group.replace("-", "/")
 		    group.replace("webhooks", "webhook")
                     relocate(group, "${project.group}.shadow.${group}") {
-			    include("${it.id.group}/*")
-			    include("${it.id.group}/*/*")
-			    include("${it.id.group}/*/*/*")
+			    include("${g}/*")
+			    include("${g}/*/*")
+			    include("${g}/*/*/*")
 		    }
 		    println("${project.group}.shadow.${group}")
                 }
