@@ -143,9 +143,7 @@ dependencies {
     implementation 'org.apache.commons:commons-collections4:4.4'
    // implementation group: 'jflac', name: 'jflac', version: '1.3', ext: 'pom'
     implementation 'net.dv8tion:JDA:4.4.1_353'
-    shadow 'net.dv8tion:JDA:4.4.1_353'  {
-	    exclude("opus-java")
-    }
+    shadow 'net.dv8tion:JDA:4.4.1_353' 
    // implementation("org.slf4j:slf4j-impl:1.7.25")
     implementation("club.minnced:discord-webhooks:0.7.2")
     shadow "club.minnced:discord-webhooks:0.7.2"
@@ -192,6 +190,7 @@ shadowJar {
 	project.configurations.shadow.setTransitive(true)
       //  minimize()
 	configurations = [project.configurations.shadow]
+	
         mergeServiceFiles()
         //getMainClassName()
 
@@ -201,6 +200,7 @@ shadowJar {
         manifest.attributes(jar.manifest.getAttributes()) 
         
         dependencies{
+	exclude(dependency('opus-java'))
         exclude(dependency('org.jetbrains:annotations'))
         exclude(dependency('com.google.code.findbugs:jsr305'))
         }
