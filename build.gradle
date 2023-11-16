@@ -199,7 +199,7 @@ shadowJar {
         exclude(dependency('com.google.code.findbugs:jsr305'))
         }
 	doFirst {
-            project.configurations.library.incoming.resolutionResult.allComponents {
+            configurations.incoming.resolutionResult.allComponents {
                 if (it.id instanceof ModuleComponentIdentifier) {
                     def group = it.id.group.replace("-", "")
                     relocate(group, "${project.group}.shadow.${group}")
