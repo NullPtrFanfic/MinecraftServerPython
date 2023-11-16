@@ -187,7 +187,7 @@ shadowJar {
         minimize()
 	configurations = [project.configurations.shadow]
         mergeServiceFiles()
-        getMainClassName()
+        //getMainClassName()
 
         //classifier '' // Replace the default JAR
         //configurations = [project.configurations.library]
