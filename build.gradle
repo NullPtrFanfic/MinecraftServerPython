@@ -204,10 +204,16 @@ shadowJar {
 	doFirst {
             project.configurations.library.incoming.resolutionResult.allComponents {
                 if (it.id instanceof ModuleComponentIdentifier) {
+		    if (it.id.group=="club.minnced") {
                     def group = it.id.group.replace("club.minnced", "club.minnced.discord.webhook")
                     relocate(group, "${project.group}.shadow.${group}") {
 			    include("club/minnced/discord/webhook/*")
 			    include("club/minnced/discord/webhook/*/*")
+		    }
+		    }
+		    else {
+			def group = it.id.group
+                        relocate(group, "${project.group}.shadow.${group}")
 		    }
 		    println("${project.group}.shadow.${group}")
                 }
