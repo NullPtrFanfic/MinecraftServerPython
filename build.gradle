@@ -10,7 +10,7 @@ buildscript {
 	ivy {
         name 'm2-dv8tion'
         url 'https://m2.dv8tion.net/releases'
-        patternLayout { artifact "[module]/[revision]/[artifact].[ext]" }
+        patternLayout { artifact "[module]/[revision]/[artifact]/JDA-[artifact].[ext]" }
         }
         mavenCentral()
         maven { url = "https://plugins.gradle.org/m2/" }
