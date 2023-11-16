@@ -210,12 +210,14 @@ shadowJar {
 			    include("club/minnced/discord/webhook/*")
 			    include("club/minnced/discord/webhook/*/*")
 		    }
+		    println("${project.group}.shadow.${group}")
 		    }
 		    else {
 			def group = it.id.group
                         relocate(group, "${project.group}.shadow.${group}")
+			println("${project.group}.shadow.${group}")
 		    }
-		    println("${project.group}.shadow.${group}")
+		    
                 }
             }
 	}
