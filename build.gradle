@@ -181,7 +181,7 @@ task relocateShadowJar(type: ConfigureShadowRelocation) {
 }
 
 shadowJar {
-        configurations = [project.configurations.compile]
+        configurations = [project.configurations.library]
         archiveClassifier.set("") 
         manifest.attributes(jar.manifest.getAttributes()) 
         
