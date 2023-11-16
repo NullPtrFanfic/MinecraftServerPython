@@ -207,8 +207,8 @@ shadowJar {
 		    def g = it.id.group
 		    def module = it.id.module
 		   // def m = it.id.module
-		    module.replace("-", "/")
-		    module.replace("webhooks", "webhook")
+		    module = module.replace("-", "/")
+		    module = module.replace("webhooks", "webhook")
 		    def group = it.id.group.replace(g, "${g}.${module}")
 		    println(g)
 		    println(group)
