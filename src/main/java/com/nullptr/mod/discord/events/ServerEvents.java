@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
-@Mod.EventBusSubscriber(Side.CLIENT)
+@Mod.EventBusSubscriber()
 public class ServerEvents
 {
     public static WebhookClient discordWebhookClient;
