@@ -2,6 +2,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 import org.gradle.api.file.FileCollection
 import java.util.List
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocation
+
 
 buildscript {
     repositories {
@@ -127,6 +130,11 @@ configurations {
     shadow.extendsFrom library
 }
 
+task relocateShadowJar(type: ConfigureShadowRelocation) { 
+     target = tasks.shadowJar as ShadowJar 
+     prefix = "${project.group}"
+}
+
 minecraft.runs.all {
 	lazyToken("minecraft_classpath") {
 		configurations.library.copyRecursive().resolve().collect { it.absolutePath }.join(File.pathSeparator)
@@ -230,8 +238,8 @@ shadowJar {
         relocate 'okhttp3', repackGroup + '.okhttp3'
         relocate 'org.slf4j', repackGroup + '.org.slf4j'
         relocate 'com.fasterxml.jackson', repackGroup + '.com.fasterxml.jackson'
-        relocate 'club.minnced.discord', repackGroup + '.club.minnced.discord'
-	//finalizedBy('relocateShadowJar')
+        //relocate 'club.minnced.discord', repackGroup + '.club.minnced.discord'
+	finalizedBy('relocateShadowJar')
 }
 
 reobf {
