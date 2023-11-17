@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 import java.io.File;
 public class Utils
 {
+    public WebhookClient discordWebhookClient = null;
     public static boolean sendMessage(TextChannel channel, String message)
     {
         if (Minecraft2Discord.getDiscordBot() == null || channel == null) {
