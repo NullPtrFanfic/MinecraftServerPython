@@ -39,6 +39,7 @@ jobs:
     - name: Build with Gradle
       run: |
             ./gradlew build;
+            jar uf build/libs/SumeruMod-0.1.jar --delete module-info.class
     - name: Install SFTP client and Expect
 
       run: |
