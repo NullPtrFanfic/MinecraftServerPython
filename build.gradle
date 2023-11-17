@@ -150,8 +150,8 @@ dependencies {
     implementation(files('JDA-4.4.1_353-withDependencies-no-opus.jar'))
     library(files('JDA-4.4.1_353-withDependencies-no-opus.jar'))
    // implementation("org.slf4j:slf4j-impl:1.7.25")
-    implementation("club.minnced:discord-webhooks:0.7.2")
-    library "club.minnced:discord-webhooks:0.7.2"
+    library(implementation("club.minnced:discord-webhooks:0.7.1"))
+   // library "club.minnced:discord-webhooks:0.7.2"
     implementation("com.theokanning.openai-gpt3-java:service:0.12.0")
     library "com.theokanning.openai-gpt3-java:service:0.12.0"
     implementation("org.apache.commons:commons-collections4:4.4")
@@ -159,7 +159,7 @@ dependencies {
 }
 
 jar {
-    archiveClassifier.set("mod")
+    //archiveClassifier.set("mod")
     archiveBaseName.set("mod")
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
@@ -245,7 +245,7 @@ shadowJar {
         relocate 'okhttp3', repackGroup + '.okhttp3'
         relocate 'org.slf4j', repackGroup + '.org.slf4j'
         relocate 'com.fasterxml.jackson', repackGroup + '.com.fasterxml.jackson'
-        //relocate 'club.minnced.discord', repackGroup + '.club.minnced.discord'
+        relocate 'club.minnced.discord', repackGroup + '.club.minnced.discord'
 	finalizedBy('relocateShadowJar')
 }
 
