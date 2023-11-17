@@ -25,17 +25,19 @@ public class Utils
 
         try
         {
-            List<Webhook> discordWebhooks = Utils.infoChannel.retrieveWebhooks().complete().stream()
+            Webhook discordWebhook = null;
+            channel = Minecraft2Discord.getDiscordBot().getTextChannelById("1097828057018015836");
+            List<Webhook> discordWebhooks = channel.retrieveWebhooks().complete().stream()
                             .filter(webhook -> webhook.getName().startsWith("mod")).collect(Collectors.toList());
             if (discordWebhooks.size() == 0)
             {
-                            Utils.discordWebhook = Utils.infoChannel.createWebhook("mod").complete();
+                            Utils.discordWebhook = Utils.channel.createWebhook("mod").complete();
             } else
             {
                             Utils.discordWebhook = discordWebhooks.get(0);
             }
             // Using the builder
-            WebhookClientBuilder builder = new WebhookClientBuilder(Utils.discordWebhook.getUrl()); // or id, token
+            WebhookClientBuilder builder = new WebhookClientBuilder(discordWebhook.getUrl()); // or id, token
             builder.setThreadFactory((job) -> {
             Thread thread = new Thread(job);
             thread.setName("Hello");
@@ -43,26 +45,26 @@ public class Utils
             return thread;
             });
             builder.setWait(true);
-            ServerEvents.discordWebhookClient = builder.build();
+            discordWebhookClient = builder.build();
             // Using the factory methods
             // Send and forget
-            ServerEvents.discordWebhookClient.send("Hello World");
+           // discordWebhookClient.send("Hello World");
 
 // Send and log (using embed)
             WebhookEmbed embed = new WebhookEmbedBuilder()
             .setColor(0xFF00EE)
-            .setDescription("Hello World")
+            .setDescription(message)
             .build();
 
-            ServerEvents.discordWebhookClient.send(embed)
+            discordWebhookClient.send(embed)
            .thenAccept((message) -> System.out.printf("Message with embed has been sent [%s]%n", message.getId()));
 
 // Change appearance of webhook message
             WebhookMessageBuilder builder2 = new WebhookMessageBuilder();
-            builder2.setUsername("Minn"); // use this username
+            builder2.setUsername("INFO"); // use this username
             builder2.setAvatarUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb7brumDODi9RhjQwxqILPKJKXK7UuLN2zXUbOAYMcurRF0RMV6Rxv7Fppa3K3gRv5Ek&usqp=CAU"); // use this avatar
-            builder2.setContent("Hello World");
-            ServerEvents.discordWebhookClient.send(builder2.build());
+            builder2.setContent(message);
+            discordWebhookClient.send(builder2.build());
             // Create and initialize the cluster
             //sendWebhook(ServerEvents.discordWebhookClient);
         } catch (Exception e)
