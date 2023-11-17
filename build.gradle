@@ -42,7 +42,7 @@ plugins {
    // kotlin("jvm") version "1.9.10"
     id("org.gradlex.extra-java-module-info") version "1.5"
     id("maven-publish")
-    id("application")
+    //id("application")
 }
 
 apply {
@@ -83,7 +83,7 @@ java {
 }
 
 group = "com.nullptr.mod"
-mainClassName = "com.nullptr.mod.Main"
+//mainClassName = "com.nullptr.mod.Main"
 minecraft {
     mappings("stable", "39-1.12")
 	runs {
@@ -166,6 +166,7 @@ dependencies {
 jar {
     archiveClassifier.set("mod")
     archiveBaseName.set("mod")
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
 
         attributes([
@@ -187,6 +188,7 @@ jar {
         ])
 
     }
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
 
