@@ -221,7 +221,7 @@ shadowJar {
 			    include("${g}/${module}/**/**/**")
 		    }
 		    else {
-		       relocate(it.id.group, "${project.group}.shadow.${it.id.group}") }
+		       relocate(it.id.group, "${project.group}.shadow.${it.id.group}")
 		    }
 		    }
 		   // println("${project.group}.shadow.${group}")
