@@ -143,14 +143,14 @@ minecraft.runs.all {
 
 dependencies {
     minecraft("net.minecraftforge:forge:1.12.2-14.23.5.2860")
-    implementation("org.slf4j:slf4j-api:1.7.25")
-    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+    implementation("org.slf4j:slf4j-api:1.7.32")
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.32'
     implementation('org.apache.commons:commons-collections4:4.4')
    // implementation group: 'jflac', name: 'jflac', version: '1.3', ext: 'pom'
-    implementation(files('JDA-4.4.1_353-withDependencies-no-opus.jar'))
-    library(files('JDA-4.4.1_353-withDependencies-no-opus.jar'))
+    implementation(files('JDA-5.0.0-beta.17_b7937d0-withDependencies-min.jar'))
+    library(files('JDA-5.0.0-beta.17_b7937d0-withDependencies-min.jar'))
    // implementation("org.slf4j:slf4j-impl:1.7.25")
-    library(implementation("club.minnced:discord-webhooks:0.7.1"))
+    library(implementation("club.minnced:discord-webhooks:0.8.4"))
    // library "club.minnced:discord-webhooks:0.7.2"
     implementation("com.theokanning.openai-gpt3-java:service:0.12.0")
     library "com.theokanning.openai-gpt3-java:service:0.12.0"
@@ -208,44 +208,13 @@ shadowJar {
 	doFirst {
             project.configurations.library.incoming.resolutionResult.allComponents {
                 if (it.id instanceof ModuleComponentIdentifier) {
-		    def g = it.id.group
-		    if (g=="club.minnced") {
-		    def module = it.id.module
-		   // def m = it.id.module
-		    module = module.replace("-", "/")
-		    module = module.replace("webhooks", "webhook")
-		    def group = it.id.group.replace(g, "${g}.${module}")
-		    println(g)
-		    println(group)
-		    println(module)
-                    relocate("${group}", "${project.group}.shadow.${group}") {
-			    include("${g}/${module}/**")
-			    include("${g}/${module}/**/**")
-			    include("${g}/${module}/**/**/**")
-		    }
-		    }
-		    else {
-		       relocate(g, "${project.group}.shadow.${g}")
-		    }
+		    relocate(g, "${project.group}.shadow.${it.id.group}")
+		    //}
 		  //  }
 		   // println("${project.group}.shadow.${group}")
                 }
             }
 	}
-	def repackGroup = "${project.group}.shadow"
-
-        relocate 'org.apache.commons.collections4', repackGroup + '.org.apache.commons.collections4'
-        relocate 'gnu.trove', repackGroup + '.gnu.trove'
-        relocate 'com.neovisionaries.ws.client', repackGroup + '.com.neovisionaries.ws.client'
-        relocate 'com.iwebpp.crypto', repackGroup + '.com.iwebpp.crypto'
-        relocate 'net.dv8tion.jda', repackGroup + '.net.dv8tion.jda'
-        relocate 'org.json', repackGroup + '.org.json'
-        relocate 'okio', repackGroup + '.okio'
-        relocate 'okhttp3', repackGroup + '.okhttp3'
-        relocate 'okhttp3', repackGroup + '.okhttp3'
-        relocate 'org.slf4j', repackGroup + '.org.slf4j'
-        relocate 'com.fasterxml.jackson', repackGroup + '.com.fasterxml.jackson'
-        relocate 'club.minnced.discord', repackGroup + '.club.minnced.discord'
 	finalizedBy('relocateShadowJar')
 }
 
