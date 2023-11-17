@@ -158,11 +158,10 @@ dependencies {
     library "org.apache.commons:commons-collections4:4.4"
 }
 
-tasks.withType(Tar) { duplicatesStrategy = DuplicatesStrategy.EXCLUDE }
-
 jar {
     archiveClassifier.set("mod")
     archiveBaseName.set("mod")
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
 
         attributes([
