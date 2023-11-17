@@ -2,6 +2,7 @@ package com.nullptr.mod.discord.events;
 
 import com.nullptr.mod.discord.events.ServerEvents;
 import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.entities.Webhook;
 import club.minnced.discord.webhook.external.JDAWebhookClient;
 import com.nullptr.mod.discord.Utils;
 import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
