@@ -4,7 +4,7 @@ import org.gradle.api.file.FileCollection
 import java.util.List
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocation
-
+import org.gradle.api.file.DuplicatesStrategy
 
 buildscript {
     repositories {
@@ -157,6 +157,8 @@ dependencies {
     implementation("org.apache.commons:commons-collections4:4.4")
     library "org.apache.commons:commons-collections4:4.4"
 }
+
+tasks.withType(Tar) { duplicatesStrategy = DuplicatesStrategy.EXCLUDE }
 
 jar {
     archiveClassifier.set("mod")
