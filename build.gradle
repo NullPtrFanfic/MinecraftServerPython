@@ -147,10 +147,7 @@ dependencies {
     compile("org.slf4j:slf4j-api:1.7.36")
    // compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.32'
     compile('org.apache.commons:commons-collections4:4.4')
-   // implementation group: 'jflac', name: 'jflac', version: '1.3', ext: 'pom'
-    compile(files('JDA-5.0.0-beta.17_b7937d0-withDependencies-min.jar'))
-    library(files('JDA-5.0.0-beta.17_b7937d0-withDependencies-min.jar'))
-   // implementation("org.slf4j:slf4j-impl:1.7.25")
+    library(compile("net.dv8tion:JDA:5.0.0-beta.12"))
     library(compile('com.neovisionaries:nv-websocket-client:2.14'))
     library(compile("com.squareup.okhttp3:okhttp:4.10.0"))
     library(compile("com.fasterxml.jackson.core:jackson-databind:2.14.1"))
