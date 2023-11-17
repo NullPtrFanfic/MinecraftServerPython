@@ -155,6 +155,7 @@ dependencies {
     library(compile("com.squareup.okhttp3:okhttp:4.10.0"))
     library(compile("com.fasterxml.jackson.core:jackson-databind:2.12.5"))
     library(compile("club.minnced:discord-webhooks:0.8.4"))
+    library(compile("net.sf.trove4j:trove4j:2.14.1"))
    // library "club.minnced:discord-webhooks:0.7.2"
     compile("com.theokanning.openai-gpt3-java:service:0.12.0")
     library "com.theokanning.openai-gpt3-java:service:0.12.0"
