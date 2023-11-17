@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.event.ServerChatEvent;
 @Mod.EventBusSubscriber
 public class ServerEvents
 {
@@ -84,9 +85,9 @@ public class ServerEvents
     }
 
     @SubscribeEvent
-    public static void onServerChat(ClientChatEvent event)
+    public static void onServerChat(ServerChatEvent event)
     {
-        if (Utils.chatChannel == null) Utils.chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("1097828057018015836");
+        if (Utils.chatChannel == null && Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) Utils.chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("1097828057018015836");
         if (Utils.chatChannel != null)
         {
             List<Webhook> discordWebhooks = Utils.chatChannel.retrieveWebhooks().complete().stream().filter(webhook -> webhook.getName().startsWith("Minecraft2Discord")).collect(Collectors.toList());
