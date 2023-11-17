@@ -1,6 +1,6 @@
 package com.nullptr.mod.discord;
 
-import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.core.entities.*;
 import com.nullptr.mod.discord.Minecraft2Discord;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
