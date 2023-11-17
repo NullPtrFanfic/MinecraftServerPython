@@ -224,7 +224,7 @@ shadowJar {
 		    else {
 		       relocate(g, "${project.group}.shadow.${g}")
 		    }
-		    }
+		  //  }
 		   // println("${project.group}.shadow.${group}")
                 }
             }
