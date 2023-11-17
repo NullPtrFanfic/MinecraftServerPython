@@ -37,7 +37,7 @@ public class DiscordEvents extends ListenerAdapter
         System.out.println("Discord bot logged as " + event.getJDA().getSelfUser().getName());
        // if (Config.SERVER.sendServerStartStopMessages.get())
         Utils.sendInfoMessage("Server started!");
-        if (Utils.chatChannel == null && Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) Utils.chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("1097828057018015836");
+        Utils.chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("1097828057018015836");
         if (true)
         {
             List<Webhook> discordWebhooks = Utils.chatChannel.retrieveWebhooks().complete().stream()
