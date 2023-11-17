@@ -1,6 +1,7 @@
 package com.nullptr.mod.discord;
 
-import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+//import net.dv8tion.jda.api.entities.*;
 import com.nullptr.mod.discord.Minecraft2Discord;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -9,9 +10,9 @@ import java.util.concurrent.Callable;
 
 public class Utils
 {
-    public static MessageChannel chatChannel;
-    public static MessageChannel infoChannel;
-    public static MessageChannel editableTopicChannel;
+    public static TextChannel chatChannel;
+    public static TextChannel infoChannel;
+    public static TextChannel editableTopicChannel;
     //public static VoiceChannel editableVoiceChannel;
 
     public static Webhook discordWebhook;
@@ -46,12 +47,12 @@ public class Utils
         return false;
     }
 
-    public static boolean sendMessage(MessageChannel channel, String message)
+    public static boolean sendMessage(TextChannel channel, String message)
     {
         return sendMessage(channel, message, true);
     }
 
-    public static boolean sendMessage(MessageChannel channel, String message, Boolean global_variable_replacement)
+    public static boolean sendMessage(TextChannel channel, String message, Boolean global_variable_replacement)
     {
         if (Minecraft2Discord.getDiscordBot() == null || channel == null) {
             return false;
