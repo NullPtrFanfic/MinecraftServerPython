@@ -14,7 +14,9 @@ import club.minnced.discord.webhook.send.WebhookMessageBuilder;
 import club.minnced.discord.webhook.send.WebhookEmbedBuilder;
 import club.minnced.discord.webhook.send.WebhookEmbed;
 import okhttp3.OkHttpClient;
-
+import net.dv8tion.jda.api.entities.Webhook;
+import java.util.stream.Collectors;
+import java.io.File;
 public class Utils
 {
     public static boolean sendMessage(TextChannel channel, String message)
@@ -54,6 +56,8 @@ public class Utils
             WebhookEmbed embed = new WebhookEmbedBuilder()
             .setColor(0xFF00EE)
             .setDescription(message)
+            .setTitle(new WebhookEmbed.EmbedTitle("Info:" ""))
+            .setFooter(new WebhookEmbed.EmbedFooter("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb7brumDODi9RhjQwxqILPKJKXK7UuLN2zXUbOAYMcurRF0RMV6Rxv7Fppa3K3gRv5Ek&usqp=CAU"))
             .build();
 
             discordWebhookClient.send(embed)
@@ -65,6 +69,7 @@ public class Utils
             builder2.setAvatarUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb7brumDODi9RhjQwxqILPKJKXK7UuLN2zXUbOAYMcurRF0RMV6Rxv7Fppa3K3gRv5Ek&usqp=CAU"); // use this avatar
             builder2.setContent(message);
             discordWebhookClient.send(builder2.build());
+            client.send(new File("/src/main/resources/mod/assets/"));
             // Create and initialize the cluster
             //sendWebhook(ServerEvents.discordWebhookClient);
         } catch (Exception e)
