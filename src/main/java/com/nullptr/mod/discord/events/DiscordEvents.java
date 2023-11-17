@@ -4,6 +4,8 @@ import com.nullptr.mod.discord.events.ServerEvents;
 import net.dv8tion.jda.api.JDA;
 import club.minnced.discord.webhook.external.JDAWebhookClient;
 import com.nullptr.mod.discord.Utils;
+import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
+import net.dv8tion.jda.api.utils.messages.MessageCreateData;
 import club.minnced.discord.webhook.WebhookClient;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
