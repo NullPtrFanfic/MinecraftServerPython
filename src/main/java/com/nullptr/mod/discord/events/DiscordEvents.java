@@ -1,6 +1,7 @@
 package com.nullptr.mod.discord.events;
 
-
+import com.nullptr.mod.discord.events.ServerEvents;
+import net.dv8tion.jda.api.JDA;
 import com.nullptr.mod.discord.Utils;
 import club.minnced.discord.webhook.WebhookClient;
 import net.dv8tion.jda.api.events.ReadyEvent;
@@ -43,10 +44,10 @@ public class DiscordEvents extends ListenerAdapter
             return thread;
             });
             builder.setWait(true);
-            discordWebhookClient = builder.build();
+            ServerEvents.discordWebhookClient = builder.build();
             // Using the factory methods
             // Send and forget
-            discordWebhookClient.send("Hello World");
+            ServerEvents.discordWebhookClient.send("Hello World");
 
 // Send and log (using embed)
             WebhookEmbed embed = new WebhookEmbedBuilder()
@@ -54,7 +55,7 @@ public class DiscordEvents extends ListenerAdapter
             .setDescription("Hello World")
             .build();
 
-            discordWebhookClient.send(embed)
+            ServerEvents.discordWebhookClient.send(embed)
            .thenAccept((message) -> System.out.printf("Message with embed has been sent [%s]%n", message.getId()));
 
 // Change appearance of webhook message
@@ -62,7 +63,7 @@ public class DiscordEvents extends ListenerAdapter
             builder2.setUsername("Minn"); // use this username
             builder2.setAvatarUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb7brumDODi9RhjQwxqILPKJKXK7UuLN2zXUbOAYMcurRF0RMV6Rxv7Fppa3K3gRv5Ek&usqp=CAU"); // use this avatar
             builder2.setContent("Hello World");
-            discordWebhookClient.send(builder2.build());
+            ServerEvents.discordWebhookClient.send(builder2.build());
             // Create and initialize the cluster
        }
     }
