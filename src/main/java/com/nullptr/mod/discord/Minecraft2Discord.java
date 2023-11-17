@@ -62,7 +62,7 @@ public class Minecraft2Discord {
     {
        // Utils.updateOfflineVoiceChannel();
        // Utils.updateOfflineChannelTopic();
-        ServerEvents.discordWebhookClient.close();
+        Utils.discordWebhookClient.close();
         DISCORD_BOT.shutdown();
         OkHttpClient client = DISCORD_BOT.getHttpClient();
         client.connectionPool().evictAll();
