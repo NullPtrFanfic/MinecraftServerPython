@@ -212,7 +212,7 @@ shadowJar {
 	doFirst {
             project.configurations.library.incoming.resolutionResult.allComponents {
                 if (it.id instanceof ModuleComponentIdentifier) {
-		    relocate(g, "${project.group}.shadow.${it.id.group}")
+		    relocate(it.id.group, "${project.group}.shadow.${it.id.group}")
 		    //}
 		  //  }
 		   // println("${project.group}.shadow.${group}")
