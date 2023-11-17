@@ -77,7 +77,7 @@ public class ServerEvents
            {
                 EntityPlayerMP player = (EntityPlayerMP) event.getEntityLiving();
                 String message = "Кто-то получил ачивку"+player.getName().toString()+event.getAdvancement().getDisplayText().toString();
-                message += event.getAdvancement().getDisplay().getDescription().getUnformattedComponentText();
+                //message += event.getAdvancement().getDisplay().getDescription().getUnformattedComponentText();
 
                 Utils.sendInfoMessage(message);
            }
