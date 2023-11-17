@@ -82,7 +82,7 @@ java {
 }
 
 group = "com.nullptr.mod"
-
+mainClassName = "Main"
 minecraft {
     mappings("stable", "39-1.12")
 	runs {
