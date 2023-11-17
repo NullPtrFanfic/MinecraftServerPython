@@ -2,6 +2,7 @@ package com.nullptr.mod.discord.events;
 
 import com.nullptr.mod.discord.events.ServerEvents;
 import net.dv8tion.jda.api.JDA;
+import club.minnced.discord.webhook.external.JDAWebhookClient;
 import com.nullptr.mod.discord.Utils;
 import club.minnced.discord.webhook.WebhookClient;
 import net.dv8tion.jda.api.events.ReadyEvent;
@@ -26,14 +27,20 @@ import java.util.*;
 
 public class DiscordEvents extends ListenerAdapter
 {
+    public void sendWebhook(Webhook webhook) { 
+        MessageCreateData message = new MessageCreateBuilder().setContent("Hello World").build();
+        try (JDAWebhookClient client = JDAWebhookClient.from(webhook)) { // create a client instance from the JDA webhook 
+             client.send(message); // send a JDA message instance 
+        } 
+    }
     @Override
     public void onReady(ReadyEvent event)
     {
         System.out.println("Discord bot logged as " + event.getJDA().getSelfUser().getName());
        // if (Config.SERVER.sendServerStartStopMessages.get())
         Utils.sendInfoMessage("Server started!");
-        if (Utils.chatChannel == null && Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) Utils.chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("1097828057018015836");
-        if (Utils.chatChannel != null)
+      //  if (Utils.chatChannel == null && Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) Utils.chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("1097828057018015836");
+        if (true)
         {
             // Using the builder
             WebhookClientBuilder builder = new WebhookClientBuilder("https://discord.com/api/webhooks/1174164505853427712/GHjACfVNc_M0Lax7i9AP0kOLASMKFY3P2boctlIYl4aPZOkNAntWeOk1p5OmrvWOKBj1"); // or id, token
@@ -65,6 +72,7 @@ public class DiscordEvents extends ListenerAdapter
             builder2.setContent("Hello World");
             ServerEvents.discordWebhookClient.send(builder2.build());
             // Create and initialize the cluster
+            
        }
     }
 }
