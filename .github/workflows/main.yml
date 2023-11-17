@@ -70,8 +70,7 @@ jobs:
                    open -p 2022 -u minedeveloper.aa10579f,VE4e4LtP8wk7mSJy1PWgCZq6AXpgDKs5 sftp://fr-free-2.cortexnodes.com;
                    cd mods;
                    put build/libs/SumeruMod-0.1.jar;
-                   put build/libs/mod-0.1-mod.jar;
-
+      
                    exit;
 
                 \"
