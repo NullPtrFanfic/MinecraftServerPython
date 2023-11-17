@@ -3,10 +3,10 @@ package com.nullptr.mod.discord.events;
 import com.nullptr.mod.discord.events.ServerEvents;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Webhook;
-import club.minnced.discord.webhook.external.JDAWebhookClient;
+//import club.minnced.discord.webhook.external.JDAWebhookClient;
 import com.nullptr.mod.discord.Utils;
-import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
-import net.dv8tion.jda.api.utils.messages.MessageCreateData;
+//import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
+//import net.dv8tion.jda.api.utils.messages.MessageCreateData;
 import club.minnced.discord.webhook.WebhookClient;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -30,12 +30,6 @@ import java.util.*;
 
 public class DiscordEvents extends ListenerAdapter
 {
-    public void sendWebhook(Webhook webhook) { 
-        MessageCreateData message = new MessageCreateBuilder().setContent("Hello World").build();
-        try (JDAWebhookClient client = JDAWebhookClient.from(webhook)) { // create a client instance from the JDA webhook 
-             client.send(message); // send a JDA message instance 
-        } 
-    }
     @Override
     public void onReady(ReadyEvent event)
     {
@@ -45,8 +39,17 @@ public class DiscordEvents extends ListenerAdapter
       //  if (Utils.chatChannel == null && Minecraft2Discord.getDiscordBot() != null && Minecraft2Discord.getDiscordBot().getStatus() == JDA.Status.CONNECTED) Utils.chatChannel = Minecraft2Discord.getDiscordBot().getTextChannelById("1097828057018015836");
         if (true)
         {
+            List<Webhook> discordWebhooks = Utils.chatChannel.retrieveWebhooks().complete().stream()
+                            .filter(webhook -> webhook.getName().startsWith("mod")).collect(Collectors.toList());
+            if (discordWebhooks.size() == 0)
+            {
+                            Utils.discordWebhook = Utils.chatChannel.createWebhook("mod").complete();
+            } else
+            {
+                            Utils.discordWebhook = discordWebhooks.get(0);
+            }
             // Using the builder
-            WebhookClientBuilder builder = new WebhookClientBuilder("https://discord.com/api/webhooks/1174164505853427712/GHjACfVNc_M0Lax7i9AP0kOLASMKFY3P2boctlIYl4aPZOkNAntWeOk1p5OmrvWOKBj1"); // or id, token
+            WebhookClientBuilder builder = new WebhookClientBuilder(Utils.discordWebhook.getUrl()); // or id, token
             builder.setThreadFactory((job) -> {
             Thread thread = new Thread(job);
             thread.setName("Hello");
@@ -75,7 +78,7 @@ public class DiscordEvents extends ListenerAdapter
             builder2.setContent("Hello World");
             ServerEvents.discordWebhookClient.send(builder2.build());
             // Create and initialize the cluster
-            sendWebhook(ServerEvents.discordWebhookClient);
+            //sendWebhook(ServerEvents.discordWebhookClient);
        }
     }
 }
