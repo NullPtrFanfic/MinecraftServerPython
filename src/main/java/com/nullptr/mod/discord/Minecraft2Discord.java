@@ -16,7 +16,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraftforge.fml.relauncher.Side;
-import javax.security.auth.login.LoginException;
+//import javax.security.auth.login.LoginException;
 import java.util.Date;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.fml.common.Mod;
@@ -37,18 +37,11 @@ public class Minecraft2Discord {
         Utils.started_time = new Date().getTime();
         MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
         server.getCommandManager().executeCommand(server, "say Server Ready!");
-        try
-        {
-            DISCORD_BOT = JDABuilder.createDefault("MTE2ODIxMjg0NDI1MzI4MjQxNg.GHLt-S.prUaAEf0TkBSBdkdSdb65u6zisXFrIVc80CPNM")
+        DISCORD_BOT = JDABuilder.createDefault("MTE2ODIxMjg0NDI1MzI4MjQxNg.GHLt-S.prUaAEf0TkBSBdkdSdb65u6zisXFrIVc80CPNM")
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(new DiscordEvents())
                 .build();
-            server.getCommandManager().executeCommand(server, "say Jda connected!");
-        } catch (LoginException e)
-        {
-           // LOGGER.error(e.getMessage());
-            server.getCommandManager().executeCommand(server, "say "+e.getMessage().toString());
-        }
+        server.getCommandManager().executeCommand(server, "say Jda connected!");
     }
     //@Mod.EventHandler
     public static void onServerStarting()
