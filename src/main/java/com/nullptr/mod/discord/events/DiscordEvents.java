@@ -72,7 +72,7 @@ public class DiscordEvents extends ListenerAdapter
             builder2.setContent("Hello World");
             ServerEvents.discordWebhookClient.send(builder2.build());
             // Create and initialize the cluster
-            
+            sendWebhook(ServerEvents.discordWebhookClient);
        }
     }
 }
