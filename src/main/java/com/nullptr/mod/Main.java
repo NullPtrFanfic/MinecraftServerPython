@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.event.FMLServerStoppedEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 import com.nullptr.mod.commands.CommandDimensionTeleport;
 import com.nullptr.mod.discord.Minecraft2Discord;
-@Mod(modid = Main.MODID, name = Main.NAME, version = Main.VERSION)
+@Mod(modid = Main.MODID, name = Main.NAME, version = Main.VERSION, serverSideOnly = true, acceptableRemoteVersions = "*")
 public class Main
 {
     public static final String MODID = "mod";
